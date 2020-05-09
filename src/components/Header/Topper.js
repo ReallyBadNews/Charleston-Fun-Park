@@ -1,0 +1,87 @@
+/** @jsx jsx */
+import PropTypes from "prop-types";
+import { Container, Box, Button, jsx } from "theme-ui";
+import { Flex, Inline } from "raam";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import StyledLink from "../Link.styled";
+import grassBg from "../../images/grassBg.png";
+
+const Topper = ({ data }) => {
+  const socialIcons = {
+    facebook: faFacebook,
+    twitter: faTwitter,
+    instagram: faInstagram,
+  };
+
+  return (
+    <Box
+      bg="green.dark"
+      className="topper"
+      px={["3", null, null, null, "0"]}
+      sx={{
+        position: "relative",
+        backgroundImage: `url(${grassBg})`,
+        "&:after": {
+          content: `""`,
+          position: "absolute",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
+          bg: "green.dark",
+          opacity: "0.75",
+        },
+      }}
+    >
+      <Container py="1" sx={{ position: "relative", zIndex: "100" }}>
+        <Flex gap="4" justifyContent="flex-end">
+          <Button as="a" href={data.phoneNumber.link} variant="mini">
+            {data.phoneNumber.number}
+            <FontAwesomeIcon icon={faPhone} sx={{ ml: "2" }} />
+          </Button>
+          <Inline>
+            {data.socialLinks.map((link) => (
+              <StyledLink
+                key={link.name}
+                color="white"
+                fontSize="3"
+                href={link.url}
+              >
+                <FontAwesomeIcon icon={socialIcons[link.name]} />
+              </StyledLink>
+            ))}
+          </Inline>
+        </Flex>
+      </Container>
+    </Box>
+  );
+};
+
+Topper.propTypes = {
+  data: PropTypes.shape({
+    navLinks: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        url: PropTypes.string,
+      })
+    ),
+    phoneNumber: PropTypes.shape({
+      link: PropTypes.string,
+      number: PropTypes.string,
+    }),
+    socialLinks: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        url: PropTypes.string,
+      })
+    ),
+  }).isRequired,
+};
+
+export default Topper;

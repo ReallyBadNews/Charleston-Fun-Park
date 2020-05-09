@@ -21,14 +21,61 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful starter",
+    title: "Charleston Fun Park",
+    description:
+      // eslint-disable-next-line max-len
+      "Welcome to Charleston Fun Park! We are your locally owned and operated Family Entertainment Center in the Charleston area. We've got go-karts, putt-putt, an arcade, rock climbing, jumpland and more!",
+    siteUrl: "https://charlestonfunpark.com/",
+    phoneNumber: {
+      number: "(843) 971-1223",
+      link: "tel:843-971-1223",
+    },
+    socialLinks: [
+      {
+        name: "facebook",
+        url: "https://facebook.com/",
+      },
+      {
+        name: "twitter",
+        url: "https://twitter.com/",
+      },
+      {
+        name: "instagram",
+        url: "https://instagram.com/",
+      },
+    ],
+    navLinks: [
+      {
+        name: "Attractions",
+        url: "/attractions/",
+      },
+      {
+        name: "Birthdays & Events",
+        url: "/birthdays-events/",
+      },
+      {
+        name: "The Staff",
+        url: "/staff/",
+      },
+      {
+        name: "Park Info",
+        url: "/park-info/",
+      },
+    ],
   },
-  pathPrefix: "/gatsby-contentful-starter",
+  pathPrefix: "/charleston-fun-park",
   plugins: [
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images`,
+      },
+    },
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
