@@ -19,14 +19,11 @@ const Hero = () => {
 
   // Destructure image
   const {
-    childImageSharp: { fluid: headerVideo },
+    childImageSharp: { fluid },
   } = video;
 
   return (
-    <BackgroundImage
-      fluid={headerVideo}
-      sx={{ height: "calc(100vh - 133.5px)" }}
-    >
+    <BackgroundImage fluid={fluid} sx={{ height: "calc(100vh - 133.5px)" }}>
       <Box
         sx={{
           position: "absolute",

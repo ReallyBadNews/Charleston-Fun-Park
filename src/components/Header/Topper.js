@@ -1,5 +1,7 @@
 /** @jsx jsx */
 import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
+import BackgroundImage from "gatsby-background-image";
 import { Container, Box, Button, jsx } from "theme-ui";
 import { Flex, Inline } from "raam";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,9 +12,25 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import StyledLink from "../Link.styled";
-import grassBg from "../../images/grassBg.png";
 
 const Topper = ({ data }) => {
+  const { image } = useStaticQuery(graphql`
+    query TopperQuery {
+      image: file(relativePath: { eq: "grassBg.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+        }
+      }
+    }
+  `);
+
+  // Destructure image
+  const {
+    childImageSharp: { fluid },
+  } = image;
+
   const socialIcons = {
     facebook: faFacebook,
     twitter: faTwitter,
@@ -20,13 +38,13 @@ const Topper = ({ data }) => {
   };
 
   return (
-    <Box
+    <BackgroundImage
       bg="green.dark"
       className="topper"
+      fluid={fluid}
       px={["3", null, null, null, "0"]}
       sx={{
         position: "relative",
-        backgroundImage: `url(${grassBg})`,
         "&:after": {
           content: `""`,
           position: "absolute",
@@ -39,6 +57,18 @@ const Topper = ({ data }) => {
         },
       }}
     >
+      <Box
+        sx={{
+          position: "absolute",
+          zIndex: "-1",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
+          bg: "green.dark",
+          opacity: "0.75",
+        }}
+      />
       <Container py="1" sx={{ position: "relative", zIndex: "100" }}>
         <Flex gap="4" justifyContent="flex-end">
           <Button as="a" href={data.phoneNumber.link} variant="mini">
@@ -59,7 +89,7 @@ const Topper = ({ data }) => {
           </Inline>
         </Flex>
       </Container>
-    </Box>
+    </BackgroundImage>
   );
 };
 
