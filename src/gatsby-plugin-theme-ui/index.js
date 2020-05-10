@@ -47,6 +47,7 @@ export default {
   fonts: {
     heading: "Playfair Display, serif",
     body: "Greycliff, sans-serif",
+    display: "Neon Tubes, mono-space",
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 48, 64, 72],
   fontWeights: {
@@ -147,6 +148,7 @@ export default {
     "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
     inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
     outline: "0 0 0 3px rgba(66, 153, 225, 0.5)",
+    neon: "0 0 0.5rem #FFEF5C",
     none: "none",
   },
   space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 128, 256, 512],
@@ -177,6 +179,13 @@ export default {
         variant: "text.body.normal",
         fontSize: "4",
       },
+    },
+    display: {
+      fontFamily: "display",
+      fontSize: 9,
+      lineHeight: "none",
+      color: "yellow.light",
+      textShadow: "neon",
     },
   },
   buttons: {
