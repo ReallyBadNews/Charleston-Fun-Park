@@ -14,27 +14,32 @@ export default {
     primary: "#000",
     secondary: "#fff",
     muted: "#fff",
-    base: {
+    white: {
       light: "#FFFDFA",
       mid: "#FFF6E5",
       dark: "#FBEFDA",
     },
+    black: {
+      light: "#60697B",
+      mid: "#333D52",
+      dark: "#1D2435",
+    },
     blue: {
       light: "#75E7FF",
-      base: "#1DCDF2",
+      mid: "#1DCDF2",
       dark: "#1597B2",
     },
     red: {
-      base: "#E15A4E",
+      mid: "#E15A4E",
     },
     yellow: {
       light: "#FFEF5C",
-      base: "#F3DB00",
+      mid: "#F3DB00",
       dark: "#DBC600",
     },
     green: {
       light: "#50F2B2",
-      base: "#25B67D",
+      mid: "#25B67D",
       dark: "#399861",
       xdark: "#146143",
     },
@@ -157,18 +162,28 @@ export default {
     heading: {
       fontSize: 9,
     },
+    title: {
+      fontSize: "5",
+      lineHeight: "none",
+    },
     body: {
-      fontFamily: "body",
-      fontWeight: "regular",
-      fontSize: 2,
-      lineHeight: "normal",
+      normal: {
+        fontFamily: "body",
+        fontWeight: "regular",
+        fontSize: 2,
+        lineHeight: "normal",
+      },
+      large: {
+        variant: "text.body.normal",
+        fontSize: "4",
+      },
     },
   },
   buttons: {
     mini: {
       fontSize: "1",
       fontWeight: "heavy",
-      backgroundColor: "base.light",
+      backgroundColor: "white.light",
       color: "green.dark",
       px: "3",
       py: "1",
@@ -177,6 +192,7 @@ export default {
   styles: {
     root: {
       fontFamily: "body",
+      color: "black.dark",
     },
   },
 };

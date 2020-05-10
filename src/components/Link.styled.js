@@ -7,7 +7,7 @@ const StyledLink = ({
   children,
   color,
   fontSize,
-  hover,
+  hoverColor,
   href,
   letterSpacing,
   m,
@@ -24,6 +24,7 @@ const StyledLink = ({
   title,
   fontWeight,
   textDecoration,
+  textDecorationHover,
   textTransform,
 }) => (
   <Styled.a
@@ -46,9 +47,14 @@ const StyledLink = ({
       px,
       py,
       textDecoration,
+      textDecorationHover,
       textTransform,
       transition: "all 300ms ease-in-out",
-      "&:hover": { color: `${hover}` },
+      "&:hover": {
+        color: `${hoverColor}`,
+        textDecoration: textDecorationHover ? "underline" : null,
+        textDecorationThickness: textDecorationHover ? "0.125rem" : null,
+      },
     }}
     target={href ? `_blank` : null}
     title={title}
@@ -63,7 +69,7 @@ StyledLink.propTypes = {
   color: PropTypes.string,
   fontSize: PropTypes.string,
   fontWeight: PropTypes.string,
-  hover: PropTypes.string,
+  hoverColor: PropTypes.string,
   href: PropTypes.string,
   letterSpacing: PropTypes.string,
   m: PropTypes.string,
@@ -77,6 +83,7 @@ StyledLink.propTypes = {
   px: PropTypes.string,
   py: PropTypes.string,
   textDecoration: PropTypes.string,
+  textDecorationHover: PropTypes.bool,
   textTransform: PropTypes.string,
   title: PropTypes.string,
   to: PropTypes.string,
@@ -86,7 +93,7 @@ StyledLink.defaultProps = {
   color: "",
   fontSize: "",
   fontWeight: "",
-  hover: "",
+  hoverColor: "",
   href: "",
   letterSpacing: "",
   m: "",
@@ -100,6 +107,7 @@ StyledLink.defaultProps = {
   px: "",
   py: "",
   textDecoration: "",
+  textDecorationHover: false,
   textTransform: "",
   title: null,
   to: "",
