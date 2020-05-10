@@ -5,7 +5,7 @@ import MainLayout from "../templates/MainLayout";
 
 const IndexPage = () => (
   <MainLayout title="Home">
-    <Container>
+    <Container px={["3", null, null, null, "0"]} py="7">
       <Stack gap="3">
         <Heading variant="heading">Hello World</Heading>
         <Text variant="body">
