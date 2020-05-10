@@ -46,6 +46,14 @@ const GlobalStyles = () => (
         font-style: normal;
       }
 
+      @font-face {
+        font-family: "Neon Tubes";
+        font-display: block;
+        src: url(${fontFiles.NeonTubes}) format("woff2");
+        font-weight: 700;
+        font-style: normal;
+      }
+
       h1,
       h2,
       h3,
