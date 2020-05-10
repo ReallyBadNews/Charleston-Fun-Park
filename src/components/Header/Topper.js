@@ -49,7 +49,7 @@ const Topper = ({ data }) => {
             {data.socialLinks.map((link) => (
               <StyledLink
                 key={link.name}
-                color="white"
+                color="white.light"
                 fontSize="3"
                 href={link.url}
               >

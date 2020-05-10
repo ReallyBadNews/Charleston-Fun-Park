@@ -15,9 +15,9 @@ const GlobalStyles = () => (
       }
 
       @font-face {
-        font-family: "Hackney";
+        font-family: "Greycliff";
         font-display: block;
-        src: url(${fontFiles.Hackney}) format("woff2");
+        src: url(${fontFiles.GreycliffRegular}) format("woff2");
         font-weight: 400;
         font-style: normal;
       }

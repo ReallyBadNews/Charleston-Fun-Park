@@ -29,7 +29,7 @@ const Header = () => {
   `);
 
   return (
-    <Box as="header">
+    <Box as="header" sx={{ position: "relative", zIndex: "1" }}>
       <Topper data={siteMetadata} />
       <Nav navLinks={siteMetadata.navLinks} />
     </Box>
