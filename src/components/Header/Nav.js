@@ -15,9 +15,10 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import StyledLink from "../Link.styled";
+import Arrow from "../Arrow";
 
 const Nav = ({ navLinks }) => {
-  const { logo, bg } = useStaticQuery(graphql`
+  const { logo, bg, fun } = useStaticQuery(graphql`
     query NavQuery {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
@@ -33,6 +34,13 @@ const Nav = ({ navLinks }) => {
           }
         }
       }
+      fun: file(relativePath: { eq: "funSign.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 176, maxHeight: 76) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          }
+        }
+      }
     }
   `);
 
@@ -43,6 +51,9 @@ const Nav = ({ navLinks }) => {
   const {
     childImageSharp: { fluid: headerBg },
   } = bg;
+  const {
+    childImageSharp: { fluid: funLogo },
+  } = fun;
 
   const [menuOpenState, setMenuOpenState] = useState(false);
 
@@ -85,6 +96,10 @@ const Nav = ({ navLinks }) => {
               zIndex: "100",
             }}
           />
+          <Inline>
+            <Img fluid={funLogo} sx={{ width: "176px", height: "76px" }} />
+            <Arrow height="60px" transform="rotateZ(180deg)" width="133px" />
+          </Inline>
           <Inline as="nav" gap="5">
             {navLinks.map((link) => (
               <Inline key={link.name} gap="2">
