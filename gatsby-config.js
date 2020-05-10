@@ -54,10 +54,6 @@ module.exports = {
         url: "/birthdays-events/",
       },
       {
-        name: "The Staff",
-        url: "/staff/",
-      },
-      {
         name: "Park Info",
         url: "/park-info/",
       },

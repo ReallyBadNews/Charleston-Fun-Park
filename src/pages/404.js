@@ -8,7 +8,7 @@ const NotFoundPage = () => (
   <MainLayout title="404: Not Found">
     <Container py="6">
       <Heading variant="caps">Not Found</Heading>
-      <Text mt="4" variant="body">
+      <Text mt="4" variant="body.normal">
         <span>Did you take a wrong turn? </span>
         <StyledLink to="/">Go back home</StyledLink>
       </Text>
