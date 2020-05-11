@@ -45,16 +45,6 @@ const Topper = ({ data }) => {
       px={["3", null, null, null, "0"]}
       sx={{
         position: "relative",
-        "&:after": {
-          content: `""`,
-          position: "absolute",
-          top: "0",
-          right: "0",
-          bottom: "0",
-          left: "0",
-          bg: "green.dark",
-          opacity: "0.75",
-        },
       }}
     >
       <Box
@@ -73,7 +63,10 @@ const Topper = ({ data }) => {
         <Flex gap="4" justifyContent="flex-end">
           <Button as="a" href={data.phoneNumber.link} variant="mini">
             {data.phoneNumber.number}
-            <FontAwesomeIcon icon={faPhone} sx={{ ml: "2" }} />
+            <FontAwesomeIcon
+              icon={faPhone}
+              sx={{ ml: "2", maxHeight: "0.875rem" }}
+            />
           </Button>
           <Inline>
             {data.socialLinks.map((link) => (
@@ -83,7 +76,10 @@ const Topper = ({ data }) => {
                 fontSize="3"
                 href={link.url}
               >
-                <FontAwesomeIcon icon={socialIcons[link.name]} />
+                <FontAwesomeIcon
+                  icon={socialIcons[link.name]}
+                  sx={{ maxHeight: "4" }}
+                />
               </StyledLink>
             ))}
           </Inline>

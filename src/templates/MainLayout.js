@@ -1,8 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { config } from "@fortawesome/fontawesome-svg-core";
 import GlobalStyles from "../../static/GlobalStyles";
 import SEO from "../components/seo";
 import Header from "../components/Header/Header";
+
+config.autoAddCss = true;
 
 const MainLayout = ({ children, description, title }) => (
   <>
