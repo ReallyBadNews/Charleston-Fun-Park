@@ -148,7 +148,8 @@ export default {
     "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
     inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
     outline: "0 0 0 3px rgba(66, 153, 225, 0.5)",
-    neon: "0 0 0.5rem #FFEF5C",
+    neonYellow: "0 0 0.5rem #FFEF5C",
+    neonWhite: "0 0 0.5rem #FFFDFABF",
     none: "none",
   },
   space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 128, 256, 512],
@@ -163,10 +164,11 @@ export default {
   text: {
     heading: {
       fontSize: 9,
-    },
-    title: {
-      fontSize: "5",
-      lineHeight: "none",
+      title: {
+        variant: "heading",
+        fontSize: "5",
+        lineHeight: "none",
+      },
     },
     body: {
       normal: {
@@ -185,7 +187,7 @@ export default {
       fontSize: 9,
       lineHeight: "none",
       color: "yellow.light",
-      textShadow: "neon",
+      textShadow: "neonYellow",
     },
   },
   buttons: {
@@ -196,6 +198,15 @@ export default {
       color: "green.dark",
       px: "3",
       py: "1",
+    },
+  },
+  divider: {
+    glow: {
+      height: "0.125rem",
+      width: "full",
+      backgroundColor: "white.light",
+      margin: 0,
+      boxShadow: "neonWhite",
     },
   },
   styles: {
