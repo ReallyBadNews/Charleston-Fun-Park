@@ -45,16 +45,6 @@ const Topper = ({ data }) => {
       px={["3", null, null, null, "0"]}
       sx={{
         position: "relative",
-        "&:after": {
-          content: `""`,
-          position: "absolute",
-          top: "0",
-          right: "0",
-          bottom: "0",
-          left: "0",
-          bg: "green.dark",
-          opacity: "0.75",
-        },
       }}
     >
       <Box
