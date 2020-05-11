@@ -103,16 +103,19 @@ const Nav = ({ navLinks }) => {
           <Inline as="nav" gap="5">
             {navLinks.map((link) => (
               <Inline key={link.name} gap="2">
-                <FontAwesomeIcon icon={menuIcons[link.name]} />
+                <FontAwesomeIcon
+                  icon={menuIcons[link.name]}
+                  sx={{ fontSize: "3", maxHeight: "5" }}
+                />
                 <StyledLink
                   key={link.name}
                   color="black.dark"
                   fontSize="2"
                   fontWeight="bold"
-                  href={link.url}
                   letterSpacing="wide"
                   textDecoration="none"
                   textTransform="uppercase"
+                  to={link.url}
                 >
                   {link.name}
                 </StyledLink>
@@ -120,7 +123,7 @@ const Nav = ({ navLinks }) => {
             ))}
             <FontAwesomeIcon
               icon={menuOpenState ? faTimes : faBars}
-              sx={{ cursor: "pointer", fontSize: "5" }}
+              sx={{ cursor: "pointer", fontSize: "8", maxHeight: "8" }}
               fixedWidth
               onClick={burgerHandler}
             />

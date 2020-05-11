@@ -63,7 +63,10 @@ const Topper = ({ data }) => {
         <Flex gap="4" justifyContent="flex-end">
           <Button as="a" href={data.phoneNumber.link} variant="mini">
             {data.phoneNumber.number}
-            <FontAwesomeIcon icon={faPhone} sx={{ ml: "2" }} />
+            <FontAwesomeIcon
+              icon={faPhone}
+              sx={{ ml: "2", maxHeight: "0.875rem" }}
+            />
           </Button>
           <Inline>
             {data.socialLinks.map((link) => (
@@ -73,7 +76,10 @@ const Topper = ({ data }) => {
                 fontSize="3"
                 href={link.url}
               >
-                <FontAwesomeIcon icon={socialIcons[link.name]} />
+                <FontAwesomeIcon
+                  icon={socialIcons[link.name]}
+                  sx={{ maxHeight: "4" }}
+                />
               </StyledLink>
             ))}
           </Inline>
