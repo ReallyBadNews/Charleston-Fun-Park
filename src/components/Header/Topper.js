@@ -42,7 +42,6 @@ const Topper = ({ data }) => {
       bg="green.dark"
       className="topper"
       fluid={fluid}
-      px={["3", null, null, null, "0"]}
       sx={{
         position: "relative",
       }}
@@ -59,7 +58,11 @@ const Topper = ({ data }) => {
           opacity: "0.75",
         }}
       />
-      <Container py="1" sx={{ position: "relative", zIndex: "100" }}>
+      <Container
+        px={["3", null, null, null, "0"]}
+        py="1"
+        sx={{ position: "relative", zIndex: "100" }}
+      >
         <Flex gap="5" justifyContent="flex-end">
           <Button as="a" href={data.phoneNumber.link} variant="mini">
             {data.phoneNumber.number}
