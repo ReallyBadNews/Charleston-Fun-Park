@@ -195,11 +195,13 @@ export default {
   buttons: {
     mini: {
       fontSize: "1",
+      lineHeight: "0.875rem",
       fontWeight: "heavy",
       backgroundColor: "white.light",
       color: "green.dark",
       px: "3",
       py: "1",
+      maxHeight: "6",
     },
   },
   divider: {
