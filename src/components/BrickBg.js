@@ -24,7 +24,6 @@ const BrickBg = ({ children }) => {
 
   return (
     <BackgroundImage
-      bg="black.dark"
       fluid={fluid}
       sx={{ position: "relative", bg: "black.dark" }}
       Tag="section"

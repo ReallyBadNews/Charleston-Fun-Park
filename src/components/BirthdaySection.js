@@ -4,8 +4,8 @@ import { Stack } from "raam";
 import BrickBg from "./BrickBg";
 
 const BirthdaySection = () => (
-  <BrickBg sx={{ height: "xl" }}>
-    <Container>
+  <BrickBg>
+    <Container sx={{ height: "xl" }}>
       <Stack>
         <Heading sx={{ color: "yellow.light" }} variant="heading">
           Birthdays, Parties & Events
