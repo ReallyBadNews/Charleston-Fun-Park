@@ -28,6 +28,7 @@ export default {
       light: "#75E7FF",
       mid: "#1DCDF2",
       dark: "#1597B2",
+      xdark: "#003A59",
     },
     red: {
       mid: "#E15A4E",
@@ -148,7 +149,7 @@ export default {
     "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
     inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
     outline: "0 0 0 3px rgba(66, 153, 225, 0.5)",
-    neonYellow: "0 0 0.5rem #FFEF5C",
+    neonYellow: "0 0 1rem #FFEF5C",
     neonWhite: "0 0 0.5rem #FFFDFABF",
     none: "none",
   },
@@ -163,6 +164,7 @@ export default {
   },
   text: {
     heading: {
+      fontFamily: "heading",
       fontSize: 9,
       title: {
         variant: "heading",
