@@ -42,7 +42,6 @@ const Topper = ({ data }) => {
       bg="green.dark"
       className="topper"
       fluid={fluid}
-      px={["3", null, null, null, "0"]}
       sx={{
         position: "relative",
       }}
@@ -59,16 +58,21 @@ const Topper = ({ data }) => {
           opacity: "0.75",
         }}
       />
-      <Container py="1" sx={{ position: "relative", zIndex: "100" }}>
-        <Flex gap="4" justifyContent="flex-end">
+      <Container
+        px={["3", null, null, null, "0"]}
+        py="1"
+        sx={{ position: "relative", zIndex: "100" }}
+      >
+        <Flex gap="5" justifyContent="flex-end">
           <Button as="a" href={data.phoneNumber.link} variant="mini">
             {data.phoneNumber.number}
             <FontAwesomeIcon
               icon={faPhone}
-              sx={{ ml: "2", maxHeight: "0.875rem" }}
+              sx={{ ml: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
+              fixedWidth
             />
           </Button>
-          <Inline>
+          <Inline gap="4">
             {data.socialLinks.map((link) => (
               <StyledLink
                 key={link.name}
@@ -78,7 +82,7 @@ const Topper = ({ data }) => {
               >
                 <FontAwesomeIcon
                   icon={socialIcons[link.name]}
-                  sx={{ maxHeight: "4" }}
+                  sx={{ maxHeight: "5" }}
                 />
               </StyledLink>
             ))}

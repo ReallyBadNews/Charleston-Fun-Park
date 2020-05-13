@@ -6,7 +6,7 @@ export default {
     "8": "8px",
     px: "1px",
   },
-  breakpoints: ["476px", "960px", "1024px", "1280px"],
+  breakpoints: ["475px", "768px", "1024px", "1280px"],
   colors: {
     transparent: "transparent",
     text: "#000",
@@ -28,6 +28,7 @@ export default {
       light: "#75E7FF",
       mid: "#1DCDF2",
       dark: "#1597B2",
+      xdark: "#003A59",
     },
     red: {
       mid: "#E15A4E",
@@ -148,7 +149,7 @@ export default {
     "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
     inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
     outline: "0 0 0 3px rgba(66, 153, 225, 0.5)",
-    neonYellow: "0 0 0.5rem #FFEF5C",
+    neonYellow: "0 0 1rem #FFEF5C",
     neonWhite: "0 0 0.5rem #FFFDFABF",
     none: "none",
   },
@@ -163,6 +164,7 @@ export default {
   },
   text: {
     heading: {
+      fontFamily: "heading",
       fontSize: 9,
       title: {
         variant: "heading",
@@ -177,6 +179,10 @@ export default {
         fontSize: 2,
         lineHeight: "normal",
       },
+      mid: {
+        variant: "text.body.normal",
+        fontSize: "3",
+      },
       large: {
         variant: "text.body.normal",
         fontSize: "4",
@@ -184,7 +190,8 @@ export default {
     },
     display: {
       fontFamily: "display",
-      fontSize: 9,
+      fontSize: [4, 5, 6, 8, 9],
+      textAlign: "center",
       lineHeight: "none",
       color: "yellow.light",
       textShadow: "neonYellow",
@@ -193,11 +200,23 @@ export default {
   buttons: {
     mini: {
       fontSize: "1",
+      lineHeight: "0.875rem",
       fontWeight: "heavy",
       backgroundColor: "white.light",
       color: "green.dark",
       px: "3",
       py: "1",
+      maxHeight: "6",
+    },
+    cta: {
+      fontSize: "2",
+      fontWeight: "heavy",
+      textTransform: "uppercase",
+      letterSpacing: "wide",
+      backgroundColor: "yellow.light",
+      color: "black.dark",
+      px: "3",
+      py: "2",
     },
   },
   divider: {
