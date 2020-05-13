@@ -6,7 +6,7 @@ export default {
     "8": "8px",
     px: "1px",
   },
-  breakpoints: ["476px", "960px", "1024px", "1280px"],
+  breakpoints: ["475px", "768px", "1024px", "1280px"],
   colors: {
     transparent: "transparent",
     text: "#000",
@@ -179,6 +179,10 @@ export default {
         fontSize: 2,
         lineHeight: "normal",
       },
+      mid: {
+        variant: "text.body.normal",
+        fontSize: "3",
+      },
       large: {
         variant: "text.body.normal",
         fontSize: "4",
@@ -186,7 +190,8 @@ export default {
     },
     display: {
       fontFamily: "display",
-      fontSize: 9,
+      fontSize: [4, 5, 6, 8, 9],
+      textAlign: "center",
       lineHeight: "none",
       color: "yellow.light",
       textShadow: "neonYellow",
@@ -202,6 +207,16 @@ export default {
       px: "3",
       py: "1",
       maxHeight: "6",
+    },
+    cta: {
+      fontSize: "2",
+      fontWeight: "heavy",
+      textTransform: "uppercase",
+      letterSpacing: "wide",
+      backgroundColor: "yellow.light",
+      color: "black.dark",
+      px: "3",
+      py: "2",
     },
   },
   divider: {
