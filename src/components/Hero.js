@@ -50,7 +50,12 @@ const Hero = () => {
           flexShrink="1"
           sx={{ height: "full", zIndex: "2" }}
         >
-          <Box sx={{ width: "7/12", color: "white.light" }}>
+          <Box
+            sx={{
+              width: ["full", null, "3/4", null, "7/12"],
+              color: "white.light",
+            }}
+          >
             <Heading variant="heading.title">Welcome to the</Heading>
             <Stack gap="3">
               <Heading as="h1" variant="heading">
