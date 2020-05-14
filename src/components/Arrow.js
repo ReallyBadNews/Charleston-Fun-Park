@@ -28,7 +28,10 @@ const Arrow = ({ height, transform, width }) => {
 Arrow.propTypes = {
   height: PropTypes.string,
   transform: PropTypes.string,
-  width: PropTypes.string,
+  width: PropTypes.oneOf(
+    PropTypes.string,
+    PropTypes.arrayOf([PropTypes.string])
+  ),
 };
 
 Arrow.defaultProps = {
