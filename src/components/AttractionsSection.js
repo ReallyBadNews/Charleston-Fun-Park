@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import { Box, Container, Flex, Grid, Heading, Text, jsx } from "theme-ui";
+import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import Img from "gatsby-image";
 import { Stack } from "raam";
 
@@ -37,7 +37,7 @@ const AttractionsSection = () => {
       <Grid
         bg="black.dark"
         color="white.light"
-        p="4"
+        p="7"
         sx={{ placeContent: "center", width: "5/12" }}
       >
         <Stack>
@@ -50,11 +50,7 @@ const AttractionsSection = () => {
     </Flex>
   ));
 
-  return (
-    <Box>
-      <Container>{Attractions}</Container>
-    </Box>
-  );
+  return <Box>{Attractions}</Box>;
 };
 
 export default AttractionsSection;
