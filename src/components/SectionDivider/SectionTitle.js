@@ -15,9 +15,11 @@ const SectionTitle = () => (
         py="3"
       >
         <Arrow
-          height="auto"
-          transform="rotateZ(180deg)"
-          width={["72px", null, "24", null, "32"]}
+          sx={{
+            height: "auto",
+            transform: "rotateZ(180deg)",
+            width: ["72px", null, "24", null, "32"],
+          }}
         />
         <Text sx={{ display: ["none", null, "block"] }} variant="display">
           The Party Starts Here
@@ -27,7 +29,12 @@ const SectionTitle = () => (
           <br />
           Starts Here
         </Text>
-        <Arrow height="auto" width={["72px", null, "24", null, "32"]} />
+        <Arrow
+          sx={{
+            height: "auto",
+            width: ["72px", null, "24", null, "32"],
+          }}
+        />
       </Inline>
     </Container>
     <Divider
