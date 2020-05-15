@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
-const Arrow = ({ height, transform, width }) => {
+const Arrow = ({ sx, className }) => {
   const {
     arrow: {
       childImageSharp: { fluid },
@@ -21,22 +21,17 @@ const Arrow = ({ height, transform, width }) => {
     }
   `);
 
-  return <Img alt="Arrow" fluid={fluid} sx={{ height, width, transform }} />;
+  return <Img alt="Arrow" className={className} fluid={fluid} sx={sx} />;
 };
 
 Arrow.propTypes = {
-  height: PropTypes.string,
-  transform: PropTypes.string,
-  width: PropTypes.oneOf(
-    PropTypes.string,
-    PropTypes.arrayOf([PropTypes.string])
-  ),
+  className: PropTypes.string,
+  sx: PropTypes.shape({}),
 };
 
 Arrow.defaultProps = {
-  height: null,
-  transform: null,
-  width: null,
+  className: "",
+  sx: {},
 };
 
 export default Arrow;
