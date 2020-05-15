@@ -54,7 +54,7 @@ const Topper = ({ data }) => {
           bottom: "0",
           left: "0",
           bg: "green.dark",
-          opacity: "0.75",
+          opacity: "0.5",
         }}
       />
       <Container

@@ -100,7 +100,13 @@ const Nav = ({ navLinks }) => {
               }}
             />
             <Img fluid={funLogo} sx={{ width: "176px", height: "76px" }} />
-            <Arrow height="60px" transform="rotateZ(180deg)" width="133px" />
+            <Arrow
+              sx={{
+                height: "60px",
+                transform: "rotateZ(180deg)",
+                width: "133px",
+              }}
+            />
           </Inline>
           <Inline as="nav" color="white.light" gap="5">
             {navLinks.map((link) => (
