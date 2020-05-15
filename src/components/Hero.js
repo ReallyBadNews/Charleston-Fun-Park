@@ -5,9 +5,13 @@ import BackgroundImage from "gatsby-background-image";
 import { Stack, Flex } from "raam";
 
 const Hero = () => {
-  const { video } = useStaticQuery(graphql`
+  const {
+    video: {
+      childImageSharp: { fluid },
+    },
+  } = useStaticQuery(graphql`
     query VideoQuery {
-      video: file(relativePath: { eq: "videoPlaceholder.png" }) {
+      video: file(relativePath: { eq: "videoPlaceholder.jpg" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp_noBase64
@@ -16,11 +20,6 @@ const Hero = () => {
       }
     }
   `);
-
-  // Destructure image
-  const {
-    childImageSharp: { fluid },
-  } = video;
 
   return (
     <BackgroundImage

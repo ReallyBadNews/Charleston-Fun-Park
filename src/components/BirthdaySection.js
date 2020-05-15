@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
-import { jsx, Container, Heading, Text, Button } from "theme-ui";
+import { jsx, Container, Heading, Text, Button, Grid } from "theme-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { Stack, Inline } from "raam";
+import { Stack } from "raam";
+import BrickBg from "./BrickBg";
 
 const BirthdaySection = () => {
   const {
@@ -33,7 +33,7 @@ const BirthdaySection = () => {
           }
         }
       }
-      file(relativePath: { eq: "baloonsBg.png" }) {
+      file(relativePath: { eq: "baloons.png" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp_noBase64
@@ -44,18 +44,27 @@ const BirthdaySection = () => {
   `);
 
   return (
-    <BackgroundImage fluid={baloonsImage} sx={{ height: "3xl" }}>
+    <BrickBg sx={{ position: "relative" }}>
       <Container
+        px={["3", null, null, null, "0"]}
+        py="7"
         sx={{
           display: "flex",
           alignItems: "center",
           height: "full",
-          px: ["3", null, null, null, "0"],
         }}
       >
+        <Img
+          fluid={baloonsImage}
+          sx={{ alignSelf: "flex-start", width: "1/4" }}
+        />
         <Stack
           gap={["3", null, "4", null, "5"]}
-          sx={{ width: "2/3", ml: "auto", mr: ["auto", null, null, "0", null] }}
+          sx={{
+            width: "3/4",
+            ml: "3",
+            mr: ["auto", null, null, "0", null],
+          }}
         >
           <Stack gap="3">
             <Heading
@@ -75,7 +84,10 @@ const BirthdaySection = () => {
               />
             </Button>
           </Stack>
-          <Inline flex="1" gap="3">
+          <Grid
+            columns={["1fr", "repeat(2, 1fr)", null, "repeat(4, 1fr)"]}
+            gap="3"
+          >
             {edges[0].node.media.map((image) => (
               <Img
                 key={image.contentful_id}
@@ -88,10 +100,10 @@ const BirthdaySection = () => {
                 }}
               />
             ))}
-          </Inline>
+          </Grid>
         </Stack>
       </Container>
-    </BackgroundImage>
+    </BrickBg>
   );
 };
 

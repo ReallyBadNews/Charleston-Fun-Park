@@ -5,7 +5,11 @@ import BackgroundImage from "gatsby-background-image";
 import { Box, jsx } from "theme-ui";
 
 const BrickBg = ({ children }) => {
-  const { brickTexture } = useStaticQuery(graphql`
+  const {
+    brickTexture: {
+      childImageSharp: { fluid },
+    },
+  } = useStaticQuery(graphql`
     query BrickQuery {
       brickTexture: file(relativePath: { eq: "brickTexture.jpg" }) {
         childImageSharp {
@@ -16,11 +20,6 @@ const BrickBg = ({ children }) => {
       }
     }
   `);
-
-  // Destructure image
-  const {
-    childImageSharp: { fluid },
-  } = brickTexture;
 
   return (
     <BackgroundImage
