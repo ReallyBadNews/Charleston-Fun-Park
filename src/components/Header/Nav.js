@@ -18,7 +18,17 @@ import StyledLink from "../Link.styled";
 import Arrow from "../Arrow";
 
 const Nav = ({ navLinks }) => {
-  const { logo, bg, fun } = useStaticQuery(graphql`
+  const {
+    logo: {
+      childImageSharp: { fluid: headerLogo },
+    },
+    bg: {
+      childImageSharp: { fluid: woodTexture },
+    },
+    fun: {
+      childImageSharp: { fluid: funLogo },
+    },
+  } = useStaticQuery(graphql`
     query NavQuery {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
@@ -43,17 +53,6 @@ const Nav = ({ navLinks }) => {
       }
     }
   `);
-
-  // Destructure the images
-  const {
-    childImageSharp: { fluid: headerLogo },
-  } = logo;
-  const {
-    childImageSharp: { fluid: woodTexture },
-  } = bg;
-  const {
-    childImageSharp: { fluid: funLogo },
-  } = fun;
 
   const [menuOpenState, setMenuOpenState] = useState(false);
 

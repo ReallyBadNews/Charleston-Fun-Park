@@ -14,9 +14,13 @@ import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import StyledLink from "../Link.styled";
 
 const Topper = ({ data }) => {
-  const { image } = useStaticQuery(graphql`
+  const {
+    grassBg: {
+      childImageSharp: { fluid },
+    },
+  } = useStaticQuery(graphql`
     query TopperQuery {
-      image: file(relativePath: { eq: "grassBg.png" }) {
+      grassBg: file(relativePath: { eq: "grassBg.png" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp_noBase64
@@ -25,11 +29,6 @@ const Topper = ({ data }) => {
       }
     }
   `);
-
-  // Destructure image
-  const {
-    childImageSharp: { fluid },
-  } = image;
 
   const socialIcons = {
     facebook: faFacebook,
