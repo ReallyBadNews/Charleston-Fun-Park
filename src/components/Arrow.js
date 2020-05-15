@@ -5,7 +5,11 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
 const Arrow = ({ height, transform, width }) => {
-  const { arrow } = useStaticQuery(graphql`
+  const {
+    arrow: {
+      childImageSharp: { fluid },
+    },
+  } = useStaticQuery(graphql`
     query ArrowQuery {
       arrow: file(relativePath: { eq: "arrow.png" }) {
         childImageSharp {
@@ -16,11 +20,6 @@ const Arrow = ({ height, transform, width }) => {
       }
     }
   `);
-
-  // Destructure image
-  const {
-    childImageSharp: { fluid },
-  } = arrow;
 
   return <Img alt="Arrow" fluid={fluid} sx={{ height, width, transform }} />;
 };
