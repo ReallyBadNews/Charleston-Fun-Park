@@ -26,6 +26,7 @@ const GoKartsFeature = ({ data: { node } }) => {
 
   return (
     <Box sx={{ position: "relative" }}>
+      {/* TODO: Figure out how to make SVG pattern repeat */}
       <svg
         fill="none"
         height="32"
@@ -81,16 +82,6 @@ const GoKartsFeature = ({ data: { node } }) => {
         <rect fill="black" height="32" width="32" x="1344" />
         <rect fill="black" height="32" width="32" x="1408" />
       </svg>
-      <Arrow
-        sx={{
-          position: "absolute !important",
-          left: "35%",
-          zIndex: "2",
-          width: "180px",
-          height: "80px",
-          transform: "rotateZ(330deg)",
-        }}
-      />
       <Flex sx={{ flexDirection: "row-reverse" }}>
         <Img fluid={node.heroImage.fluid} sx={{ width: "7/12" }} />
         <Box sx={{ width: "5/12", position: "relative" }}>
@@ -112,39 +103,51 @@ const GoKartsFeature = ({ data: { node } }) => {
           <BackgroundImage
             fluid={goKartsBg}
             sx={{
-              bg: "black.dark",
               position: "absolute !important",
-              height: "100%",
+              bg: "black.dark",
+              height: "full",
+              width: "full",
+            }}
+          />
+          <Grid
+            color="white.light"
+            p="7"
+            sx={{
+              placeContent: "center",
+              height: "full",
+              position: "relative",
             }}
           >
-            <Grid
-              color="white.light"
-              p="7"
-              sx={{ placeContent: "center", height: "100%" }}
-            >
-              <Stack>
-                <Heading variant="heading">{node.title}</Heading>
-                <Text variant="body.normal">
-                  {node.description.description}
-                </Text>
-              </Stack>
-            </Grid>
-            <svg
-              fill="none"
-              height="16"
+            <Arrow
               sx={{
-                position: "absolute",
-                zIndex: "1",
-                width: "full",
-                bottom: "3rem",
+                position: "absolute !important",
+                right: "-15%",
+                zIndex: "2",
+                width: "180px",
+                height: "80px",
+                transform: "rotateZ(325deg)",
               }}
-              viewBox="0 0 604 16"
-              width="604"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M604 0H0V16H604V0Z" fill="#E15A4E" />
-            </svg>
-          </BackgroundImage>
+            />
+            <Stack>
+              <Heading variant="heading">{node.title}</Heading>
+              <Text variant="body.normal">{node.description.description}</Text>
+            </Stack>
+          </Grid>
+          <svg
+            fill="none"
+            height="16"
+            sx={{
+              position: "absolute",
+              zIndex: "1",
+              width: "full",
+              bottom: "3rem",
+            }}
+            viewBox="0 0 604 16"
+            width="604"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M604 0H0V16H604V0Z" fill="#E15A4E" />
+          </svg>
         </Box>
       </Flex>
       <svg

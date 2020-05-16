@@ -23,12 +23,14 @@ const AttractionsSection = () => {
               description
             }
             title
+            order
           }
         }
       }
     }
   `);
 
+  // TODO: Make ordering controllable via the `Order` field
   return (
     <Box as="section">
       <OmniArenaFeature data={edges[0]} />
