@@ -32,6 +32,7 @@ export default {
     },
     red: {
       mid: "#E15A4E",
+      dark: "#E22100",
     },
     yellow: {
       light: "#FFEF5C",
@@ -152,6 +153,7 @@ export default {
     neonYellow: "0 0 1rem #FFEF5C",
     neonWhite: "0 0 0.5rem #FFFDFABF",
     none: "none",
+    text: "0 0.25rem 0.25rem #1D243540",
   },
   space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 128, 256, 512],
   radii: {
@@ -170,6 +172,11 @@ export default {
         variant: "heading",
         fontSize: "5",
         lineHeight: "none",
+      },
+      featuredTitle: {
+        variant: "heading",
+        fontSize: "9",
+        textShadow: "text",
       },
     },
     body: {
