@@ -3,6 +3,7 @@ import { Box, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import OmniArenaFeature from "./OmniArenaFeature";
 import GoKartsFeature from "./GoKartsFeature";
+import MiniGolfFeature from "./MiniGolfFeature";
 
 const AttractionsSection = () => {
   const {
@@ -35,6 +36,7 @@ const AttractionsSection = () => {
     <Box as="section">
       <OmniArenaFeature data={edges[0]} />
       <GoKartsFeature data={edges[1]} />
+      <MiniGolfFeature data={edges[2]} />
     </Box>
   );
 };
