@@ -27,7 +27,7 @@ const GoKartsFeature = ({ data: { node } }) => {
   const { theme } = useThemeUI();
 
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative", height: "lg" }}>
       <svg
         fill="white"
         height="32"
@@ -54,7 +54,7 @@ const GoKartsFeature = ({ data: { node } }) => {
         </defs>
         <rect fill="url(#Pattern)" height="32" width="100%" />
       </svg>
-      <Flex sx={{ flexDirection: "row-reverse" }}>
+      <Flex sx={{ flexDirection: "row-reverse", height: "full" }}>
         <Img fluid={node.heroImage.fluid} sx={{ width: "7/12" }} />
         <Box sx={{ width: "5/12", position: "relative" }}>
           <svg
