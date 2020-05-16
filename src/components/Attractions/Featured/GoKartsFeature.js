@@ -100,7 +100,7 @@ const GoKartsFeature = ({ data: { node } }) => {
               }}
             />
             <Stack>
-              <Heading variant="heading">{node.title}</Heading>
+              <Heading variant="heading.featuredTitle">{node.title}</Heading>
               <Text variant="body.normal">{node.description.description}</Text>
             </Stack>
           </Grid>
