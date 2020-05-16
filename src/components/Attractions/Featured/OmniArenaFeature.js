@@ -6,7 +6,7 @@ import { Stack } from "raam";
 import Arrow from "../../Arrow";
 
 const OmniArenaFeature = ({ data: { node } }) => (
-  <Flex>
+  <Flex sx={{ height: "lg" }}>
     <Img fluid={node.heroImage.fluid} sx={{ width: "7/12" }} />
     <Grid
       bg="black.dark"
