@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
+import { Box, Flex, Grid, Heading, Text, jsx, useThemeUI } from "theme-ui";
 import Img from "gatsby-image";
 import { Stack } from "raam";
 import Arrow from "../../Arrow";
@@ -24,63 +24,35 @@ const GoKartsFeature = ({ data: { node } }) => {
     }
   `);
 
+  const { theme } = useThemeUI();
+
   return (
     <Box sx={{ position: "relative" }}>
-      {/* TODO: Figure out how to make SVG pattern repeat */}
       <svg
-        fill="none"
+        fill="white"
         height="32"
-        sx={{ position: "absolute", zIndex: "1", top: "0" }}
-        viewBox="0 0 1440 32"
-        width="1440"
+        style={{ backgroundColor: theme.colors.background }}
+        sx={{
+          position: "absolute",
+          zIndex: "1",
+          top: "0",
+        }}
+        width="100%"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect fill="white" height="32" width="1440" />
-        <rect fill="black" height="32" width="32" />
-        <rect fill="white" height="32" width="32" x="32" />
-        <rect fill="white" height="32" width="32" x="96" />
-        <rect fill="white" height="32" width="32" x="160" />
-        <rect fill="white" height="32" width="32" x="224" />
-        <rect fill="white" height="32" width="32" x="288" />
-        <rect fill="white" height="32" width="32" x="352" />
-        <rect fill="white" height="32" width="32" x="416" />
-        <rect fill="white" height="32" width="32" x="480" />
-        <rect fill="white" height="32" width="32" x="544" />
-        <rect fill="white" height="32" width="32" x="608" />
-        <rect fill="white" height="32" width="32" x="672" />
-        <rect fill="white" height="32" width="32" x="736" />
-        <rect fill="white" height="32" width="32" x="800" />
-        <rect fill="white" height="32" width="32" x="864" />
-        <rect fill="white" height="32" width="32" x="928" />
-        <rect fill="white" height="32" width="32" x="992" />
-        <rect fill="white" height="32" width="32" x="1056" />
-        <rect fill="white" height="32" width="32" x="1120" />
-        <rect fill="white" height="32" width="32" x="1184" />
-        <rect fill="white" height="32" width="32" x="1248" />
-        <rect fill="white" height="32" width="32" x="1312" />
-        <rect fill="white" height="32" width="32" x="1376" />
-        <rect fill="black" height="32" width="32" x="64" />
-        <rect fill="black" height="32" width="32" x="128" />
-        <rect fill="black" height="32" width="32" x="192" />
-        <rect fill="black" height="32" width="32" x="256" />
-        <rect fill="black" height="32" width="32" x="320" />
-        <rect fill="black" height="32" width="32" x="384" />
-        <rect fill="black" height="32" width="32" x="448" />
-        <rect fill="black" height="32" width="32" x="512" />
-        <rect fill="black" height="32" width="32" x="576" />
-        <rect fill="black" height="32" width="32" x="640" />
-        <rect fill="black" height="32" width="32" x="704" />
-        <rect fill="black" height="32" width="32" x="768" />
-        <rect fill="black" height="32" width="32" x="832" />
-        <rect fill="black" height="32" width="32" x="896" />
-        <rect fill="black" height="32" width="32" x="960" />
-        <rect fill="black" height="32" width="32" x="1024" />
-        <rect fill="black" height="32" width="32" x="1088" />
-        <rect fill="black" height="32" width="32" x="1152" />
-        <rect fill="black" height="32" width="32" x="1216" />
-        <rect fill="black" height="32" width="32" x="1280" />
-        <rect fill="black" height="32" width="32" x="1344" />
-        <rect fill="black" height="32" width="32" x="1408" />
+        <defs>
+          <pattern
+            height="32"
+            id="Pattern"
+            patternUnits="userSpaceOnUse"
+            width="64"
+            x="0"
+            y="0"
+          >
+            <rect fill={theme.colors.text} height="32" width="32" />
+          </pattern>
+        </defs>
+        <rect fill="url(#Pattern)" height="32" width="100%" />
       </svg>
       <Flex sx={{ flexDirection: "row-reverse" }}>
         <Img fluid={node.heroImage.fluid} sx={{ width: "7/12" }} />
@@ -94,11 +66,10 @@ const GoKartsFeature = ({ data: { node } }) => {
               width: "full",
               top: "3rem",
             }}
-            viewBox="0 0 604 16"
-            width="604"
+            width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M604 0H0V16H604V0Z" fill="#E15A4E" />
+            <rect fill={theme.colors.red.dark} height="1rem" width="100%" />
           </svg>
           <BackgroundImage
             fluid={goKartsBg}
@@ -142,68 +113,38 @@ const GoKartsFeature = ({ data: { node } }) => {
               width: "full",
               bottom: "3rem",
             }}
-            viewBox="0 0 604 16"
-            width="604"
+            width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M604 0H0V16H604V0Z" fill="#E15A4E" />
+            <rect fill={theme.colors.red.dark} height="1rem" width="100%" />
           </svg>
         </Box>
       </Flex>
       <svg
-        fill="none"
+        fill="white"
         height="32"
-        sx={{ position: "absolute", zIndex: "1", bottom: "0" }}
-        viewBox="0 0 1440 32"
-        width="1440"
+        style={{ backgroundColor: theme.colors.background }}
+        sx={{
+          position: "absolute",
+          zIndex: "1",
+          bottom: "0",
+        }}
+        width="100%"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <rect fill="white" height="32" width="1440" />
-        <rect fill="black" height="32" width="32" />
-        <rect fill="white" height="32" width="32" x="32" />
-        <rect fill="white" height="32" width="32" x="96" />
-        <rect fill="white" height="32" width="32" x="160" />
-        <rect fill="white" height="32" width="32" x="224" />
-        <rect fill="white" height="32" width="32" x="288" />
-        <rect fill="white" height="32" width="32" x="352" />
-        <rect fill="white" height="32" width="32" x="416" />
-        <rect fill="white" height="32" width="32" x="480" />
-        <rect fill="white" height="32" width="32" x="544" />
-        <rect fill="white" height="32" width="32" x="608" />
-        <rect fill="white" height="32" width="32" x="672" />
-        <rect fill="white" height="32" width="32" x="736" />
-        <rect fill="white" height="32" width="32" x="800" />
-        <rect fill="white" height="32" width="32" x="864" />
-        <rect fill="white" height="32" width="32" x="928" />
-        <rect fill="white" height="32" width="32" x="992" />
-        <rect fill="white" height="32" width="32" x="1056" />
-        <rect fill="white" height="32" width="32" x="1120" />
-        <rect fill="white" height="32" width="32" x="1184" />
-        <rect fill="white" height="32" width="32" x="1248" />
-        <rect fill="white" height="32" width="32" x="1312" />
-        <rect fill="white" height="32" width="32" x="1376" />
-        <rect fill="black" height="32" width="32" x="64" />
-        <rect fill="black" height="32" width="32" x="128" />
-        <rect fill="black" height="32" width="32" x="192" />
-        <rect fill="black" height="32" width="32" x="256" />
-        <rect fill="black" height="32" width="32" x="320" />
-        <rect fill="black" height="32" width="32" x="384" />
-        <rect fill="black" height="32" width="32" x="448" />
-        <rect fill="black" height="32" width="32" x="512" />
-        <rect fill="black" height="32" width="32" x="576" />
-        <rect fill="black" height="32" width="32" x="640" />
-        <rect fill="black" height="32" width="32" x="704" />
-        <rect fill="black" height="32" width="32" x="768" />
-        <rect fill="black" height="32" width="32" x="832" />
-        <rect fill="black" height="32" width="32" x="896" />
-        <rect fill="black" height="32" width="32" x="960" />
-        <rect fill="black" height="32" width="32" x="1024" />
-        <rect fill="black" height="32" width="32" x="1088" />
-        <rect fill="black" height="32" width="32" x="1152" />
-        <rect fill="black" height="32" width="32" x="1216" />
-        <rect fill="black" height="32" width="32" x="1280" />
-        <rect fill="black" height="32" width="32" x="1344" />
-        <rect fill="black" height="32" width="32" x="1408" />
+        <defs>
+          <pattern
+            height="32"
+            id="Pattern"
+            patternUnits="userSpaceOnUse"
+            width="64"
+            x="0"
+            y="0"
+          >
+            <rect fill={theme.colors.text} height="32" width="32" />
+          </pattern>
+        </defs>
+        <rect fill="url(#Pattern)" height="32" width="100%" />
       </svg>
     </Box>
   );

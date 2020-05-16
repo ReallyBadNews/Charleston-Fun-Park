@@ -32,6 +32,7 @@ export default {
     },
     red: {
       mid: "#E15A4E",
+      dark: "#E22100",
     },
     yellow: {
       light: "#FFEF5C",
