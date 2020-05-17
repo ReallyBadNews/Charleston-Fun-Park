@@ -12,7 +12,7 @@ const IndexPage = () => (
     <Hero />
     <SectionTitle />
     <BirthdaySection />
-    <SectionDivider />
+    <SectionDivider bg="green.light" />
     <FeaturedAttractions />
   </MainLayout>
 );
