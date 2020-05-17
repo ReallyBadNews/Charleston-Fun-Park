@@ -38,7 +38,10 @@ const SectionDivider = ({ bg, stars }) => {
           <svg
             fill="none"
             height="40"
-            sx={{ position: "absolute" }}
+            sx={{
+              position: "absolute",
+              filter: "drop-shadow( 0px 0px 4px #FFEF5C)",
+            }}
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -72,7 +75,10 @@ const SectionDivider = ({ bg, stars }) => {
           <svg
             fill="none"
             height="40"
-            sx={{ position: "absolute" }}
+            sx={{
+              position: "absolute",
+              filter: "drop-shadow( 0px 0px 4px #75E7FF)",
+            }}
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
