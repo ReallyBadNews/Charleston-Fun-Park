@@ -24,11 +24,11 @@ const SectionTitle = () => (
         <Text sx={{ display: ["none", null, "block"] }} variant="display">
           The Party Starts Here
         </Text>
-        <Text sx={{ display: ["block", null, "none"] }} variant="display">
+        {/* <Text sx={{ display: ["block", null, "none"] }} variant="display">
           The Party
           <br />
           Starts Here
-        </Text>
+        </Text> */}
         <Arrow
           sx={{
             height: "auto",
