@@ -1,9 +1,11 @@
 /** @jsx jsx */
 import { Box, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
+import SectionDivider from "../../SectionDivider/SectionDivider";
 import OmniArenaFeature from "./OmniArenaFeature";
 import GoKartsFeature from "./GoKartsFeature";
 import MiniGolfFeature from "./MiniGolfFeature";
+import AxeThrowingFeature from "./AxeThrowingFeature";
 
 const AttractionsSection = () => {
   const {
@@ -37,6 +39,8 @@ const AttractionsSection = () => {
       <OmniArenaFeature data={edges[0]} />
       <GoKartsFeature data={edges[1]} />
       <MiniGolfFeature data={edges[2]} />
+      <SectionDivider bg="black.dark" stars />
+      <AxeThrowingFeature data={edges[3]} />
     </Box>
   );
 };
