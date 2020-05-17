@@ -32,8 +32,8 @@ const Nav = ({ navLinks }) => {
     query NavQuery {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 200, maxHeight: 153) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          fluid(maxWidth: 261, maxHeight: 200) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -93,10 +93,11 @@ const Nav = ({ navLinks }) => {
               alt="Charleston Fun Park"
               fluid={headerLogo}
               sx={{
-                width: "200px",
-                height: "153px",
+                width: "261px",
+                height: "200px",
                 position: "relative",
                 zIndex: "100",
+                mt: "5",
               }}
             />
             <Img fluid={funLogo} sx={{ width: "176px", height: "76px" }} />
