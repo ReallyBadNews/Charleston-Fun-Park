@@ -15,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import useSiteMetadata from "../../hooks/use-site-metadata";
 import StyledLink from "../Link.styled";
-import Arrow from "../Arrow";
+import Arrow from "../Images/Arrow";
 
 const Nav = () => {
   const {

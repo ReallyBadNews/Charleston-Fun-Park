@@ -5,7 +5,7 @@ import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, jsx, useThemeUI } from "theme-ui";
 import Img from "gatsby-image";
 import { Stack } from "raam";
-import Arrow from "../../Arrow";
+import Arrow from "../../Images/Arrow";
 
 const GoKartsFeature = ({ data: { node } }) => {
   const {

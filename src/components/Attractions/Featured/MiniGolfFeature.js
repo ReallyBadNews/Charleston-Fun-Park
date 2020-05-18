@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Stack } from "raam";
-import Arrow from "../../Arrow";
+import Arrow from "../../Images/Arrow";
 import Brick from "../../../images/brick.png";
 
 const MiniGolfFeature = ({ data: { node } }) => {
