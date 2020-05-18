@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { useState } from "react";
-import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
@@ -14,10 +13,11 @@ import {
   faBirthdayCake,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import useSiteMetadata from "../../hooks/use-site-metadata";
 import StyledLink from "../Link.styled";
 import Arrow from "../Arrow";
 
-const Nav = ({ navLinks }) => {
+const Nav = () => {
   const {
     logo: {
       childImageSharp: { fluid: headerLogo },
@@ -53,6 +53,8 @@ const Nav = ({ navLinks }) => {
       }
     }
   `);
+
+  const { navLinks } = useSiteMetadata();
 
   const [menuOpenState, setMenuOpenState] = useState(false);
 
@@ -110,7 +112,7 @@ const Nav = ({ navLinks }) => {
             />
           </Inline>
           <Inline as="nav" color="white.light" gap="5">
-            {navLinks.map((link) => (
+            {navLinks.slice(0, 3).map((link) => (
               <Inline key={link.name} gap="2">
                 <FontAwesomeIcon
                   icon={menuIcons[link.name]}
@@ -145,15 +147,6 @@ const Nav = ({ navLinks }) => {
       </Container>
     </BackgroundImage>
   );
-};
-
-Nav.propTypes = {
-  navLinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      url: PropTypes.string,
-    })
-  ).isRequired,
 };
 
 export default Nav;
