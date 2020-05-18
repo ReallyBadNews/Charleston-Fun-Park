@@ -20,17 +20,28 @@ const Footer = () => {
   };
 
   return (
-    <Box as="footer" bg="black.dark" color="white.light" py="7">
+    <Box
+      as="footer"
+      bg="black.dark"
+      color="white.light"
+      px={["3", null, null, null, "0"]}
+      py="7"
+    >
       <Container>
         <Stack gap="5">
-          <Flex gap="5" justifyContent="center">
+          <Flex
+            flexWrap="wrap"
+            gap={["3", null, null, "5"]}
+            justifyContent="center"
+          >
             {navLinks.map((link) => (
               <StyledLink
                 key={link.name}
                 color="white.light"
                 fontFamily="heading"
-                fontSize="3"
+                fontSize={["2", null, "4"]}
                 fontWeight="bold"
+                hoverColor="blue.light"
                 letterSpacing="wide"
                 textDecoration="none"
                 to={link.url}
@@ -44,12 +55,13 @@ const Footer = () => {
               <StyledLink
                 key={link.name}
                 color="white.light"
-                fontSize="3"
+                fontSize="4"
+                hoverColor="blue.light"
                 href={link.url}
               >
                 <FontAwesomeIcon
                   icon={socialIcons[link.name]}
-                  sx={{ maxHeight: "5" }}
+                  sx={{ maxHeight: "6" }}
                 />
               </StyledLink>
             ))}
