@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import Img from "gatsby-image";
 import { Stack } from "raam";
-import Arrow from "../../Arrow";
+import Arrow from "../../Images/Arrow";
 
 const OmniArenaFeature = ({ data: { node } }) => (
   <Flex sx={{ height: "lg" }}>

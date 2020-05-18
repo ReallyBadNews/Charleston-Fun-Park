@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Container, Divider, Text, jsx } from "theme-ui";
 import { Inline } from "raam";
-import WoodBg from "../WoodBg";
+import WoodBg from "../Images/WoodBg";
 
 const MoreAttractionsDivider = () => (
   <WoodBg overlayColor="blue.xdark" sx={{ bg: "blue.dark" }}>

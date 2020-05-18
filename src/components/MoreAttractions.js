@@ -3,7 +3,7 @@
 import React from "react";
 import { Container, Grid, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import WoodBg from "./WoodBg";
+import WoodBg from "./Images/WoodBg";
 import MoreAttractionsDivider from "./SectionDivider/MoreAttractionsDivider";
 import AttractionsCard from "./Attractions/AttractionsCard";
 

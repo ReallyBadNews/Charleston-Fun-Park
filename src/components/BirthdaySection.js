@@ -5,7 +5,7 @@ import { jsx, Container, Heading, Text, Button, Grid } from "theme-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";
-import BrickBg from "./BrickBg";
+import BrickBg from "./Images/BrickBg";
 
 const BirthdaySection = () => {
   const {
