@@ -6,7 +6,9 @@ import { Link } from "gatsby";
 const StyledLink = ({
   children,
   color,
+  fontFamily,
   fontSize,
+  fontWeight,
   hoverColor,
   href,
   letterSpacing,
@@ -22,7 +24,6 @@ const StyledLink = ({
   py,
   to,
   title,
-  fontWeight,
   textDecoration,
   textDecorationHover,
   textTransform,
@@ -33,6 +34,7 @@ const StyledLink = ({
     rel={href ? `noopener` : null}
     sx={{
       color,
+      fontFamily,
       fontSize,
       fontWeight,
       letterSpacing,
@@ -67,6 +69,7 @@ const StyledLink = ({
 StyledLink.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
+  fontFamily: PropTypes.string,
   fontSize: PropTypes.string,
   fontWeight: PropTypes.string,
   hoverColor: PropTypes.string,
@@ -91,6 +94,7 @@ StyledLink.propTypes = {
 
 StyledLink.defaultProps = {
   color: "",
+  fontFamily: "body",
   fontSize: "",
   fontWeight: "",
   hoverColor: "",

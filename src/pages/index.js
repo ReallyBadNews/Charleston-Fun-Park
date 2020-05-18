@@ -6,7 +6,7 @@ import SectionTitle from "../components/SectionDivider/SectionTitle";
 import BirthdaySection from "../components/BirthdaySection";
 import FeaturedAttractions from "../components/Attractions/Featured/FeaturedAttractions";
 import SectionDivider from "../components/SectionDivider/SectionDivider";
-import MoreAttractionsDivider from "../components/SectionDivider/MoreAttractionsDivider";
+import MoreAttractions from "../components/MoreAttractions";
 
 const IndexPage = () => (
   <MainLayout title="Home">
@@ -15,7 +15,7 @@ const IndexPage = () => (
     <BirthdaySection />
     <SectionDivider bg="green.light" />
     <FeaturedAttractions />
-    <MoreAttractionsDivider />
+    <MoreAttractions />
   </MainLayout>
 );
 

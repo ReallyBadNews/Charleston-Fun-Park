@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { Container, Divider, Flex, Text, jsx } from "theme-ui";
+import { Container, Divider, Text, jsx } from "theme-ui";
 import { Inline } from "raam";
-import BrickBg from "../BrickBg";
+import WoodBg from "../WoodBg";
 
 const MoreAttractionsDivider = () => (
-  <BrickBg>
+  <WoodBg overlayColor="blue.xdark" sx={{ bg: "blue.dark" }}>
     <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
     <Container>
       <Inline
@@ -106,11 +106,7 @@ const MoreAttractionsDivider = () => (
         </svg>
       </Inline>
     </Container>
-    <Divider
-      sx={{ position: "absolute", bottom: "0" }}
-      variant="divider.glow"
-    />
-  </BrickBg>
+  </WoodBg>
 );
 
 export default MoreAttractionsDivider;
