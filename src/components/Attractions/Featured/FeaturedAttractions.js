@@ -12,7 +12,10 @@ const AttractionsSection = () => {
     allContentfulAttraction: { edges },
   } = useStaticQuery(graphql`
     query AttractionsQuery {
-      allContentfulAttraction(sort: { order: ASC, fields: order }) {
+      allContentfulAttraction(
+        sort: { order: ASC, fields: order }
+        filter: { order: { lt: 5 } }
+      ) {
         edges {
           node {
             id

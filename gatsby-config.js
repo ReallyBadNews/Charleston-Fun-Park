@@ -26,6 +26,7 @@ module.exports = {
       // eslint-disable-next-line max-len
       "Welcome to Charleston Fun Park! We are your locally owned and operated Family Entertainment Center in the Charleston area. We've got go-karts, putt-putt, an arcade, rock climbing, jumpland and more!",
     siteUrl: "https://charlestonfunpark.com/",
+    copyright: `© ${new Date().getFullYear()} Charleston Fun Park. All Rights Reserved.`,
     phoneNumber: {
       number: "(843) 971-1223",
       link: "tel:843-971-1223",
@@ -56,6 +57,18 @@ module.exports = {
       {
         name: "Park Info",
         url: "/park-info/",
+      },
+      {
+        name: "Fun Cards",
+        url: "/fun-cards/",
+      },
+      {
+        name: "Specials",
+        url: "/specials/",
+      },
+      {
+        name: "Contact Us",
+        url: "/contact",
       },
     ],
   },

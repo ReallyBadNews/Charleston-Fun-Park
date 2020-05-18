@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Container, Box, Button, jsx } from "theme-ui";
@@ -11,9 +10,10 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import useSiteMetadata from "../../hooks/use-site-metadata";
 import StyledLink from "../Link.styled";
 
-const Topper = ({ data }) => {
+const Topper = () => {
   const {
     grassBg: {
       childImageSharp: { fluid },
@@ -29,6 +29,8 @@ const Topper = ({ data }) => {
       }
     }
   `);
+
+  const { phoneNumber, socialLinks } = useSiteMetadata();
 
   const socialIcons = {
     facebook: faFacebook,
@@ -63,8 +65,8 @@ const Topper = ({ data }) => {
         sx={{ position: "relative", zIndex: "100" }}
       >
         <Flex gap="5" justifyContent="flex-end">
-          <Button as="a" href={data.phoneNumber.link} variant="mini">
-            {data.phoneNumber.number}
+          <Button as="a" href={phoneNumber.link} variant="mini">
+            {phoneNumber.number}
             <FontAwesomeIcon
               icon={faPhone}
               sx={{ ml: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
@@ -72,7 +74,7 @@ const Topper = ({ data }) => {
             />
           </Button>
           <Inline gap="4">
-            {data.socialLinks.map((link) => (
+            {socialLinks.map((link) => (
               <StyledLink
                 key={link.name}
                 color="white.light"
@@ -90,27 +92,6 @@ const Topper = ({ data }) => {
       </Container>
     </BackgroundImage>
   );
-};
-
-Topper.propTypes = {
-  data: PropTypes.shape({
-    navLinks: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-        url: PropTypes.string,
-      })
-    ),
-    phoneNumber: PropTypes.shape({
-      link: PropTypes.string,
-      number: PropTypes.string,
-    }),
-    socialLinks: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-        url: PropTypes.string,
-      })
-    ),
-  }).isRequired,
 };
 
 export default Topper;
