@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 /** @jsx jsx */
 import PropTypes from "prop-types";
 import { jsx, Styled } from "theme-ui";

@@ -240,5 +240,12 @@ export default {
       fontFamily: "body",
       color: "black.dark",
     },
+    h1: {
+      mb: "3",
+    },
+    p: {
+      fontSize: "3",
+      lineHeight: "normal",
+    },
   },
 };
