@@ -8,7 +8,7 @@ import AttractionsCard from "../components/Attractions/AttractionsCard";
 
 const AttractionsPage = () => {
   const {
-    allContentfulAttraction: { edges },
+    allContentfulAttraction: { edges: posts },
   } = useStaticQuery(graphql`
     query AttractionsPageQuery {
       allContentfulAttraction(sort: { order: ASC, fields: order }) {
@@ -26,6 +26,9 @@ const AttractionsPage = () => {
             }
             title
             order
+            pricePoint1Price
+            pricePoint1Title
+            pricePoint1Unit
           }
         }
       }
@@ -41,11 +44,14 @@ const AttractionsPage = () => {
             columns={["1fr", null, "repeat(2, 1fr)", "repeat(3, 1fr)"]}
             variant="attractionsPage"
           >
-            {edges.map((attraction) => (
+            {posts.map((attraction) => (
               <AttractionsCard
                 key={attraction.node.title}
                 description={attraction.node.description.description}
                 image={attraction.node.heroImage.fluid}
+                pricePoint1Price={attraction.node.pricePoint1Price}
+                pricePoint1Title={attraction.node.pricePoint1Title}
+                pricePoint1Unit={attraction.node.pricePoint1Unit}
                 title={attraction.node.title}
               />
             ))}
