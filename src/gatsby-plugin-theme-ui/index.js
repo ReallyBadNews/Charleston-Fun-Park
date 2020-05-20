@@ -59,6 +59,17 @@ export default {
     heavy: 900,
     heading: 900,
   },
+  grids: {
+    featuredAttraction: {
+      position: "relative",
+      height: "full",
+      placeContent: "center",
+    },
+    attractionsPage: {
+      columnGap: "3",
+      rowGap: "5",
+    },
+  },
   letterSpacings: {
     tighter: "-0.05em",
     tight: "-0.025em",
@@ -217,13 +228,12 @@ export default {
     },
   },
   cards: {
-    summary: {
+    attraction: {
       bg: "white.light",
       borderRadius: "lg",
       boxShadow: "default",
       color: "black.dark",
-      gap: "3",
-      textAlign: "center",
+      height: "full",
     },
   },
   divider: {
