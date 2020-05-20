@@ -71,7 +71,10 @@ StyledLink.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   fontFamily: PropTypes.string,
-  fontSize: PropTypes.string,
+  fontSize: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   fontWeight: PropTypes.string,
   hoverColor: PropTypes.string,
   href: PropTypes.string,

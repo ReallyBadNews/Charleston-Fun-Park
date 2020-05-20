@@ -196,6 +196,11 @@ export default {
         fontSize: "4",
       },
     },
+    cardPricing: {
+      variant: "text.body.normal",
+      fontWeight: "bold",
+      lineHeight: "tight",
+    },
     display: {
       fontFamily: "display",
       fontSize: [4, 5, 6, 8, 9],
@@ -256,6 +261,12 @@ export default {
     p: {
       fontSize: "3",
       lineHeight: "normal",
+    },
+    hr: {
+      height: "px",
+      bg: "blue.dark",
+      border: "none",
+      m: "0",
     },
   },
 };
