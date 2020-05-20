@@ -34,13 +34,17 @@ const AttractionsPage = () => {
 
   return (
     <MainLayout title="Attractions">
-      <MoreAttractionsDivider />
+      <MoreAttractionsDivider title="Attractions" />
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">
-          <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
+          <Grid
+            columns={["1fr", null, "repeat(2, 1fr)", "repeat(3, 1fr)"]}
+            variant="attractionsPage"
+          >
             {edges.map((attraction) => (
               <AttractionsCard
                 key={attraction.node.title}
+                description={attraction.node.description.description}
                 image={attraction.node.heroImage.fluid}
                 title={attraction.node.title}
               />

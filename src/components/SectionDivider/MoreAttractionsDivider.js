@@ -1,9 +1,10 @@
 /** @jsx jsx */
+import PropTypes from "prop-types";
 import { Container, Divider, Text, jsx } from "theme-ui";
 import { Inline } from "raam";
 import WoodBg from "../Images/WoodBg";
 
-const MoreAttractionsDivider = () => (
+const MoreAttractionsDivider = ({ title }) => (
   <WoodBg overlayColor="blue.xdark" sx={{ bg: "blue.dark" }}>
     <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
     <Container>
@@ -60,7 +61,7 @@ const MoreAttractionsDivider = () => (
           sx={{ display: ["none", null, "block"] }}
           variant="display"
         >
-          More Attractions
+          {title}
         </Text>
         <svg
           fill="none"
@@ -108,5 +109,13 @@ const MoreAttractionsDivider = () => (
     </Container>
   </WoodBg>
 );
+
+MoreAttractionsDivider.propTypes = {
+  title: PropTypes.string,
+};
+
+MoreAttractionsDivider.defaultProps = {
+  title: "",
+};
 
 export default MoreAttractionsDivider;

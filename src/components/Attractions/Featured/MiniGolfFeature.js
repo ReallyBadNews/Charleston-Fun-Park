@@ -1,10 +1,11 @@
 /** @jsx jsx */
 import PropTypes from "prop-types";
 import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
-import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
+import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
+import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
 import Brick from "../../../images/brick.png";
 
@@ -54,15 +55,7 @@ const MiniGolfFeature = ({ data: { node } }) => {
             opacity: "0.75",
           }}
         />
-        <Grid
-          color="white.light"
-          p="7"
-          sx={{
-            placeContent: "center",
-            height: "full",
-            position: "relative",
-          }}
-        >
+        <Grid color="white.light" p="7" variant="featuredAttraction">
           <Arrow
             sx={{
               position: "absolute !important",
@@ -74,10 +67,16 @@ const MiniGolfFeature = ({ data: { node } }) => {
               transform: "rotateZ(-145deg)",
             }}
           />
-          <Stack>
-            <Heading variant="heading.featuredTitle">{node.title}</Heading>
-            <Text variant="body.normal">{node.description.description}</Text>
-          </Stack>
+          <StyledLink
+            color="white.light"
+            hoverColor="blue.light"
+            to={`/attractions/${node.title.toLowerCase().replace(/\s/g, "-")}`}
+          >
+            <Stack>
+              <Heading variant="heading.featuredTitle">{node.title}</Heading>
+              <Text variant="body.normal">{node.description.description}</Text>
+            </Stack>
+          </StyledLink>
         </Grid>
       </Box>
     </Flex>

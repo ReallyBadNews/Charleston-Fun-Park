@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import Img from "gatsby-image";
 import { Stack } from "raam";
+import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
 
 const OmniArenaFeature = ({ data: { node } }) => (
@@ -12,7 +13,8 @@ const OmniArenaFeature = ({ data: { node } }) => (
       bg="black.dark"
       color="white.light"
       p="7"
-      sx={{ placeContent: "center", width: "5/12", position: "relative" }}
+      sx={{ width: "5/12" }}
+      variant="featuredAttraction"
     >
       <Arrow
         sx={{
@@ -25,10 +27,16 @@ const OmniArenaFeature = ({ data: { node } }) => (
           transform: "rotateZ(-145deg)",
         }}
       />
-      <Stack>
-        <Heading variant="heading.featuredTitle">{node.title}</Heading>
-        <Text variant="body.normal">{node.description.description}</Text>
-      </Stack>
+      <StyledLink
+        color="white.light"
+        hoverColor="blue.light"
+        to={`/attractions/${node.title.toLowerCase().replace(/\s/g, "-")}`}
+      >
+        <Stack>
+          <Heading variant="heading.featuredTitle">{node.title}</Heading>
+          <Text variant="body.normal">{node.description.description}</Text>
+        </Stack>
+      </StyledLink>
     </Grid>
   </Flex>
 );

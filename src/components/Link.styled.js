@@ -111,7 +111,7 @@ StyledLink.defaultProps = {
   pt: "",
   px: "",
   py: "",
-  textDecoration: "",
+  textDecoration: "none",
   textDecorationHover: false,
   textTransform: "",
   title: null,
