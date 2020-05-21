@@ -3,7 +3,7 @@
 import React from "react";
 import { Container, Grid, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import WoodBg from "./WoodBg";
+import WoodBg from "./Images/WoodBg";
 import MoreAttractionsDivider from "./SectionDivider/MoreAttractionsDivider";
 import AttractionsCard from "./Attractions/AttractionsCard";
 
@@ -38,7 +38,7 @@ const MoreAttractions = () => {
 
   return (
     <>
-      <MoreAttractionsDivider />
+      <MoreAttractionsDivider title="More Attractions" to="/attractions/" />
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">
           <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
@@ -46,6 +46,7 @@ const MoreAttractions = () => {
               <AttractionsCard
                 key={attraction.node.title}
                 image={attraction.node.heroImage.fluid}
+                textAlign="center"
                 title={attraction.node.title}
               />
             ))}

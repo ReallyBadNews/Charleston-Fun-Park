@@ -5,7 +5,8 @@ import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, jsx, useThemeUI } from "theme-ui";
 import Img from "gatsby-image";
 import { Stack } from "raam";
-import Arrow from "../../Arrow";
+import StyledLink from "../../Link.styled";
+import Arrow from "../../Images/Arrow";
 
 const GoKartsFeature = ({ data: { node } }) => {
   const {
@@ -80,15 +81,7 @@ const GoKartsFeature = ({ data: { node } }) => {
               width: "full",
             }}
           />
-          <Grid
-            color="white.light"
-            p="7"
-            sx={{
-              placeContent: "center",
-              height: "full",
-              position: "relative",
-            }}
-          >
+          <Grid color="white.light" p="7" variant="featuredAttraction">
             <Arrow
               sx={{
                 position: "absolute !important",
@@ -99,10 +92,20 @@ const GoKartsFeature = ({ data: { node } }) => {
                 transform: "rotateZ(325deg)",
               }}
             />
-            <Stack>
-              <Heading variant="heading.featuredTitle">{node.title}</Heading>
-              <Text variant="body.normal">{node.description.description}</Text>
-            </Stack>
+            <StyledLink
+              color="white.light"
+              hoverColor="blue.light"
+              to={`/attractions/${node.title
+                .toLowerCase()
+                .replace(/\s/g, "-")}`}
+            >
+              <Stack>
+                <Heading variant="heading.featuredTitle">{node.title}</Heading>
+                <Text variant="body.normal">
+                  {node.description.description}
+                </Text>
+              </Stack>
+            </StyledLink>
           </Grid>
           <svg
             fill="none"

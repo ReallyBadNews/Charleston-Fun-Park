@@ -23,6 +23,7 @@ export default {
       light: "#60697B",
       mid: "#333D52",
       dark: "#1D2435",
+      border: "#60697B80",
     },
     blue: {
       light: "#75E7FF",
@@ -58,6 +59,17 @@ export default {
     bold: 700,
     heavy: 900,
     heading: 900,
+  },
+  grids: {
+    featuredAttraction: {
+      position: "relative",
+      height: "full",
+      placeContent: "center",
+    },
+    attractionsPage: {
+      columnGap: "3",
+      rowGap: "5",
+    },
   },
   letterSpacings: {
     tighter: "-0.05em",
@@ -185,6 +197,11 @@ export default {
         fontSize: "4",
       },
     },
+    cardPricing: {
+      variant: "text.body.normal",
+      fontWeight: "bold",
+      lineHeight: "tight",
+    },
     display: {
       fontFamily: "display",
       fontSize: [4, 5, 6, 8, 9],
@@ -217,13 +234,14 @@ export default {
     },
   },
   cards: {
-    summary: {
+    attraction: {
+      display: "flex",
+      flexDirection: "column",
       bg: "white.light",
       borderRadius: "lg",
       boxShadow: "default",
       color: "black.dark",
-      gap: "3",
-      textAlign: "center",
+      height: "full",
     },
   },
   divider: {
@@ -239,6 +257,20 @@ export default {
     root: {
       fontFamily: "body",
       color: "black.dark",
+    },
+    h1: {
+      mb: "3",
+    },
+    p: {
+      fontSize: "3",
+      lineHeight: "normal",
+    },
+    hr: {
+      height: "px",
+      bg: "black.light",
+      opacity: "50%",
+      border: "none",
+      m: "0",
     },
   },
 };

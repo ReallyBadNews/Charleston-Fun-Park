@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { useState } from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Container, jsx } from "theme-ui";
@@ -15,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import useSiteMetadata from "../../hooks/use-site-metadata";
 import StyledLink from "../Link.styled";
-import Arrow from "../Arrow";
+import Arrow from "../Images/Arrow";
 
 const Nav = () => {
   const {
@@ -91,17 +91,19 @@ const Nav = () => {
           sx={{ height: "24" }}
         >
           <Inline>
-            <Img
-              alt="Charleston Fun Park"
-              fluid={headerLogo}
-              sx={{
-                width: "261px",
-                height: "200px",
-                position: "relative",
-                zIndex: "100",
-                mt: "5",
-              }}
-            />
+            <Link to="/">
+              <Img
+                alt="Charleston Fun Park"
+                fluid={headerLogo}
+                sx={{
+                  width: "261px",
+                  height: "200px",
+                  position: "relative",
+                  zIndex: "100",
+                  mt: "5",
+                }}
+              />
+            </Link>
             <Img fluid={funLogo} sx={{ width: "176px", height: "76px" }} />
             <Arrow
               sx={{

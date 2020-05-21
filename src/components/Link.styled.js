@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 /** @jsx jsx */
 import PropTypes from "prop-types";
 import { jsx, Styled } from "theme-ui";
@@ -70,7 +71,10 @@ StyledLink.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   fontFamily: PropTypes.string,
-  fontSize: PropTypes.string,
+  fontSize: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   fontWeight: PropTypes.string,
   hoverColor: PropTypes.string,
   href: PropTypes.string,
@@ -110,7 +114,7 @@ StyledLink.defaultProps = {
   pt: "",
   px: "",
   py: "",
-  textDecoration: "",
+  textDecoration: "none",
   textDecorationHover: false,
   textTransform: "",
   title: null,
