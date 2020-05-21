@@ -23,6 +23,7 @@ export default {
       light: "#60697B",
       mid: "#333D52",
       dark: "#1D2435",
+      border: "#60697B80",
     },
     blue: {
       light: "#75E7FF",
@@ -234,6 +235,8 @@ export default {
   },
   cards: {
     attraction: {
+      display: "flex",
+      flexDirection: "column",
       bg: "white.light",
       borderRadius: "lg",
       boxShadow: "default",
@@ -264,7 +267,8 @@ export default {
     },
     hr: {
       height: "px",
-      bg: "blue.dark",
+      bg: "black.light",
+      opacity: "50%",
       border: "none",
       m: "0",
     },
