@@ -29,6 +29,9 @@ const AttractionsPage = () => {
             pricePoint1Price
             pricePoint1Title
             pricePoint1Unit
+            pricePoint2Price
+            pricePoint2Title
+            pricePoint2Unit
           }
         }
       }
@@ -52,6 +55,9 @@ const AttractionsPage = () => {
                 pricePoint1Price={attraction.node.pricePoint1Price}
                 pricePoint1Title={attraction.node.pricePoint1Title}
                 pricePoint1Unit={attraction.node.pricePoint1Unit}
+                pricePoint2Price={attraction.node.pricePoint2Price}
+                pricePoint2Title={attraction.node.pricePoint2Title}
+                pricePoint2Unit={attraction.node.pricePoint2Unit}
                 title={attraction.node.title}
               />
             ))}

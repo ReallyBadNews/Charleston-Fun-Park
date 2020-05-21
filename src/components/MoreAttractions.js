@@ -38,7 +38,7 @@ const MoreAttractions = () => {
 
   return (
     <>
-      <MoreAttractionsDivider title="More Attractions" />
+      <MoreAttractionsDivider title="More Attractions" to="/attractions/" />
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">
           <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
