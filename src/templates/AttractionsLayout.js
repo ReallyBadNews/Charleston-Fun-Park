@@ -7,15 +7,14 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
-import GlobalStyles from "../../static/GlobalStyles";
-import Header from "../components/Header/Header";
 
 const AttractionsLayout = ({ data: { contentfulAttraction } }) => (
   <>
-    <SEO title="Attractions" />
-    <GlobalStyles />
+    <SEO
+      description={contentfulAttraction.description.description}
+      title={contentfulAttraction.title}
+    />
     <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-      <Header />
       <Img fluid={contentfulAttraction.heroImage.fluid} />
       <Container px={["3", null, "0"]} py="6" sx={{ flex: "1 1 auto" }}>
         <Heading mb="3">{contentfulAttraction.title}</Heading>
@@ -33,6 +32,9 @@ export const attractionsQuery = graphql`
         childMdx {
           body
         }
+      }
+      description {
+        description
       }
       heroImage {
         fluid {
@@ -52,6 +54,9 @@ AttractionsLayout.propTypes = {
         childMdx: PropTypes.shape({
           body: PropTypes.string,
         }),
+      }),
+      description: PropTypes.shape({
+        description: PropTypes.string,
       }),
       heroImage: PropTypes.shape({
         fluid: PropTypes.shape({
