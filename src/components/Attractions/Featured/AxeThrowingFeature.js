@@ -26,10 +26,27 @@ const AxeThrowingFeature = ({ data: { node } }) => {
   `);
 
   return (
-    <Box sx={{ position: "relative", height: "lg" }}>
-      <Flex sx={{ flexDirection: "row-reverse", height: "full" }}>
-        <Img fluid={node.heroImage.fluid} sx={{ width: "7/12" }} />
-        <Box sx={{ width: "5/12", position: "relative" }}>
+    <Box sx={{ position: "relative", height: ["auto", null, null, "lg"] }}>
+      <Flex
+        sx={{
+          flexDirection: ["column", null, null, "row-reverse"],
+          height: "full",
+        }}
+      >
+        <Img
+          fluid={node.heroImage.fluid}
+          sx={{
+            width: ["full", null, null, "7/12"],
+            height: ["sm", null, null, "full"],
+          }}
+        />
+        <Box
+          sx={{
+            width: ["full", null, null, "5/12"],
+            minHeight: ["xs", null, null, "auto"],
+            position: "relative",
+          }}
+        >
           <BackgroundImage
             fluid={goKartsBg}
             sx={{
@@ -43,12 +60,12 @@ const AxeThrowingFeature = ({ data: { node } }) => {
             <Arrow
               sx={{
                 position: "absolute !important",
-                right: "-15%",
-                top: "-1rem",
+                right: ["3", null, null, "-15%"],
                 zIndex: "2",
                 width: "180px",
                 height: "80px",
-                transform: "rotateZ(325deg)",
+                top: ["-3rem", null, null, "-1rem"],
+                transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
               }}
             />
             <StyledLink

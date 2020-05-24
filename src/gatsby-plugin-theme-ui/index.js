@@ -157,7 +157,7 @@ export default {
     none: "none",
     text: "0 0.25rem 0.25rem #1D243540",
   },
-  space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 128, 256, 512],
+  space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 96, 128, 256, 512],
   radii: {
     none: "0",
     sm: "0.125rem",
@@ -177,7 +177,7 @@ export default {
       },
       featuredTitle: {
         variant: "heading",
-        fontSize: "9",
+        fontSize: ["7", null, "9"],
         textShadow: "text",
       },
     },
@@ -257,6 +257,7 @@ export default {
     root: {
       fontFamily: "body",
       color: "black.dark",
+      overflowX: "hidden",
     },
     h1: {
       mb: "3",

@@ -90,26 +90,32 @@ const Nav = () => {
           justifyContent="space-between"
           sx={{ height: "24" }}
         >
-          <Inline>
+          <Inline gap={["0", null, "3"]}>
             <Link to="/">
               <Img
                 alt="Charleston Fun Park"
                 fluid={headerLogo}
                 sx={{
-                  width: "261px",
-                  height: "200px",
+                  width: ["113px", null, "261px"],
+                  height: ["87px", null, "200px"],
                   position: "relative",
                   zIndex: "100",
-                  mt: "5",
+                  mt: ["0", null, "5"],
                 }}
               />
             </Link>
-            <Img fluid={funLogo} sx={{ width: "176px", height: "76px" }} />
+            <Img
+              fluid={funLogo}
+              sx={{
+                width: ["73px", null, "176px"],
+                height: ["32px", null, "76px"],
+              }}
+            />
             <Arrow
               sx={{
-                height: "60px",
+                width: ["57px", null, "133px"],
+                height: ["26px", null, "60px"],
                 transform: "rotateZ(180deg)",
-                width: "133px",
               }}
             />
           </Inline>

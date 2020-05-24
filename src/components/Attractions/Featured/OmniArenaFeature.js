@@ -7,24 +7,40 @@ import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
 
 const OmniArenaFeature = ({ data: { node } }) => (
-  <Flex sx={{ height: "lg" }}>
-    <Img fluid={node.heroImage.fluid} sx={{ width: "7/12" }} />
+  <Flex
+    sx={{
+      flexDirection: ["column", null, null, "row"],
+      height: ["auto", null, null, "lg"],
+    }}
+  >
+    <Img
+      fluid={node.heroImage.fluid}
+      sx={{
+        width: ["full", null, null, "7/12"],
+        height: ["sm", null, null, "full"],
+      }}
+    />
     <Grid
       bg="black.dark"
       color="white.light"
-      p="7"
-      sx={{ width: "5/12" }}
+      px={["3", null, null, "7"]}
+      py={["4", null, null, "7"]}
+      sx={{
+        width: ["full", null, null, "5/12"],
+        minHeight: ["xs", null, null, "auto"],
+      }}
       variant="featuredAttraction"
     >
       <Arrow
         sx={{
           position: "absolute !important",
-          left: "-15%",
-          top: "-1rem",
+          left: [null, null, null, "-15%"],
+          right: ["3", null],
+          top: ["-4rem", null, null, "-1rem"],
           zIndex: "1",
           width: "180px",
           height: "80px",
-          transform: "rotateZ(-145deg)",
+          transform: ["rotate(-30deg)", null, null, "rotateZ(-145deg)"],
         }}
       />
       <StyledLink
