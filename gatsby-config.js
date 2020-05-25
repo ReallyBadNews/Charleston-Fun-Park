@@ -19,6 +19,13 @@ if (!spaceId || !accessToken) {
   );
 }
 
+const breakpoints = {
+  mobile: "(min-width: 475px)",
+  tablet: "(min-width: 768px)",
+  desktop: "(min-width: 1024px)",
+  wide: "(min-width: 1280px)",
+};
+
 module.exports = {
   siteMetadata: {
     title: "Charleston Fun Park",
@@ -80,6 +87,12 @@ module.exports = {
     "gatsby-plugin-theme-ui",
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-plugin-breakpoints",
+      options: {
+        queries: breakpoints,
+      },
+    },
     {
       resolve: `gatsby-plugin-layout`,
       options: {

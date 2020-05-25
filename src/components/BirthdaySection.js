@@ -84,10 +84,7 @@ const BirthdaySection = () => {
               />
             </Button>
           </Stack>
-          <Grid
-            columns={["1fr", "repeat(2, 1fr)", null, "repeat(4, 1fr)"]}
-            gap="3"
-          >
+          <Grid columns={["1fr", "repeat(2, 1fr)", "repeat(4, 1fr)"]} gap="3">
             {edges[0].node.media.map((image) => (
               <Img
                 key={image.contentful_id}
