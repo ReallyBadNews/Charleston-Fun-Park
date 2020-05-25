@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Container, jsx } from "theme-ui";
@@ -54,6 +55,8 @@ const Nav = () => {
     }
   `);
 
+  const breakpoints = useBreakpoint();
+
   const { navLinks } = useSiteMetadata();
 
   const [menuOpenState, setMenuOpenState] = useState(false);
@@ -90,50 +93,61 @@ const Nav = () => {
           justifyContent="space-between"
           sx={{ height: "24" }}
         >
-          <Inline>
+          <Inline gap={["2", null, "3"]}>
             <Link to="/">
               <Img
                 alt="Charleston Fun Park"
                 fluid={headerLogo}
                 sx={{
-                  width: "261px",
-                  height: "200px",
+                  width: ["113px", null, null, "172px", "261px"],
+                  height: ["87px", null, null, "132px", "200px"],
                   position: "relative",
                   zIndex: "100",
-                  mt: "5",
+                  mt: ["0", null, null, null, "5"],
                 }}
               />
             </Link>
-            <Img fluid={funLogo} sx={{ width: "176px", height: "76px" }} />
+            <Img
+              fluid={funLogo}
+              sx={{
+                width: ["73px", "132px", "130px", null, "176px"],
+                height: ["32px", "57px", "56px", null, "76px"],
+              }}
+            />
             <Arrow
               sx={{
-                height: "60px",
+                width: ["57px", "120px", "124px", null, "133px"],
+                height: ["26px", "54px", "56px", null, "60px"],
                 transform: "rotateZ(180deg)",
-                width: "133px",
               }}
             />
           </Inline>
-          <Inline as="nav" color="white.light" gap="5">
-            {navLinks.slice(0, 3).map((link) => (
-              <Inline key={link.name} gap="2">
-                <FontAwesomeIcon
-                  icon={menuIcons[link.name]}
-                  sx={{ fontSize: "3", maxHeight: "5" }}
-                />
-                <StyledLink
-                  key={link.name}
-                  color="white.light"
-                  fontSize="2"
-                  fontWeight="bold"
-                  letterSpacing="widest"
-                  textDecoration="none"
-                  textTransform="uppercase"
-                  to={link.url}
-                >
-                  {link.name}
-                </StyledLink>
-              </Inline>
-            ))}
+          <Inline
+            as="nav"
+            color="white.light"
+            gap={["3", null, null, null, "5"]}
+          >
+            {breakpoints.desktop &&
+              navLinks.slice(0, 3).map((link) => (
+                <Inline key={link.name} gap={["1", null, null, null, "2"]}>
+                  <FontAwesomeIcon
+                    icon={menuIcons[link.name]}
+                    sx={{ fontSize: ["2", null, null, "5"], maxHeight: "5" }}
+                  />
+                  <StyledLink
+                    key={link.name}
+                    color="white.light"
+                    fontSize={["1", null, null, null, "2"]}
+                    fontWeight="bold"
+                    letterSpacing="widest"
+                    textDecoration="none"
+                    textTransform="uppercase"
+                    to={link.url}
+                  >
+                    {link.name}
+                  </StyledLink>
+                </Inline>
+              ))}
             <FontAwesomeIcon
               icon={menuOpenState ? faTimes : faBars}
               sx={{

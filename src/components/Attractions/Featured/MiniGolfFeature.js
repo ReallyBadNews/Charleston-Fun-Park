@@ -27,14 +27,32 @@ const MiniGolfFeature = ({ data: { node } }) => {
   `);
 
   return (
-    <Flex sx={{ height: "lg" }}>
-      <Img fluid={node.heroImage.fluid} sx={{ width: "7/12" }} />
+    <Flex
+      sx={{
+        flexDirection: ["column", null, null, "row"],
+        height: ["auto", null, null, "lg"],
+      }}
+    >
+      <Img
+        fluid={node.heroImage.fluid}
+        sx={{
+          width: ["full", null, null, "7/12"],
+          height: ["sm", null, null, "full"],
+        }}
+      />
       <Box
         sx={{
-          width: "5/12",
+          width: ["full", null, null, "5/12"],
+          minHeight: ["xs", null, null, "auto"],
           position: "relative",
-          borderLeft: "48px solid",
-          borderImage: `url(${Brick}) 0 48 repeat`,
+          borderLeft: ["none", null, null, "48px solid"],
+          borderTop: ["24px solid", null, null, "none"],
+          borderImage: [
+            `url(${Brick}) 24 0 repeat`,
+            null,
+            null,
+            `url(${Brick}) 0 48 repeat`,
+          ],
         }}
       >
         <BackgroundImage
@@ -59,12 +77,13 @@ const MiniGolfFeature = ({ data: { node } }) => {
           <Arrow
             sx={{
               position: "absolute !important",
-              left: "-15%",
-              top: "-1rem",
+              left: [null, null, null, "-15%"],
+              right: ["3", null],
+              top: ["-3rem", null, null, "-1rem"],
               zIndex: "1",
               width: "180px",
               height: "80px",
-              transform: "rotateZ(-145deg)",
+              transform: ["rotate(-30deg)", null, null, "rotateZ(-145deg)"],
             }}
           />
           <StyledLink

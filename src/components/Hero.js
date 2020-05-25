@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx, Heading, Text, Container, Box } from "theme-ui";
-import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
+import { useStaticQuery, graphql } from "gatsby";
 import { Stack, Flex } from "raam";
 
 const Hero = () => {
@@ -21,10 +22,21 @@ const Hero = () => {
     }
   `);
 
+  const breakpoints = useBreakpoint();
+
   return (
     <BackgroundImage
       fluid={fluid}
-      sx={{ bg: "black.mid", height: "calc(100vh - 133.5px - 104px)" }}
+      sx={{
+        bg: "black.mid",
+        height: [
+          "calc(100vh - 136.5px - 80px)",
+          "calc(100vh - 136.5px - 96px)",
+          "calc(100vh - 136.5px - 76px)",
+          "calc(100vh - 136.5px - 96px)",
+          "calc(100vh - 133.5px - 104px)",
+        ],
+      }}
     >
       <Box
         sx={{
@@ -39,36 +51,38 @@ const Hero = () => {
           opacity: "0.5",
         }}
       />
-      <Container
-        px={["3", null, null, null, "0"]}
-        py="7"
-        sx={{ height: "full" }}
-      >
-        <Flex
-          alignItems="center"
-          flexShrink="1"
-          sx={{ height: "full", zIndex: "2" }}
+      {breakpoints.tablet ? (
+        <Container
+          px={["3", null, null, null, "0"]}
+          py="7"
+          sx={{ height: "full" }}
         >
-          <Box
-            sx={{
-              width: ["full", null, "3/4", null, "7/12"],
-              color: "white.light",
-            }}
+          <Flex
+            alignItems="center"
+            flexShrink="1"
+            sx={{ height: "full", zIndex: "2" }}
           >
-            <Heading variant="heading.title">Welcome to the</Heading>
-            <Stack gap="3">
-              <Heading as="h1" variant="heading">
-                Charleston Fun Park
-              </Heading>
-              <Text variant="body.large">
-                From 36 holes of mini-golf, go karts, bumper cars,a full arcade
-                with a VR coaster and the OMNI VR Arena and even axe throwing.
-                We have something for everyone!
-              </Text>
-            </Stack>
-          </Box>
-        </Flex>
-      </Container>
+            <Box
+              color="white.light"
+              sx={{
+                width: ["full", null, "3/4", null, "7/12"],
+              }}
+            >
+              <Heading variant="heading.title">Welcome to the</Heading>
+              <Stack gap="3">
+                <Heading as="h1" variant="heading">
+                  Charleston Fun Park
+                </Heading>
+                <Text variant="body.large">
+                  From 36 holes of mini-golf, go karts, bumper cars,a full
+                  arcade with a VR coaster and the OMNI VR Arena and even axe
+                  throwing. We have something for everyone!
+                </Text>
+              </Stack>
+            </Box>
+          </Flex>
+        </Container>
+      ) : null}
     </BackgroundImage>
   );
 };

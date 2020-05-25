@@ -28,7 +28,12 @@ const GoKartsFeature = ({ data: { node } }) => {
   const { theme } = useThemeUI();
 
   return (
-    <Box sx={{ position: "relative", height: "lg" }}>
+    <Box
+      sx={{
+        position: "relative",
+        height: ["auto", null, null, "lg"],
+      }}
+    >
       <svg
         fill="white"
         height="32"
@@ -55,9 +60,26 @@ const GoKartsFeature = ({ data: { node } }) => {
         </defs>
         <rect fill="url(#Pattern)" height="32" width="100%" />
       </svg>
-      <Flex sx={{ flexDirection: "row-reverse", height: "full" }}>
-        <Img fluid={node.heroImage.fluid} sx={{ width: "7/12" }} />
-        <Box sx={{ width: "5/12", position: "relative" }}>
+      <Flex
+        sx={{
+          flexDirection: ["column", null, null, "row-reverse"],
+          height: "full",
+        }}
+      >
+        <Img
+          fluid={node.heroImage.fluid}
+          sx={{
+            width: ["full", null, null, "7/12"],
+            height: ["sm", null, null, "full"],
+          }}
+        />
+        <Box
+          sx={{
+            width: ["full", null, null, "5/12"],
+            minHeight: ["xs", null, null, "auto"],
+            position: "relative",
+          }}
+        >
           <svg
             fill="none"
             height="16"
@@ -65,7 +87,7 @@ const GoKartsFeature = ({ data: { node } }) => {
               position: "absolute",
               zIndex: "1",
               width: "full",
-              top: "3rem",
+              top: ["1rem", null, null, "3rem"],
             }}
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
@@ -81,15 +103,22 @@ const GoKartsFeature = ({ data: { node } }) => {
               width: "full",
             }}
           />
-          <Grid color="white.light" p="7" variant="featuredAttraction">
+          <Grid
+            color="white.light"
+            pb={["9", null, null, "7"]}
+            pt="7"
+            px={["3", null, null, "7"]}
+            variant="featuredAttraction"
+          >
             <Arrow
               sx={{
                 position: "absolute !important",
-                right: "-15%",
+                right: ["3", null, null, "-15%"],
                 zIndex: "2",
                 width: "180px",
                 height: "80px",
-                transform: "rotateZ(325deg)",
+                top: ["-3rem", null, null, "-1rem"],
+                transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
               }}
             />
             <StyledLink

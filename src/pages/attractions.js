@@ -1,10 +1,12 @@
 /** @jsx jsx */
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { jsx, Grid, Container } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import MainLayout from "../templates/MainLayout";
 import WoodBg from "../components/Images/WoodBg";
 import MoreAttractionsDivider from "../components/SectionDivider/MoreAttractionsDivider";
 import AttractionsCard from "../components/Attractions/AttractionsCard";
+import SEO from "../components/seo";
 
 const AttractionsPage = () => {
   const {
@@ -39,7 +41,8 @@ const AttractionsPage = () => {
   `);
 
   return (
-    <MainLayout title="Attractions">
+    <>
+      <SEO title="Attractions" />
       <MoreAttractionsDivider title="Attractions" />
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">
@@ -64,7 +67,7 @@ const AttractionsPage = () => {
           </Grid>
         </Container>
       </WoodBg>
-    </MainLayout>
+    </>
   );
 };
 

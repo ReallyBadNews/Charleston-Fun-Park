@@ -54,6 +54,10 @@ const GlobalStyles = () => (
         font-style: normal;
       }
 
+      html {
+        overflow-x: hidden;
+      }
+
       h1,
       h2,
       h3,

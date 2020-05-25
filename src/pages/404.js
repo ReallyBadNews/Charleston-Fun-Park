@@ -1,11 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Container, Heading, Text } from "theme-ui";
-import MainLayout from "../templates/MainLayout";
 import StyledLink from "../components/Link.styled";
+import SEO from "../components/seo";
 
 const NotFoundPage = () => (
-  <MainLayout title="404: Not Found">
+  <>
+    <SEO title="404 | Page Not Found" />
     <Container py="6">
       <Heading variant="caps">Not Found</Heading>
       <Text mt="4" variant="body.normal">
@@ -13,13 +13,7 @@ const NotFoundPage = () => (
         <StyledLink to="/">Go back home</StyledLink>
       </Text>
     </Container>
-  </MainLayout>
+  </>
 );
 
 export default NotFoundPage;
-
-NotFoundPage.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
-};

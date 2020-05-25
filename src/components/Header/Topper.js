@@ -64,7 +64,7 @@ const Topper = () => {
         py="1"
         sx={{ position: "relative", zIndex: "100" }}
       >
-        <Flex gap="5" justifyContent="flex-end">
+        <Flex gap="5" justifyContent={["space-between", null, "flex-end"]}>
           <Button as="a" href={phoneNumber.link} variant="mini">
             {phoneNumber.number}
             <FontAwesomeIcon
