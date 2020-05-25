@@ -175,6 +175,10 @@ export default {
         fontSize: "5",
         lineHeight: "none",
       },
+      smallTitle: {
+        variant: "heading.title",
+        fontSize: "4",
+      },
       featuredTitle: {
         variant: "heading",
         fontSize: ["7", null, "9"],

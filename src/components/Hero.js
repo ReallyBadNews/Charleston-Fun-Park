@@ -27,7 +27,16 @@ const Hero = () => {
   return (
     <BackgroundImage
       fluid={fluid}
-      sx={{ bg: "black.mid", height: "calc(100vh - 133.5px - 104px)" }}
+      sx={{
+        bg: "black.mid",
+        height: [
+          "calc(100vh - 136.5px - 80px)",
+          "calc(100vh - 136.5px - 96px)",
+          "calc(100vh - 136.5px - 76px)",
+          "calc(100vh - 136.5px - 96px)",
+          "calc(100vh - 133.5px - 104px)",
+        ],
+      }}
     >
       <Box
         sx={{
@@ -57,7 +66,6 @@ const Hero = () => {
               color="white.light"
               sx={{
                 width: ["full", null, "3/4", null, "7/12"],
-                // display: ["none", null, "block"],
               }}
             >
               <Heading variant="heading.title">Welcome to the</Heading>
