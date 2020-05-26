@@ -4,8 +4,8 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import { Container, jsx } from "theme-ui";
-import { Flex, Inline } from "raam";
+import { Box, Container, jsx } from "theme-ui";
+import { Flex, Inline, Stack } from "raam";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -159,6 +159,38 @@ const Nav = () => {
               onClick={burgerHandler}
             />
           </Inline>
+          <Box
+            as="nav"
+            sx={{
+              display: menuOpenState ? "block" : "none",
+              position: "absolute",
+              right: "0",
+              top: "5",
+              backgroundColor: "white.light",
+              padding: 4,
+              borderRadius: "lg",
+              boxShadow: "default",
+              textAlign: "right",
+            }}
+          >
+            <Stack gap="3">
+              {navLinks.map((link) => (
+                <StyledLink
+                  key={link.name}
+                  color="black.dark"
+                  fontSize="2"
+                  fontWeight="bold"
+                  letterSpacing="widest"
+                  textDecoration="none"
+                  textTransform="uppercase"
+                  to={link.url}
+                  onClick={() => setMenuOpenState(false)}
+                >
+                  {link.name}
+                </StyledLink>
+              ))}
+            </Stack>
+          </Box>
         </Flex>
       </Container>
     </BackgroundImage>
