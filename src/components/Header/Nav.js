@@ -110,14 +110,14 @@ const Nav = () => {
             <Img
               fluid={funLogo}
               sx={{
-                width: ["73px", "132px", "130px", null, "176px"],
-                height: ["32px", "57px", "56px", null, "76px"],
+                width: ["91px", "132px", "130px", null, "176px"],
+                height: ["40px", "57px", "56px", null, "76px"],
               }}
             />
             <Arrow
               sx={{
-                width: ["57px", "120px", "124px", null, "133px"],
-                height: ["26px", "54px", "56px", null, "60px"],
+                width: ["66px", "120px", "124px", null, "133px"],
+                height: ["30px", "54px", "56px", null, "60px"],
                 transform: "rotateZ(180deg)",
               }}
             />
