@@ -18,6 +18,7 @@ const StyledLink = ({
   mt,
   mx,
   my,
+  onClick,
   p,
   pb,
   pt,
@@ -62,6 +63,7 @@ const StyledLink = ({
     target={href ? `_blank` : null}
     title={title}
     to={to}
+    onClick={onClick}
   >
     {children}
   </Styled.a>
@@ -94,6 +96,7 @@ StyledLink.propTypes = {
   textTransform: PropTypes.string,
   title: PropTypes.string,
   to: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 StyledLink.defaultProps = {
@@ -119,6 +122,7 @@ StyledLink.defaultProps = {
   textTransform: "",
   title: null,
   to: "",
+  onClick: () => true,
 };
 
 export default StyledLink;

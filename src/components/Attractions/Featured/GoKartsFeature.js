@@ -92,7 +92,7 @@ const GoKartsFeature = ({ data: { node } }) => {
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect fill={theme.colors.red.dark} height="1rem" width="100%" />
+            <rect fill={theme.colors.red.dark} height="16" width="100%" />
           </svg>
           <BackgroundImage
             fluid={goKartsBg}
@@ -148,7 +148,7 @@ const GoKartsFeature = ({ data: { node } }) => {
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect fill={theme.colors.red.dark} height="1rem" width="100%" />
+            <rect fill={theme.colors.red.dark} height="16" width="100%" />
           </svg>
         </Box>
       </Flex>

@@ -159,13 +159,14 @@ const Nav = () => {
               onClick={burgerHandler}
             />
           </Inline>
+        </Flex>
+        {menuOpenState && (
           <Box
             as="nav"
             sx={{
-              display: menuOpenState ? "block" : "none",
               position: "absolute",
-              right: "0",
-              top: "5",
+              right: "3",
+              top: "72px",
               backgroundColor: "white.light",
               padding: 4,
               borderRadius: "lg",
@@ -184,14 +185,14 @@ const Nav = () => {
                   textDecoration="none"
                   textTransform="uppercase"
                   to={link.url}
-                  onClick={() => setMenuOpenState(false)}
+                  onClick={burgerHandler}
                 >
                   {link.name}
                 </StyledLink>
               ))}
             </Stack>
           </Box>
-        </Flex>
+        )}
       </Container>
     </BackgroundImage>
   );

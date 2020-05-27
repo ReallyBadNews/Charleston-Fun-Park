@@ -169,7 +169,7 @@ export default {
   text: {
     heading: {
       fontFamily: "heading",
-      fontSize: 9,
+      fontSize: ["7", null, null, "8", "9"],
       title: {
         variant: "heading",
         fontSize: "5",
@@ -198,7 +198,7 @@ export default {
       },
       large: {
         variant: "text.body.normal",
-        fontSize: "4",
+        fontSize: [null, null, "3", null, "4"],
       },
     },
     cardPricing: {
