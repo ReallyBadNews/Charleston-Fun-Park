@@ -63,12 +63,20 @@ export default {
   grids: {
     featuredAttraction: {
       position: "relative",
-      height: "full",
       placeContent: "center",
     },
     attractionsPage: {
       columnGap: "3",
       rowGap: "5",
+    },
+  },
+  layout: {
+    flexContainer: {
+      display: "flex",
+      alignItems: "center",
+      height: "full",
+      px: ["3", null, null, null, "0"],
+      py: "7",
     },
   },
   letterSpacings: {
@@ -169,7 +177,7 @@ export default {
   text: {
     heading: {
       fontFamily: "heading",
-      fontSize: 9,
+      fontSize: ["5", null, null, "8", "9"],
       title: {
         variant: "heading",
         fontSize: "5",
@@ -194,11 +202,11 @@ export default {
       },
       mid: {
         variant: "text.body.normal",
-        fontSize: "3",
+        fontSize: ["2", null, "3"],
       },
       large: {
         variant: "text.body.normal",
-        fontSize: "4",
+        fontSize: [null, null, "3", null, "4"],
       },
     },
     cardPricing: {

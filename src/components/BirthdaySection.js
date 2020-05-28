@@ -2,6 +2,7 @@
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { jsx, Container, Heading, Text, Button, Grid } from "theme-ui";
+import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";
@@ -43,34 +44,27 @@ const BirthdaySection = () => {
     }
   `);
 
+  const breakpoints = useBreakpoint();
+
   return (
     <BrickBg sx={{ position: "relative" }}>
-      <Container
-        px={["3", null, null, null, "0"]}
-        py="7"
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          height: "full",
-        }}
-      >
-        <Img
-          fluid={baloonsImage}
-          sx={{ alignSelf: "flex-start", width: "1/4" }}
-        />
+      <Container variant="flexContainer">
+        {breakpoints.tablet && (
+          <Img
+            fluid={baloonsImage}
+            sx={{ alignSelf: "flex-start", width: "1/4" }}
+          />
+        )}
         <Stack
           gap={["3", null, "4", null, "5"]}
           sx={{
-            width: "3/4",
-            ml: "3",
-            mr: ["auto", null, null, "0", null],
+            width: ["auto", null, "3/4"],
+            ml: ["auto", null, "3"],
+            mr: ["auto", null, "0"],
           }}
         >
           <Stack gap="3">
-            <Heading
-              sx={{ fontSize: "8", color: "yellow.light" }}
-              variant="heading"
-            >
+            <Heading sx={{ color: "yellow.light" }} variant="heading">
               {edges[0].node.title}
             </Heading>
             <Text color="white.light" variant="body.mid">
@@ -84,7 +78,7 @@ const BirthdaySection = () => {
               />
             </Button>
           </Stack>
-          <Grid columns={["1fr", "repeat(2, 1fr)", "repeat(4, 1fr)"]} gap="3">
+          <Grid columns={["repeat(2, 1fr)", null, "repeat(4, 1fr)"]} gap="3">
             {edges[0].node.media.map((image) => (
               <Img
                 key={image.contentful_id}

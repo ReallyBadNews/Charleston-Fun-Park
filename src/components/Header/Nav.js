@@ -4,8 +4,8 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import { Container, jsx } from "theme-ui";
-import { Flex, Inline } from "raam";
+import { Box, Container, jsx } from "theme-ui";
+import { Flex, Inline, Stack } from "raam";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -110,14 +110,14 @@ const Nav = () => {
             <Img
               fluid={funLogo}
               sx={{
-                width: ["73px", "132px", "130px", null, "176px"],
-                height: ["32px", "57px", "56px", null, "76px"],
+                width: ["91px", "132px", "130px", null, "176px"],
+                height: ["40px", "57px", "56px", null, "76px"],
               }}
             />
             <Arrow
               sx={{
-                width: ["57px", "120px", "124px", null, "133px"],
-                height: ["26px", "54px", "56px", null, "60px"],
+                width: ["66px", "120px", "124px", null, "133px"],
+                height: ["30px", "54px", "56px", null, "60px"],
                 transform: "rotateZ(180deg)",
               }}
             />
@@ -160,6 +160,39 @@ const Nav = () => {
             />
           </Inline>
         </Flex>
+        {menuOpenState && (
+          <Box
+            as="nav"
+            sx={{
+              position: "absolute",
+              right: "3",
+              top: "72px",
+              backgroundColor: "white.light",
+              padding: 4,
+              borderRadius: "lg",
+              boxShadow: "default",
+              textAlign: "right",
+            }}
+          >
+            <Stack gap="3">
+              {navLinks.map((link) => (
+                <StyledLink
+                  key={link.name}
+                  color="black.dark"
+                  fontSize="2"
+                  fontWeight="bold"
+                  letterSpacing="widest"
+                  textDecoration="none"
+                  textTransform="uppercase"
+                  to={link.url}
+                  onClick={burgerHandler}
+                >
+                  {link.name}
+                </StyledLink>
+              ))}
+            </Stack>
+          </Box>
+        )}
       </Container>
     </BackgroundImage>
   );

@@ -46,8 +46,11 @@ const Hero = () => {
           right: "0",
           bottom: "0",
           left: "0",
-          background:
+          background: [
+            "none",
+            null,
             "linear-gradient(90deg, #1D2435FF, #1D2435FF 50%, #1D243500 100%)",
+          ],
           opacity: "0.5",
         }}
       />
@@ -65,7 +68,7 @@ const Hero = () => {
             <Box
               color="white.light"
               sx={{
-                width: ["full", null, "3/4", null, "7/12"],
+                width: [null, null, "3/4", null, "7/12"],
               }}
             >
               <Heading variant="heading.title">Welcome to the</Heading>

@@ -79,6 +79,7 @@
   },
   "scripts": {
     "dev": "gatsby develop",
+    "dev-m": "gatsby develop --host $(ifconfig | awk '/inet 192\\.168\\.[0-9]+\\.[0-9]+/{print $2}') --port 8000",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "eslint": "eslint --ext=js,jsx src",

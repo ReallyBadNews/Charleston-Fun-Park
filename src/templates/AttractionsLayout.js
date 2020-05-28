@@ -2,11 +2,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, Flex, jsx, Heading } from "theme-ui";
+import { Container, Flex, jsx, Heading, Card } from "theme-ui";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
+import WoodBg from "../components/Images/WoodBg";
 
 const AttractionsLayout = ({ data: { contentfulAttraction } }) => (
   <>
@@ -14,13 +15,29 @@ const AttractionsLayout = ({ data: { contentfulAttraction } }) => (
       description={contentfulAttraction.description.description}
       title={contentfulAttraction.title}
     />
-    <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-      <Img fluid={contentfulAttraction.heroImage.fluid} />
-      <Container px={["3", null, "0"]} py="6" sx={{ flex: "1 1 auto" }}>
-        <Heading mb="3">{contentfulAttraction.title}</Heading>
-        <MDXRenderer>{contentfulAttraction.body.childMdx.body}</MDXRenderer>
-      </Container>
-    </Flex>
+    <WoodBg overlayColor="blue.light">
+      <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
+        <Img
+          fluid={contentfulAttraction.heroImage.fluid}
+          sx={{ maxHeight: "xl" }}
+        />
+        <Container
+          mx={["3", null, null, null, "auto"]}
+          my="6"
+          sx={{ flex: "1 1 auto", width: "auto" }}
+        >
+          <Card
+            bg="white.light"
+            color="black.dark"
+            p="4"
+            sx={{ borderRadius: "lg", width: "auto" }}
+          >
+            <Heading mb="3">{contentfulAttraction.title}</Heading>
+            <MDXRenderer>{contentfulAttraction.body.childMdx.body}</MDXRenderer>
+          </Card>
+        </Container>
+      </Flex>
+    </WoodBg>
   </>
 );
 
