@@ -63,7 +63,6 @@ export default {
   grids: {
     featuredAttraction: {
       position: "relative",
-      height: "full",
       placeContent: "center",
     },
     attractionsPage: {
