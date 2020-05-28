@@ -45,7 +45,8 @@ const MiniGolfFeature = ({ data: { node } }) => {
           width: ["full", null, null, "5/12"],
           minHeight: ["xs", null, null, "auto"],
           position: "relative",
-          borderLeft: ["none", null, null, "48px solid"],
+          borderLeft: ["0", null, null, "48px solid"],
+          borderRight: "0",
           borderTop: ["24px solid", null, null, "none"],
           borderImage: [
             `url(${Brick}) 24 0 repeat`,
