@@ -93,20 +93,21 @@ const Nav = () => {
           justifyContent="space-between"
           sx={{ height: "24" }}
         >
-          <Inline gap={["2", null, "3"]}>
+          <Inline gap={["1", null, "3"]}>
             <Link to="/">
               <Img
                 alt="Charleston Fun Park"
                 fluid={headerLogo}
                 sx={{
-                  width: ["113px", null, null, "172px", "261px"],
-                  height: ["87px", null, null, "132px", "200px"],
+                  width: ["122px", null, null, "172px", "261px"],
+                  height: ["94px", null, null, "132px", "200px"],
                   position: "relative",
                   zIndex: "100",
                   mt: ["0", null, null, null, "5"],
                 }}
               />
             </Link>
+
             <Img
               fluid={funLogo}
               sx={{
@@ -139,7 +140,7 @@ const Nav = () => {
                     color="white.light"
                     fontSize={["1", null, null, null, "2"]}
                     fontWeight="bold"
-                    letterSpacing="widest"
+                    letterSpacing="wide"
                     textDecoration="none"
                     textTransform="uppercase"
                     to={link.url}
@@ -166,7 +167,7 @@ const Nav = () => {
             sx={{
               position: "absolute",
               right: "3",
-              top: "72px",
+              top: "80px",
               backgroundColor: "white.light",
               padding: 4,
               borderRadius: "lg",
