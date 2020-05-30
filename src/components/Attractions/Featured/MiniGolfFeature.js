@@ -75,7 +75,12 @@ const MiniGolfFeature = ({ data: { node } }) => {
             opacity: "0.75",
           }}
         />
-        <Grid color="white.light" p="7" variant="featuredAttraction">
+        <Grid
+          color="white.light"
+          p="7"
+          sx={{ height: "full" }}
+          variant="featuredAttraction"
+        >
           <Arrow
             sx={{
               position: "absolute !important",

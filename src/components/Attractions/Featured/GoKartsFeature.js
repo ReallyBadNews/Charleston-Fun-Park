@@ -108,6 +108,7 @@ const GoKartsFeature = ({ data: { node } }) => {
             pb={["9", null, null, "7"]}
             pt="7"
             px={["3", null, null, "7"]}
+            sx={{ height: "full" }}
             variant="featuredAttraction"
           >
             <Arrow

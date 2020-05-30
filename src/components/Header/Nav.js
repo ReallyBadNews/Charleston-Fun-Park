@@ -86,7 +86,10 @@ const Nav = () => {
       }}
       tag="div"
     >
-      <Container px={["3", null, null, null, "0"]}>
+      <Container
+        px={["3", null, null, null, "0"]}
+        sx={{ position: "relative" }}
+      >
         <Flex
           alignItems="center"
           className="nav"
@@ -129,7 +132,7 @@ const Nav = () => {
             gap={["3", null, null, null, "5"]}
           >
             {breakpoints.desktop &&
-              navLinks.slice(0, 3).map((link) => (
+              navLinks.slice(1, 4).map((link) => (
                 <Inline key={link.name} gap={["1", null, null, null, "2"]}>
                   <FontAwesomeIcon
                     icon={menuIcons[link.name]}
@@ -166,7 +169,7 @@ const Nav = () => {
             as="nav"
             sx={{
               position: "absolute",
-              right: "3",
+              right: ["3", null, null, null, "0"],
               top: "80px",
               backgroundColor: "white.light",
               padding: 4,

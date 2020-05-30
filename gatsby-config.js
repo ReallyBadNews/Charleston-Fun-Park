@@ -54,6 +54,10 @@ module.exports = {
     ],
     navLinks: [
       {
+        name: "Home",
+        url: "/",
+      },
+      {
         name: "Attractions",
         url: "/attractions/",
       },
