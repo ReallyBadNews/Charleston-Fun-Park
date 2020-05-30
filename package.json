@@ -52,7 +52,7 @@
     "prettier-eslint": "^9.0.1",
     "prettier-eslint-cli": "^5.0.0",
     "prop-types": "^15.7.2",
-    "stylelint": "^13.4.1",
+    "stylelint": "^13.5.0",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-webpack-plugin": "^2.0.0"
   },
