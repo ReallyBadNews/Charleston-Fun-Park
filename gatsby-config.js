@@ -63,7 +63,7 @@ module.exports = {
       },
       {
         name: "Birthdays & Events",
-        url: "/birthdays-events/",
+        url: "/birthdays-and-events/",
       },
       {
         name: "Park Info",
