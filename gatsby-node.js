@@ -15,6 +15,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
+      allContentfulSectionPages {
+        edges {
+          node {
+            id
+            title
+            slug
+            description {
+              description
+            }
+            content {
+              childMdx {
+                body
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -22,18 +39,30 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
 
-  // Layout template
-  const attractionsTemplate = path.resolve(
+  // Layout templates
+  const attractionTemplate = path.resolve(
     "./src/templates/AttractionsLayout.js"
   );
+  const sectionTemplate = path.resolve("./src/templates/SectionLayout.js");
 
   // Create blog post pages.
-  const posts = result.data.allContentfulAttraction.edges;
+  const attractions = result.data.allContentfulAttraction.edges;
+  const sections = result.data.allContentfulSectionPages.edges;
 
-  posts.forEach(({ node }) => {
+  attractions.forEach(({ node }) => {
     createPage({
       path: `/attractions/${node.slug}/`,
-      component: attractionsTemplate,
+      component: attractionTemplate,
+      context: {
+        id: node.id,
+      },
+    });
+  });
+
+  sections.forEach(({ node }) => {
+    createPage({
+      path: `${node.slug}/`,
+      component: sectionTemplate,
       context: {
         id: node.id,
       },

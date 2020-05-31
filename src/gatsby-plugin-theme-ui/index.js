@@ -271,12 +271,33 @@ export default {
       color: "black.dark",
       overflowX: "hidden",
     },
+    a: {
+      color: "black.dark",
+      fontWeight: "bold",
+      textDecoration: "none",
+    },
     h1: {
       mb: "3",
+    },
+    h2: {
+      mb: "3",
+    },
+    h3: {
+      mb: "3",
+    },
+    ul: {
+      mt: "3",
+      mb: "5",
+    },
+    li: {
+      mt: "3",
+      mb: "3",
+      lineHeight: "normal",
     },
     p: {
       fontSize: "3",
       lineHeight: "normal",
+      mb: "5",
     },
     hr: {
       height: "px",
