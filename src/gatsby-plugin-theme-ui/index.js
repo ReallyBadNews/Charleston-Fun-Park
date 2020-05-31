@@ -280,9 +280,18 @@ export default {
       mb: "3",
     },
     h2: {
+      fontSize: "6",
+      lineHeight: "none",
       mb: "3",
     },
     h3: {
+      fontSize: "3",
+      lineHeight: "none",
+      mb: "3",
+    },
+    h5: {
+      fontSize: "2",
+      lineHeight: "none",
       mb: "3",
     },
     ul: {
@@ -290,6 +299,7 @@ export default {
       mb: "5",
     },
     li: {
+      fontSize: "3",
       mt: "3",
       mb: "3",
       lineHeight: "normal",
