@@ -21,8 +21,6 @@ import MoreAttractionsDivider from "../components/SectionDivider/MoreAttractions
 
 const AttractionsLayout = ({ data: { contentfulSectionPages } }) => {
   const { theme } = useThemeUI();
-  console.log("theme", theme);
-  console.log(theme.sizes["1/3"]);
 
   return (
     <>
@@ -93,7 +91,7 @@ export const sectionsQuery = graphql`
     }
   }
 `;
-// TODO: Fix PropTypes
+
 AttractionsLayout.propTypes = {
   data: PropTypes.shape({
     contentfulSectionPages: PropTypes.shape({
@@ -105,16 +103,22 @@ AttractionsLayout.propTypes = {
       description: PropTypes.shape({
         description: PropTypes.string,
       }),
-      media: PropTypes.shape({
-        fluid: PropTypes.shape({
-          aspectRatio: PropTypes.number,
-          sizes: PropTypes.string,
-          src: PropTypes.string,
-          srcSet: PropTypes.string,
-          srcSetWebp: PropTypes.string,
-          srcWebp: PropTypes.string,
-        }),
-      }),
+      id: PropTypes.string,
+      media: PropTypes.arrayOf(
+        PropTypes.shape({
+          description: PropTypes.string,
+          fluid: PropTypes.shape({
+            aspectRatio: PropTypes.number,
+            sizes: PropTypes.string,
+            src: PropTypes.string,
+            srcSet: PropTypes.string,
+            srcSetWebp: PropTypes.string,
+            srcWebp: PropTypes.string,
+          }),
+          title: PropTypes.string,
+        })
+      ),
+      slug: PropTypes.string,
       title: PropTypes.string,
     }),
   }).isRequired,
