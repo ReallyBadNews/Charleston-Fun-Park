@@ -86,6 +86,7 @@ module.exports = {
   pathPrefix: "/charleston-fun-park",
   plugins: [
     "gatsby-plugin-mdx",
+    "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-plugin-theme-ui",
@@ -112,6 +113,18 @@ module.exports = {
       options: {
         name: "images",
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Omne Marketing",
+        short_name: "Omne",
+        icon: "src/images/logo.png",
+        start_url: "/",
+        background_color: "#f7f0eb",
+        theme_color: "#FDFDF8",
+        display: "standalone",
       },
     },
   ],
