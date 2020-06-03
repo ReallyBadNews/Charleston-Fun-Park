@@ -255,6 +255,10 @@ export default {
       color: "black.dark",
       height: "full",
     },
+    image: {
+      variant: "cards.attraction",
+      height: "auto",
+    },
   },
   divider: {
     glow: {
@@ -280,12 +284,12 @@ export default {
       mb: "3",
     },
     h2: {
-      fontSize: "6",
+      fontSize: ["5", null, "6"],
       lineHeight: "none",
       mb: "3",
     },
     h3: {
-      fontSize: "3",
+      fontSize: ["2", null, "3"],
       lineHeight: "none",
       mb: "3",
     },
@@ -299,13 +303,13 @@ export default {
       mb: "5",
     },
     li: {
-      fontSize: "3",
+      fontSize: ["2", null, "3"],
       mt: "3",
       mb: "3",
       lineHeight: "normal",
     },
     p: {
-      fontSize: "3",
+      fontSize: ["2", null, "3"],
       lineHeight: "normal",
       mb: "5",
     },

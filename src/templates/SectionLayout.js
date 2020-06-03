@@ -33,7 +33,15 @@ const AttractionsLayout = ({ data: { contentfulSectionPages } }) => {
           <MoreAttractionsDivider title={contentfulSectionPages.title} />
           <Container my="6" sx={{ flex: "1 1 auto", width: "auto" }}>
             <Grid
-              columns={`1fr minmax(${theme.sizes.xs}, ${theme.sizes["1/3"]})`}
+              columns={[
+                "1fr",
+                null,
+                contentfulSectionPages.media
+                  ? `1fr minmax(${theme.sizes.xs}, ${theme.sizes["1/3"]})`
+                  : `1fr`,
+              ]}
+              px={["3", null, null, null, "0"]}
+              sx={!contentfulSectionPages.media && { maxWidth: "3xl" }}
             >
               <Card
                 bg="white.light"
@@ -45,20 +53,22 @@ const AttractionsLayout = ({ data: { contentfulSectionPages } }) => {
                   {contentfulSectionPages.content.childMdx.body}
                 </MDXRenderer>
               </Card>
-              <Box>
-                {contentfulSectionPages.media.map((image) => (
-                  <Card key={image.title} variant="attraction">
-                    <Img
-                      alt={image.title}
-                      fluid={image.fluid}
-                      sx={{ borderRadius: "lg" }}
-                    />
-                    <Text p="3">
-                      {contentfulSectionPages.description.description}
-                    </Text>
-                  </Card>
-                ))}
-              </Box>
+              {contentfulSectionPages.media && (
+                <Box>
+                  {contentfulSectionPages.media.map((image) => (
+                    <Card key={image.title} variant="image">
+                      <Img
+                        alt={image.title}
+                        fluid={image.fluid}
+                        sx={{ borderRadius: "lg" }}
+                      />
+                      <Text p="3">
+                        {contentfulSectionPages.description.description}
+                      </Text>
+                    </Card>
+                  ))}
+                </Box>
+              )}
             </Grid>
           </Container>
         </Flex>
