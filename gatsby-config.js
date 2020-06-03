@@ -70,16 +70,12 @@ module.exports = {
         url: "/park-info/",
       },
       {
-        name: "Fun Cards",
-        url: "/fun-cards/",
-      },
-      {
         name: "Specials",
         url: "/specials/",
       },
       {
-        name: "Contact Us",
-        url: "/contact",
+        name: "Fun Cards",
+        url: "/fun-cards/",
       },
     ],
   },
