@@ -20,7 +20,7 @@ const AttractionsCard = ({
   title,
   textAlign,
 }) => (
-  <motion.div whileHover={{ y: -16 }}>
+  <motion.div whileHover={{ y: -8 }}>
     <StyledLink to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}>
       <Card variant="attraction">
         <Img

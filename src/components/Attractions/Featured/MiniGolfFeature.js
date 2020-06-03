@@ -84,7 +84,7 @@ const MiniGolfFeature = ({ data: { node } }) => {
           <Arrow
             sx={{
               position: "absolute !important",
-              left: [null, null, null, "-15%"],
+              left: [null, null, null, "-80px"],
               right: ["3", null],
               top: ["-3rem", null, null, "-1rem"],
               zIndex: "1",

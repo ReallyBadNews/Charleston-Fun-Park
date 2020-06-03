@@ -179,7 +179,7 @@ const Nav = () => {
             }}
           >
             <Stack gap="3">
-              {navLinks.map((link) => (
+              {navLinks.slice(!breakpoints.desktop ? 0 : 4).map((link) => (
                 <StyledLink
                   key={link.name}
                   color="black.dark"

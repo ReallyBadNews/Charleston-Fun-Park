@@ -114,7 +114,7 @@ const GoKartsFeature = ({ data: { node } }) => {
             <Arrow
               sx={{
                 position: "absolute !important",
-                right: ["3", null, null, "-15%"],
+                right: ["3", null, null, "-80px"],
                 zIndex: "2",
                 width: "180px",
                 height: "80px",
