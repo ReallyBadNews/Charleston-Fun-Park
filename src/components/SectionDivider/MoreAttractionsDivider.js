@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, Divider, Text, jsx } from "theme-ui";
+import { Container, Divider, Heading, jsx } from "theme-ui";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { Link } from "gatsby";
 import { Inline } from "raam";
@@ -89,7 +89,7 @@ const MoreAttractionsDivider = ({ title, to }) => {
               />
             </svg>
           )}
-          <Text mx="3" variant="display">
+          <Heading as="h1" mx="3" variant="display">
             {to ? (
               <Link sx={{ color: "inherit", textDecoration: "none" }} to={to}>
                 {title}
@@ -97,7 +97,7 @@ const MoreAttractionsDivider = ({ title, to }) => {
             ) : (
               [title]
             )}
-          </Text>
+          </Heading>
           {breakpoints.tablet ? (
             <>
               <svg

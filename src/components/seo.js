@@ -1,43 +1,46 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import useSiteMetadata from "../hooks/use-site-metadata";
 // import OGImage from "../../static/images/tbas_og.jpg";
 // import TWImage from "../../static/images/twitter_image.jpg";
 
-function SEO({ description, lang, meta, keywords, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            siteUrl
-          }
-        }
-      }
-    `
-  );
+const SEO = ({
+  description,
+  lang,
+  meta,
+  metaImage,
+  keywords,
+  title,
+  pathname,
+}) => {
+  const {
+    author,
+    title: siteTitle,
+    description: siteDescription,
+    siteUrl,
+  } = useSiteMetadata();
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || siteDescription;
+
+  const image = metaImage && metaImage.src && `${siteUrl}${metaImage.src}`;
+
+  const canonical = pathname && `${siteUrl}${pathname}`;
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
+      link={canonical ? [{ rel: "canonical", href: canonical }] : []}
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: keywords,
         },
         {
           property: `og:title`,
@@ -65,7 +68,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: author,
         },
         {
           name: `twitter:title`,
@@ -77,19 +80,30 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
       ]
         .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
-            : []
+          metaImage
+            ? [
+                {
+                  property: "og:image",
+                  content: image,
+                },
+                {
+                  name: "twitter:card",
+                  content: "summary_large_image",
+                },
+              ]
+            : [
+                {
+                  name: "twitter:card",
+                  content: "summary",
+                },
+              ]
         )
         .concat(meta)}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${siteTitle}`}
     />
   );
-}
+};
 
 SEO.defaultProps = {
   lang: `en`,
@@ -99,6 +113,10 @@ SEO.defaultProps = {
 };
 
 SEO.propTypes = {
+  metaImage: PropTypes.shape({
+    src: PropTypes.string,
+  }).isRequired,
+  pathname: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   keywords: PropTypes.arrayOf(PropTypes.string),
