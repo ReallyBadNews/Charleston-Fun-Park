@@ -42,7 +42,7 @@ const AttractionsPage = () => {
 
   return (
     <>
-      <SEO title="Attractions" />
+      <SEO title="Things to Do in Charleston – Fun Family Entertainment" />
       <MoreAttractionsDivider title="Attractions" />
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">

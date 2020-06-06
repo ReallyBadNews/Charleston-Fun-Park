@@ -28,12 +28,20 @@ const breakpoints = {
 
 module.exports = {
   siteMetadata: {
-    title: "Charleston Fun Park",
+    title: "Charleston Fun Park in Mt. Pleasant, SC | Amusement Park",
     description:
       // eslint-disable-next-line max-len
       "Welcome to Charleston Fun Park! We are your locally owned and operated Family Entertainment Center in the Charleston area. We've got go-karts, putt-putt, an arcade, rock climbing, jumpland and more!",
+    author: `Charleston Fun Park`,
     siteUrl: "https://charlestonfunpark.com/",
     copyright: `© ${new Date().getFullYear()} Charleston Fun Park. All Rights Reserved.`,
+    keywords: [
+      `Fun Park`,
+      `Amusement Park`,
+      `Go Karts`,
+      `Putt-Putt`,
+      `Mini Golf`,
+    ],
     phoneNumber: {
       number: "(843) 971-1223",
       link: "tel:843-971-1223",
