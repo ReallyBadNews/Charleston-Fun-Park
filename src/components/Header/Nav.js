@@ -59,10 +59,10 @@ const Nav = () => {
 
   const { navLinks } = useSiteMetadata();
 
-  const [menuOpenState, setMenuOpenState] = useState(false);
+  const [menuOpen, setMenuOpenState] = useState(false);
 
   const burgerHandler = () => {
-    setMenuOpenState(!menuOpenState);
+    setMenuOpenState(!menuOpen);
   };
 
   const menuIcons = {
@@ -153,7 +153,7 @@ const Nav = () => {
                 </Inline>
               ))}
             <FontAwesomeIcon
-              icon={menuOpenState ? faTimes : faBars}
+              icon={menuOpen ? faTimes : faBars}
               sx={{
                 cursor: "pointer",
                 fontSize: "5",
@@ -164,7 +164,7 @@ const Nav = () => {
             />
           </Inline>
         </Flex>
-        {menuOpenState && (
+        {menuOpen && (
           <Box
             as="nav"
             sx={{
@@ -189,7 +189,7 @@ const Nav = () => {
                   textDecoration="none"
                   textTransform="uppercase"
                   to={link.url}
-                  onClick={burgerHandler}
+                  onClick={menuOpen && burgerHandler}
                 >
                   {link.name}
                 </StyledLink>

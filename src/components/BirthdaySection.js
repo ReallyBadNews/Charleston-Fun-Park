@@ -70,7 +70,7 @@ const BirthdaySection = () => {
             <Text color="white.light" variant="body.mid">
               {edges[0].node.description.description}
             </Text>
-            <Button as={Link} to="/" variant="cta">
+            <Button as={Link} to="/birthdays-and-events/" variant="cta">
               View Package Options
               <FontAwesomeIcon
                 icon={faArrowRight}
