@@ -8,10 +8,15 @@ import Footer from "../components/Footer";
 
 config.autoAddCss = true;
 
-const MainLayout = ({ children, description, title }) => (
+const MainLayout = ({
+  children,
+  description,
+  location: { pathname },
+  title,
+}) => (
   <>
     <GlobalStyles />
-    <SEO description={description} title={title} />
+    <SEO description={description} pathname={pathname} title={title} />
     <Header />
     <main>{children}</main>
     <Footer />
@@ -20,6 +25,9 @@ const MainLayout = ({ children, description, title }) => (
 
 MainLayout.propTypes = {
   children: PropTypes.node.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
   description: PropTypes.string,
   title: PropTypes.string,
 };
