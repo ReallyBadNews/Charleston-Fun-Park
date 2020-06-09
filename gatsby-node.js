@@ -47,6 +47,46 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
+      allContentfulBirthdaysEventsPage {
+        edges {
+          node {
+            id
+            title
+            slug
+            description {
+              description
+            }
+            birthdayPackage1Title
+            birthdayPackage1Price
+            birthdayPackage1Content {
+              childMdx {
+                body
+              }
+            }
+            birthdayPackage1Media {
+              title
+              description
+              fluid {
+                sizes
+              }
+            }
+            birthdayPackage2Title
+            birthdayPackage2Price
+            birthdayPackage2Content {
+              childMdx {
+                body
+              }
+            }
+            birthdayPackage3Title
+            birthdayPackage3Price
+            birthdayPackage3Content {
+              childMdx {
+                body
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -59,10 +99,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     "./src/templates/AttractionsLayout.js"
   );
   const sectionTemplate = path.resolve("./src/templates/SectionLayout.js");
+  const bDayTemplate = path.resolve("./src/templates/BirthdaysEventsLayout.js");
 
   // Create blog post pages.
   const attractions = result.data.allContentfulAttraction.edges;
   const sections = result.data.allContentfulSectionPages.edges;
+  const bDays = result.data.allContentfulBirthdaysEventsPage.edges;
 
   attractions.forEach(({ node }) => {
     createPage({
@@ -78,6 +120,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       path: `${node.slug}/`,
       component: sectionTemplate,
+      context: {
+        id: node.id,
+      },
+    });
+  });
+
+  bDays.forEach(({ node }) => {
+    createPage({
+      path: `${node.slug}/`,
+      component: bDayTemplate,
       context: {
         id: node.id,
       },

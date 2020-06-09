@@ -178,6 +178,11 @@ export default {
     heading: {
       fontFamily: "heading",
       fontSize: ["5", null, null, "8", "9"],
+      sectionTitle: {
+        variant: "heading",
+        fontSize: "8",
+        lineHeight: "none",
+      },
       title: {
         variant: "heading",
         fontSize: "5",
@@ -258,6 +263,14 @@ export default {
     image: {
       variant: "cards.attraction",
       height: "auto",
+    },
+    bDays: {
+      bg: "white.light",
+      color: "black.dark",
+      p: "4",
+      borderRadius: "lg",
+      display: "flex",
+      flexDirection: ["column", null, "row"],
     },
   },
   divider: {
