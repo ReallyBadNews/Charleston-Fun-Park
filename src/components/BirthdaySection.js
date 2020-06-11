@@ -24,7 +24,7 @@ const BirthdaySection = () => {
             media {
               contentful_id
               description
-              fluid(maxHeight: 200, maxWidth: 200) {
+              fluid(maxHeight: 400, maxWidth: 400) {
                 ...GatsbyContentfulFluid_withWebp
               }
             }

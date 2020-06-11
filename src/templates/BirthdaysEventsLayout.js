@@ -48,28 +48,23 @@ const BirthdaysEventsLayout = ({
           px={["3", null, null, null, "0"]}
           sx={{ flex: "1 1 auto" }}
         >
-          <Stack gap="7">
+          <Stack gap="3">
             <Card variant="bDays">
-              <Box sx={{ width: "1/2" }}>
+              <Box sx={{ width: ["full", null, "1/2"] }}>
                 <Heading mb="2" variant="heading.title">
                   {birthdayPackage1Title}
                 </Heading>
                 <Text variant="body.mid">{birthdayPackage1Price}</Text>
                 <MDXRenderer>{package1Content}</MDXRenderer>
               </Box>
-              <Grid
-                columns={["repeat(2, 1fr)", null, "repeat(2, 1fr)"]}
-                gap="3"
-                ml="3"
-                sx={{ width: "1/2" }}
-              >
-                {birthdayPackage1Media.map((image) => (
-                  <Stack key={image.title} gap="2">
-                    <Img alt={image.title} fluid={image.fluid} />
-                    <Text>{image.description}</Text>
-                  </Stack>
-                ))}
-              </Grid>
+              {birthdayPackage1Media.map((image) => (
+                <Img
+                  key={image.title}
+                  alt={image.title}
+                  fluid={image.fluid}
+                  sx={{ width: ["full", null, "1/2"], ml: ["0", null, "3"] }}
+                />
+              ))}
             </Card>
             <Card variant="bDays">
               <Box sx={{ width: "1/2" }}>
@@ -79,19 +74,14 @@ const BirthdaysEventsLayout = ({
                 <Text variant="body.mid">{birthdayPackage2Price}</Text>
                 <MDXRenderer>{package2Content}</MDXRenderer>
               </Box>
-              <Grid
-                columns={["repeat(2, 1fr)", null, "repeat(2, 1fr)"]}
-                gap="3"
-                ml="3"
-                sx={{ width: "1/2" }}
-              >
-                {birthdayPackage2Media.map((image) => (
-                  <Stack key={image.title} gap="2">
-                    <Img alt={image.title} fluid={image.fluid} />
-                    <Text>{image.description}</Text>
-                  </Stack>
-                ))}
-              </Grid>
+              {birthdayPackage2Media.map((image) => (
+                <Img
+                  key={image.title}
+                  alt={image.title}
+                  fluid={image.fluid}
+                  sx={{ width: ["full", null, "1/2"], ml: ["0", null, "3"] }}
+                />
+              ))}
             </Card>
             <Card variant="bDays">
               <Box sx={{ width: "1/2" }}>
@@ -101,19 +91,14 @@ const BirthdaysEventsLayout = ({
                 <Text variant="body.mid">{birthdayPackage3Price}</Text>
                 <MDXRenderer>{package3Content}</MDXRenderer>
               </Box>
-              <Grid
-                columns={["repeat(2, 1fr)", null, "repeat(2, 1fr)"]}
-                gap="3"
-                ml="3"
-                sx={{ width: "1/2" }}
-              >
-                {birthdayPackage3Media.map((image) => (
-                  <Stack key={image.title} gap="2">
-                    <Img alt={image.title} fluid={image.fluid} />
-                    <Text>{image.description}</Text>
-                  </Stack>
-                ))}
-              </Grid>
+              {birthdayPackage3Media.map((image) => (
+                <Img
+                  key={image.title}
+                  alt={image.title}
+                  fluid={image.fluid}
+                  sx={{ width: ["full", null, "1/2"], ml: ["0", null, "3"] }}
+                />
+              ))}
             </Card>
           </Stack>
         </Container>
@@ -141,7 +126,7 @@ export const birthdaysEventsQuery = graphql`
       birthdayPackage1Media {
         title
         description
-        fluid(maxHeight: 196, maxWidth: 296) {
+        fluid(maxHeight: 378, maxWidth: 608) {
           ...GatsbyContentfulFluid_withWebp
         }
       }
@@ -155,7 +140,7 @@ export const birthdaysEventsQuery = graphql`
       birthdayPackage2Media {
         title
         description
-        fluid(maxHeight: 196, maxWidth: 296) {
+        fluid(maxHeight: 378, maxWidth: 608) {
           ...GatsbyContentfulFluid_withWebp
         }
       }
@@ -169,7 +154,7 @@ export const birthdaysEventsQuery = graphql`
       birthdayPackage3Media {
         title
         description
-        fluid(maxHeight: 196, maxWidth: 296) {
+        fluid(maxHeight: 378, maxWidth: 608) {
           ...GatsbyContentfulFluid_withWebp
         }
       }

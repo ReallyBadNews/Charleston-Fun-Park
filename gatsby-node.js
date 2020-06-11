@@ -36,14 +36,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             title
             slug
-            description {
-              description
-            }
-            content {
-              childMdx {
-                body
-              }
-            }
           }
         }
       }
@@ -53,37 +45,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             title
             slug
-            description {
-              description
-            }
-            birthdayPackage1Title
-            birthdayPackage1Price
-            birthdayPackage1Content {
-              childMdx {
-                body
-              }
-            }
-            birthdayPackage1Media {
-              title
-              description
-              fluid {
-                sizes
-              }
-            }
-            birthdayPackage2Title
-            birthdayPackage2Price
-            birthdayPackage2Content {
-              childMdx {
-                body
-              }
-            }
-            birthdayPackage3Title
-            birthdayPackage3Price
-            birthdayPackage3Content {
-              childMdx {
-                body
-              }
-            }
           }
         }
       }
