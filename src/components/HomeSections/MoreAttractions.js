@@ -3,9 +3,9 @@
 import React from "react";
 import { Container, Grid, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import WoodBg from "./Images/WoodBg";
-import MoreAttractionsDivider from "./SectionDivider/MoreAttractionsDivider";
-import AttractionsCard from "./Attractions/AttractionsCard";
+import WoodBg from "../Images/WoodBg";
+import StarDivider from "../Dividers/StarDivider";
+import AttractionsCard from "../Attractions/AttractionsCard";
 
 const MoreAttractions = () => {
   const {
@@ -38,7 +38,7 @@ const MoreAttractions = () => {
 
   return (
     <>
-      <MoreAttractionsDivider title="More Attractions" to="/attractions/" />
+      <StarDivider title="More Attractions" to="/attractions/" />
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">
           <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>

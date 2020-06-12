@@ -5,7 +5,7 @@ import { Inline } from "raam";
 import Arrow from "../Images/Arrow";
 import BrickBg from "../Images/BrickBg";
 
-const SectionTitle = () => {
+const ArrowDivider = () => {
   const breakpoints = useBreakpoint();
 
   return (
@@ -50,4 +50,4 @@ const SectionTitle = () => {
   );
 };
 
-export default SectionTitle;
+export default ArrowDivider;

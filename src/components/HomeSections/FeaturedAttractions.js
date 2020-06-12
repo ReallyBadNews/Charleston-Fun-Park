@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { Box, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import SectionDivider from "../../SectionDivider/SectionDivider";
-import OmniArenaFeature from "./OmniArenaFeature";
-import GoKartsFeature from "./GoKartsFeature";
-import MiniGolfFeature from "./MiniGolfFeature";
-import AxeThrowingFeature from "./AxeThrowingFeature";
+import SectionDivider from "../Dividers/ArrowDivider";
+import OmniArenaFeature from "../Attractions/Featured/OmniArenaFeature";
+import GoKartsFeature from "../Attractions/Featured/GoKartsFeature";
+import MiniGolfFeature from "../Attractions/Featured/MiniGolfFeature";
+import AxeThrowingFeature from "../Attractions/Featured/AxeThrowingFeature";
 
 const AttractionsSection = () => {
   const {

@@ -4,7 +4,7 @@ import React from "react";
 import { jsx, Grid, Container } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import WoodBg from "../components/Images/WoodBg";
-import MoreAttractionsDivider from "../components/SectionDivider/MoreAttractionsDivider";
+import StarDivider from "../components/Dividers/StarDivider";
 import AttractionsCard from "../components/Attractions/AttractionsCard";
 import SEO from "../components/seo";
 
@@ -43,7 +43,7 @@ const AttractionsPage = () => {
   return (
     <>
       <SEO title="Things to Do in Charleston – Fun Family Entertainment" />
-      <MoreAttractionsDivider title="Attractions" />
+      <StarDivider title="Attractions" />
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">
           <Grid

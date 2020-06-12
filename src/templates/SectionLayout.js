@@ -17,7 +17,7 @@ import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
-import MoreAttractionsDivider from "../components/SectionDivider/MoreAttractionsDivider";
+import StarDivider from "../components/Dividers/StarDivider";
 
 const AttractionsLayout = ({ data: { contentfulSectionPages } }) => {
   const { theme } = useThemeUI();
@@ -30,7 +30,7 @@ const AttractionsLayout = ({ data: { contentfulSectionPages } }) => {
       />
       <WoodBg overlayColor="blue.light">
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-          <MoreAttractionsDivider title={contentfulSectionPages.title} />
+          <StarDivider title={contentfulSectionPages.title} />
           <Container my="6" sx={{ flex: "1 1 auto", width: "auto" }}>
             <Grid
               columns={[

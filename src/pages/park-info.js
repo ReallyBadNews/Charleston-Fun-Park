@@ -4,7 +4,7 @@ import React from "react";
 import { Box, Container, Flex, Grid, jsx, Card, Text, Heading } from "theme-ui";
 import { Stack } from "raam";
 import SEO from "../components/seo";
-import MoreAttractionsDivider from "../components/SectionDivider/MoreAttractionsDivider";
+import StarDivider from "../components/Dividers/StarDivider";
 import WoodBg from "../components/Images/WoodBg";
 import MapBox from "../components/Map";
 import StyledLink from "../components/Link.styled";
@@ -12,7 +12,7 @@ import StyledLink from "../components/Link.styled";
 const ParkInfo = () => (
   <>
     <SEO title="Park Info" />
-    <MoreAttractionsDivider title="Park Info" />
+    <StarDivider title="Park Info" />
     <WoodBg overlayColor="blue.light">
       <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
         <Container px={["3", null, null, null, "0"]} py="7">

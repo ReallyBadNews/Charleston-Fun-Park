@@ -16,6 +16,7 @@ const useSiteMetadata = () => {
             number
             link
           }
+          funCardLink
           navLinks {
             name
             url

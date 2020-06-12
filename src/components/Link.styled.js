@@ -105,7 +105,7 @@ StyledLink.defaultProps = {
   fontSize: "",
   fontWeight: "",
   hoverColor: "",
-  href: "",
+  href: null,
   letterSpacing: "",
   m: "",
   mb: "",
@@ -121,7 +121,7 @@ StyledLink.defaultProps = {
   textDecorationHover: false,
   textTransform: "",
   title: null,
-  to: "",
+  to: null,
   onClick: () => true,
 };
 

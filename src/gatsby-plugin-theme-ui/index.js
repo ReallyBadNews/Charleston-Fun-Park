@@ -230,14 +230,21 @@ export default {
   },
   buttons: {
     mini: {
-      fontSize: "1",
-      lineHeight: "0.875rem",
-      fontWeight: "heavy",
-      backgroundColor: "white.light",
-      color: "green.dark",
-      px: "3",
-      py: "1",
-      maxHeight: "6",
+      white: {
+        fontSize: "1",
+        lineHeight: "0.875rem",
+        fontWeight: "bold",
+        backgroundColor: "white.light",
+        color: "green.dark",
+        px: "3",
+        py: "1",
+        maxHeight: "6",
+      },
+      blue: {
+        variant: "buttons.mini.white",
+        color: "blue.xdark",
+        backgroundColor: "white.light",
+      },
     },
     cta: {
       fontSize: "2",
