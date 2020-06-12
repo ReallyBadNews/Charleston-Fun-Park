@@ -7,17 +7,35 @@ import { Stack, Flex } from "raam";
 
 const Hero = () => {
   const {
-    video: {
-      childImageSharp: { fluid },
+    contentfulHomePageHero: {
+      description: { description },
+      isVideo,
+      media,
+      subtitle,
+      title,
     },
   } = useStaticQuery(graphql`
-    query VideoQuery {
-      video: file(relativePath: { eq: "videoPlaceholder.jpg" }) {
-        childImageSharp {
+    query HeroQuery {
+      contentfulHomePageHero(
+        id: { eq: "04ac880b-e825-5040-8011-5641ebc3dc27" }
+      ) {
+        description {
+          description
+        }
+        isVideo
+        media {
           fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+            ...GatsbyContentfulFluid_withWebp
+          }
+          description
+          title
+          file {
+            contentType
+            url
           }
         }
+        subtitle
+        title
       }
     }
   `);
@@ -25,10 +43,9 @@ const Hero = () => {
   const breakpoints = useBreakpoint();
 
   return (
-    <BackgroundImage
-      fluid={fluid}
+    <Box
       sx={{
-        bg: "black.mid",
+        position: "relative",
         height: [
           "calc(100vh - 136.5px - 80px)",
           "calc(100vh - 136.5px - 96px)",
@@ -38,10 +55,38 @@ const Hero = () => {
         ],
       }}
     >
+      {isVideo ? (
+        <video
+          sx={{
+            position: "absolute",
+            objectFit: "cover",
+            width: "full",
+            height: "full",
+            zIndex: "-1",
+          }}
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={media.file.url} type={media.file.contentType} />
+          <p>Video could not be found.</p>
+        </video>
+      ) : (
+        <BackgroundImage
+          fluid={media.fluid}
+          sx={{
+            bg: "black.mid",
+            position: "absolute !important",
+            width: "full",
+            height: "full",
+          }}
+        />
+      )}
       <Box
         sx={{
           position: "absolute",
-          zIndex: "-1",
+          zIndex: "0",
           top: "0",
           right: "0",
           bottom: "0",
@@ -71,22 +116,18 @@ const Hero = () => {
                 width: [null, null, "3/4", null, "7/12"],
               }}
             >
-              <Heading variant="heading.title">Welcome to the</Heading>
+              <Heading variant="heading.title">{subtitle}</Heading>
               <Stack gap="3">
                 <Heading as="h1" variant="heading">
-                  Charleston Fun Park
+                  {title}
                 </Heading>
-                <Text variant="body.large">
-                  From 36 holes of mini-golf, go karts, bumper cars,a full
-                  arcade with a VR coaster and the OMNI VR Arena and even axe
-                  throwing. We have something for everyone!
-                </Text>
+                <Text variant="body.large">{description}</Text>
               </Stack>
             </Box>
           </Flex>
         </Container>
       ) : null}
-    </BackgroundImage>
+    </Box>
   );
 };
 
