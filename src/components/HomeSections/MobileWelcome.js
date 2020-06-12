@@ -2,7 +2,7 @@
 import { Box, Heading, Text, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
-import WoodBg from "./Images/WoodBg";
+import WoodBg from "../Images/WoodBg";
 
 const MobileWelcome = () => {
   const {

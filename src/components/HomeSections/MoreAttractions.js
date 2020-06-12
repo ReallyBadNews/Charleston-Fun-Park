@@ -3,9 +3,9 @@
 import React from "react";
 import { Container, Grid, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import WoodBg from "./Images/WoodBg";
-import StarDivider from "./Dividers/StarDivider";
-import AttractionsCard from "./Attractions/AttractionsCard";
+import WoodBg from "../Images/WoodBg";
+import StarDivider from "../Dividers/StarDivider";
+import AttractionsCard from "../Attractions/AttractionsCard";
 
 const MoreAttractions = () => {
   const {

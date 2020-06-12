@@ -6,7 +6,7 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";
-import BrickBg from "./Images/BrickBg";
+import BrickBg from "../Images/BrickBg";
 
 const BirthdaySection = () => {
   const {

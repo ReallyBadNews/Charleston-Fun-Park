@@ -3,14 +3,14 @@
 import React from "react";
 import { jsx } from "theme-ui";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
-import Hero from "../components/Hero";
+import Hero from "../components/HomeSections/Hero";
 import ArrowDivider from "../components/Dividers/ArrowDivider";
-import BirthdaySection from "../components/BirthdaySection";
-import FeaturedAttractions from "../components/Attractions/Featured/FeaturedAttractions";
+import BirthdaySection from "../components/HomeSections/BirthdaySection";
+import FeaturedAttractions from "../components/HomeSections/FeaturedAttractions";
 import SectionDivider from "../components/Dividers/SectionDivider";
-import MoreAttractions from "../components/MoreAttractions";
+import MoreAttractions from "../components/HomeSections/MoreAttractions";
 import SEO from "../components/seo";
-import MobileWelcome from "../components/MobileWelcome";
+import MobileWelcome from "../components/HomeSections/MobileWelcome";
 
 const IndexPage = () => {
   const breakpoints = useBreakpoint();
