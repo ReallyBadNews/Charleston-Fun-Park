@@ -9,7 +9,7 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faPhone, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import useSiteMetadata from "../../hooks/use-site-metadata";
 import StyledLink from "../Link.styled";
 
@@ -30,7 +30,7 @@ const Topper = () => {
     }
   `);
 
-  const { phoneNumber, socialLinks } = useSiteMetadata();
+  const { phoneNumber, funCardLink, socialLinks } = useSiteMetadata();
 
   const socialIcons = {
     facebook: faFacebook,
@@ -65,14 +65,29 @@ const Topper = () => {
         sx={{ position: "relative", zIndex: "100" }}
       >
         <Flex gap="5" justifyContent={["space-between", null, "flex-end"]}>
-          <Button as="a" href={phoneNumber.link} variant="mini">
-            {phoneNumber.number}
-            <FontAwesomeIcon
-              icon={faPhone}
-              sx={{ ml: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
-              fixedWidth
-            />
-          </Button>
+          <Inline gap="3">
+            <Button
+              as="a"
+              href={funCardLink}
+              target="_blank"
+              variant="mini.blue"
+            >
+              Fun Cards
+              <FontAwesomeIcon
+                icon={faCartPlus}
+                sx={{ ml: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
+                fixedWidth
+              />
+            </Button>
+            <Button as="a" href={phoneNumber.link} variant="mini.white">
+              {phoneNumber.number}
+              <FontAwesomeIcon
+                icon={faPhone}
+                sx={{ ml: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
+                fixedWidth
+              />
+            </Button>
+          </Inline>
           <Inline gap="4">
             {socialLinks.map((link) => (
               <StyledLink

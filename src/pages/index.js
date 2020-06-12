@@ -1,6 +1,7 @@
 /** @jsx jsx */
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import PropTypes from "prop-types";
 import { jsx } from "theme-ui";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import Hero from "../components/HomeSections/Hero";
@@ -12,12 +13,12 @@ import MoreAttractions from "../components/HomeSections/MoreAttractions";
 import SEO from "../components/seo";
 import MobileWelcome from "../components/HomeSections/MobileWelcome";
 
-const IndexPage = () => {
+const IndexPage = ({ location: { pathname } }) => {
   const breakpoints = useBreakpoint();
 
   return (
     <>
-      <SEO title="Home" />
+      <SEO pathname={pathname} title="Home" />
       <Hero />
       <ArrowDivider />
       {!breakpoints.tablet && <MobileWelcome />}
@@ -27,6 +28,12 @@ const IndexPage = () => {
       <MoreAttractions />
     </>
   );
+};
+
+IndexPage.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 export default IndexPage;

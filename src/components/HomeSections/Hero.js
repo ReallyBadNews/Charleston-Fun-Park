@@ -13,6 +13,9 @@ const Hero = () => {
       media,
       subtitle,
       title,
+      videoPoster: {
+        fixed: { src: videoPosterSrc },
+      },
     },
   } = useStaticQuery(graphql`
     query HeroQuery {
@@ -36,6 +39,11 @@ const Hero = () => {
         }
         subtitle
         title
+        videoPoster {
+          fixed(height: 1080, width: 1920) {
+            src
+          }
+        }
       }
     }
   `);
@@ -57,6 +65,7 @@ const Hero = () => {
     >
       {isVideo ? (
         <video
+          poster={videoPosterSrc}
           sx={{
             position: "absolute",
             objectFit: "cover",

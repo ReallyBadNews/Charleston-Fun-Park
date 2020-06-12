@@ -5,15 +5,7 @@ import useSiteMetadata from "../hooks/use-site-metadata";
 // import OGImage from "../../static/images/tbas_og.jpg";
 // import TWImage from "../../static/images/twitter_image.jpg";
 
-const SEO = ({
-  description,
-  lang,
-  meta,
-  metaImage,
-  keywords,
-  title,
-  pathname,
-}) => {
+const SEO = ({ description, lang, keywords, title, pathname }) => {
   const {
     author,
     title: siteTitle,
@@ -22,8 +14,6 @@ const SEO = ({
   } = useSiteMetadata();
 
   const metaDescription = description || siteDescription;
-
-  const image = metaImage && metaImage.src && `${siteUrl}${metaImage.src}`;
 
   const canonical = pathname && `${siteUrl}${pathname}`;
 
@@ -78,27 +68,7 @@ const SEO = ({
           name: `twitter:description`,
           content: metaDescription,
         },
-      ]
-        .concat(
-          metaImage
-            ? [
-                {
-                  property: "og:image",
-                  content: image,
-                },
-                {
-                  name: "twitter:card",
-                  content: "summary_large_image",
-                },
-              ]
-            : [
-                {
-                  name: "twitter:card",
-                  content: "summary",
-                },
-              ]
-        )
-        .concat(meta)}
+      ]}
       title={title}
       titleTemplate={`%s | ${siteTitle}`}
     />
@@ -107,21 +77,16 @@ const SEO = ({
 
 SEO.defaultProps = {
   lang: `en`,
-  meta: [],
   keywords: [],
   description: ``,
 };
 
 SEO.propTypes = {
-  metaImage: PropTypes.shape({
-    src: PropTypes.string,
-  }).isRequired,
   pathname: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   keywords: PropTypes.arrayOf(PropTypes.string),
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default SEO;
