@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Box, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import SectionDivider from "../../SectionDivider/SectionDivider";
+import SectionDivider from "../../Dividers/SectionDivider";
 import OmniArenaFeature from "./OmniArenaFeature";
 import GoKartsFeature from "./GoKartsFeature";
 import MiniGolfFeature from "./MiniGolfFeature";

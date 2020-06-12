@@ -5,10 +5,10 @@ import { Box, Heading, Text, jsx } from "theme-ui";
 import { Stack } from "raam";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import Hero from "../components/Hero";
-import SectionTitle from "../components/SectionDivider/SectionTitle";
+import ArrowDivider from "../components/Dividers/ArrowDivider";
 import BirthdaySection from "../components/BirthdaySection";
 import FeaturedAttractions from "../components/Attractions/Featured/FeaturedAttractions";
-import SectionDivider from "../components/SectionDivider/SectionDivider";
+import SectionDivider from "../components/Dividers/SectionDivider";
 import MoreAttractions from "../components/MoreAttractions";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
@@ -20,7 +20,7 @@ const IndexPage = () => {
     <>
       <SEO title="Home" />
       <Hero />
-      <SectionTitle title="The Party Starts Here" />
+      <ArrowDivider />
       {!breakpoints.tablet && (
         <WoodBg overlayColor="blue.light">
           <Box color="white.light" px="3" py="6" sx={{ textAlign: "center" }}>

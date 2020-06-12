@@ -2,14 +2,14 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, jsx, Flex, Card, Container, Grid, Heading, Text } from "theme-ui";
+import { Box, jsx, Flex, Card, Container, Heading, Text } from "theme-ui";
 import Img from "gatsby-image";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
-import MoreAttractionsDivider from "../components/SectionDivider/MoreAttractionsDivider";
+import StarDivider from "../components/Dividers/StarDivider";
 
 const BirthdaysEventsLayout = ({
   data: {
@@ -42,7 +42,7 @@ const BirthdaysEventsLayout = ({
     <SEO description={description} pathname={pathname} title={title} />
     <WoodBg overlayColor="blue.light">
       <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-        <MoreAttractionsDivider title={title} />
+        <StarDivider title={title} />
         <Container
           my="6"
           px={["3", null, null, null, "0"]}
