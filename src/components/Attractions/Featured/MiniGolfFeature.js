@@ -8,6 +8,7 @@ import { Stack } from "raam";
 import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
 import Brick from "../../../images/brick.png";
+import MediaItem from "../../MediaItem";
 
 const MiniGolfFeature = ({ data: { node } }) => {
   const {
@@ -33,8 +34,9 @@ const MiniGolfFeature = ({ data: { node } }) => {
         height: ["auto", null, null, "lg"],
       }}
     >
-      <Img
-        fluid={node.heroImage.fluid}
+      <MediaItem
+        isVideo={node.isVideo}
+        media={node.heroImage}
         sx={{
           width: ["full", null, null, "7/12"],
           height: ["sm", null, null, "full"],
@@ -128,6 +130,7 @@ MiniGolfFeature.propTypes = {
         id: PropTypes.string,
       }),
       id: PropTypes.string,
+      isVideo: PropTypes.bool,
       title: PropTypes.string,
     }),
   }).isRequired,

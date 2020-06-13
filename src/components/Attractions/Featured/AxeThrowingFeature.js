@@ -7,6 +7,7 @@ import Img from "gatsby-image";
 import { Stack } from "raam";
 import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
+import MediaItem from "../../MediaItem";
 
 const AxeThrowingFeature = ({ data: { node } }) => {
   const {
@@ -33,8 +34,9 @@ const AxeThrowingFeature = ({ data: { node } }) => {
           height: "full",
         }}
       >
-        <Img
-          fluid={node.heroImage.fluid}
+        <MediaItem
+          isVideo={node.isVideo}
+          media={node.heroImage}
           sx={{
             width: ["full", null, null, "7/12"],
             height: ["sm", null, null, "full"],
@@ -113,6 +115,7 @@ AxeThrowingFeature.propTypes = {
         id: PropTypes.string,
       }),
       id: PropTypes.string,
+      isVideo: PropTypes.bool,
       title: PropTypes.string,
     }),
   }).isRequired,

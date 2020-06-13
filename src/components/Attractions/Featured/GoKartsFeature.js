@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, jsx, useThemeUI } from "theme-ui";
-import Img from "gatsby-image";
 import { Stack } from "raam";
 import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
+import MediaItem from "../../MediaItem";
 
 const GoKartsFeature = ({ data: { node } }) => {
   const {
@@ -66,8 +66,9 @@ const GoKartsFeature = ({ data: { node } }) => {
           height: "full",
         }}
       >
-        <Img
-          fluid={node.heroImage.fluid}
+        <MediaItem
+          isVideo={node.isVideo}
+          media={node.heroImage}
           sx={{
             width: ["full", null, null, "7/12"],
             height: ["sm", null, null, "full"],
@@ -202,6 +203,7 @@ GoKartsFeature.propTypes = {
         id: PropTypes.string,
       }),
       id: PropTypes.string,
+      isVideo: PropTypes.bool,
       title: PropTypes.string,
     }),
   }).isRequired,
