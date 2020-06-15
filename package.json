@@ -29,7 +29,7 @@
     "gatsby-source-filesystem": "^2.3.11",
     "gatsby-transformer-remark": "^2.8.14",
     "gatsby-transformer-sharp": "^2.5.5",
-    "mapbox-gl": "^1.10.1",
+    "mapbox-gl": "^1.11.0",
     "raam": "^0.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
