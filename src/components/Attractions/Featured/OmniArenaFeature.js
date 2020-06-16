@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import PropTypes from "prop-types";
 import { Flex, Grid, Heading, Text, jsx } from "theme-ui";
-import Img from "gatsby-image";
 import { Stack } from "raam";
+import MediaItem from "../../MediaItem";
 import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
 
@@ -13,11 +13,13 @@ const OmniArenaFeature = ({ data: { node } }) => (
       height: ["auto", null, null, "lg"],
     }}
   >
-    <Img
-      fluid={node.heroImage.fluid}
+    <MediaItem
+      isVideo={node.isVideo}
+      media={node.heroImage}
       sx={{
         width: ["full", null, null, "7/12"],
         height: ["sm", null, null, "full"],
+        objectFit: "cover",
       }}
     />
     <Grid
@@ -76,6 +78,7 @@ OmniArenaFeature.propTypes = {
         id: PropTypes.string,
       }),
       id: PropTypes.string,
+      isVideo: PropTypes.bool,
       title: PropTypes.string,
     }),
   }).isRequired,

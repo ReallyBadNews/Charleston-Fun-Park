@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Box, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import SectionDivider from "../Dividers/ArrowDivider";
+import SectionDivider from "../Dividers/SectionDivider";
 import OmniArenaFeature from "../Attractions/Featured/OmniArenaFeature";
 import GoKartsFeature from "../Attractions/Featured/GoKartsFeature";
 import MiniGolfFeature from "../Attractions/Featured/MiniGolfFeature";
@@ -20,14 +20,18 @@ const AttractionsSection = () => {
           node {
             id
             heroImage {
-              id
               fluid {
                 ...GatsbyContentfulFluid_withWebp
+              }
+              file {
+                contentType
+                url
               }
             }
             description {
               description
             }
+            isVideo
             title
             order
           }

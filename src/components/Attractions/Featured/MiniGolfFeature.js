@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import PropTypes from "prop-types";
 import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
-import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
 import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
 import Brick from "../../../images/brick.png";
+import MediaItem from "../../MediaItem";
 
 const MiniGolfFeature = ({ data: { node } }) => {
   const {
@@ -33,11 +33,13 @@ const MiniGolfFeature = ({ data: { node } }) => {
         height: ["auto", null, null, "lg"],
       }}
     >
-      <Img
-        fluid={node.heroImage.fluid}
+      <MediaItem
+        isVideo={node.isVideo}
+        media={node.heroImage}
         sx={{
           width: ["full", null, null, "7/12"],
           height: ["sm", null, null, "full"],
+          objectFit: "cover",
         }}
       />
       <Box
@@ -128,6 +130,7 @@ MiniGolfFeature.propTypes = {
         id: PropTypes.string,
       }),
       id: PropTypes.string,
+      isVideo: PropTypes.bool,
       title: PropTypes.string,
     }),
   }).isRequired,
