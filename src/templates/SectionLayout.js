@@ -40,7 +40,7 @@ const AttractionsLayout = ({ data: { contentfulSectionPages } }) => {
                   ? `1fr minmax(${theme.sizes.xs}, ${theme.sizes["1/3"]})`
                   : `1fr`,
               ]}
-              px={["3", null, null, null, "0"]}
+              px={["3", null, null, "0"]}
               sx={!contentfulSectionPages.media && { maxWidth: "3xl" }}
             >
               <Card

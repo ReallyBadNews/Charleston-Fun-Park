@@ -4,13 +4,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Card, Divider, Heading, Text, jsx } from "theme-ui";
 import { motion } from "framer-motion";
-import Img from "gatsby-image";
 import { Stack, Flex } from "raam";
 import StyledLink from "../Link.styled";
+import MediaItem from "../MediaItem";
 
 const AttractionsCard = ({
   description,
-  image,
+  media,
   pricePoint1Price,
   pricePoint1Title,
   pricePoint1Unit,
@@ -23,14 +23,15 @@ const AttractionsCard = ({
   <motion.div whileHover={{ y: -8 }}>
     <StyledLink to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}>
       <Card variant="attraction">
-        <Img
-          alt={title}
-          fluid={image}
+        <MediaItem
+          media={media}
           sx={{
             height: "xs",
             flex: "0 0 auto",
             borderTopLeftRadius: "lg",
             borderTopRightRadius: "lg",
+            width: "full",
+            objectFit: "cover",
           }}
         />
         <Flex
@@ -85,7 +86,16 @@ const AttractionsCard = ({
 );
 
 AttractionsCard.propTypes = {
-  image: PropTypes.shape({}).isRequired,
+  media: PropTypes.shape({
+    fluid: PropTypes.shape({
+      aspectRatio: PropTypes.number,
+      sizes: PropTypes.string,
+      src: PropTypes.string,
+      srcSet: PropTypes.string,
+      srcSetWebp: PropTypes.string,
+      srcWebp: PropTypes.string,
+    }),
+  }).isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   pricePoint1Price: PropTypes.number,

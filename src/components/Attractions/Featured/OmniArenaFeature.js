@@ -19,6 +19,7 @@ const OmniArenaFeature = ({ data: { node } }) => (
       sx={{
         width: ["full", null, null, "7/12"],
         height: ["sm", null, null, "full"],
+        objectFit: "cover",
       }}
     />
     <Grid

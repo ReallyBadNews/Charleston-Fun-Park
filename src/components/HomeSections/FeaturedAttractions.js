@@ -20,7 +20,6 @@ const AttractionsSection = () => {
           node {
             id
             heroImage {
-              id
               fluid {
                 ...GatsbyContentfulFluid_withWebp
               }
@@ -32,9 +31,9 @@ const AttractionsSection = () => {
             description {
               description
             }
+            isVideo
             title
             order
-            isVideo
           }
         }
       }

@@ -1,6 +1,7 @@
 /** @jsx jsx */
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import PropTypes from "prop-types";
 import { jsx, Grid, Container } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import WoodBg from "../components/Images/WoodBg";
@@ -8,7 +9,7 @@ import StarDivider from "../components/Dividers/StarDivider";
 import AttractionsCard from "../components/Attractions/AttractionsCard";
 import SEO from "../components/seo";
 
-const AttractionsPage = () => {
+const AttractionsPage = ({ location: { pathname } }) => {
   const {
     allContentfulAttraction: { edges: posts },
   } = useStaticQuery(graphql`
@@ -26,6 +27,7 @@ const AttractionsPage = () => {
             description {
               description
             }
+            isVideo
             title
             order
             pricePoint1Price
@@ -34,6 +36,11 @@ const AttractionsPage = () => {
             pricePoint2Price
             pricePoint2Title
             pricePoint2Unit
+            videoPoster {
+              fluid {
+                ...GatsbyContentfulFluid_withWebp
+              }
+            }
           }
         }
       }
@@ -42,7 +49,10 @@ const AttractionsPage = () => {
 
   return (
     <>
-      <SEO title="Things to Do in Charleston – Fun Family Entertainment" />
+      <SEO
+        pathname={pathname}
+        title="Things to Do in Charleston – Fun Family Entertainment"
+      />
       <StarDivider title="Attractions" />
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">
@@ -54,7 +64,12 @@ const AttractionsPage = () => {
               <AttractionsCard
                 key={attraction.node.title}
                 description={attraction.node.description.description}
-                image={attraction.node.heroImage.fluid}
+                isVideo={attraction.node.isVideo}
+                media={
+                  attraction.node.isVideo
+                    ? attraction.node.videoPoster
+                    : attraction.node.heroImage
+                }
                 pricePoint1Price={attraction.node.pricePoint1Price}
                 pricePoint1Title={attraction.node.pricePoint1Title}
                 pricePoint1Unit={attraction.node.pricePoint1Unit}
@@ -69,6 +84,12 @@ const AttractionsPage = () => {
       </WoodBg>
     </>
   );
+};
+
+AttractionsPage.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 export default AttractionsPage;

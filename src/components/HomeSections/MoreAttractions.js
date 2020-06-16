@@ -20,14 +20,11 @@ const MoreAttractions = () => {
           node {
             id
             heroImage {
-              id
               fluid {
                 ...GatsbyContentfulFluid_withWebp
               }
             }
-            description {
-              description
-            }
+            isVideo
             title
             order
           }
@@ -45,7 +42,8 @@ const MoreAttractions = () => {
             {edges.map((attraction) => (
               <AttractionsCard
                 key={attraction.node.title}
-                image={attraction.node.heroImage.fluid}
+                isVideo={attraction.node.isVideo}
+                media={attraction.node.heroImage}
                 textAlign="center"
                 title={attraction.node.title}
               />

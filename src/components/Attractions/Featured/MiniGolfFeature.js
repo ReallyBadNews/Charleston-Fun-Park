@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import PropTypes from "prop-types";
 import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
-import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
@@ -40,6 +39,7 @@ const MiniGolfFeature = ({ data: { node } }) => {
         sx={{
           width: ["full", null, null, "7/12"],
           height: ["sm", null, null, "full"],
+          objectFit: "cover",
         }}
       />
       <Box

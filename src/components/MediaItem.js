@@ -8,37 +8,34 @@ import Img from "gatsby-image";
 const MediaItem = ({
   description: { description },
   media,
-  media: {
-    fluid,
-    file: { contentType, url },
-  },
   isVideo,
   className,
   sx,
-}) => {
-  console.log("media", media);
-
-  return (
-    <>
-      {isVideo ? (
-        <video
-          className={className}
-          // poster={videoPosterSrc}
-          sx={sx}
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src={url} type={contentType} />
-          <p>{description}</p>
-        </video>
-      ) : (
-        <Img alt={description} className={className} fluid={fluid} sx={sx} />
-      )}
-    </>
-  );
-};
+}) => (
+  <>
+    {isVideo ? (
+      <video
+        className={className}
+        // poster={videoPosterSrc}
+        sx={sx}
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src={media.file.url} type={media.file.contentType} />
+        <p>{description}</p>
+      </video>
+    ) : (
+      <Img
+        alt={description}
+        className={className}
+        fluid={media.fluid}
+        sx={sx}
+      />
+    )}
+  </>
+);
 
 MediaItem.propTypes = {
   className: PropTypes.string,

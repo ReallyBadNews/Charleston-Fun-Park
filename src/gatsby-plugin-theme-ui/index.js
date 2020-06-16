@@ -340,5 +340,9 @@ export default {
       border: "none",
       m: "0",
     },
+    img: {
+      display: "block",
+      maxWidth: "full",
+    },
   },
 };

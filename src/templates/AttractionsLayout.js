@@ -4,33 +4,39 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container, Flex, jsx, Heading, Card } from "theme-ui";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
+import MediaItem from "../components/MediaItem";
 
-const AttractionsLayout = ({ data: { contentfulAttraction } }) => (
+const AttractionsLayout = ({
+  data: { contentfulAttraction },
+  location: { pathname },
+}) => (
   <>
     <SEO
       description={contentfulAttraction.description.description}
+      pathname={pathname}
       title={contentfulAttraction.title}
     />
     <WoodBg overlayColor="blue.light">
       <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-        <Img
-          fluid={contentfulAttraction.heroImage.fluid}
-          sx={{ maxHeight: "xl" }}
+        <MediaItem
+          isVideo={contentfulAttraction.isVideo}
+          media={contentfulAttraction.heroImage}
+          sx={{ maxHeight: "xl", width: "full", objectFit: "cover" }}
         />
         <Container
-          mx={["3", null, null, null, "auto"]}
+          mx="auto"
           my="6"
+          px="3"
           sx={{ flex: "1 1 auto", width: "auto" }}
         >
           <Card
             bg="white.light"
             color="black.dark"
             p="4"
-            sx={{ borderRadius: "lg", width: "auto" }}
+            sx={{ borderRadius: "lg", maxWidth: "3xl" }}
           >
             <Heading mb="3">{contentfulAttraction.title}</Heading>
             <MDXRenderer>{contentfulAttraction.body.childMdx.body}</MDXRenderer>
@@ -57,8 +63,12 @@ export const attractionsQuery = graphql`
         fluid {
           ...GatsbyContentfulFluid_withWebp
         }
-        title
+        file {
+          contentType
+          url
+        }
       }
+      isVideo
       title
     }
   }
@@ -86,8 +96,12 @@ AttractionsLayout.propTypes = {
         }),
       }),
       id: PropTypes.string,
+      isVideo: PropTypes.bool,
       title: PropTypes.string,
     }),
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
   }).isRequired,
 };
 
