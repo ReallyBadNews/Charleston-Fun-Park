@@ -71,12 +71,16 @@ module.exports = {
         url: `/attractions/`,
       },
       {
-        name: `Birthdays & Events`,
-        url: `/birthdays-and-events/`,
+        name: `Birthday Parties`,
+        url: `/birthday-parties/`,
       },
       {
         name: `Park Info`,
         url: `/park-info/`,
+      },
+      {
+        name: `Group Events`,
+        url: `/group-events/`,
       },
       {
         name: `Specials`,

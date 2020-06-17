@@ -40,7 +40,10 @@ const BirthdaysEventsLayout = ({
 }) => (
   <>
     <SEO description={description} pathname={pathname} title={title} />
-    <WoodBg overlayColor="blue.light">
+    <WoodBg
+      overlayColor="blue.light"
+      sx={{ backgroundRepeat: "repeat", backgroundSize: "auto" }}
+    >
       <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
         <StarDivider title={title} />
         <Container

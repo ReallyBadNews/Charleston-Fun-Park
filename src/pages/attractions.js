@@ -54,7 +54,10 @@ const AttractionsPage = ({ location: { pathname } }) => {
         title="Things to Do in Charleston – Fun Family Entertainment"
       />
       <StarDivider title="Attractions" />
-      <WoodBg overlayColor="blue.light">
+      <WoodBg
+        overlayColor="blue.light"
+        sx={{ backgroundRepeat: "repeat", backgroundSize: "auto" }}
+      >
         <Container px={["3", null, null, null, "0"]} py="7">
           <Grid
             columns={["1fr", null, "repeat(2, 1fr)", "repeat(3, 1fr)"]}

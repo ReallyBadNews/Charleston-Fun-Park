@@ -125,7 +125,6 @@ const Hero = () => {
               position: "absolute",
               right: ["3", null, null, null, "0"],
               top: "3",
-              zIndex: "1",
             }}
             target="_blank"
             variant="cta"
