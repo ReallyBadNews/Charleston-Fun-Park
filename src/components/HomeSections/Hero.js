@@ -96,20 +96,6 @@ const Hero = () => {
           }}
         />
       )}
-      <Button
-        as="a"
-        href={funCardLink}
-        sx={{ position: "absolute", right: "3", top: "3", zIndex: "1" }}
-        target="_blank"
-        variant="cta"
-      >
-        <FontAwesomeIcon
-          icon={faCartPlus}
-          sx={{ mr: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
-          fixedWidth
-        />
-        Fun Cards
-      </Button>
       <Box
         sx={{
           position: "absolute",
@@ -130,8 +116,27 @@ const Hero = () => {
         <Container
           px={["3", null, null, null, "0"]}
           py="7"
-          sx={{ height: "full" }}
+          sx={{ height: "full", position: "relative" }}
         >
+          <Button
+            as="a"
+            href={funCardLink}
+            sx={{
+              position: "absolute",
+              right: ["3", null, null, null, "0"],
+              top: "3",
+              zIndex: "1",
+            }}
+            target="_blank"
+            variant="cta"
+          >
+            <FontAwesomeIcon
+              icon={faCartPlus}
+              sx={{ mr: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
+              fixedWidth
+            />
+            Fun Cards
+          </Button>
           <Flex
             alignItems="center"
             flexShrink="1"
