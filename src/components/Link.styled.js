@@ -3,13 +3,13 @@
 import PropTypes from "prop-types";
 import { jsx, Styled } from "theme-ui";
 import { Link } from "gatsby";
+import { Link as ScrollLink } from "react-scroll";
 
 const StyledLink = ({
   children,
   color,
-  fontFamily,
+  duration,
   fontSize,
-  fontWeight,
   hoverColor,
   href,
   letterSpacing,
@@ -25,18 +25,23 @@ const StyledLink = ({
   px,
   py,
   to,
+  scrollTo,
   title,
+  fontWeight,
   textDecoration,
   textDecorationHover,
   textTransform,
 }) => (
   <Styled.a
-    as={to ? Link : `a`}
+    as={(scrollTo && ScrollLink) || (to && Link) || `a`}
+    duration={duration}
     href={href}
-    rel={href ? `noopener` : null}
+    rel={href && `noopener`}
+    smooth={scrollTo && true}
+    spy={scrollTo && true}
     sx={{
+      cursor: "pointer",
       color,
-      fontFamily,
       fontSize,
       fontWeight,
       letterSpacing,
@@ -56,13 +61,13 @@ const StyledLink = ({
       transition: "all 300ms ease-in-out",
       "&:hover": {
         color: `${hoverColor}`,
-        textDecoration: textDecorationHover ? "underline" : null,
-        textDecorationThickness: textDecorationHover ? "0.125rem" : null,
+        textDecoration: textDecorationHover && "underline",
+        textDecorationThickness: textDecorationHover && "0.125rem",
       },
     }}
-    target={href ? `_blank` : null}
+    target={href && `_blank`}
     title={title}
-    to={to}
+    to={scrollTo || to}
     onClick={onClick}
   >
     {children}
@@ -72,7 +77,7 @@ const StyledLink = ({
 StyledLink.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
-  fontFamily: PropTypes.string,
+  duration: PropTypes.number,
   fontSize: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
@@ -91,6 +96,7 @@ StyledLink.propTypes = {
   pt: PropTypes.string,
   px: PropTypes.string,
   py: PropTypes.string,
+  scrollTo: PropTypes.string,
   textDecoration: PropTypes.string,
   textDecorationHover: PropTypes.bool,
   textTransform: PropTypes.string,
@@ -101,7 +107,7 @@ StyledLink.propTypes = {
 
 StyledLink.defaultProps = {
   color: "",
-  fontFamily: "body",
+  duration: 500,
   fontSize: "",
   fontWeight: "",
   hoverColor: "",
@@ -117,7 +123,8 @@ StyledLink.defaultProps = {
   pt: "",
   px: "",
   py: "",
-  textDecoration: "none",
+  scrollTo: null,
+  textDecoration: "",
   textDecorationHover: false,
   textTransform: "",
   title: null,

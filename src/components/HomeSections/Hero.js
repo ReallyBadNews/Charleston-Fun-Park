@@ -1,9 +1,12 @@
 /** @jsx jsx */
-import { jsx, Heading, Text, Container, Box } from "theme-ui";
+import { Button, jsx, Heading, Text, Container, Box } from "theme-ui";
 import BackgroundImage from "gatsby-background-image";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { useStaticQuery, graphql } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Stack, Flex } from "raam";
+import useSiteMetadata from "../../hooks/use-site-metadata";
 
 const Hero = () => {
   const {
@@ -49,6 +52,7 @@ const Hero = () => {
   `);
 
   const breakpoints = useBreakpoint();
+  const { funCardLink } = useSiteMetadata();
 
   return (
     <Box
@@ -92,6 +96,20 @@ const Hero = () => {
           }}
         />
       )}
+      <Button
+        as="a"
+        href={funCardLink}
+        sx={{ position: "absolute", right: "3", top: "3", zIndex: "1" }}
+        target="_blank"
+        variant="cta"
+      >
+        <FontAwesomeIcon
+          icon={faCartPlus}
+          sx={{ mr: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
+          fixedWidth
+        />
+        Fun Cards
+      </Button>
       <Box
         sx={{
           position: "absolute",

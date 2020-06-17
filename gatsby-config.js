@@ -26,8 +26,6 @@ const breakpoints = {
   wide: `(min-width: 1280px)`,
 };
 
-const funCardLink = `http://blackbeardscove.pfestore.com/retail/GiftCards/Default.aspx`;
-
 module.exports = {
   siteMetadata: {
     title: `Charleston Fun Park in Mt. Pleasant, SC | Amusement Park`,
@@ -48,7 +46,7 @@ module.exports = {
       number: `(843) 971-1223`,
       link: `tel:843-971-1223`,
     },
-    funCardLink,
+    funCardLink: `http://blackbeardscove.pfestore.com/retail/GiftCards/Default.aspx`,
     socialLinks: [
       {
         name: `facebook`,

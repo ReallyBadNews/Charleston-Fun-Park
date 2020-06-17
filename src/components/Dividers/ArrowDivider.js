@@ -1,15 +1,17 @@
 /** @jsx jsx */
+import PropTypes from "prop-types";
 import { Container, Divider, Text, jsx } from "theme-ui";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { Inline } from "raam";
 import Arrow from "../Images/Arrow";
 import BrickBg from "../Images/BrickBg";
+import StyledLink from "../Link.styled";
 
-const ArrowDivider = () => {
+const ArrowDivider = ({ id }) => {
   const breakpoints = useBreakpoint();
 
   return (
-    <BrickBg>
+    <BrickBg id={id}>
       <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
       <Container>
         <Inline
@@ -26,7 +28,9 @@ const ArrowDivider = () => {
             }}
           />
           {breakpoints.tablet ? (
-            <Text variant="display">The Party Starts Here</Text>
+            <StyledLink scrollTo="birthdays">
+              <Text variant="display">The Party Starts Here</Text>
+            </StyledLink>
           ) : (
             <Text variant="display">
               The Party
@@ -48,6 +52,14 @@ const ArrowDivider = () => {
       />
     </BrickBg>
   );
+};
+
+ArrowDivider.propTypes = {
+  id: PropTypes.string,
+};
+
+ArrowDivider.defaultProps = {
+  id: null,
 };
 
 export default ArrowDivider;
