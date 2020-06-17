@@ -22,7 +22,7 @@ const IndexPage = ({ location: { pathname } }) => {
       <Hero />
       <ArrowDivider />
       {!breakpoints.tablet && <MobileWelcome />}
-      <BirthdaySection />
+      <BirthdaySection id="birthdays" />
       <SectionDivider bg="green.light" />
       <FeaturedAttractions />
       <MoreAttractions />

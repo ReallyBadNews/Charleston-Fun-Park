@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, jsx } from "theme-ui";
 
-const BrickBg = ({ children }) => {
+const BrickBg = ({ children, id }) => {
   const {
     brickTexture: {
       childImageSharp: { fluid },
@@ -24,6 +24,7 @@ const BrickBg = ({ children }) => {
   return (
     <BackgroundImage
       fluid={fluid}
+      id={id}
       sx={{ position: "relative", bg: "black.dark" }}
       Tag="section"
     >
@@ -46,6 +47,11 @@ const BrickBg = ({ children }) => {
 
 BrickBg.propTypes = {
   children: PropTypes.node.isRequired,
+  id: PropTypes.string,
+};
+
+BrickBg.defaultProps = {
+  id: null,
 };
 
 export default BrickBg;

@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { jsx, Container, Heading, Text, Button, Grid } from "theme-ui";
@@ -8,7 +9,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";
 import BrickBg from "../Images/BrickBg";
 
-const BirthdaySection = () => {
+const BirthdaySection = ({ id }) => {
   const {
     allContentfulHomePageBirthdaysEvents: { edges },
     file: {
@@ -47,7 +48,7 @@ const BirthdaySection = () => {
   const breakpoints = useBreakpoint();
 
   return (
-    <BrickBg sx={{ position: "relative" }}>
+    <BrickBg id={id} sx={{ position: "relative" }}>
       <Container variant="flexContainer">
         {breakpoints.tablet && (
           <Img
@@ -96,6 +97,14 @@ const BirthdaySection = () => {
       </Container>
     </BrickBg>
   );
+};
+
+BirthdaySection.propTypes = {
+  id: PropTypes.string,
+};
+
+BirthdaySection.defaultProps = {
+  id: null,
 };
 
 export default BirthdaySection;

@@ -18,14 +18,19 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
 import StarDivider from "../components/Dividers/StarDivider";
+import StyledLink from "../components/Link.styled";
 
-const AttractionsLayout = ({ data: { contentfulSectionPages } }) => {
+const AttractionsLayout = ({
+  data: { contentfulSectionPages },
+  location: { pathname },
+}) => {
   const { theme } = useThemeUI();
 
   return (
     <>
       <SEO
         description={contentfulSectionPages.description.description}
+        pathname={pathname}
         title={contentfulSectionPages.title}
       />
       <WoodBg overlayColor="blue.light">
@@ -36,12 +41,20 @@ const AttractionsLayout = ({ data: { contentfulSectionPages } }) => {
               columns={[
                 "1fr",
                 null,
-                contentfulSectionPages.media
+                contentfulSectionPages.media &&
+                contentfulSectionPages.media[0].file.contentType !==
+                  "application/pdf"
                   ? `1fr minmax(${theme.sizes.xs}, ${theme.sizes["1/3"]})`
                   : `1fr`,
               ]}
               px={["3", null, null, "0"]}
-              sx={!contentfulSectionPages.media && { maxWidth: "3xl" }}
+              sx={
+                !contentfulSectionPages.media ||
+                (contentfulSectionPages.media[0].file.contentType ===
+                  "application/pdf" && {
+                  maxWidth: "3xl",
+                })
+              }
             >
               <Card
                 bg="white.light"
@@ -52,23 +65,32 @@ const AttractionsLayout = ({ data: { contentfulSectionPages } }) => {
                 <MDXRenderer>
                   {contentfulSectionPages.content.childMdx.body}
                 </MDXRenderer>
+                {contentfulSectionPages.media &&
+                  contentfulSectionPages.media[0].file.contentType ===
+                    "application/pdf" && (
+                    <StyledLink href={contentfulSectionPages.media[0].file.url}>
+                      Download Application
+                    </StyledLink>
+                  )}
               </Card>
-              {contentfulSectionPages.media && (
-                <Box>
-                  {contentfulSectionPages.media.map((image) => (
-                    <Card key={image.title} variant="image">
-                      <Img
-                        alt={image.title}
-                        fluid={image.fluid}
-                        sx={{ borderRadius: "lg" }}
-                      />
-                      <Text p="3">
-                        {contentfulSectionPages.description.description}
-                      </Text>
-                    </Card>
-                  ))}
-                </Box>
-              )}
+              {contentfulSectionPages.media &&
+                contentfulSectionPages.media[0].file.contentType !==
+                  "application/pdf" && (
+                  <Box>
+                    {contentfulSectionPages.media.map((image) => (
+                      <Card key={image.title} variant="image">
+                        <Img
+                          alt={image.title}
+                          fluid={image.fluid}
+                          sx={{ borderRadius: "lg" }}
+                        />
+                        <Text p="3">
+                          {contentfulSectionPages.description.description}
+                        </Text>
+                      </Card>
+                    ))}
+                  </Box>
+                )}
             </Grid>
           </Container>
         </Flex>
@@ -95,6 +117,10 @@ export const sectionsQuery = graphql`
         fluid {
           ...GatsbyContentfulFluid_withWebp
         }
+        file {
+          contentType
+          url
+        }
         title
         description
       }
@@ -117,6 +143,10 @@ AttractionsLayout.propTypes = {
       media: PropTypes.arrayOf(
         PropTypes.shape({
           description: PropTypes.string,
+          file: PropTypes.shape({
+            contentType: PropTypes.string,
+            url: PropTypes.string,
+          }),
           fluid: PropTypes.shape({
             aspectRatio: PropTypes.number,
             sizes: PropTypes.string,
@@ -131,6 +161,9 @@ AttractionsLayout.propTypes = {
       slug: PropTypes.string,
       title: PropTypes.string,
     }),
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
   }).isRequired,
 };
 

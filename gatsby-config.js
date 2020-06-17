@@ -1,4 +1,4 @@
-require("dotenv").config({
+require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
@@ -15,27 +15,25 @@ const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
   throw new Error(
-    "Contentful spaceId and the access token need to be provided."
+    `Contentful spaceId and the access token need to be provided.`
   );
 }
 
 const breakpoints = {
-  mobile: "(min-width: 475px)",
-  tablet: "(min-width: 768px)",
-  desktop: "(min-width: 1024px)",
-  wide: "(min-width: 1280px)",
+  mobile: `(min-width: 475px)`,
+  tablet: `(min-width: 768px)`,
+  desktop: `(min-width: 1024px)`,
+  wide: `(min-width: 1280px)`,
 };
-
-const funCardLink = `http://blackbeardscove.pfestore.com/retail/GiftCards/Default.aspx`;
 
 module.exports = {
   siteMetadata: {
-    title: "Charleston Fun Park in Mt. Pleasant, SC | Amusement Park",
+    title: `Charleston Fun Park in Mt. Pleasant, SC | Amusement Park`,
     description:
       // eslint-disable-next-line max-len
-      "Welcome to Charleston Fun Park! We are your locally owned and operated Family Entertainment Center in the Charleston area. We've got go-karts, putt-putt, an arcade, rock climbing, jumpland and more!",
+      `Welcome to Charleston Fun Park! We are your locally owned and operated Family Entertainment Center in the Charleston area. We've got go-karts, putt-putt, an arcade, rock climbing, jumpland and more!`,
     author: `Charleston Fun Park`,
-    siteUrl: "https://charlestonfunpark.com/",
+    siteUrl: `https://charlestonfunpark.com/`,
     copyright: `© ${new Date().getFullYear()} Charleston Fun Park. All Rights Reserved.`,
     keywords: [
       `Fun Park`,
@@ -45,62 +43,66 @@ module.exports = {
       `Mini Golf`,
     ],
     phoneNumber: {
-      number: "(843) 971-1223",
-      link: "tel:843-971-1223",
+      number: `(843) 971-1223`,
+      link: `tel:843-971-1223`,
     },
-    funCardLink,
+    funCardLink: `http://blackbeardscove.pfestore.com/retail/GiftCards/Default.aspx`,
     socialLinks: [
       {
-        name: "facebook",
-        url: "https://facebook.com/",
+        name: `facebook`,
+        url: `https://facebook.com/`,
       },
       {
-        name: "twitter",
-        url: "https://twitter.com/",
+        name: `twitter`,
+        url: `https://twitter.com/`,
       },
       {
-        name: "instagram",
-        url: "https://instagram.com/",
+        name: `instagram`,
+        url: `https://instagram.com/`,
       },
     ],
     navLinks: [
       {
-        name: "Home",
-        url: "/",
+        name: `Home`,
+        url: `/`,
       },
       {
-        name: "Attractions",
-        url: "/attractions/",
+        name: `Attractions`,
+        url: `/attractions/`,
       },
       {
-        name: "Birthdays & Events",
-        url: "/birthdays-and-events/",
+        name: `Birthdays & Events`,
+        url: `/birthdays-and-events/`,
       },
       {
-        name: "Park Info",
-        url: "/park-info/",
+        name: `Park Info`,
+        url: `/park-info/`,
       },
       {
-        name: "Specials",
-        url: "/specials/",
+        name: `Specials`,
+        url: `/specials/`,
       },
       {
-        name: "Fun Cards",
-        url: "/fun-cards/",
+        name: `Fun Cards`,
+        url: `/fun-cards/`,
+      },
+      {
+        name: `Employment`,
+        url: `/employment/`,
       },
     ],
   },
-  pathPrefix: "/charleston-fun-park",
+  pathPrefix: `/charleston-fun-park`,
   plugins: [
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-offline",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-theme-ui",
-    "gatsby-transformer-remark",
-    "gatsby-transformer-sharp",
+    `gatsby-plugin-mdx`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-theme-ui`,
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-plugin-breakpoints",
+      resolve: `gatsby-plugin-breakpoints`,
       options: {
         queries: breakpoints,
       },
@@ -108,30 +110,30 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve("./src/templates/MainLayout.js"),
+        component: require.resolve(`./src/templates/MainLayout.js`),
       },
     },
     {
-      resolve: "gatsby-source-contentful",
+      resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "images",
+        name: `images`,
         path: `${__dirname}/src/images`,
       },
     },
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Charleston Fun Park",
-        short_name: "Fun Park",
-        icon: "src/images/logo.png",
-        start_url: "/",
-        background_color: "#003A59",
-        theme_color: "#1DCDF2",
-        display: "standalone",
+        name: `Charleston Fun Park`,
+        short_name: `Fun Park`,
+        icon: `src/images/logo.png`,
+        start_url: `/`,
+        background_color: `#003A59`,
+        theme_color: `#1DCDF2`,
+        display: `standalone`,
       },
     },
   ],
