@@ -207,9 +207,9 @@ export default {
       },
       mid: {
         variant: "text.body.normal",
-        fontSize: ["2", null, "3"],
+        fontSize: ["2", null, null, null, "3"],
       },
-      large: {
+      lg: {
         variant: "text.body.normal",
         fontSize: [null, null, "3", null, "4"],
       },

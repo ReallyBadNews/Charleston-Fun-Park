@@ -46,7 +46,7 @@ module.exports = {
       number: `(843) 971-1223`,
       link: `tel:843-971-1223`,
     },
-    funCardLink: `http://blackbeardscove.pfestore.com/retail/GiftCards/Default.aspx`,
+    giftCardLink: `http://blackbeardscove.pfestore.com/retail/GiftCards/Default.aspx`,
     socialLinks: [
       {
         name: `facebook`,
@@ -87,8 +87,8 @@ module.exports = {
         url: `/specials/`,
       },
       {
-        name: `Fun Cards`,
-        url: `/fun-cards/`,
+        name: `Gift Cards`,
+        url: `/gift-cards/`,
       },
       {
         name: `Employment`,

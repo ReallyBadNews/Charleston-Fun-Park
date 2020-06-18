@@ -51,13 +51,7 @@ const AttractionsLayout = ({
                   : `1fr`,
               ]}
               px={["3", null, null, null, "0"]}
-              sx={
-                !contentfulSectionPages.media ||
-                (contentfulSectionPages.media[0].file.contentType ===
-                  "application/pdf" && {
-                  maxWidth: "3xl",
-                })
-              }
+              sx={{ minWidth: "3xl" }}
             >
               <Card
                 bg="white.light"
