@@ -67,7 +67,7 @@ const Nav = () => {
 
   const menuIcons = {
     Attractions: faFlagCheckered,
-    "Birthdays & Events": faBirthdayCake,
+    "Birthday Parties": faBirthdayCake,
     "Park Info": faInfoCircle,
   };
 

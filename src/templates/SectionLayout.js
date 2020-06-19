@@ -33,7 +33,10 @@ const AttractionsLayout = ({
         pathname={pathname}
         title={contentfulSectionPages.title}
       />
-      <WoodBg overlayColor="blue.light">
+      <WoodBg
+        overlayColor="blue.light"
+        sx={{ backgroundRepeat: "repeat", backgroundSize: "auto" }}
+      >
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <StarDivider title={contentfulSectionPages.title} />
           <Container my="6" sx={{ flex: "1 1 auto", width: "auto" }}>
@@ -47,14 +50,8 @@ const AttractionsLayout = ({
                   ? `1fr minmax(${theme.sizes.xs}, ${theme.sizes["1/3"]})`
                   : `1fr`,
               ]}
-              px={["3", null, null, "0"]}
-              sx={
-                !contentfulSectionPages.media ||
-                (contentfulSectionPages.media[0].file.contentType ===
-                  "application/pdf" && {
-                  maxWidth: "3xl",
-                })
-              }
+              px={["3", null, null, null, "0"]}
+              sx={{ minWidth: "3xl" }}
             >
               <Card
                 bg="white.light"

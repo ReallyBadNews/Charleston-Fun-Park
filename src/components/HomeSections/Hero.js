@@ -52,7 +52,7 @@ const Hero = () => {
   `);
 
   const breakpoints = useBreakpoint();
-  const { funCardLink } = useSiteMetadata();
+  const { giftCardLink } = useSiteMetadata();
 
   return (
     <Box
@@ -120,12 +120,11 @@ const Hero = () => {
         >
           <Button
             as="a"
-            href={funCardLink}
+            href={giftCardLink}
             sx={{
               position: "absolute",
               right: ["3", null, null, null, "0"],
               top: "3",
-              zIndex: "1",
             }}
             target="_blank"
             variant="cta"
@@ -135,7 +134,7 @@ const Hero = () => {
               sx={{ mr: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
               fixedWidth
             />
-            Fun Cards
+            Gift Cards
           </Button>
           <Flex
             alignItems="center"
@@ -153,7 +152,7 @@ const Hero = () => {
                 <Heading as="h1" variant="heading">
                   {title}
                 </Heading>
-                <Text variant="body.large">{description}</Text>
+                <Text variant="body.lg">{description}</Text>
               </Stack>
             </Box>
           </Flex>

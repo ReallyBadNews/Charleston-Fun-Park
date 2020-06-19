@@ -7,6 +7,7 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";
+import useSiteMetadata from "../../hooks/use-site-metadata";
 import BrickBg from "../Images/BrickBg";
 
 const BirthdaySection = ({ id }) => {
@@ -46,6 +47,7 @@ const BirthdaySection = ({ id }) => {
   `);
 
   const breakpoints = useBreakpoint();
+  const { navLinks } = useSiteMetadata();
 
   return (
     <BrickBg id={id} sx={{ position: "relative" }}>
@@ -71,7 +73,7 @@ const BirthdaySection = ({ id }) => {
             <Text color="white.light" variant="body.mid">
               {edges[0].node.description.description}
             </Text>
-            <Button as={Link} to="/birthdays-and-events/" variant="cta">
+            <Button as={Link} to={navLinks[2].url} variant="cta">
               View Package Options
               <FontAwesomeIcon
                 icon={faArrowRight}
