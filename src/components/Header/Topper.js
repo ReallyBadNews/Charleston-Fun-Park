@@ -9,7 +9,7 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus, faPhone } from "@fortawesome/free-solid-svg-icons";
 import useSiteMetadata from "../../hooks/use-site-metadata";
 import StyledLink from "../Link.styled";
 
@@ -30,7 +30,7 @@ const Topper = () => {
     }
   `);
 
-  const { phoneNumber, socialLinks } = useSiteMetadata();
+  const { giftCardLink, phoneNumber, socialLinks } = useSiteMetadata();
 
   const socialIcons = {
     facebook: faFacebook,
@@ -65,25 +65,35 @@ const Topper = () => {
         sx={{ position: "relative", zIndex: "100" }}
       >
         <Flex gap="5" justifyContent={["space-between", null, "flex-end"]}>
-          <Button as="a" href={phoneNumber.link} variant="mini.white">
-            {phoneNumber.number}
-            <FontAwesomeIcon
-              icon={faPhone}
-              sx={{ ml: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
-              fixedWidth
-            />
-          </Button>
-          <Inline gap="4">
+          <Inline gap="3">
+            <Button as="a" href={giftCardLink} target="_blank" variant="cta">
+              <FontAwesomeIcon
+                icon={faCartPlus}
+                sx={{ mr: "2", maxHeight: "4", maxWidth: "4" }}
+                fixedWidth
+              />
+              Gift Cards
+            </Button>
+            <Button as="a" href={phoneNumber.link} variant="white">
+              {phoneNumber.number}
+              <FontAwesomeIcon
+                icon={faPhone}
+                sx={{ ml: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
+                fixedWidth
+              />
+            </Button>
+          </Inline>
+          <Inline alignItems="center" gap="4" sx={{ height: "full" }}>
             {socialLinks.map((link) => (
               <StyledLink
                 key={link.name}
                 color="white.light"
-                fontSize="3"
+                fontSize="4"
                 href={link.url}
               >
                 <FontAwesomeIcon
                   icon={socialIcons[link.name]}
-                  sx={{ maxHeight: "5" }}
+                  sx={{ maxHeight: "6" }}
                 />
               </StyledLink>
             ))}

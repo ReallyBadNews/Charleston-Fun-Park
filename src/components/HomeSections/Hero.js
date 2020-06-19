@@ -1,12 +1,9 @@
 /** @jsx jsx */
-import { Button, jsx, Heading, Text, Container, Box } from "theme-ui";
+import { jsx, Heading, Text, Container, Box } from "theme-ui";
 import BackgroundImage from "gatsby-background-image";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { useStaticQuery, graphql } from "gatsby";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Stack, Flex } from "raam";
-import useSiteMetadata from "../../hooks/use-site-metadata";
 
 const Hero = () => {
   const {
@@ -52,7 +49,6 @@ const Hero = () => {
   `);
 
   const breakpoints = useBreakpoint();
-  const { giftCardLink } = useSiteMetadata();
 
   return (
     <Box
@@ -112,30 +108,12 @@ const Hero = () => {
           opacity: "0.5",
         }}
       />
-      {breakpoints.tablet ? (
+      {breakpoints.tablet && (
         <Container
           px={["3", null, null, null, "0"]}
           py="7"
-          sx={{ height: "full", position: "relative" }}
+          sx={{ height: "full" }}
         >
-          <Button
-            as="a"
-            href={giftCardLink}
-            sx={{
-              position: "absolute",
-              right: ["3", null, null, null, "0"],
-              top: "3",
-            }}
-            target="_blank"
-            variant="cta"
-          >
-            <FontAwesomeIcon
-              icon={faCartPlus}
-              sx={{ mr: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
-              fixedWidth
-            />
-            Gift Cards
-          </Button>
           <Flex
             alignItems="center"
             flexShrink="1"
@@ -157,7 +135,7 @@ const Hero = () => {
             </Box>
           </Flex>
         </Container>
-      ) : null}
+      )}
     </Box>
   );
 };
