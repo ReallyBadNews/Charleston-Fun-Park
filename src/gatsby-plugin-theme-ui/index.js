@@ -261,10 +261,6 @@ export default {
       px: "3",
       py: "2",
     },
-    giftCards: {
-      variant: "buttons.cta",
-      fontSize: "3",
-    },
   },
   cards: {
     attraction: {
@@ -279,6 +275,7 @@ export default {
     image: {
       variant: "cards.attraction",
       height: "auto",
+      overflow: "hidden",
     },
     bDays: {
       bg: "white.light",
