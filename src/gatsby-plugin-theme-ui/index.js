@@ -229,6 +229,11 @@ export default {
     },
   },
   buttons: {
+    white: {
+      variant: "buttons.cta",
+      color: "green.dark",
+      backgroundColor: "white.light",
+    },
     mini: {
       white: {
         fontSize: "1",
@@ -255,6 +260,10 @@ export default {
       color: "black.dark",
       px: "3",
       py: "2",
+    },
+    giftCards: {
+      variant: "buttons.cta",
+      fontSize: "3",
     },
   },
   cards: {
