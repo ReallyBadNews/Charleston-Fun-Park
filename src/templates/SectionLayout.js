@@ -39,7 +39,18 @@ const AttractionsLayout = ({
       >
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <StarDivider title={contentfulSectionPages.title} />
-          <Container my="6" sx={{ flex: "1 1 auto", width: "auto" }}>
+          <Container
+            my="6"
+            sx={{
+              flex: "1 1 auto",
+              width:
+                contentfulSectionPages.media &&
+                contentfulSectionPages.media[0].file.contentType !==
+                  "application/pdf"
+                  ? "full"
+                  : "auto",
+            }}
+          >
             <Grid
               columns={[
                 "1fr",
@@ -51,7 +62,14 @@ const AttractionsLayout = ({
                   : `1fr`,
               ]}
               px={["3", null, null, null, "0"]}
-              sx={{ minWidth: "3xl" }}
+              sx={{
+                maxWidth:
+                  contentfulSectionPages.media &&
+                  contentfulSectionPages.media[0].file.contentType !==
+                    "application/pdf"
+                    ? "auto"
+                    : "3xl",
+              }}
             >
               <Card
                 bg="white.light"
@@ -76,11 +94,7 @@ const AttractionsLayout = ({
                   <Box>
                     {contentfulSectionPages.media.map((image) => (
                       <Card key={image.title} variant="image">
-                        <Img
-                          alt={image.title}
-                          fluid={image.fluid}
-                          sx={{ borderRadius: "lg" }}
-                        />
+                        <Img alt={image.title} fluid={image.fluid} />
                         <Text p="3">
                           {contentfulSectionPages.description.description}
                         </Text>
