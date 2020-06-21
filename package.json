@@ -40,6 +40,9 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^10.2.1",
+    "babel-jest": "^26.0.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -53,6 +56,7 @@
     "eslint-plugin-react-hooks": "^4.0.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.10",
+    "jest": "^26.0.1",
     "netlify-cli": "^2.52.0",
     "prettier": "^2.0.4",
     "prettier-eslint": "^11.0.0",
@@ -70,7 +74,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run lint"
+      "pre-push": "npm run lint && npm run test"
     }
   },
   "homepage": "https://github.com/reallybadnews/charleston-fun-park#readme",
@@ -84,10 +88,10 @@
     "url": "git+https://github.com/reallybadnews/charleston-fun-park.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
-    "dev-m": "gatsby develop --host $(ifconfig | awk '/inet 192\\.168\\.[0-9]+\\.[0-9]+/{print $2}') --port 8000",
     "build": "gatsby build",
     "clean": "gatsby clean",
+    "dev": "gatsby develop",
+    "dev-m": "gatsby develop --host $(ifconfig | awk '/inet 192\\.168\\.[0-9]+\\.[0-9]+/{print $2}') --port 8000",
     "eslint": "eslint --ext=js,jsx src",
     "eslint-fix": "eslint --ext=js,jsx src --fix",
     "format": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,mdx}\"",
@@ -99,6 +103,7 @@
     "stylelint": "stylelint --config .stylelintrc.json src/**/*.{js,jsx}",
     "stylelint-fix": "stylelint --fix --config .stylelintrc.json src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
   }
 }
