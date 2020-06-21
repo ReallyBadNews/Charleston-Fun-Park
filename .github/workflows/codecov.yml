@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Install Gatsby
+        run: npm install -g gatsby
+
       - name: Install dependencies
         run: npm install
 
