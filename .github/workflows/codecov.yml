@@ -1,37 +1,38 @@
-name: Codecov Testing
+name: CI/CD
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches: [prod]
   pull_request:
     branches: [prod]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Setup
-        run: |
-          npm ci --production
-
-      # Runs a single command using the runners shell
-      - name: Run run the testing suite
-        run: npm run test
-
-      - name: Codecov
-        uses: codecov/codecov-action@v1.0.7
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          # Path to coverage file to upload
-          file: ./coverage/coverage-final.json
-          # Specify whether or not CI build should fail if Codecov runs into an error during upload
-          fail_ci_if_error: false
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the tests and generate coverage report
+        run: npm test -- --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Build
+        run: npm run build
