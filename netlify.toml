@@ -3,6 +3,7 @@
 
 [build]
   publish = "public"
+  command = "npm run test && gatsby build && bash <(curl -s https://codecov.io/bash)"
   Functions = ""
  
 [[plugins]]
