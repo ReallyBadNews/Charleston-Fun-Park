@@ -34,13 +34,6 @@ module.exports = {
     "plugin:mdx/recommended",
     // "prettier/react",
   ],
-  parserOptions: {
-    sourceType: "module",
-    ecmaVersion: 6,
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
   rules: {
     "react/jsx-sort-props": [
       "error",
