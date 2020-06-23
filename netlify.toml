@@ -8,6 +8,8 @@
  
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
+
+[[plugins]]
   package = "@netlify/plugin-lighthouse"
   [plugins.inputs]
   # optional, defaults to scanning the current built version of the site
