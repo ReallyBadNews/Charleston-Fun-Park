@@ -1,6 +1,6 @@
 ## Charleston Fun Park
 
-[https://retouching.meganelshoff.photo](https://retouching.meganelshoff.photo)
+[beta.charlestonfunpark.com](https://beta.charlestonfunpark.com)
 
 ## 🚀 Quick start
 
