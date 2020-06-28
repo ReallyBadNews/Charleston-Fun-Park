@@ -33,10 +33,7 @@ const AttractionsLayout = ({
         pathname={pathname}
         title={contentfulSectionPages.title}
       />
-      <WoodBg
-        overlayColor="blue.light"
-        sx={{ backgroundRepeat: "repeat", backgroundSize: "auto" }}
-      >
+      <WoodBg overlayColor="blue.light">
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <StarDivider title={contentfulSectionPages.title} />
           <Container
