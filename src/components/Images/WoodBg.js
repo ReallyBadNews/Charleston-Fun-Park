@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, jsx } from "theme-ui";
 
-const WoodBg = ({ children, className, sx, overlayColor }) => {
+const WoodBg = ({ children, overlayColor }) => {
   const {
     darkWood: {
       childImageSharp: { fluid },
@@ -13,7 +13,7 @@ const WoodBg = ({ children, className, sx, overlayColor }) => {
     query WoodQuery {
       darkWood: file(relativePath: { eq: "darkWood.jpg" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 2048) {
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -22,7 +22,15 @@ const WoodBg = ({ children, className, sx, overlayColor }) => {
   `);
 
   return (
-    <BackgroundImage className={className} fluid={fluid} sx={sx} Tag="section">
+    <BackgroundImage
+      fluid={fluid}
+      sx={{
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
+        backgroundPosition: "top center",
+      }}
+      Tag="section"
+    >
       <Box
         sx={{
           position: "absolute",
@@ -42,15 +50,11 @@ const WoodBg = ({ children, className, sx, overlayColor }) => {
 
 WoodBg.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string,
   overlayColor: PropTypes.string,
-  sx: PropTypes.shape({}),
 };
 
 WoodBg.defaultProps = {
-  className: "",
-  overlayColor: "",
-  sx: {},
+  overlayColor: "blue.light",
 };
 
 export default WoodBg;

@@ -22,7 +22,7 @@ const Topper = () => {
     query TopperQuery {
       grassBg: file(relativePath: { eq: "grassBg.png" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 2048, maxHeight: 43) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -44,6 +44,8 @@ const Topper = () => {
       className="topper"
       fluid={fluid}
       sx={{
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
         position: "relative",
       }}
     >

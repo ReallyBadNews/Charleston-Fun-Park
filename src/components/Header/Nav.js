@@ -40,7 +40,7 @@ const Nav = () => {
       }
       bg: file(relativePath: { eq: "woodTexture.png" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 2048, maxHeight: 96) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -76,6 +76,8 @@ const Nav = () => {
       fluid={woodTexture}
       sx={{
         backgroundColor: "white.light",
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
         borderTopWidth: "4",
         borderTopColor: "blue.light",
         borderTopStyle: "solid",
