@@ -122,7 +122,7 @@ export const sectionsQuery = graphql`
         }
       }
       media {
-        fluid {
+        fluid(maxWidth: 735) {
           ...GatsbyContentfulFluid_withWebp
         }
         file {
