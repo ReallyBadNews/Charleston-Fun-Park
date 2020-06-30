@@ -27,7 +27,7 @@ const Hero = () => {
         }
         isVideo
         media {
-          fluid {
+          fluid(maxWidth: 2048) {
             ...GatsbyContentfulFluid_withWebp
           }
           description
