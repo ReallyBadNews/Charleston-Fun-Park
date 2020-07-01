@@ -32,11 +32,13 @@ const ArrowDivider = ({ id }) => {
               <Text variant="display">The Party Starts Here</Text>
             </StyledLink>
           ) : (
-            <Text variant="display">
-              The Party
-              <br />
-              Starts Here
-            </Text>
+            <StyledLink scrollTo="birthdays">
+              <Text variant="display">
+                The Party
+                <br />
+                Starts Here
+              </Text>
+            </StyledLink>
           )}
           <Arrow
             sx={{
