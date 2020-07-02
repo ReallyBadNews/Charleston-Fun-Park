@@ -149,7 +149,7 @@ const Nav = () => {
                     textDecoration="none"
                     textTransform="uppercase"
                     to={link.url}
-                    onClick={menuOpen && burgerHandler}
+                    onClick={menuOpen ? burgerHandler : null}
                   >
                     {link.name}
                   </StyledLink>
@@ -192,7 +192,7 @@ const Nav = () => {
                   textDecoration="none"
                   textTransform="uppercase"
                   to={link.url}
-                  onClick={menuOpen && burgerHandler}
+                  onClick={menuOpen ? burgerHandler : null}
                 >
                   {link.name}
                 </StyledLink>
