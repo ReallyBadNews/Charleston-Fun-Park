@@ -15,8 +15,8 @@ const SectionDivider = ({ bg, stars }) => {
     query SectionDividerQuery {
       darkWood: file(relativePath: { eq: "darkWood.jpg" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          fluid(maxWidth: 2048) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
