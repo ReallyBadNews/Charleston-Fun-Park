@@ -23,12 +23,29 @@ describe("StyledLink", () => {
     expect(screen.getByText(testMessage)).not.toHaveAttribute("href");
   });
 
-  it("has a, external link", () => {
-    const testMessage = "Hello world";
-    const linkLocation = "https://google.com/";
-    render(<StyledLink href={linkLocation}>{testMessage}</StyledLink>);
-    expect(screen.getByText(testMessage)).toHaveAttribute("href", linkLocation);
-    expect(screen.getByText(testMessage)).toHaveAttribute("rel", "noopener");
-    expect(screen.getByText(testMessage)).toHaveAttribute("target", "_blank");
+  describe("external link", () => {
+    it("should render the text", () => {
+      const testMessage = "Hello world";
+      const linkLocation = "https://google.com/";
+      render(<StyledLink href={linkLocation}>{testMessage}</StyledLink>);
+      expect(screen.getByText(testMessage)).toHaveAttribute(
+        "href",
+        linkLocation
+      );
+    });
+
+    it("should have attr rel=noopener", () => {
+      const testMessage = "Hello world";
+      const linkLocation = "https://google.com/";
+      render(<StyledLink href={linkLocation}>{testMessage}</StyledLink>);
+      expect(screen.getByText(testMessage)).toHaveAttribute("rel", "noopener");
+    });
+
+    it("should have attr target=_blank", () => {
+      const testMessage = "Hello world";
+      const linkLocation = "https://google.com/";
+      render(<StyledLink href={linkLocation}>{testMessage}</StyledLink>);
+      expect(screen.getByText(testMessage)).toHaveAttribute("target", "_blank");
+    });
   });
 });
