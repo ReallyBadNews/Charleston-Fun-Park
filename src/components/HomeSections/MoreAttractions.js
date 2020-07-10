@@ -9,7 +9,7 @@ import AttractionsCard from "../Attractions/AttractionsCard";
 
 const MoreAttractions = () => {
   const {
-    allContentfulAttraction: { edges },
+    allContentfulAttraction: { edges: attractions },
   } = useStaticQuery(graphql`
     query MoreAttractionsQuery {
       allContentfulAttraction(
@@ -27,6 +27,11 @@ const MoreAttractions = () => {
             isVideo
             title
             order
+            videoPoster {
+              fluid {
+                ...GatsbyContentfulFluid_withWebp
+              }
+            }
           }
         }
       }
@@ -39,11 +44,14 @@ const MoreAttractions = () => {
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">
           <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
-            {edges.map((attraction) => (
+            {attractions.map((attraction) => (
               <AttractionsCard
                 key={attraction.node.title}
-                isVideo={attraction.node.isVideo}
-                media={attraction.node.heroImage}
+                media={
+                  attraction.node.isVideo
+                    ? attraction.node.videoPoster
+                    : attraction.node.heroImage
+                }
                 textAlign="center"
                 title={attraction.node.title}
               />
