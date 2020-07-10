@@ -67,7 +67,6 @@ const AttractionsPage = ({ location: { pathname } }) => {
               <AttractionsCard
                 key={attraction.node.title}
                 description={attraction.node.description.description}
-                isVideo={attraction.node.isVideo}
                 media={
                   attraction.node.isVideo
                     ? attraction.node.videoPoster

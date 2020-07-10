@@ -4,42 +4,37 @@ import React from "react";
 import { jsx } from "theme-ui";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
+import Video from "./Video";
 
 const MediaItem = ({
-  description: { description },
+  alt,
+  dataTestId,
   media,
   isVideo,
   className,
   sx,
+  videoPoster,
 }) => (
   <>
     {isVideo ? (
-      <video
+      <Video
+        alt={alt}
         className={className}
-        // poster={videoPosterSrc}
-        sx={sx}
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src={media.file.url} type={media.file.contentType} />
-        <p>{description}</p>
-      </video>
-    ) : (
-      <Img
-        alt={description}
-        className={className}
-        fluid={media.fluid}
+        dataTestId={dataTestId}
+        media={media}
+        poster={videoPoster}
         sx={sx}
       />
+    ) : (
+      <Img alt={alt} className={className} fluid={media.fluid} sx={sx} />
     )}
   </>
 );
 
 MediaItem.propTypes = {
+  alt: PropTypes.string,
   className: PropTypes.string,
-  description: PropTypes.string,
+  dataTestId: PropTypes.string,
   isVideo: PropTypes.bool,
   media: PropTypes.shape({
     file: PropTypes.shape({
@@ -51,20 +46,17 @@ MediaItem.propTypes = {
     title: PropTypes.string,
   }),
   sx: PropTypes.shape({}),
-  videoPoster: PropTypes.shape({
-    fixed: PropTypes.shape({
-      src: PropTypes.string,
-    }),
-  }),
+  videoPoster: PropTypes.string,
 };
 
 MediaItem.defaultProps = {
   className: null,
-  description: "",
+  alt: null,
+  dataTestId: null,
   isVideo: false,
   media: {},
-  sx: {},
-  videoPoster: {},
+  sx: null,
+  videoPoster: "",
 };
 
 export default MediaItem;
