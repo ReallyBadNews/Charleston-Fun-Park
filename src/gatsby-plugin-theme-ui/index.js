@@ -328,6 +328,9 @@ export default {
     ul: {
       mt: "3",
       mb: "5",
+      p: "0",
+      listStylePosition: "inside",
+      listStyleType: `"→ "`,
     },
     li: {
       fontSize: ["2", null, "3"],
