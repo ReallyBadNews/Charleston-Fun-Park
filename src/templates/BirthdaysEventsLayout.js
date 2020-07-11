@@ -52,7 +52,7 @@ const BirthdaysEventsLayout = ({
             <Card variant="bDays">
               <Box sx={{ width: ["full", null, "1/2"] }}>
                 <Heading mb="2" variant="heading.title">
-                  {birthdayPackage1Title}
+                  {birthdayPackage1Title.toLowerCase()}
                 </Heading>
                 <Text variant="body.mid">{birthdayPackage1Price}</Text>
                 <MDXRenderer>{package1Content}</MDXRenderer>
@@ -69,7 +69,7 @@ const BirthdaysEventsLayout = ({
             <Card variant="bDays">
               <Box sx={{ width: "1/2" }}>
                 <Heading mb="2" variant="heading.title">
-                  {birthdayPackage2Title}
+                  {birthdayPackage2Title.toLowerCase()}
                 </Heading>
                 <Text variant="body.mid">{birthdayPackage2Price}</Text>
                 <MDXRenderer>{package2Content}</MDXRenderer>
@@ -86,7 +86,7 @@ const BirthdaysEventsLayout = ({
             <Card variant="bDays">
               <Box sx={{ width: "1/2" }}>
                 <Heading mb="2" variant="heading.title">
-                  {birthdayPackage3Title}
+                  {birthdayPackage3Title.toLowerCase()}
                 </Heading>
                 <Text variant="body.mid">{birthdayPackage3Price}</Text>
                 <MDXRenderer>{package3Content}</MDXRenderer>

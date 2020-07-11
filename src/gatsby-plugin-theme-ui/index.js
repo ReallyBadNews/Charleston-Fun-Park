@@ -187,6 +187,7 @@ export default {
         variant: "heading",
         fontSize: "5",
         lineHeight: "none",
+        textTransform: "capitalize",
       },
       smallTitle: {
         variant: "heading.title",
