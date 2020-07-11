@@ -68,7 +68,13 @@ const Topper = () => {
       >
         <Flex gap="5" justifyContent={["space-between", null, "flex-end"]}>
           <Inline gap="3">
-            <Button as="a" href={giftCardLink} target="_blank" variant="cta">
+            <Button
+              as="a"
+              href={giftCardLink}
+              rel="noopener"
+              target="_blank"
+              variant="cta"
+            >
               <FontAwesomeIcon
                 icon={faCartPlus}
                 sx={{ mr: "2", maxHeight: "4", maxWidth: "4" }}
