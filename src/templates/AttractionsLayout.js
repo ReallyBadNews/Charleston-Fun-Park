@@ -24,7 +24,12 @@ const AttractionsLayout = ({
         <MediaItem
           isVideo={contentfulAttraction.isVideo}
           media={contentfulAttraction.heroImage}
-          sx={{ maxHeight: "xl", width: "full", objectFit: "cover" }}
+          sx={{
+            maxHeight: "xl",
+            height: "xl",
+            width: "full",
+            objectFit: "cover",
+          }}
         />
         <Container
           mx="auto"

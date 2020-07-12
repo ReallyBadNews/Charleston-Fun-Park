@@ -187,6 +187,7 @@ export default {
         variant: "heading",
         fontSize: "5",
         lineHeight: "none",
+        textTransform: "capitalize",
       },
       smallTitle: {
         variant: "heading.title",
@@ -327,6 +328,9 @@ export default {
     ul: {
       mt: "3",
       mb: "5",
+      p: "0",
+      listStylePosition: "inside",
+      listStyleType: `"→ "`,
     },
     li: {
       fontSize: ["2", null, "3"],

@@ -5,6 +5,11 @@ require(`dotenv`).config({
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  environment: process.env.NODE_ENV,
+  host:
+    process.env.NODE_ENV === `development`
+      ? `preview.contentful.com`
+      : `cdn.contentful.com`,
 };
 
 if (process.env.CONTENTFUL_HOST) {
