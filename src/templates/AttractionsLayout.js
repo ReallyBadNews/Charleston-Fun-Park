@@ -30,6 +30,7 @@ const AttractionsLayout = ({
             width: "full",
             objectFit: "cover",
           }}
+          videoPoster={contentfulAttraction.videoPoster.fixed.src}
         />
         <Container
           mx="auto"
@@ -55,7 +56,6 @@ const AttractionsLayout = ({
 export const attractionsQuery = graphql`
   query AutoAttractionsQuery($id: String) {
     contentfulAttraction(id: { eq: $id }) {
-      id
       body {
         childMdx {
           body
@@ -65,7 +65,7 @@ export const attractionsQuery = graphql`
         description
       }
       heroImage {
-        fluid {
+        fluid(maxWidth: 2048) {
           ...GatsbyContentfulFluid_withWebp
         }
         file {
@@ -73,8 +73,14 @@ export const attractionsQuery = graphql`
           url
         }
       }
+      id
       isVideo
       title
+      videoPoster {
+        fixed(width: 1920) {
+          src
+        }
+      }
     }
   }
 `;
@@ -103,6 +109,11 @@ AttractionsLayout.propTypes = {
       id: PropTypes.string,
       isVideo: PropTypes.bool,
       title: PropTypes.string,
+      videoPoster: PropTypes.shape({
+        fixed: PropTypes.shape({
+          src: PropTypes.string,
+        }),
+      }),
     }),
   }).isRequired,
   location: PropTypes.shape({
