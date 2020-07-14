@@ -49,7 +49,7 @@ const GoKartsFeature = ({ data: { node } }) => {
         <defs>
           <pattern
             height="32"
-            id="Pattern"
+            id="finishLine"
             patternUnits="userSpaceOnUse"
             width="64"
             x="0"
@@ -58,7 +58,7 @@ const GoKartsFeature = ({ data: { node } }) => {
             <rect fill={theme.colors.text} height="32" width="32" />
           </pattern>
         </defs>
-        <rect fill="url(#Pattern)" height="32" width="100%" />
+        <rect fill="url(#finishLine)" height="32" width="100%" />
       </svg>
       <Flex
         sx={{
@@ -168,7 +168,7 @@ const GoKartsFeature = ({ data: { node } }) => {
         <defs>
           <pattern
             height="32"
-            id="Pattern"
+            id="finishLineBottom"
             patternUnits="userSpaceOnUse"
             width="64"
             x="0"
@@ -177,7 +177,7 @@ const GoKartsFeature = ({ data: { node } }) => {
             <rect fill={theme.colors.text} height="32" width="32" />
           </pattern>
         </defs>
-        <rect fill="url(#Pattern)" height="32" width="100%" />
+        <rect fill="url(#finishLineBottom)" height="32" width="100%" />
       </svg>
     </Box>
   );

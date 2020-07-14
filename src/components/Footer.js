@@ -58,6 +58,7 @@ const Footer = () => {
                 fontSize="4"
                 hoverColor="blue.light"
                 href={link.url}
+                title={link.name}
               >
                 <FontAwesomeIcon
                   icon={socialIcons[link.name]}

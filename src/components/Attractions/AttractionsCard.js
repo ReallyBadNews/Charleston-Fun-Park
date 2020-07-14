@@ -24,6 +24,7 @@ const AttractionsCard = ({
     <StyledLink to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}>
       <Card variant="attraction">
         <MediaItem
+          alt={title}
           media={media}
           sx={{
             height: "xs",

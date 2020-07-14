@@ -232,7 +232,7 @@ export default {
   buttons: {
     white: {
       variant: "buttons.cta",
-      color: "green.dark",
+      color: "green.xdark",
       backgroundColor: "white.light",
     },
     mini: {

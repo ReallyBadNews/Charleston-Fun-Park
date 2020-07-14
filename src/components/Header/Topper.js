@@ -98,6 +98,7 @@ const Topper = () => {
                 color="white.light"
                 fontSize="4"
                 href={link.url}
+                title={link.name}
               >
                 <FontAwesomeIcon
                   icon={socialIcons[link.name]}
