@@ -123,6 +123,7 @@ const Hero = () => {
               color="white.light"
               sx={{
                 width: [null, null, "3/4", null, "7/12"],
+                textShadow: "text",
               }}
             >
               <Heading variant="heading.title">{subtitle}</Heading>
