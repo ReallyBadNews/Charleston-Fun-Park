@@ -13,7 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.10",
     "@mdx-js/mdx": "^1.6.5",
-    "@mdx-js/react": "^1.6.5",
+    "@mdx-js/react": "^1.6.11",
     "framer-motion": "^2.1.0",
     "gatsby": "^2.24.2",
     "gatsby-background-image": "^1.1.1",
