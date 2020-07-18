@@ -55,15 +55,15 @@ module.exports = {
     socialLinks: [
       {
         name: `facebook`,
-        url: `https://facebook.com/`,
+        url: `https://www.facebook.com/charlestonfunpark/`,
       },
       {
         name: `twitter`,
-        url: `https://twitter.com/`,
+        url: `https://twitter.com/charleston_fun/`,
       },
       {
         name: `instagram`,
-        url: `https://instagram.com/`,
+        url: `https://www.instagram.com/charlestonfunpark/`,
       },
     ],
     navLinks: [

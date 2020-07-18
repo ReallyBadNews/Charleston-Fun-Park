@@ -56,6 +56,8 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.development
+.env.production
 
 # build folder
 public
@@ -65,8 +67,6 @@ public
 
 # contentful config file
 .contentful.json
-.env.development
-.env.production
 
 # Local Netlify folder
 .netlify
