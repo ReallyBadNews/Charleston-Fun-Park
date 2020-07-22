@@ -40,7 +40,7 @@ const MoreAttractions = () => {
 
   return (
     <>
-      <StarDivider title="More Attractions" to="/attractions/" />
+      <StarDivider as="h4" title="More Attractions" to="/attractions/" />
       <WoodBg overlayColor="blue.light">
         <Container px={["3", null, null, null, "0"]} py="7">
           <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
