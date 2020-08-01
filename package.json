@@ -29,7 +29,7 @@
     "gatsby-source-contentful": "^2.3.33",
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-transformer-remark": "^2.8.27",
-    "gatsby-transformer-sharp": "^2.5.11",
+    "gatsby-transformer-sharp": "^2.5.12",
     "mapbox-gl": "^1.11.1",
     "raam": "^0.2.0",
     "react": "^16.13.1",
