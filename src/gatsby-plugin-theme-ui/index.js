@@ -342,7 +342,6 @@ export default {
       fontSize: ["2", null, "3"],
       lineHeight: "normal",
       mb: "5",
-      // "&:last-of-type": { mb: "0" },
     },
     hr: {
       height: "px",
