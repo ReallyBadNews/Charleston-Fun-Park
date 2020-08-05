@@ -2,7 +2,17 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, Flex, jsx, Heading, Card } from "theme-ui";
+import {
+  Box,
+  Container,
+  Flex,
+  jsx,
+  Heading,
+  Text,
+  Card,
+  Divider,
+} from "theme-ui";
+import { Flex as Flexbox } from "raam";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
@@ -46,6 +56,44 @@ const AttractionsLayout = ({
           >
             <Heading mb="3">{contentfulAttraction.title}</Heading>
             <MDXRenderer>{contentfulAttraction.body.childMdx.body}</MDXRenderer>
+            {contentfulAttraction.pricePoint1Price && (
+              <Box>
+                <Divider />
+                <Flexbox gap="3" py="3">
+                  <Box
+                    gap="0"
+                    pr="3"
+                    sx={{
+                      borderRight:
+                        contentfulAttraction.pricePoint2Price && "1px solid",
+                      borderRightColor: "black.border",
+                    }}
+                  >
+                    <Text variant="text.cardPricing">
+                      {contentfulAttraction.pricePoint1Title}
+                    </Text>
+                    <Text variant="text.cardPricing">
+                      {`$${contentfulAttraction.pricePoint1Price}`}
+                      <span> / </span>
+                      {contentfulAttraction.pricePoint1Unit}
+                    </Text>
+                  </Box>
+                  {contentfulAttraction.pricePoint2Price && (
+                    <Box>
+                      <Text variant="text.cardPricing">
+                        {contentfulAttraction.pricePoint2Title}
+                      </Text>
+                      <Text variant="text.cardPricing">
+                        {`$${contentfulAttraction.pricePoint2Price}`}
+                        <span> / </span>
+                        {contentfulAttraction.pricePoint2Unit}
+                      </Text>
+                    </Box>
+                  )}
+                </Flexbox>
+                <Divider />
+              </Box>
+            )}
           </Card>
         </Container>
       </Flex>
@@ -76,6 +124,12 @@ export const attractionsQuery = graphql`
       id
       isVideo
       title
+      pricePoint1Price
+      pricePoint1Title
+      pricePoint1Unit
+      pricePoint2Price
+      pricePoint2Title
+      pricePoint2Unit
       videoPoster {
         fixed(width: 1920) {
           src
@@ -108,6 +162,12 @@ AttractionsLayout.propTypes = {
       }),
       id: PropTypes.string,
       isVideo: PropTypes.bool,
+      pricePoint1Price: PropTypes.number,
+      pricePoint1Title: PropTypes.string,
+      pricePoint1Unit: PropTypes.string,
+      pricePoint2Price: PropTypes.number,
+      pricePoint2Title: PropTypes.string,
+      pricePoint2Unit: PropTypes.string,
       title: PropTypes.string,
       videoPoster: PropTypes.shape({
         fixed: PropTypes.shape({

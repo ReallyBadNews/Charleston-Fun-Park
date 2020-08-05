@@ -19,7 +19,6 @@ const AttractionsPage = ({ location: { pathname } }) => {
           node {
             id
             heroImage {
-              id
               fluid {
                 ...GatsbyContentfulFluid_withWebp
               }
