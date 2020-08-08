@@ -8,7 +8,7 @@ import { Link } from "gatsby";
 import { Inline } from "raam";
 import WoodBg from "../Images/WoodBg";
 
-const MoreAttractionsDivider = ({ title, to }) => {
+const MoreAttractionsDivider = ({ as, title, to }) => {
   const breakpoints = useBreakpoint();
 
   return (
@@ -89,7 +89,7 @@ const MoreAttractionsDivider = ({ title, to }) => {
               />
             </svg>
           )}
-          <Heading as="h1" mx="3" variant="display">
+          <Heading as={as} mx="3" variant="display">
             {to ? (
               <Link sx={{ color: "inherit", textDecoration: "none" }} to={to}>
                 {title}
@@ -173,11 +173,13 @@ const MoreAttractionsDivider = ({ title, to }) => {
 };
 
 MoreAttractionsDivider.propTypes = {
+  as: PropTypes.string,
   title: PropTypes.string,
   to: PropTypes.string,
 };
 
 MoreAttractionsDivider.defaultProps = {
+  as: "h1",
   title: "",
   to: "",
 };
