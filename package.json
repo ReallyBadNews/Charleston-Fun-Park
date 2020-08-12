@@ -40,7 +40,7 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.7",
     "babel-jest": "^26.2.2",
     "dotenv": "^8.2.0",
