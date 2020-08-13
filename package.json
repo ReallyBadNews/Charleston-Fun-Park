@@ -57,7 +57,7 @@
     "husky": "^4.2.5",
     "jest": "^26.2.2",
     "lint-staged": "^10.2.10",
-    "netlify-cli": "^2.59.0",
+    "netlify-cli": "^2.59.1",
     "prettier": "^2.0.4",
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0",
