@@ -12,13 +12,13 @@ import BrickBg from "../Images/BrickBg";
 
 const BirthdaySection = ({ id }) => {
   const {
-    allContentfulHomePageBirthdaysEvents: { edges },
+    allContentfulHomePageBirthdays: { edges },
     file: {
       childImageSharp: { fluid: baloonsImage },
     },
   } = useStaticQuery(graphql`
     query BirthdaySectionQuery {
-      allContentfulHomePageBirthdaysEvents {
+      allContentfulHomePageBirthdays {
         edges {
           node {
             id

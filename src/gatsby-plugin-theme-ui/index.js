@@ -262,6 +262,11 @@ export default {
       px: "3",
       py: "2",
     },
+    bookNow: {
+      variant: "buttons.cta",
+      borderWidth: "1px",
+      borderColor: "black.border",
+    },
   },
   cards: {
     attraction: {
@@ -277,6 +282,11 @@ export default {
       variant: "cards.attraction",
       height: "auto",
       overflow: "hidden",
+    },
+    event: {
+      variant: "cards.image",
+      flexDirection: ["column", null, "row"],
+      "& > div": { flex: "1" },
     },
     bDays: {
       bg: "white.light",

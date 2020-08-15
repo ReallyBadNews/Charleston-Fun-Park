@@ -12,6 +12,7 @@ import SectionDivider from "../components/Dividers/SectionDivider";
 import MoreAttractions from "../components/HomeSections/MoreAttractions";
 import SEO from "../components/seo";
 import MobileWelcome from "../components/HomeSections/MobileWelcome";
+import EventsSection from "../components/HomeSections/EventsSection";
 
 const IndexPage = ({ location: { pathname } }) => {
   const breakpoints = useBreakpoint();
@@ -25,6 +26,7 @@ const IndexPage = ({ location: { pathname } }) => {
       <BirthdaySection id="birthdays" />
       <SectionDivider bg="green.light" />
       <FeaturedAttractions />
+      <EventsSection />
       <MoreAttractions />
     </>
   );
