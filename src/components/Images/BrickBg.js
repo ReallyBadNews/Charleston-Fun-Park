@@ -36,7 +36,7 @@ const BrickBg = ({ children, id }) => {
           right: "0",
           bottom: "0",
           left: "0",
-          bg: "black.dark",
+          bg: "blue.xdark",
           opacity: "0.75",
         }}
       />

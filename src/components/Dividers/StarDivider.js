@@ -8,11 +8,11 @@ import { Link } from "gatsby";
 import { Inline } from "raam";
 import WoodBg from "../Images/WoodBg";
 
-const MoreAttractionsDivider = ({ as, title, to }) => {
+const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
   const breakpoints = useBreakpoint();
 
   return (
-    <WoodBg overlayColor="blue.xdark" sx={{ bg: "blue.dark" }}>
+    <WoodBg overlayColor={overlayColor} sx={{ bg: "blue.dark" }}>
       <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
       <Container>
         <Inline
@@ -174,12 +174,14 @@ const MoreAttractionsDivider = ({ as, title, to }) => {
 
 MoreAttractionsDivider.propTypes = {
   as: PropTypes.string,
+  overlayColor: PropTypes.string,
   title: PropTypes.string,
   to: PropTypes.string,
 };
 
 MoreAttractionsDivider.defaultProps = {
   as: "h1",
+  overlayColor: "blue.xdark",
   title: "",
   to: "",
 };
