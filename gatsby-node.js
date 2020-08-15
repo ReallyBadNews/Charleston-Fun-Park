@@ -15,10 +15,11 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   }
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  // Destructure the createPage function from the actions object
-  const { createPage } = actions;
-
+exports.createPages = async ({
+  graphql,
+  actions: { createPage },
+  reporter,
+}) => {
   const result = await graphql(`
     query {
       allContentfulAttraction {
@@ -42,7 +43,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `);
 
-  if (result.errors) {
+  // Destructre graphql query
+  const {
+    data: {
+      allContentfulAttraction: { edges: attractions },
+      allContentfulSectionPages: { edges: sections },
+    },
+    errors,
+  } = result;
+
+  if (errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
 
@@ -51,10 +61,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     "./src/templates/AttractionsLayout.js"
   );
   const sectionTemplate = path.resolve("./src/templates/SectionLayout.js");
-
-  // Create blog post pages.
-  const attractions = result.data.allContentfulAttraction.edges;
-  const sections = result.data.allContentfulSectionPages.edges;
 
   attractions.forEach(({ node }) => {
     createPage({
