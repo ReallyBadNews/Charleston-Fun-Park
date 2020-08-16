@@ -2,7 +2,7 @@
   "name": "charleston-fun-park",
   "description": "Charleston Fun Park",
   "private": false,
-  "version": "1.0.0-RC1",
+  "version": "1.0.0-RC2",
   "author": "Kenny Elshoff <me@kennyelshoff.com>",
   "bugs": {
     "url": "https://github.com/reallybadnews/charleston-fun-park/issues"
