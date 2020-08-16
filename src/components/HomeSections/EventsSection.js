@@ -40,7 +40,7 @@ const EventsSection = () => {
 
   return (
     <WoodBg overlayColor="green.light">
-      <Container color="white.light" px={["3", null, null, null, "0"]} py="6">
+      <Container color="white.light" px="3" py="6">
         <Card variant="event">
           <Img alt={alt} fluid={fluid} />
           <Box p="4">
