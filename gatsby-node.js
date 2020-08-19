@@ -21,7 +21,7 @@ exports.createPages = async ({
   reporter,
 }) => {
   const result = await graphql(`
-    query {
+    {
       allContentfulAttraction {
         edges {
           node {

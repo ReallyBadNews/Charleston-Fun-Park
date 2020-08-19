@@ -34,7 +34,7 @@ const Nav = () => {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
           fluid(maxWidth: 261, maxHeight: 200) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
@@ -48,7 +48,7 @@ const Nav = () => {
       fun: file(relativePath: { eq: "funSign.png" }) {
         childImageSharp {
           fluid(maxWidth: 176, maxHeight: 76) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
