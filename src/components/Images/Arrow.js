@@ -14,7 +14,7 @@ const Arrow = ({ sx, className }) => {
       arrow: file(relativePath: { eq: "arrow.png" }) {
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }

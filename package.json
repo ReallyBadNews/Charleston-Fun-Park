@@ -2,7 +2,7 @@
   "name": "charleston-fun-park",
   "description": "Charleston Fun Park",
   "private": false,
-  "version": "1.0.0-RC2",
+  "version": "1.0.0-RC3",
   "author": "Kenny Elshoff <me@kennyelshoff.com>",
   "bugs": {
     "url": "https://github.com/reallybadnews/charleston-fun-park/issues"
@@ -25,7 +25,9 @@
     "gatsby-plugin-mdx": "^1.2.34",
     "gatsby-plugin-offline": "^3.2.23",
     "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-sharp": "^2.6.27",
     "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-remark-images-contentful": "^2.3.14",
     "gatsby-source-contentful": "^2.3.37",
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-transformer-remark": "^2.8.28",
@@ -64,7 +66,8 @@
     "prop-types": "^15.7.2",
     "stylelint": "^13.6.0",
     "stylelint-config-prettier": "^8.0.1",
-    "stylelint-webpack-plugin": "^2.0.0"
+    "stylelint-webpack-plugin": "^2.0.0",
+    "vercel": "^19.2.0"
   },
   "lint-staged": {
     "*.{js,jsx,json,css,scss,md,mdx,graphql}": [
