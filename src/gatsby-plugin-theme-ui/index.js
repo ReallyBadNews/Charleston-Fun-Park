@@ -264,8 +264,7 @@ export default {
     },
     bookNow: {
       variant: "buttons.cta",
-      borderWidth: "1px",
-      borderColor: "black.border",
+      flex: "1",
     },
   },
   cards: {
