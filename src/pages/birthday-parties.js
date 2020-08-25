@@ -2,16 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Box,
-  Button,
-  jsx,
-  Flex,
-  Card,
-  Container,
-  Heading,
-  Text,
-} from "theme-ui";
+import { Box, jsx, Flex, Card, Container, Heading, Text } from "theme-ui";
 import Img from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -20,6 +11,7 @@ import { Stack } from "raam";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
 import StarDivider from "../components/Dividers/StarDivider";
+import ArrowButton from "../components/ArrowButton";
 
 const BirthdaysEventsLayout = ({ location: { pathname } }) => {
   const {
@@ -140,7 +132,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
     }
   `);
 
-  const shortcodes = { Button };
+  const shortcodes = { ArrowButton };
 
   return (
     <>
@@ -288,120 +280,6 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
 };
 
 BirthdaysEventsLayout.propTypes = {
-  data: PropTypes.shape({
-    contentfulBirthdaysEventsPage: PropTypes.shape({
-      birthdayPackage1Content: PropTypes.shape({
-        childMdx: PropTypes.shape({
-          body: PropTypes.string,
-        }),
-      }),
-      birthdayPackage1Media: PropTypes.arrayOf(
-        PropTypes.shape({
-          description: PropTypes.string,
-          fluid: PropTypes.shape({
-            aspectRatio: PropTypes.number,
-            base64: PropTypes.string,
-            sizes: PropTypes.string,
-            srcSet: PropTypes.string,
-            srcSetWebp: PropTypes.string,
-            srcWebP: PropTypes.string,
-          }),
-          title: PropTypes.string,
-        })
-      ),
-      birthdayPackage1Price: PropTypes.string,
-      birthdayPackage1Title: PropTypes.string,
-      birthdayPackage2Content: PropTypes.shape({
-        childMdx: PropTypes.shape({
-          body: PropTypes.string,
-        }),
-      }),
-      birthdayPackage2Media: PropTypes.arrayOf(
-        PropTypes.shape({
-          description: PropTypes.string,
-          fluid: PropTypes.shape({
-            aspectRatio: PropTypes.number,
-            base64: PropTypes.string,
-            sizes: PropTypes.string,
-            srcSet: PropTypes.string,
-            srcSetWebp: PropTypes.string,
-            srcWebP: PropTypes.string,
-          }),
-          title: PropTypes.string,
-        })
-      ),
-      birthdayPackage2Price: PropTypes.string,
-      birthdayPackage2Title: PropTypes.string,
-      birthdayPackage3Content: PropTypes.shape({
-        childMdx: PropTypes.shape({
-          body: PropTypes.string,
-        }),
-      }),
-      birthdayPackage3Media: PropTypes.arrayOf(
-        PropTypes.shape({
-          description: PropTypes.string,
-          fluid: PropTypes.shape({
-            aspectRatio: PropTypes.number,
-            base64: PropTypes.string,
-            sizes: PropTypes.string,
-            srcSet: PropTypes.string,
-            srcSetWebp: PropTypes.string,
-            srcWebP: PropTypes.string,
-          }),
-          title: PropTypes.string,
-        })
-      ),
-      birthdayPackage3Price: PropTypes.string,
-      birthdayPackage3Title: PropTypes.string,
-      birthdayPackage4Content: PropTypes.shape({
-        childMdx: PropTypes.shape({
-          body: PropTypes.string,
-        }),
-      }),
-      birthdayPackage4Media: PropTypes.arrayOf(
-        PropTypes.shape({
-          description: PropTypes.string,
-          fluid: PropTypes.shape({
-            aspectRatio: PropTypes.number,
-            base64: PropTypes.string,
-            sizes: PropTypes.string,
-            srcSet: PropTypes.string,
-            srcSetWebp: PropTypes.string,
-            srcWebP: PropTypes.string,
-          }),
-          title: PropTypes.string,
-        })
-      ),
-      birthdayPackage4Price: PropTypes.string,
-      birthdayPackage4Title: PropTypes.string,
-      birthdayPackage5Content: PropTypes.shape({
-        childMdx: PropTypes.shape({
-          body: PropTypes.string,
-        }),
-      }),
-      birthdayPackage5Media: PropTypes.arrayOf(
-        PropTypes.shape({
-          description: PropTypes.string,
-          fluid: PropTypes.shape({
-            aspectRatio: PropTypes.number,
-            base64: PropTypes.string,
-            sizes: PropTypes.string,
-            srcSet: PropTypes.string,
-            srcSetWebp: PropTypes.string,
-            srcWebP: PropTypes.string,
-          }),
-          title: PropTypes.string,
-        })
-      ),
-      birthdayPackage5Price: PropTypes.string,
-      birthdayPackage5Title: PropTypes.string,
-      description: PropTypes.shape({
-        description: PropTypes.string,
-      }),
-      id: PropTypes.string,
-      title: PropTypes.string,
-    }),
-  }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
