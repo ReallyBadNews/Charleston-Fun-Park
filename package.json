@@ -2,7 +2,7 @@
   "name": "charleston-fun-park",
   "description": "Charleston Fun Park",
   "private": false,
-  "version": "1.0.0-RC3",
+  "version": "1.0.0-RC4",
   "author": "Kenny Elshoff <me@kennyelshoff.com>",
   "bugs": {
     "url": "https://github.com/reallybadnews/charleston-fun-park/issues"
@@ -59,15 +59,13 @@
     "husky": "^4.2.5",
     "jest": "^26.4.0",
     "lint-staged": "^10.2.10",
-    "netlify-cli": "^2.59.1",
     "prettier": "^2.0.4",
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0",
     "prop-types": "^15.7.2",
     "stylelint": "^13.6.0",
     "stylelint-config-prettier": "^8.0.1",
-    "stylelint-webpack-plugin": "^2.0.0",
-    "vercel": "^19.2.0"
+    "stylelint-webpack-plugin": "^2.0.0"
   },
   "lint-staged": {
     "*.{js,jsx,json,css,scss,md,mdx,graphql}": [
