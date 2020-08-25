@@ -50,24 +50,24 @@ const BirthdaySection = ({ id }) => {
   const { navLinks } = useSiteMetadata();
 
   return (
-    <BrickBg id={id} sx={{ position: "relative" }}>
+    <BrickBg id={id} sx={{ position: `relative` }}>
       <Container variant="flexContainer">
         {breakpoints.tablet && (
           <Img
             fluid={baloonsImage}
-            sx={{ alignSelf: "flex-start", width: "1/4" }}
+            sx={{ alignSelf: `flex-start`, width: `1/4` }}
           />
         )}
         <Stack
-          gap={["3", null, "4", null, "5"]}
+          gap={[`3`, null, `4`, null, `5`]}
           sx={{
-            width: ["auto", null, "3/4"],
-            ml: ["auto", null, "3"],
-            mr: ["auto", null, "0"],
+            width: [`auto`, null, `3/4`],
+            ml: [`auto`, null, `3`],
+            mr: [`auto`, null, `0`],
           }}
         >
           <Stack gap="3">
-            <Heading sx={{ color: "yellow.light" }} variant="heading">
+            <Heading sx={{ color: `yellow.light` }} variant="heading">
               {edges[0].node.title}
             </Heading>
             <Text color="white.light" variant="body.mid">
@@ -77,20 +77,20 @@ const BirthdaySection = ({ id }) => {
               View Package Options
               <FontAwesomeIcon
                 icon={faArrowRight}
-                sx={{ maxHeight: "4", ml: "2" }}
+                sx={{ maxHeight: `4`, ml: `2` }}
               />
             </Button>
           </Stack>
-          <Grid columns={["repeat(2, 1fr)", null, "repeat(4, 1fr)"]} gap="3">
+          <Grid columns={[`repeat(2, 1fr)`, null, `repeat(4, 1fr)`]} gap="3">
             {edges[0].node.media.map((image) => (
               <Img
                 key={image.contentful_id}
                 alt={image.description}
                 fluid={image.fluid}
                 sx={{
-                  borderWidth: "0.125rem",
-                  borderColor: "white.light",
-                  borderStyle: "solid",
+                  borderWidth: `0.125rem`,
+                  borderColor: `white.light`,
+                  borderStyle: `solid`,
                 }}
               />
             ))}

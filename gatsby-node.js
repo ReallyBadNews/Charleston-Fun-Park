@@ -1,7 +1,7 @@
-const path = require("path");
+const path = require(`path`);
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html") {
+  if (stage === `build-html`) {
     actions.setWebpackConfig({
       module: {
         rules: [
@@ -53,14 +53,14 @@ exports.createPages = async ({
   } = result;
 
   if (errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+    reporter.panicOnBuild(`🚨  ERROR: Loading "createPages" query`);
   }
 
   // Layout templates
   const attractionTemplate = path.resolve(
-    "./src/templates/AttractionsLayout.js"
+    `./src/templates/AttractionsLayout.js`
   );
-  const sectionTemplate = path.resolve("./src/templates/SectionLayout.js");
+  const sectionTemplate = path.resolve(`./src/templates/SectionLayout.js`);
 
   attractions.forEach(({ node }) => {
     createPage({

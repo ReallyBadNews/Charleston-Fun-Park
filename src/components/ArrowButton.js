@@ -10,17 +10,17 @@ const ArrowButton = ({ children }) => {
   return (
     <Box
       sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: "7",
+        display: `flex`,
+        alignItems: `center`,
+        justifyContent: `space-between`,
+        gap: `7`,
       }}
     >
       <Arrow
         sx={{
-          display: "inline-block",
-          width: "24",
-          transform: "rotate(180deg)",
+          display: `inline-block`,
+          width: `24`,
+          transform: `rotate(180deg)`,
         }}
       />
       <Button as="a" href={giftCardLink} variant="bookNow">
@@ -28,8 +28,8 @@ const ArrowButton = ({ children }) => {
       </Button>
       <Arrow
         sx={{
-          display: "inline-block",
-          width: "24",
+          display: `inline-block`,
+          width: `24`,
         }}
       />
     </Box>

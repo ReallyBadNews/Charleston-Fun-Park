@@ -27,10 +27,10 @@ const SectionDivider = ({ bg, stars }) => {
     <BackgroundImage
       fluid={fluid}
       sx={{
-        height: "12",
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
+        height: `12`,
+        position: `relative`,
+        display: `flex`,
+        alignItems: `center`,
       }}
     >
       {stars && (
@@ -39,8 +39,8 @@ const SectionDivider = ({ bg, stars }) => {
             fill="none"
             height="40"
             sx={{
-              position: "absolute",
-              filter: "drop-shadow( 0px 0px 4px #FFEF5C)",
+              position: `absolute`,
+              filter: `drop-shadow( 0px 0px 4px #FFEF5C)`,
             }}
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
@@ -76,8 +76,8 @@ const SectionDivider = ({ bg, stars }) => {
             fill="none"
             height="40"
             sx={{
-              position: "absolute",
-              filter: "drop-shadow( 0px 0px 4px #75E7FF)",
+              position: `absolute`,
+              filter: `drop-shadow( 0px 0px 4px #75E7FF)`,
             }}
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
@@ -106,15 +106,15 @@ const SectionDivider = ({ bg, stars }) => {
       )}
       <Box
         sx={{
-          backgroundBlendMode: "screen",
-          position: "absolute",
-          zIndex: "-1",
-          top: "0",
-          right: "0",
-          bottom: "0",
-          left: "0",
+          backgroundBlendMode: `screen`,
+          position: `absolute`,
+          zIndex: `-1`,
+          top: `0`,
+          right: `0`,
+          bottom: `0`,
+          left: `0`,
           bg,
-          opacity: "0.85",
+          opacity: `0.85`,
         }}
       />
     </BackgroundImage>
@@ -127,7 +127,7 @@ SectionDivider.propTypes = {
 };
 
 SectionDivider.defaultProps = {
-  bg: "green.light",
+  bg: `green.light`,
   stars: false,
 };
 

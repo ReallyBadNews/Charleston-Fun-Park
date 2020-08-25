@@ -30,15 +30,15 @@ const AttractionsLayout = ({
       title={contentfulAttraction.title}
     />
     <WoodBg overlayColor="blue.light">
-      <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
+      <Flex sx={{ flexDirection: `column`, minHeight: `screenHeight` }}>
         <MediaItem
           isVideo={contentfulAttraction.isVideo}
           media={contentfulAttraction.heroImage}
           sx={{
-            maxHeight: "xl",
-            height: "xl",
-            width: "full",
-            objectFit: "cover",
+            maxHeight: `xl`,
+            height: `xl`,
+            width: `full`,
+            objectFit: `cover`,
           }}
           videoPoster={contentfulAttraction.videoPoster.fixed.src}
         />
@@ -46,13 +46,13 @@ const AttractionsLayout = ({
           mx="auto"
           my="6"
           px="3"
-          sx={{ flex: "1 1 auto", width: "auto" }}
+          sx={{ flex: `1 1 auto`, width: `auto` }}
         >
           <Card
             bg="white.light"
             color="black.dark"
             p="4"
-            sx={{ borderRadius: "lg", maxWidth: "3xl" }}
+            sx={{ borderRadius: `lg`, maxWidth: `3xl` }}
           >
             <Heading mb="3">{contentfulAttraction.title}</Heading>
             <MDXRenderer>{contentfulAttraction.body.childMdx.body}</MDXRenderer>
@@ -65,8 +65,8 @@ const AttractionsLayout = ({
                     pr="3"
                     sx={{
                       borderRight:
-                        contentfulAttraction.pricePoint2Price && "1px solid",
-                      borderRightColor: "black.border",
+                        contentfulAttraction.pricePoint2Price && `1px solid`,
+                      borderRightColor: `black.border`,
                     }}
                   >
                     <Text variant="text.cardPricing">

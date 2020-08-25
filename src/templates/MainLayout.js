@@ -33,8 +33,8 @@ MainLayout.propTypes = {
 };
 
 MainLayout.defaultProps = {
-  description: "",
-  title: "",
+  description: ``,
+  title: ``,
 };
 
 export default MainLayout;

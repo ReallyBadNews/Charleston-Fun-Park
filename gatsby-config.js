@@ -169,7 +169,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-32324655-5",
+        trackingId: `UA-32324655-5`,
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: true,
         // Setting this parameter is optional
@@ -177,7 +177,7 @@ module.exports = {
         // Setting this parameter is also optional
         respectDNT: false,
         // Avoids sending pageview hits from custom paths
-        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        exclude: [`/preview/**`, `/do-not-track/me/too/`],
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
         // Enables Google Optimize using your container Id
@@ -191,7 +191,7 @@ module.exports = {
         // Any additional optional fields
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: "charlestonfunpark.com",
+        cookieDomain: `charlestonfunpark.com`,
       },
     },
   ],
