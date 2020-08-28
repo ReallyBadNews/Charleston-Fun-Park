@@ -22,7 +22,7 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
       htmlAttributes={{
         lang,
       }}
-      link={canonical ? [{ rel: "canonical", href: canonical }] : []}
+      link={canonical ? [{ rel: `canonical`, href: canonical }] : []}
       meta={[
         {
           name: `description`,

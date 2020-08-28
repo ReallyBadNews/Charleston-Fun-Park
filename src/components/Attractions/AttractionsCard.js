@@ -21,18 +21,18 @@ const AttractionsCard = ({
   textAlign,
 }) => (
   <motion.div whileHover={{ y: -8 }}>
-    <StyledLink to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}>
+    <StyledLink to={`/attractions/${title.toLowerCase().replace(/\s/g, `-`)}`}>
       <Card variant="attraction">
         <MediaItem
           alt={title}
           media={media}
           sx={{
-            height: "xs",
-            flex: "0 0 auto",
-            borderTopLeftRadius: "lg",
-            borderTopRightRadius: "lg",
-            width: "full",
-            objectFit: "cover",
+            height: `xs`,
+            flex: `0 0 auto`,
+            borderTopLeftRadius: `lg`,
+            borderTopRightRadius: `lg`,
+            width: `full`,
+            objectFit: `cover`,
           }}
         />
         <Flex
@@ -40,7 +40,7 @@ const AttractionsCard = ({
           gap="3"
           justifyContent="space-between"
           p="3"
-          sx={{ height: "full" }}
+          sx={{ height: `full` }}
         >
           <Stack gap="3">
             <Heading as="h5" sx={{ textAlign }} variant="heading.title">
@@ -56,8 +56,8 @@ const AttractionsCard = ({
                   gap="0"
                   pr="3"
                   sx={{
-                    borderRight: pricePoint2Price && "1px solid",
-                    borderRightColor: "black.border",
+                    borderRight: pricePoint2Price && `1px solid`,
+                    borderRightColor: `black.border`,
                   }}
                 >
                   <Text variant="text.cardPricing">{pricePoint1Title}</Text>
@@ -116,7 +116,7 @@ AttractionsCard.defaultProps = {
   pricePoint2Price: null,
   pricePoint2Title: null,
   pricePoint2Unit: null,
-  textAlign: "left",
+  textAlign: `left`,
 };
 
 export default AttractionsCard;

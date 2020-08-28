@@ -1,8 +1,8 @@
 module.exports = {
-  parser: "babel-eslint",
+  parser: `babel-eslint`,
   parserOptions: {
     ecmaVersion: 6,
-    sourceType: "module",
+    sourceType: `module`,
     ecmaFeatures: {
       jsx: true,
     },
@@ -16,27 +16,28 @@ module.exports = {
   settings: {
     "import/resolver": {
       node: {
-        extensions: [".js", ".jsx"],
+        extensions: [`.js`, `.jsx`],
       },
     },
     react: {
-      version: "detect",
+      version: `detect`,
     },
   },
-  plugins: ["react-hooks"],
+  plugins: [`react-hooks`],
   extends: [
-    "airbnb",
-    "airbnb/hooks",
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:jest/recommended",
-    "plugin:prettier/recommended",
-    "plugin:mdx/recommended",
+    `airbnb`,
+    `airbnb/hooks`,
+    `eslint:recommended`,
+    `plugin:react/recommended`,
+    `plugin:jest/recommended`,
+    `plugin:prettier/recommended`,
+    `plugin:mdx/recommended`,
     // "prettier/react",
   ],
   rules: {
+    quotes: [`error`, `backtick`],
     "react/jsx-sort-props": [
-      "error",
+      `error`,
       {
         noSortAlphabetically: false,
         ignoreCase: true,
@@ -46,7 +47,7 @@ module.exports = {
       },
     ],
     "react/sort-prop-types": [
-      "error",
+      `error`,
       {
         callbacksLast: true,
         ignoreCase: true,
@@ -56,36 +57,36 @@ module.exports = {
       },
     ],
     "max-len": [2, 140, 2],
-    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
-    "import/no-unresolved": ["error", { ignore: ["fusion:*"] }],
+    "import/no-extraneous-dependencies": [`error`, { devDependencies: true }],
+    "import/no-unresolved": [`error`, { ignore: [`fusion:*`] }],
     "import/extensions": [
-      "error",
-      "never",
+      `error`,
+      `never`,
       {
-        css: "always",
+        css: `always`,
       },
     ],
-    "arrow-body-style": ["error", "as-needed"],
-    "no-underscore-dangle": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
-    "no-console": ["error", { allow: ["error"] }],
+    "arrow-body-style": [`error`, `as-needed`],
+    "no-underscore-dangle": `off`,
+    "react-hooks/rules-of-hooks": `error`,
+    "react/jsx-filename-extension": [1, { extensions: [`.js`, `.jsx`] }],
+    "no-console": [`error`, { allow: [`error`] }],
     // "unicorn/filename-case": "off"
   },
   overrides: [
     {
-      files: ["scripts/*", "config/**"],
+      files: [`scripts/*`, `config/**`],
       rules: {
-        "no-console": "off",
+        "no-console": `off`,
       },
     },
     {
-      files: ["**/*.test.js"],
+      files: [`**/*.test.js`],
       rules: {
         "no-unused-vars": [
-          "error",
+          `error`,
           {
-            varsIgnorePattern: "Consumer",
+            varsIgnorePattern: `Consumer`,
           },
         ],
       },

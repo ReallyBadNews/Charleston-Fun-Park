@@ -43,10 +43,10 @@ const ParkInfo = ({ location: { pathname } }) => {
       <SEO description={description} pathname={pathname} title={seoTitle} />
       <StarDivider title={title} />
       <WoodBg overlayColor="blue.light">
-        <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-          <Container px={["3", null, null, null, "0"]} py="7">
+        <Flex sx={{ flexDirection: `column`, minHeight: `screenHeight` }}>
+          <Container px={[`3`, null, null, null, `0`]} py="7">
             <Grid
-              columns={["1fr", null, "repeat(2, 1fr)", "1fr"]}
+              columns={[`1fr`, null, `repeat(2, 1fr)`, `1fr`]}
               variant="attractionsPage"
             >
               <Card variant="image">

@@ -55,11 +55,11 @@ const AttractionsPage = ({ location: { pathname } }) => {
       <StarDivider title="Attractions" />
       <WoodBg
         overlayColor="blue.light"
-        sx={{ backgroundRepeat: "repeat", backgroundSize: "auto" }}
+        sx={{ backgroundRepeat: `repeat`, backgroundSize: `auto` }}
       >
-        <Container px={["3", null, null, null, "0"]} py="7">
+        <Container px={[`3`, null, null, null, `0`]} py="7">
           <Grid
-            columns={["1fr", null, "repeat(2, 1fr)", "repeat(3, 1fr)"]}
+            columns={[`1fr`, null, `repeat(2, 1fr)`, `repeat(3, 1fr)`]}
             variant="attractionsPage"
           >
             {posts.map((attraction) => (

@@ -56,7 +56,7 @@ MediaItem.defaultProps = {
   isVideo: false,
   media: {},
   sx: null,
-  videoPoster: "",
+  videoPoster: ``,
 };
 
 export default MediaItem;

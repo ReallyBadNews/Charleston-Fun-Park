@@ -47,8 +47,8 @@ const MoreAttractions = () => {
         to="/attractions/"
       />
       <WoodBg overlayColor="blue.light">
-        <Container px={["3", null, null, null, "0"]} py="7">
-          <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
+        <Container px={[`3`, null, null, null, `0`]} py="7">
+          <Grid columns={[`1fr`, null, `repeat(2, 1fr)`, `repeat(4, 1fr)`]}>
             {attractions.map((attraction) => (
               <AttractionsCard
                 key={attraction.node.title}

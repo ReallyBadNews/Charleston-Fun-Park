@@ -30,8 +30,8 @@ const GoKartsFeature = ({ data: { node } }) => {
   return (
     <Box
       sx={{
-        position: "relative",
-        height: ["auto", null, null, "lg"],
+        position: `relative`,
+        height: [`auto`, null, null, `lg`],
       }}
     >
       <svg
@@ -39,9 +39,9 @@ const GoKartsFeature = ({ data: { node } }) => {
         height="32"
         style={{ backgroundColor: theme.colors.background }}
         sx={{
-          position: "absolute",
-          zIndex: "1",
-          top: "0",
+          position: `absolute`,
+          zIndex: `1`,
+          top: `0`,
         }}
         width="100%"
         xmlns="http://www.w3.org/2000/svg"
@@ -62,34 +62,34 @@ const GoKartsFeature = ({ data: { node } }) => {
       </svg>
       <Flex
         sx={{
-          flexDirection: ["column", null, null, "row-reverse"],
-          height: "full",
+          flexDirection: [`column`, null, null, `row-reverse`],
+          height: `full`,
         }}
       >
         <MediaItem
           isVideo={node.isVideo}
           media={node.heroImage}
           sx={{
-            width: ["full", null, null, "7/12"],
-            height: ["sm", null, null, "full"],
-            objectFit: "cover",
+            width: [`full`, null, null, `7/12`],
+            height: [`sm`, null, null, `full`],
+            objectFit: `cover`,
           }}
         />
         <Box
           sx={{
-            width: ["full", null, null, "5/12"],
-            minHeight: ["xs", null, null, "auto"],
-            position: "relative",
+            width: [`full`, null, null, `5/12`],
+            minHeight: [`xs`, null, null, `auto`],
+            position: `relative`,
           }}
         >
           <svg
             fill="none"
             height="16"
             sx={{
-              position: "absolute",
-              zIndex: "1",
-              width: "full",
-              top: ["1rem", null, null, "3rem"],
+              position: `absolute`,
+              zIndex: `1`,
+              width: `full`,
+              top: [`1rem`, null, null, `3rem`],
             }}
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
@@ -99,29 +99,29 @@ const GoKartsFeature = ({ data: { node } }) => {
           <BackgroundImage
             fluid={goKartsBg}
             sx={{
-              position: "absolute !important",
-              bg: "black.dark",
-              height: "full",
-              width: "full",
+              position: `absolute !important`,
+              bg: `black.dark`,
+              height: `full`,
+              width: `full`,
             }}
           />
           <Grid
             color="white.light"
-            pb={["9", null, null, "7"]}
+            pb={[`9`, null, null, `7`]}
             pt="7"
-            px={["3", null, null, "7"]}
-            sx={{ height: "full" }}
+            px={[`3`, null, null, `7`]}
+            sx={{ height: `full` }}
             variant="featuredAttraction"
           >
             <Arrow
               sx={{
-                position: "absolute !important",
-                right: ["3", null, null, "-80px"],
-                zIndex: "2",
-                width: "180px",
-                height: "80px",
-                top: ["-3rem", null, null, "-1rem"],
-                transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
+                position: `absolute !important`,
+                right: [`3`, null, null, `-80px`],
+                zIndex: `2`,
+                width: `180px`,
+                height: `80px`,
+                top: [`-3rem`, null, null, `-1rem`],
+                transform: [`rotateZ(-30deg)`, null, null, `rotateZ(325deg)`],
               }}
             />
             <StyledLink
@@ -129,7 +129,7 @@ const GoKartsFeature = ({ data: { node } }) => {
               hoverColor="blue.light"
               to={`/attractions/${node.title
                 .toLowerCase()
-                .replace(/\s/g, "-")}`}
+                .replace(/\s/g, `-`)}`}
             >
               <Stack>
                 <Heading variant="heading.featuredTitle">{node.title}</Heading>
@@ -141,10 +141,10 @@ const GoKartsFeature = ({ data: { node } }) => {
             fill="none"
             height="16"
             sx={{
-              position: "absolute",
-              zIndex: "1",
-              width: "full",
-              bottom: "3rem",
+              position: `absolute`,
+              zIndex: `1`,
+              width: `full`,
+              bottom: `3rem`,
             }}
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
@@ -158,9 +158,9 @@ const GoKartsFeature = ({ data: { node } }) => {
         height="32"
         style={{ backgroundColor: theme.colors.background }}
         sx={{
-          position: "absolute",
-          zIndex: "1",
-          bottom: "0",
+          position: `absolute`,
+          zIndex: `1`,
+          bottom: `0`,
         }}
         width="100%"
         xmlns="http://www.w3.org/2000/svg"

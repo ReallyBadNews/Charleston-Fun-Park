@@ -32,10 +32,10 @@ Video.propTypes = {
 };
 
 Video.defaultProps = {
-  alt: "",
+  alt: ``,
   className: null,
   dataTestId: null,
-  poster: "",
+  poster: ``,
   sx: {},
 };
 
