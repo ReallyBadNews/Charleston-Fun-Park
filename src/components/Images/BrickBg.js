@@ -25,19 +25,19 @@ const BrickBg = ({ children, id }) => {
     <BackgroundImage
       fluid={fluid}
       id={id}
-      sx={{ position: "relative", bg: "black.dark" }}
+      sx={{ position: `relative`, bg: `black.dark` }}
       Tag="section"
     >
       <Box
         sx={{
-          position: "absolute",
-          zIndex: "-1",
-          top: "0",
-          right: "0",
-          bottom: "0",
-          left: "0",
-          bg: "blue.xdark",
-          opacity: "0.75",
+          position: `absolute`,
+          zIndex: `-1`,
+          top: `0`,
+          right: `0`,
+          bottom: `0`,
+          left: `0`,
+          bg: `blue.xdark`,
+          opacity: `0.75`,
         }}
       />
       {children}

@@ -27,7 +27,7 @@ const MobileWelcome = () => {
 
   return (
     <WoodBg overlayColor="blue.light">
-      <Box color="white.light" px="3" py="6" sx={{ textAlign: "center" }}>
+      <Box color="white.light" px="3" py="6" sx={{ textAlign: `center` }}>
         <Heading variant="heading.smallTitle">{subtitle}</Heading>
         <Stack gap="3">
           <Heading as="h1" variant="heading.title">

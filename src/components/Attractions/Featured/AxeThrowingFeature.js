@@ -26,53 +26,53 @@ const AxeThrowingFeature = ({ data: { node } }) => {
   `);
 
   return (
-    <Box sx={{ position: "relative", height: ["auto", null, null, "lg"] }}>
+    <Box sx={{ position: `relative`, height: [`auto`, null, null, `lg`] }}>
       <Flex
         sx={{
-          flexDirection: ["column", null, null, "row-reverse"],
-          height: "full",
+          flexDirection: [`column`, null, null, `row-reverse`],
+          height: `full`,
         }}
       >
         <MediaItem
           isVideo={node.isVideo}
           media={node.heroImage}
           sx={{
-            width: ["full", null, null, "7/12"],
-            height: ["sm", null, null, "full"],
-            objectFit: "cover",
+            width: [`full`, null, null, `7/12`],
+            height: [`sm`, null, null, `full`],
+            objectFit: `cover`,
           }}
         />
         <Box
           sx={{
-            width: ["full", null, null, "5/12"],
-            minHeight: ["xs", null, null, "auto"],
-            position: "relative",
+            width: [`full`, null, null, `5/12`],
+            minHeight: [`xs`, null, null, `auto`],
+            position: `relative`,
           }}
         >
           <BackgroundImage
             fluid={goKartsBg}
             sx={{
-              position: "absolute !important",
-              bg: "black.dark",
-              height: "full",
-              width: "full",
+              position: `absolute !important`,
+              bg: `black.dark`,
+              height: `full`,
+              width: `full`,
             }}
           />
           <Grid
             color="white.light"
             p="7"
-            sx={{ height: "full" }}
+            sx={{ height: `full` }}
             variant="featuredAttraction"
           >
             <Arrow
               sx={{
-                position: "absolute !important",
-                right: ["3", null, null, "-80px"],
-                zIndex: "2",
-                width: "180px",
-                height: "80px",
-                top: ["-3rem", null, null, "-1rem"],
-                transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
+                position: `absolute !important`,
+                right: [`3`, null, null, `-80px`],
+                zIndex: `2`,
+                width: `180px`,
+                height: `80px`,
+                top: [`-3rem`, null, null, `-1rem`],
+                transform: [`rotateZ(-30deg)`, null, null, `rotateZ(325deg)`],
               }}
             />
             <StyledLink
@@ -80,7 +80,7 @@ const AxeThrowingFeature = ({ data: { node } }) => {
               hoverColor="blue.light"
               to={`/attractions/${node.title
                 .toLowerCase()
-                .replace(/\s/g, "-")}`}
+                .replace(/\s/g, `-`)}`}
             >
               <Stack>
                 <Heading variant="heading.featuredTitle">{node.title}</Heading>

@@ -9,46 +9,46 @@ import Arrow from "../../Images/Arrow";
 const OmniArenaFeature = ({ data: { node } }) => (
   <Flex
     sx={{
-      flexDirection: ["column", null, null, "row"],
-      height: ["auto", null, null, "lg"],
+      flexDirection: [`column`, null, null, `row`],
+      height: [`auto`, null, null, `lg`],
     }}
   >
     <MediaItem
       isVideo={node.isVideo}
       media={node.heroImage}
       sx={{
-        width: ["full", null, null, "7/12"],
-        height: ["sm", null, null, "full"],
-        objectFit: "cover",
+        width: [`full`, null, null, `7/12`],
+        height: [`sm`, null, null, `full`],
+        objectFit: `cover`,
       }}
     />
     <Grid
       bg="black.dark"
       color="white.light"
-      px={["3", null, null, "7"]}
-      py={["4", null, null, "7"]}
+      px={[`3`, null, null, `7`]}
+      py={[`4`, null, null, `7`]}
       sx={{
-        width: ["full", null, null, "5/12"],
-        minHeight: ["xs", null, null, "auto"],
+        width: [`full`, null, null, `5/12`],
+        minHeight: [`xs`, null, null, `auto`],
       }}
       variant="featuredAttraction"
     >
       <Arrow
         sx={{
-          position: "absolute !important",
-          left: [null, null, null, "-80px"],
-          right: ["3", null],
-          top: ["-4rem", null, null, "-1rem"],
-          zIndex: "1",
-          width: "180px",
-          height: "80px",
-          transform: ["rotate(-30deg)", null, null, "rotateZ(-145deg)"],
+          position: `absolute !important`,
+          left: [null, null, null, `-80px`],
+          right: [`3`, null],
+          top: [`-4rem`, null, null, `-1rem`],
+          zIndex: `1`,
+          width: `180px`,
+          height: `80px`,
+          transform: [`rotate(-30deg)`, null, null, `rotateZ(-145deg)`],
         }}
       />
       <StyledLink
         color="white.light"
         hoverColor="blue.light"
-        to={`/attractions/${node.title.toLowerCase().replace(/\s/g, "-")}`}
+        to={`/attractions/${node.title.toLowerCase().replace(/\s/g, `-`)}`}
       >
         <Stack>
           <Heading variant="heading.featuredTitle">{node.title}</Heading>

@@ -4,7 +4,7 @@ import Topper from "./Topper";
 import Nav from "./Nav";
 
 const Header = () => (
-  <Box as="header" sx={{ position: "relative", zIndex: "1" }}>
+  <Box as="header" sx={{ position: `relative`, zIndex: `1` }}>
     <Topper />
     <Nav />
   </Box>

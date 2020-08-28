@@ -30,7 +30,7 @@ Arrow.propTypes = {
 };
 
 Arrow.defaultProps = {
-  className: "",
+  className: ``,
   sx: {},
 };
 

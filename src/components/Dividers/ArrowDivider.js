@@ -12,19 +12,19 @@ const ArrowDivider = ({ id }) => {
 
   return (
     <BrickBg id={id}>
-      <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
+      <Divider sx={{ position: `absolute`, top: `0` }} variant="divider.glow" />
       <Container>
         <Inline
           alignItems="center"
-          gap={["2", null, "3", null, "4"]}
+          gap={[`2`, null, `3`, null, `4`]}
           justifyContent="center"
           py="3"
         >
           <Arrow
             sx={{
-              height: "auto",
-              transform: "rotateZ(180deg)",
-              width: ["72px", null, "24", null, "32"],
+              height: `auto`,
+              transform: `rotateZ(180deg)`,
+              width: [`72px`, null, `24`, null, `32`],
             }}
           />
           {breakpoints.tablet ? (
@@ -42,14 +42,14 @@ const ArrowDivider = ({ id }) => {
           )}
           <Arrow
             sx={{
-              height: "auto",
-              width: ["72px", null, "24", null, "32"],
+              height: `auto`,
+              width: [`72px`, null, `24`, null, `32`],
             }}
           />
         </Inline>
       </Container>
       <Divider
-        sx={{ position: "absolute", bottom: "0" }}
+        sx={{ position: `absolute`, bottom: `0` }}
         variant="divider.glow"
       />
     </BrickBg>

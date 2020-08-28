@@ -25,22 +25,22 @@ const WoodBg = ({ children, overlayColor }) => {
     <BackgroundImage
       fluid={fluid}
       sx={{
-        backgroundRepeat: "repeat",
-        backgroundSize: "auto",
-        backgroundPosition: "top center",
+        backgroundRepeat: `repeat`,
+        backgroundSize: `auto`,
+        backgroundPosition: `top center`,
       }}
       Tag="section"
     >
       <Box
         sx={{
-          position: "absolute",
-          zIndex: "-1",
-          top: "0",
-          right: "0",
-          bottom: "0",
-          left: "0",
+          position: `absolute`,
+          zIndex: `-1`,
+          top: `0`,
+          right: `0`,
+          bottom: `0`,
+          left: `0`,
           bg: overlayColor,
-          opacity: "0.85",
+          opacity: `0.85`,
         }}
       />
       {children}
@@ -54,7 +54,7 @@ WoodBg.propTypes = {
 };
 
 WoodBg.defaultProps = {
-  overlayColor: "blue.light",
+  overlayColor: `blue.light`,
 };
 
 export default WoodBg;
