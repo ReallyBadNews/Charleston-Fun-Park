@@ -154,6 +154,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-contentful-optional-fields`,
+      options: {
+        optionalFields: {
+          ContentfulBirthdaysEventsPage: {
+            birthdayPackage1Title: `String`,
+            birthdayPackage2Title: `String`,
+            birthdayPackage3Title: `String`,
+            birthdayPackage4Title: `String`,
+            birthdayPackage5Title: `String`,
+          },
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Charleston Fun Park`,
