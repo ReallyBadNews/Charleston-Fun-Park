@@ -180,7 +180,7 @@ export default {
       fontSize: [`5`, null, null, `8`, `9`],
       sectionTitle: {
         variant: `heading`,
-        fontSize: `8`,
+        fontSize: [`7`, null, `8`],
         lineHeight: `none`,
       },
       title: {

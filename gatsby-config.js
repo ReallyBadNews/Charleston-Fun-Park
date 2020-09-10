@@ -158,6 +158,7 @@ module.exports = {
       options: {
         optionalFields: {
           ContentfulBirthdaysEventsPage: {
+            heading: `String`,
             birthdayPackage1Title: `String`,
             birthdayPackage2Title: `String`,
             birthdayPackage3Title: `String`,

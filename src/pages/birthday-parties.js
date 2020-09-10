@@ -14,9 +14,11 @@ import StarDivider from "../components/Dividers/StarDivider";
 import ArrowButton from "../components/ArrowButton";
 
 const BirthdaysEventsLayout = ({ location: { pathname } }) => {
+  // TODO: Refactor to a page query
   const {
     contentfulBirthdaysEventsPage: {
       title,
+      heading,
       description: { description },
       birthdayPackage1Title,
       birthdayPackage1Price,
@@ -55,6 +57,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
         id
         title
         slug
+        heading
         description {
           description
         }
@@ -146,6 +149,16 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
             sx={{ flex: `1 1 auto` }}
           >
             <Stack gap="3">
+              {heading && (
+                <Card px="3" py="4" variant="attraction">
+                  <Stack gap="3">
+                    <Heading as="h2" variant="heading.sectionTitle">
+                      {heading}
+                    </Heading>
+                    <Text variant="body.mid">{description}</Text>
+                  </Stack>
+                </Card>
+              )}
               {birthdayPackage1Title && (
                 <Card variant="bDays">
                   <Box sx={{ width: [`full`, null, `1/2`] }}>
