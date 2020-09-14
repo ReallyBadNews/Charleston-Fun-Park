@@ -71,7 +71,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
         birthdayPackage1Media {
           title
           description
-          fluid(maxHeight: 378, maxWidth: 608) {
+          fluid(maxHeight: 342, maxWidth: 608) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
@@ -85,7 +85,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
         birthdayPackage2Media {
           title
           description
-          fluid(maxHeight: 378, maxWidth: 608) {
+          fluid(maxHeight: 342, maxWidth: 608) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
@@ -99,7 +99,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
         birthdayPackage3Media {
           title
           description
-          fluid(maxHeight: 378, maxWidth: 608) {
+          fluid(maxHeight: 342, maxWidth: 608) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
@@ -113,7 +113,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
         birthdayPackage4Media {
           title
           description
-          fluid(maxHeight: 378, maxWidth: 608) {
+          fluid(maxHeight: 342, maxWidth: 608) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
@@ -127,7 +127,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
         birthdayPackage5Media {
           title
           description
-          fluid(maxHeight: 378, maxWidth: 608) {
+          fluid(maxHeight: 342, maxWidth: 608) {
             ...GatsbyContentfulFluid_withWebp
           }
         }
@@ -179,6 +179,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         sx={{
                           width: [`full`, null, `1/2`],
                           ml: [`0`, null, `3`],
+                          borderRadius: `lg`,
                         }}
                       />
                     ))}
@@ -204,6 +205,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         sx={{
                           width: [`full`, null, `1/2`],
                           ml: [`0`, null, `3`],
+                          borderRadius: `lg`,
                         }}
                       />
                     ))}
@@ -229,6 +231,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         sx={{
                           width: [`full`, null, `1/2`],
                           ml: [`0`, null, `3`],
+                          borderRadius: `lg`,
                         }}
                       />
                     ))}
@@ -254,6 +257,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         sx={{
                           width: [`full`, null, `1/2`],
                           ml: [`0`, null, `3`],
+                          borderRadius: `lg`,
                         }}
                       />
                     ))}
@@ -279,6 +283,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         sx={{
                           width: [`full`, null, `1/2`],
                           ml: [`0`, null, `3`],
+                          borderRadius: `lg`,
                         }}
                       />
                     ))}
