@@ -9,7 +9,8 @@ const ArrowButton = ({ children, href }) => (
       display: `flex`,
       alignItems: `center`,
       justifyContent: `space-between`,
-      gap: `7`,
+      gap: [`3`, null, `7`],
+      mb: [`4`, null, `0`],
     }}
   >
     <Arrow
