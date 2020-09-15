@@ -10,7 +10,6 @@ const contentfulConfig = {
     process.env.NODE_ENV === `development`
       ? `preview.contentful.com`
       : `cdn.contentful.com`,
-  downloadLocal: true,
 };
 
 if (process.env.CONTENTFUL_HOST) {
@@ -184,7 +183,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: `UA-32324655-5`,
+        trackingId: `UA-78326605-1`,
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: true,
         // Setting this parameter is optional
@@ -207,6 +206,12 @@ module.exports = {
         sampleRate: 5,
         siteSpeedSampleRate: 10,
         cookieDomain: `charlestonfunpark.com`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: `255314818168295`,
       },
     },
   ],

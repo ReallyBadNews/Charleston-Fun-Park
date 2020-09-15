@@ -4,6 +4,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {
   Box,
+  Button,
   Container,
   Flex,
   jsx,
@@ -14,6 +15,7 @@ import {
 } from "theme-ui";
 import { Flex as Flexbox } from "raam";
 import { graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
@@ -22,84 +24,92 @@ import MediaItem from "../components/MediaItem";
 const AttractionsLayout = ({
   data: { contentfulAttraction },
   location: { pathname },
-}) => (
-  <>
-    <SEO
-      description={contentfulAttraction.description.description}
-      pathname={pathname}
-      title={contentfulAttraction.title}
-    />
-    <WoodBg overlayColor="blue.light">
-      <Flex sx={{ flexDirection: `column`, minHeight: `screenHeight` }}>
-        <MediaItem
-          isVideo={contentfulAttraction.isVideo}
-          media={contentfulAttraction.heroImage}
-          sx={{
-            maxHeight: `xl`,
-            height: `xl`,
-            width: `full`,
-            objectFit: `cover`,
-          }}
-          videoPoster={contentfulAttraction.videoPoster.fixed.src}
-        />
-        <Container
-          mx="auto"
-          my="6"
-          px="3"
-          sx={{ flex: `1 1 auto`, width: `auto` }}
-        >
-          <Card
-            bg="white.light"
-            color="black.dark"
-            p="4"
-            sx={{ borderRadius: `lg`, maxWidth: `3xl` }}
+}) => {
+  const shortcodes = { Button };
+
+  return (
+    <>
+      <SEO
+        description={contentfulAttraction.description.description}
+        pathname={pathname}
+        title={contentfulAttraction.title}
+      />
+      <WoodBg overlayColor="blue.light">
+        <Flex sx={{ flexDirection: `column`, minHeight: `screenHeight` }}>
+          <MediaItem
+            isVideo={contentfulAttraction.isVideo}
+            media={contentfulAttraction.heroImage}
+            sx={{
+              maxHeight: `xl`,
+              height: `xl`,
+              width: `full`,
+              objectFit: `cover`,
+            }}
+            videoPoster={contentfulAttraction.videoPoster.fixed.src}
+          />
+          <Container
+            mx="auto"
+            my="6"
+            px="3"
+            sx={{ flex: `1 1 auto`, width: `auto` }}
           >
-            <Heading mb="3">{contentfulAttraction.title}</Heading>
-            <MDXRenderer>{contentfulAttraction.body.childMdx.body}</MDXRenderer>
-            {contentfulAttraction.pricePoint1Price && (
-              <Box>
-                <Divider />
-                <Flexbox gap="3" py="3">
-                  <Box
-                    gap="0"
-                    pr="3"
-                    sx={{
-                      borderRight:
-                        contentfulAttraction.pricePoint2Price && `1px solid`,
-                      borderRightColor: `black.border`,
-                    }}
-                  >
-                    <Text variant="text.cardPricing">
-                      {contentfulAttraction.pricePoint1Title}
-                    </Text>
-                    <Text variant="text.cardPricing">
-                      {`$${contentfulAttraction.pricePoint1Price}`}
-                      <span> / </span>
-                      {contentfulAttraction.pricePoint1Unit}
-                    </Text>
-                  </Box>
-                  {contentfulAttraction.pricePoint2Price && (
-                    <Box>
+            <Card
+              bg="white.light"
+              color="black.dark"
+              p="4"
+              sx={{ borderRadius: `lg`, maxWidth: `3xl` }}
+            >
+              <Heading mb="3">{contentfulAttraction.title}</Heading>
+              <MDXProvider components={shortcodes}>
+                <MDXRenderer>
+                  {contentfulAttraction.body.childMdx.body}
+                </MDXRenderer>
+              </MDXProvider>
+              {contentfulAttraction.pricePoint1Price && (
+                <Box>
+                  <Divider />
+                  <Flexbox gap="3" py="3">
+                    <Box
+                      gap="0"
+                      pr="3"
+                      sx={{
+                        borderRight:
+                          contentfulAttraction.pricePoint2Price && `1px solid`,
+                        borderRightColor: `black.border`,
+                      }}
+                    >
                       <Text variant="text.cardPricing">
-                        {contentfulAttraction.pricePoint2Title}
+                        {contentfulAttraction.pricePoint1Title}
                       </Text>
                       <Text variant="text.cardPricing">
-                        {`$${contentfulAttraction.pricePoint2Price}`}
+                        {`$${contentfulAttraction.pricePoint1Price}`}
                         <span> / </span>
-                        {contentfulAttraction.pricePoint2Unit}
+                        {contentfulAttraction.pricePoint1Unit}
                       </Text>
                     </Box>
-                  )}
-                </Flexbox>
-                <Divider />
-              </Box>
-            )}
-          </Card>
-        </Container>
-      </Flex>
-    </WoodBg>
-  </>
-);
+                    {contentfulAttraction.pricePoint2Price && (
+                      <Box>
+                        <Text variant="text.cardPricing">
+                          {contentfulAttraction.pricePoint2Title}
+                        </Text>
+                        <Text variant="text.cardPricing">
+                          {`$${contentfulAttraction.pricePoint2Price}`}
+                          <span> / </span>
+                          {contentfulAttraction.pricePoint2Unit}
+                        </Text>
+                      </Box>
+                    )}
+                  </Flexbox>
+                  <Divider />
+                </Box>
+              )}
+            </Card>
+          </Container>
+        </Flex>
+      </WoodBg>
+    </>
+  );
+};
 
 export const attractionsQuery = graphql`
   query AutoAttractionsQuery($id: String) {
