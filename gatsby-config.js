@@ -209,5 +209,11 @@ module.exports = {
         cookieDomain: `charlestonfunpark.com`,
       },
     },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: `255314818168295`,
+      },
+    },
   ],
 };
