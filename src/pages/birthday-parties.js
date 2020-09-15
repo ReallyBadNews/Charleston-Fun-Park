@@ -187,7 +187,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
               )}
               {birthdayPackage2Title && (
                 <Card variant="bDays">
-                  <Box sx={{ width: `1/2` }}>
+                  <Box sx={{ width: [`full`, null, `1/2`] }}>
                     <Heading mb="2" variant="heading.title">
                       {birthdayPackage2Title.toLowerCase()}
                     </Heading>
@@ -213,7 +213,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
               )}
               {birthdayPackage3Title && (
                 <Card variant="bDays">
-                  <Box sx={{ width: `1/2` }}>
+                  <Box sx={{ width: [`full`, null, `1/2`] }}>
                     <Heading mb="2" variant="heading.title">
                       {birthdayPackage3Title.toLowerCase()}
                     </Heading>
@@ -239,7 +239,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
               )}
               {birthdayPackage4Title && (
                 <Card variant="bDays">
-                  <Box sx={{ width: `1/2` }}>
+                  <Box sx={{ width: [`full`, null, `1/2`] }}>
                     <Heading mb="2" variant="heading.title">
                       {birthdayPackage4Title.toLowerCase()}
                     </Heading>
@@ -265,7 +265,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
               )}
               {birthdayPackage5Title && (
                 <Card variant="bDays">
-                  <Box sx={{ width: `1/2` }}>
+                  <Box sx={{ width: [`full`, null, `1/2`] }}>
                     <Heading mb="2" variant="heading.title">
                       {birthdayPackage5Title.toLowerCase()}
                     </Heading>
