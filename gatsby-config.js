@@ -10,7 +10,6 @@ const contentfulConfig = {
     process.env.NODE_ENV === `development`
       ? `preview.contentful.com`
       : `cdn.contentful.com`,
-  downloadLocal: true,
 };
 
 if (process.env.CONTENTFUL_HOST) {
