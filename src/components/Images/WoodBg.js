@@ -14,7 +14,7 @@ const WoodBg = ({ children, overlayColor }) => {
       darkWood: file(relativePath: { eq: "darkWood.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 2048) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }

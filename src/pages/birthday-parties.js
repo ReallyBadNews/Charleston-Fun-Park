@@ -72,7 +72,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
           title
           description
           fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
         birthdayPackage2Title
@@ -86,7 +86,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
           title
           description
           fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
         birthdayPackage3Title
@@ -100,7 +100,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
           title
           description
           fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
         birthdayPackage4Title
@@ -114,7 +114,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
           title
           description
           fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
         birthdayPackage5Title
@@ -128,7 +128,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
           title
           description
           fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
         }
       }

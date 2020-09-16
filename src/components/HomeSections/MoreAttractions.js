@@ -21,7 +21,7 @@ const MoreAttractions = () => {
             id
             heroImage {
               fluid {
-                ...GatsbyContentfulFluid_withWebp
+                ...GatsbyContentfulFluid_withWebp_noBase64
               }
             }
             isVideo
@@ -29,7 +29,7 @@ const MoreAttractions = () => {
             order
             videoPoster {
               fluid {
-                ...GatsbyContentfulFluid_withWebp
+                ...GatsbyContentfulFluid_withWebp_noBase64
               }
             }
           }
