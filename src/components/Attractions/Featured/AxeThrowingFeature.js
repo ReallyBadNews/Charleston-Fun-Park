@@ -34,8 +34,8 @@ const AxeThrowingFeature = ({ data: { node } }) => {
         }}
       >
         <MediaItem
-          isVideo={node.isVideo}
-          media={node.heroImage}
+          isVideo={false}
+          media={node.videoPoster}
           sx={{
             width: [`full`, null, null, `7/12`],
             height: [`sm`, null, null, `full`],
@@ -100,21 +100,19 @@ AxeThrowingFeature.propTypes = {
       description: PropTypes.shape({
         description: PropTypes.string,
       }),
-      heroImage: PropTypes.shape({
+      id: PropTypes.string,
+      isVideo: PropTypes.bool,
+      title: PropTypes.string,
+      videoPoster: PropTypes.shape({
         fluid: PropTypes.shape({
           aspectRatio: PropTypes.number,
-          base64: PropTypes.string,
           sizes: PropTypes.string,
           src: PropTypes.string,
           srcSet: PropTypes.string,
           srcSetWebp: PropTypes.string,
           srcWebp: PropTypes.string,
         }),
-        id: PropTypes.string,
       }),
-      id: PropTypes.string,
-      isVideo: PropTypes.bool,
-      title: PropTypes.string,
     }),
   }).isRequired,
 };

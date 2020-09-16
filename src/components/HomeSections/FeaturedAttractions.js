@@ -28,6 +28,11 @@ const AttractionsSection = () => {
                 url
               }
             }
+            videoPoster {
+              fluid {
+                ...GatsbyContentfulFluid_withWebp_noBase64
+              }
+            }
             description {
               description
             }
