@@ -20,7 +20,7 @@ const AttractionsPage = ({ location: { pathname } }) => {
             id
             heroImage {
               fluid {
-                ...GatsbyContentfulFluid_withWebp
+                ...GatsbyContentfulFluid_withWebp_noBase64
               }
             }
             description {
@@ -37,7 +37,7 @@ const AttractionsPage = ({ location: { pathname } }) => {
             pricePoint2Unit
             videoPoster {
               fluid {
-                ...GatsbyContentfulFluid_withWebp
+                ...GatsbyContentfulFluid_withWebp_noBase64
               }
             }
           }

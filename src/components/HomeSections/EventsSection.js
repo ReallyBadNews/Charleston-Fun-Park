@@ -27,7 +27,7 @@ const EventsSection = () => {
         }
         media {
           fluid {
-            ...GatsbyContentfulFluid_withWebp
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
           title
         }

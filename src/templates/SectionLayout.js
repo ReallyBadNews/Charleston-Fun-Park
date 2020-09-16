@@ -123,7 +123,7 @@ export const sectionsQuery = graphql`
       }
       media {
         fluid(maxWidth: 735) {
-          ...GatsbyContentfulFluid_withWebp
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
         file {
           contentType

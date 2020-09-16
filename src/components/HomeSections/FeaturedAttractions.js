@@ -21,7 +21,7 @@ const AttractionsSection = () => {
             id
             heroImage {
               fluid {
-                ...GatsbyContentfulFluid_withWebp
+                ...GatsbyContentfulFluid_withWebp_noBase64
               }
               file {
                 contentType

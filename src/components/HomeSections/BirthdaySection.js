@@ -27,7 +27,7 @@ const BirthdaySection = ({ id }) => {
               contentful_id
               description
               fluid(maxHeight: 400, maxWidth: 400) {
-                ...GatsbyContentfulFluid_withWebp
+                ...GatsbyContentfulFluid_withWebp_noBase64
               }
             }
             description {

@@ -124,7 +124,7 @@ export const attractionsQuery = graphql`
       }
       heroImage {
         fluid(maxWidth: 2048) {
-          ...GatsbyContentfulFluid_withWebp
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
         file {
           contentType

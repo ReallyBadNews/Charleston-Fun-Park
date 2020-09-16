@@ -28,7 +28,7 @@ const Hero = () => {
         isVideo
         media {
           fluid(maxWidth: 2048) {
-            ...GatsbyContentfulFluid_withWebp
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
           description
           title
@@ -66,6 +66,7 @@ const Hero = () => {
       {isVideo ? (
         <video
           poster={videoPosterSrc}
+          preload="none"
           sx={{
             position: `absolute`,
             objectFit: `cover`,
