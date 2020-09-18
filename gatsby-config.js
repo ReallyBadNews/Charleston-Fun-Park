@@ -38,7 +38,7 @@ module.exports = {
       // eslint-disable-next-line max-len
       `Welcome to Charleston Fun Park! We are your locally owned and operated Family Entertainment Center in the Charleston area. We've got go-karts, putt-putt, an arcade, rock climbing, jumpland and more!`,
     author: `Charleston Fun Park`,
-    siteUrl: `https://charlestonfunpark.com/`,
+    siteUrl: `https://charlestonfunpark.com`,
     copyright: `© ${new Date().getFullYear()} Charleston Fun Park. All Rights Reserved.`,
     keywords: [
       `Fun Park`,
@@ -112,6 +112,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-theme-ui`,
+    `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
