@@ -67,6 +67,10 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
           // content: `${site.siteMetadata.siteUrl}${OGImage}`,
         },
         {
+          property: `og:url`,
+          content: canonical,
+        },
+        {
           property: `og:type`,
           content: `website`,
         },

@@ -10,6 +10,7 @@ const useSiteMetadata = () => {
           title
           description
           author
+          siteUrl
           copyright
           keywords
           phoneNumber {
