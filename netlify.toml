@@ -8,3 +8,13 @@
  
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
+
+[[redirects]]
+  from = "/contact-us-2/"
+  to = "/park-info/"
+  status = 301
+
+[[redirects]]
+  from = "/birthdays/"
+  to = "/birthday-parties/"
+  status = 301
