@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import useSiteMetadata from "../hooks/use-site-metadata";
-// import OGImage from "../../static/images/tbas_og.jpg";
-// import TWImage from "../../static/images/twitter_image.jpg";
+import OgImage from "../../static/images/og_image.jpg";
+import TwImage from "../../static/images/tw_card.jpg";
 
 const SEO = ({ description, lang, keywords, title, pathname }) => {
   const {
@@ -64,7 +64,7 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
         },
         {
           property: `og:image`,
-          // content: `${site.siteMetadata.siteUrl}${OGImage}`,
+          content: `${siteUrl}${OgImage}`,
         },
         {
           property: `og:url`,
@@ -76,7 +76,7 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
         },
         {
           name: `twitter:image`,
-          // content: `${site.siteMetadata.siteUrl}${TWImage}`,
+          content: `${siteUrl}${TwImage}`,
         },
         {
           name: `twitter:card`,
