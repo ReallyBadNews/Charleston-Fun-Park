@@ -2,8 +2,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f1ce39f5-19b3-4caa-a3c3-75e31ff368dd/deploy-status)](https://app.netlify.com/sites/charleston-fun-park/deploys)
 
-- [Production](https://beta.charlestonfunpark.com)
-- [Dev](#)
+- [Production](https://charlestonfunpark.com)
+- [Staging](https://staging.charlestonfunpark.com)
 
 ## 🚀 Quick start
 
