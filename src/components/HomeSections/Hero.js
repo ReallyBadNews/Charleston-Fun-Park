@@ -104,7 +104,7 @@ const Hero = () => {
           background: [
             `none`,
             null,
-            `linear-gradient(90deg, #1D2435FF, #1D2435FF 50%, #1D243500 100%)`,
+            `radial-gradient(circle, #1D2435FF, 50%, #1D243500 100%)`,
           ],
           opacity: `0.5`,
         }}
@@ -122,8 +122,10 @@ const Hero = () => {
           >
             <Box
               color="white.light"
+              mx="auto"
               sx={{
-                width: [null, null, `3/4`, null, `7/12`],
+                width: `3/4`,
+                textAlign: `center`,
                 textShadow: `text`,
               }}
             >
