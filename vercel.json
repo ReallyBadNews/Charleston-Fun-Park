@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    {
+      "source": "/contact-us-2/",
+      "destination": "/park-info/"
+    },
+    {
+      "source": "/birthdays/",
+      "destination": "/birthday-parties"
+    }
+  ]
+}
