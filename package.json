@@ -65,10 +65,7 @@
     "prettier": "^2.0.4",
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0",
-    "prop-types": "^15.7.2",
-    "stylelint": "^13.7.1",
-    "stylelint-config-prettier": "^8.0.1",
-    "stylelint-webpack-plugin": "^2.0.0"
+    "prop-types": "^15.7.2"
   },
   "lint-staged": {
     "*.{js,jsx,json,css,scss,md,mdx,graphql}": [
@@ -99,13 +96,11 @@
     "eslint": "eslint --ext=js,jsx src",
     "eslint-fix": "eslint --ext=js,jsx src --fix",
     "format": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,mdx}\"",
-    "lint": "npm run eslint && npm run stylelint",
+    "lint": "npm run eslint",
     "lint-staged": "lint-staged",
     "netlify:login": "netlify login",
     "netlify:deploy": "netlify deploy -d public -p",
     "serve": "gatsby serve",
-    "stylelint": "stylelint --config .stylelintrc.json src/**/*.{js,jsx}",
-    "stylelint-fix": "stylelint --fix --config .stylelintrc.json src/**/*.{js,jsx}",
     "start": "npm run develop",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
