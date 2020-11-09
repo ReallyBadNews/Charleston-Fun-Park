@@ -17,6 +17,11 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
 
   const canonical = pathname && `${siteUrl}${pathname}`;
 
+  const attractionsPopup =
+    Math.random() >= 0.5
+      ? `https://app.locbox.com/en-US/website_plugins/lb-cbdd44e1522ec9a5a23ae45cac178d988c65115e.js`
+      : `https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js`;
+
   const popupScript = (path) => {
     if (path === `/birthday-parties/`) {
       return {
@@ -26,13 +31,13 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
     }
     if (path === `/`) {
       return {
-        src: `https://app.locbox.com/en-US/website_plugins/lb-d94e63d49902cb78c00d6a2c797926ec393e3997.js`,
+        src: `https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js`,
         type: `text/javascript`,
       };
     }
     if (path === `/attractions/`) {
       return {
-        src: `https://app.locbox.com/en-US/website_plugins/lb-cbdd44e1522ec9a5a23ae45cac178d988c65115e.js`,
+        src: attractionsPopup,
         type: `text/javascript`,
       };
     }

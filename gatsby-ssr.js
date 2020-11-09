@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
 const React = require(`react`);
@@ -14,6 +14,7 @@ exports.wrapPageElement = ({ element, props }) => (
         left: `0`,
         zIndex: `-1000`,
       }}
+      {...props}
     />
     {element}
   </>
