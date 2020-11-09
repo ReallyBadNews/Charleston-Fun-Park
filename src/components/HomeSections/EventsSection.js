@@ -18,7 +18,7 @@ const EventsSection = () => {
   } = useStaticQuery(graphql`
     {
       contentfulHomePageEvents(
-        id: { eq: "1ab38432-604a-5744-8d7f-9d45634e93e4" }
+        id: { eq: "4f6731d3-7f5e-534e-a667-fc67fadf384e" }
       ) {
         content {
           childMdx {
