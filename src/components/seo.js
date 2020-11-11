@@ -18,15 +18,15 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
   const canonical = pathname && `${siteUrl}${pathname}`;
 
   const popupScript = (path) => {
-    if (path === `/birthday-parties/`) {
+    if (path === `/`) {
       return {
-        src: `https://app.locbox.com/en-US/website_plugins/lb-85f3c60d6482c555173861510bee8a595f21a44b.js`,
+        src: `https://app.locbox.com/en-US/website_plugins/lb-68d52820bfd453c8da3a9f398e816b3d9bb3d77c.js`,
         type: `text/javascript`,
       };
     }
-    if (path === `/`) {
+    if (path === `/birthday-parties/`) {
       return {
-        src: `https://app.locbox.com/en-US/website_plugins/lb-d94e63d49902cb78c00d6a2c797926ec393e3997.js`,
+        src: `https://app.locbox.com/en-US/website_plugins/lb-85f3c60d6482c555173861510bee8a595f21a44b.js`,
         type: `text/javascript`,
       };
     }
@@ -36,9 +36,14 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
         type: `text/javascript`,
       };
     }
+    if (path === `/attractions/mini-golf`) {
+      return {
+        src: `https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js`,
+        type: `text/javascript`,
+      };
+    }
     return {};
   };
-
   return (
     <Helmet
       htmlAttributes={{

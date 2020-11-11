@@ -14,7 +14,7 @@ const MobileWelcome = () => {
   } = useStaticQuery(graphql`
     query MobileWelcomeQuery {
       contentfulHomePageHero(
-        id: { eq: "04ac880b-e825-5040-8011-5641ebc3dc27" }
+        id: { eq: "017be6d2-0203-5b98-b841-201c01ab9432" }
       ) {
         description {
           description
