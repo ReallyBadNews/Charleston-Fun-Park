@@ -40,7 +40,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.0.0",
-    "react-mapbox-gl": "^4.8.6",
+    "react-mapbox-gl": "^5.0.0",
     "react-scroll": "^1.8.1",
     "theme-ui": "^0.3.3"
   },
