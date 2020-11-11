@@ -17,33 +17,33 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
 
   const canonical = pathname && `${siteUrl}${pathname}`;
 
-  const attractionsPopup =
-    Math.random() >= 0.5
-      ? `https://app.locbox.com/en-US/website_plugins/lb-cbdd44e1522ec9a5a23ae45cac178d988c65115e.js`
-      : `https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js`;
-
   const popupScript = (path) => {
+    if (path === `/`) {
+      return {
+        src: `https://app.locbox.com/en-US/website_plugins/lb-68d52820bfd453c8da3a9f398e816b3d9bb3d77c.js`,
+        type: `text/javascript`,
+      };
+    }
     if (path === `/birthday-parties/`) {
       return {
         src: `https://app.locbox.com/en-US/website_plugins/lb-85f3c60d6482c555173861510bee8a595f21a44b.js`,
         type: `text/javascript`,
       };
     }
-    if (path === `/`) {
+    if (path === `/attractions/`) {
+      return {
+        src: `https://app.locbox.com/en-US/website_plugins/lb-cbdd44e1522ec9a5a23ae45cac178d988c65115e.js`,
+        type: `text/javascript`,
+      };
+    }
+    if (path === `/attractions/mini-golf`) {
       return {
         src: `https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js`,
         type: `text/javascript`,
       };
     }
-    if (path === `/attractions/`) {
-      return {
-        src: attractionsPopup,
-        type: `text/javascript`,
-      };
-    }
     return {};
   };
-
   return (
     <Helmet
       htmlAttributes={{
