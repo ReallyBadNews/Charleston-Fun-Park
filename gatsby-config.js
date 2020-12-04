@@ -51,7 +51,7 @@ module.exports = {
       number: `(843) 971-1223`,
       link: `tel:843-971-1223`,
     },
-    giftCardLink: `http://blackbeardscove.pfestore.com/retail/GiftCards/Default.aspx`,
+    giftCardLink: `https://charlestonfunpark.centeredgeonline.com/retail`,
     socialLinks: [
       {
         name: `facebook`,
