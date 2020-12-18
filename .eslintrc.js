@@ -1,95 +1,67 @@
 module.exports = {
-  parser: `babel-eslint`,
+  root: true,
+  parser: "@typescript-eslint/parser",
   parserOptions: {
+    ecmaFeatures: { jsx: true },
+    sourceType: "module",
     ecmaVersion: 6,
-    sourceType: `module`,
-    ecmaFeatures: {
-      jsx: true,
-    },
   },
+  plugins: ["@typescript-eslint"],
   env: {
     browser: true,
-    commonjs: true,
-    es6: true,
     node: true,
   },
-  settings: {
-    "import/resolver": {
-      node: {
-        extensions: [`.js`, `.jsx`],
-      },
-    },
-    react: {
-      version: `detect`,
-    },
-  },
-  plugins: [`react-hooks`],
   extends: [
-    `airbnb`,
-    `airbnb/hooks`,
-    `eslint:recommended`,
-    `plugin:react/recommended`,
-    `plugin:jest/recommended`,
-    `plugin:prettier/recommended`,
-    `plugin:mdx/recommended`,
-    // "prettier/react",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    // Prettier plugin and recommended rules
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
   ],
   rules: {
-    quotes: [`error`, `backtick`],
-    "react/jsx-sort-props": [
-      `error`,
+    "prettier/prettier": ["error", {}, { usePrettierrc: true }],
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-console": ["error", { allow: ["warn", "error"] }],
+    quotes: ["error", "double"],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
       {
-        noSortAlphabetically: false,
-        ignoreCase: true,
-        callbacksLast: true,
-        shorthandLast: true,
-        reservedFirst: true,
+        components: ["Link"],
+        specialLink: ["to"],
       },
     ],
-    "react/sort-prop-types": [
-      `error`,
+    "jsx-a11y/label-has-associated-control": [
+      "error",
       {
-        callbacksLast: true,
-        ignoreCase: true,
-        requiredFirst: true,
-        sortShapeProp: true,
-        noSortAlphabetically: false,
+        labelComponents: [],
+        labelAttributes: [],
+        controlComponents: [],
+        assert: "either",
+        depth: 25,
       },
     ],
-    "max-len": [2, 140, 2],
-    "import/no-extraneous-dependencies": [`error`, { devDependencies: true }],
-    "import/no-unresolved": [`error`, { ignore: [`fusion:*`] }],
-    "import/extensions": [
-      `error`,
-      `never`,
-      {
-        css: `always`,
-      },
-    ],
-    "arrow-body-style": [`error`, `as-needed`],
-    "no-underscore-dangle": `off`,
-    "react-hooks/rules-of-hooks": `error`,
-    "react/jsx-filename-extension": [1, { extensions: [`.js`, `.jsx`] }],
-    "no-console": [`error`, { allow: [`error`] }],
-    // "unicorn/filename-case": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-var-requires": "off",
   },
   overrides: [
     {
-      files: [`scripts/*`, `config/**`],
+      // enable the rule specifically for TypeScript files
+      files: ["**/*.ts", "**/*.tsx"],
       rules: {
-        "no-console": `off`,
-      },
-    },
-    {
-      files: [`**/*.test.js`],
-      rules: {
-        "no-unused-vars": [
-          `error`,
-          {
-            varsIgnorePattern: `Consumer`,
-          },
-        ],
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/explicit-module-boundary-types": ["error"],
+        "@typescript-eslint/no-var-requires": ["error"],
+        // "@typescript-eslint/explicit-function-return-type": ["error"],
       },
     },
   ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
 };

@@ -33,14 +33,14 @@ const StyledLink = ({
   textTransform,
 }) => (
   <Styled.a
-    as={(scrollTo && ScrollLink) || (to && Link) || `a`}
+    as={(scrollTo && ScrollLink) || (to && Link) || "a"}
     duration={duration}
     href={href}
-    rel={href && `noopener`}
+    rel={href && "noopener"}
     smooth={scrollTo && true}
     spy={scrollTo && true}
     sx={{
-      cursor: `pointer`,
+      cursor: "pointer",
       color,
       fontSize,
       fontWeight,
@@ -58,14 +58,14 @@ const StyledLink = ({
       textDecoration,
       textDecorationHover,
       textTransform,
-      transition: `all 300ms ease-in-out`,
+      transition: "all 300ms ease-in-out",
       "&:hover": {
         color: `${hoverColor}`,
-        textDecoration: textDecorationHover && `underline`,
-        textDecorationThickness: textDecorationHover && `0.125rem`,
+        textDecoration: textDecorationHover && "underline",
+        textDecorationThickness: textDecorationHover && "0.125rem",
       },
     }}
-    target={href && `_blank`}
+    target={href && "_blank"}
     title={title}
     to={scrollTo || to}
     onClick={onClick}
@@ -139,27 +139,27 @@ StyledLink.propTypes = {
 };
 
 StyledLink.defaultProps = {
-  color: ``,
+  color: "",
   duration: 500,
-  fontSize: ``,
-  fontWeight: ``,
-  hoverColor: ``,
+  fontSize: "",
+  fontWeight: "",
+  hoverColor: "",
   href: null,
-  letterSpacing: ``,
-  m: ``,
-  mb: ``,
-  mt: ``,
-  mx: ``,
-  my: ``,
-  p: ``,
-  pb: ``,
-  pt: ``,
-  px: ``,
-  py: ``,
+  letterSpacing: "",
+  m: "",
+  mb: "",
+  mt: "",
+  mx: "",
+  my: "",
+  p: "",
+  pb: "",
+  pt: "",
+  px: "",
+  py: "",
   scrollTo: null,
-  textDecoration: ``,
+  textDecoration: "",
   textDecorationHover: false,
-  textTransform: ``,
+  textTransform: "",
   title: null,
   to: null,
   onClick: () => true,

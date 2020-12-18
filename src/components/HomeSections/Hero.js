@@ -53,13 +53,13 @@ const Hero = () => {
   return (
     <Box
       sx={{
-        position: `relative`,
+        position: "relative",
         height: [
-          `calc(100vh - 136.5px - 80px)`,
-          `calc(100vh - 136.5px - 96px)`,
-          `calc(100vh - 136.5px - 76px)`,
-          `calc(100vh - 136.5px - 96px)`,
-          `calc(100vh - 133.5px - 104px)`,
+          "calc(100vh - 136.5px - 80px)",
+          "calc(100vh - 136.5px - 96px)",
+          "calc(100vh - 136.5px - 76px)",
+          "calc(100vh - 136.5px - 96px)",
+          "calc(100vh - 133.5px - 104px)",
         ],
       }}
     >
@@ -68,11 +68,11 @@ const Hero = () => {
           poster={videoPosterSrc}
           preload="none"
           sx={{
-            position: `absolute`,
-            objectFit: `cover`,
-            width: `full`,
-            height: `full`,
-            zIndex: `-1`,
+            position: "absolute",
+            objectFit: "cover",
+            width: "full",
+            height: "full",
+            zIndex: "-1",
           }}
           autoPlay
           loop
@@ -86,47 +86,47 @@ const Hero = () => {
         <BackgroundImage
           fluid={media.fluid}
           sx={{
-            bg: `black.mid`,
-            position: `absolute !important`,
-            width: `full`,
-            height: `full`,
+            bg: "black.mid",
+            position: "absolute !important",
+            width: "full",
+            height: "full",
           }}
         />
       )}
       <Box
         sx={{
-          position: `absolute`,
-          zIndex: `0`,
-          top: `0`,
-          right: `0`,
-          bottom: `0`,
-          left: `0`,
+          position: "absolute",
+          zIndex: "0",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
           background: [
-            `none`,
+            "none",
             null,
-            `radial-gradient(circle, #1D2435FF, 50%, #1D243500 100%)`,
+            "radial-gradient(circle, #1D2435FF, 50%, #1D243500 100%)",
           ],
-          opacity: `0.5`,
+          opacity: "0.5",
         }}
       />
       {breakpoints.tablet && (
         <Container
-          px={[`3`, null, null, null, `0`]}
+          px={["3", null, null, null, "0"]}
           py="7"
-          sx={{ height: `full` }}
+          sx={{ height: "full" }}
         >
           <Flex
             alignItems="center"
             flexShrink="1"
-            sx={{ height: `full`, zIndex: `2` }}
+            sx={{ height: "full", zIndex: "2" }}
           >
             <Box
               color="white.light"
               mx="auto"
               sx={{
-                width: `3/4`,
-                textAlign: `center`,
-                textShadow: `text`,
+                width: "3/4",
+                textAlign: "center",
+                textShadow: "text",
               }}
             >
               <Heading variant="heading.title">{subtitle}</Heading>

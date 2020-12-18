@@ -12,12 +12,12 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
   const breakpoints = useBreakpoint();
 
   return (
-    <WoodBg overlayColor={overlayColor} sx={{ bg: `blue.dark` }}>
-      <Divider sx={{ position: `absolute`, top: `0` }} variant="divider.glow" />
+    <WoodBg overlayColor={overlayColor} sx={{ bg: "blue.dark" }}>
+      <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
       <Container>
         <Inline
           alignItems="center"
-          gap={[`1`, null, `3`, null, `4`]}
+          gap={["1", null, "3", null, "4"]}
           justifyContent="center"
           py="3"
         >
@@ -26,7 +26,7 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
               <svg
                 fill="none"
                 height="33"
-                sx={{ filter: `drop-shadow( 0px 0px 4px #75E7FF)` }}
+                sx={{ filter: "drop-shadow( 0px 0px 4px #75E7FF)" }}
                 width="34"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -40,7 +40,7 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
               <svg
                 fill="none"
                 height="33"
-                sx={{ filter: `drop-shadow( 0px 0px 4px #75E7FF)`, ml: `2` }}
+                sx={{ filter: "drop-shadow( 0px 0px 4px #75E7FF)", ml: "2" }}
                 width="34"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -55,9 +55,9 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
                 fill="none"
                 height="33"
                 sx={{
-                  filter: `drop-shadow( 0px 0px 4px #75E7FF)`,
-                  transform: `scale(1.5)`,
-                  ml: `3`,
+                  filter: "drop-shadow( 0px 0px 4px #75E7FF)",
+                  transform: "scale(1.5)",
+                  ml: "3",
                 }}
                 width="34"
                 xmlns="http://www.w3.org/2000/svg"
@@ -75,8 +75,8 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
               fill="none"
               height="33"
               sx={{
-                filter: `drop-shadow( 0px 0px 4px #75E7FF)`,
-                transform: `scale(1.5)`,
+                filter: "drop-shadow( 0px 0px 4px #75E7FF)",
+                transform: "scale(1.5)",
               }}
               width="34"
               xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
           )}
           <Heading as={as} mx="3" variant="display">
             {to ? (
-              <Link sx={{ color: `inherit`, textDecoration: `none` }} to={to}>
+              <Link sx={{ color: "inherit", textDecoration: "none" }} to={to}>
                 {title}
               </Link>
             ) : (
@@ -104,9 +104,9 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
                 fill="none"
                 height="33"
                 sx={{
-                  filter: `drop-shadow( 0px 0px 4px #75E7FF)`,
-                  transform: `scale(1.5)`,
-                  mr: `3`,
+                  filter: "drop-shadow( 0px 0px 4px #75E7FF)",
+                  transform: "scale(1.5)",
+                  mr: "3",
                 }}
                 width="34"
                 xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
               <svg
                 fill="none"
                 height="33"
-                sx={{ filter: `drop-shadow( 0px 0px 4px #75E7FF)`, mr: `2` }}
+                sx={{ filter: "drop-shadow( 0px 0px 4px #75E7FF)", mr: "2" }}
                 width="34"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -135,7 +135,7 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
               <svg
                 fill="none"
                 height="33"
-                sx={{ filter: `drop-shadow( 0px 0px 4px #75E7FF)` }}
+                sx={{ filter: "drop-shadow( 0px 0px 4px #75E7FF)" }}
                 width="34"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -152,8 +152,8 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
               fill="none"
               height="33"
               sx={{
-                filter: `drop-shadow( 0px 0px 4px #75E7FF)`,
-                transform: `scale(1.5)`,
+                filter: "drop-shadow( 0px 0px 4px #75E7FF)",
+                transform: "scale(1.5)",
               }}
               width="34"
               xmlns="http://www.w3.org/2000/svg"
@@ -180,10 +180,10 @@ MoreAttractionsDivider.propTypes = {
 };
 
 MoreAttractionsDivider.defaultProps = {
-  as: `h1`,
-  overlayColor: `blue.xdark`,
-  title: ``,
-  to: ``,
+  as: "h1",
+  overlayColor: "blue.xdark",
+  title: "",
+  to: "",
 };
 
 export default MoreAttractionsDivider;

@@ -29,28 +29,28 @@ const MiniGolfFeature = ({ data: { node } }) => {
   return (
     <Flex
       sx={{
-        flexDirection: [`column`, null, null, `row`],
-        height: [`auto`, null, null, `lg`],
+        flexDirection: ["column", null, null, "row"],
+        height: ["auto", null, null, "lg"],
       }}
     >
       <MediaItem
         isVideo={false}
         media={node.videoPoster}
         sx={{
-          width: [`full`, null, null, `7/12`],
-          height: [`sm`, null, null, `full`],
-          objectFit: `cover`,
+          width: ["full", null, null, "7/12"],
+          height: ["sm", null, null, "full"],
+          objectFit: "cover",
         }}
       />
       <Box
         sx={{
-          width: [`full`, null, null, `5/12`],
-          minHeight: [`xs`, null, null, `auto`],
-          position: `relative`,
-          borderTop: [`24px solid`, null, null, `none`],
-          borderRight: `0`,
-          borderBottom: `0`,
-          borderLeft: [`0`, null, null, `48px solid`],
+          width: ["full", null, null, "5/12"],
+          minHeight: ["xs", null, null, "auto"],
+          position: "relative",
+          borderTop: ["24px solid", null, null, "none"],
+          borderRight: "0",
+          borderBottom: "0",
+          borderLeft: ["0", null, null, "48px solid"],
           borderImage: [
             `url(${Brick}) 24 0 repeat`,
             null,
@@ -62,43 +62,43 @@ const MiniGolfFeature = ({ data: { node } }) => {
         <BackgroundImage
           fluid={grassTexture}
           sx={{
-            position: `absolute !important`,
-            bg: `green.light`,
-            height: `full`,
-            width: `full`,
+            position: "absolute !important",
+            bg: "green.light",
+            height: "full",
+            width: "full",
           }}
         />
         <Box
           sx={{
-            position: `absolute`,
-            bg: `green.dark`,
-            width: `full`,
-            height: `full`,
-            opacity: `0.75`,
+            position: "absolute",
+            bg: "green.dark",
+            width: "full",
+            height: "full",
+            opacity: "0.75",
           }}
         />
         <Grid
           color="white.light"
           p="7"
-          sx={{ height: `full` }}
+          sx={{ height: "full" }}
           variant="featuredAttraction"
         >
           <Arrow
             sx={{
-              position: `absolute !important`,
-              left: [null, null, null, `-80px`],
-              right: [`3`, null],
-              top: [`-3rem`, null, null, `-1rem`],
-              zIndex: `1`,
-              width: `180px`,
-              height: `80px`,
-              transform: [`rotate(-30deg)`, null, null, `rotateZ(-145deg)`],
+              position: "absolute !important",
+              left: [null, null, null, "-80px"],
+              right: ["3", null],
+              top: ["-3rem", null, null, "-1rem"],
+              zIndex: "1",
+              width: "180px",
+              height: "80px",
+              transform: ["rotate(-30deg)", null, null, "rotateZ(-145deg)"],
             }}
           />
           <StyledLink
             color="white.light"
             hoverColor="blue.light"
-            to={`/attractions/${node.title.toLowerCase().replace(/\s/g, `-`)}`}
+            to={`/attractions/${node.title.toLowerCase().replace(/\s/g, "-")}`}
           >
             <Stack>
               <Heading variant="heading.featuredTitle">{node.title}</Heading>

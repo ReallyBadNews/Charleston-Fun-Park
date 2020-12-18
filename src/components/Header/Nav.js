@@ -75,40 +75,40 @@ const Nav = () => {
     <BackgroundImage
       fluid={woodTexture}
       sx={{
-        backgroundColor: `white.light`,
-        backgroundRepeat: `repeat`,
-        backgroundSize: `auto`,
-        borderTopWidth: `4`,
-        borderTopColor: `blue.light`,
-        borderTopStyle: `solid`,
-        borderBottomWidth: `4`,
-        borderBottomColor: `blue.light`,
-        borderBottomStyle: `solid`,
-        position: `relative`,
+        backgroundColor: "white.light",
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
+        borderTopWidth: "4",
+        borderTopColor: "blue.light",
+        borderTopStyle: "solid",
+        borderBottomWidth: "4",
+        borderBottomColor: "blue.light",
+        borderBottomStyle: "solid",
+        position: "relative",
       }}
       tag="div"
     >
       <Container
-        px={[`3`, null, null, null, `0`]}
-        sx={{ position: `relative` }}
+        px={["3", null, null, null, "0"]}
+        sx={{ position: "relative" }}
       >
         <Flex
           alignItems="center"
           className="nav"
           justifyContent="space-between"
-          sx={{ height: `24` }}
+          sx={{ height: "24" }}
         >
-          <Inline gap={[`1`, null, `3`]}>
+          <Inline gap={["1", null, "3"]}>
             <Link to="/">
               <Img
                 alt="Charleston Fun Park"
                 fluid={headerLogo}
                 sx={{
-                  width: [`122px`, null, null, `172px`, `261px`],
-                  height: [`94px`, null, null, `132px`, `200px`],
-                  position: `relative`,
-                  zIndex: `100`,
-                  mt: [`0`, null, null, null, `5`],
+                  width: ["122px", null, null, "172px", "261px"],
+                  height: ["94px", null, null, "132px", "200px"],
+                  position: "relative",
+                  zIndex: "100",
+                  mt: ["0", null, null, null, "5"],
                 }}
               />
             </Link>
@@ -116,34 +116,34 @@ const Nav = () => {
             <Img
               fluid={funLogo}
               sx={{
-                width: [`91px`, `132px`, `130px`, null, `176px`],
-                height: [`40px`, `57px`, `56px`, null, `76px`],
+                width: ["91px", "132px", "130px", null, "176px"],
+                height: ["40px", "57px", "56px", null, "76px"],
               }}
             />
             <Arrow
               sx={{
-                width: [`66px`, `120px`, `124px`, null, `133px`],
-                height: [`30px`, `54px`, `56px`, null, `60px`],
-                transform: `rotateZ(180deg)`,
+                width: ["66px", "120px", "124px", null, "133px"],
+                height: ["30px", "54px", "56px", null, "60px"],
+                transform: "rotateZ(180deg)",
               }}
             />
           </Inline>
           <Inline
             as="nav"
             color="white.light"
-            gap={[`3`, null, null, null, `5`]}
+            gap={["3", null, null, null, "5"]}
           >
             {breakpoints.desktop &&
               navLinks.slice(1, 4).map((link) => (
-                <Inline key={link.name} gap={[`1`, null, null, null, `2`]}>
+                <Inline key={link.name} gap={["1", null, null, null, "2"]}>
                   <FontAwesomeIcon
                     icon={menuIcons[link.name]}
-                    sx={{ fontSize: [`2`, null, null, `5`], maxHeight: `5` }}
+                    sx={{ fontSize: ["2", null, null, "5"], maxHeight: "5" }}
                   />
                   <StyledLink
                     key={link.name}
                     color="white.light"
-                    fontSize={[`1`, null, null, null, `2`]}
+                    fontSize={["1", null, null, null, "2"]}
                     fontWeight="bold"
                     letterSpacing="wide"
                     textDecoration="none"
@@ -158,9 +158,9 @@ const Nav = () => {
             <FontAwesomeIcon
               icon={menuOpen ? faTimes : faBars}
               sx={{
-                cursor: `pointer`,
-                fontSize: `5`,
-                maxHeight: `8`,
+                cursor: "pointer",
+                fontSize: "5",
+                maxHeight: "8",
               }}
               fixedWidth
               onClick={burgerHandler}
@@ -171,14 +171,14 @@ const Nav = () => {
           <Box
             as="nav"
             sx={{
-              position: `absolute`,
-              right: [`3`, null, null, null, `0`],
-              top: `80px`,
-              backgroundColor: `white.light`,
+              position: "absolute",
+              right: ["3", null, null, null, "0"],
+              top: "80px",
+              backgroundColor: "white.light",
               padding: 4,
-              borderRadius: `lg`,
-              boxShadow: `default`,
-              textAlign: `right`,
+              borderRadius: "lg",
+              boxShadow: "default",
+              textAlign: "right",
             }}
           >
             <Stack gap="3">

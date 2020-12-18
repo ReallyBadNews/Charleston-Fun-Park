@@ -34,52 +34,52 @@ const AttractionsLayout = ({
         title={contentfulSectionPages.title}
       />
       <WoodBg overlayColor="blue.light">
-        <Flex sx={{ flexDirection: `column`, minHeight: `screenHeight` }}>
+        <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <StarDivider title={contentfulSectionPages.title} />
           <Container
             my="6"
             sx={{
-              flex: `1 1 auto`,
+              flex: "1 1 auto",
               width:
                 contentfulSectionPages.media &&
                 contentfulSectionPages.media[0].file.contentType !==
-                  `application/pdf`
-                  ? `full`
-                  : `auto`,
+                  "application/pdf"
+                  ? "full"
+                  : "auto",
             }}
           >
             <Grid
               columns={[
-                `1fr`,
+                "1fr",
                 null,
                 contentfulSectionPages.media &&
                 contentfulSectionPages.media[0].file.contentType !==
-                  `application/pdf`
-                  ? `1fr minmax(${theme.sizes.xs}, ${theme.sizes[`1/3`]})`
-                  : `1fr`,
+                  "application/pdf"
+                  ? `1fr minmax(${theme.sizes.xs}, ${theme.sizes["1/3"]})`
+                  : "1fr",
               ]}
-              px={[`3`, null, null, null, `0`]}
+              px={["3", null, null, null, "0"]}
               sx={{
                 maxWidth:
                   contentfulSectionPages.media &&
                   contentfulSectionPages.media[0].file.contentType !==
-                    `application/pdf`
-                    ? `auto`
-                    : `3xl`,
+                    "application/pdf"
+                    ? "auto"
+                    : "3xl",
               }}
             >
               <Card
                 bg="white.light"
                 color="black.dark"
                 p="4"
-                sx={{ borderRadius: `lg` }}
+                sx={{ borderRadius: "lg" }}
               >
                 <MDXRenderer>
                   {contentfulSectionPages.content.childMdx.body}
                 </MDXRenderer>
                 {contentfulSectionPages.media &&
                   contentfulSectionPages.media[0].file.contentType ===
-                    `application/pdf` && (
+                    "application/pdf" && (
                     <StyledLink href={contentfulSectionPages.media[0].file.url}>
                       Download Application
                     </StyledLink>
@@ -87,7 +87,7 @@ const AttractionsLayout = ({
               </Card>
               {contentfulSectionPages.media &&
                 contentfulSectionPages.media[0].file.contentType !==
-                  `application/pdf` && (
+                  "application/pdf" && (
                   <Box>
                     {contentfulSectionPages.media.map((image) => (
                       <Card key={image.title} variant="image">
