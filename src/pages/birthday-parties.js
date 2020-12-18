@@ -141,12 +141,12 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
     <>
       <SEO description={description} pathname={pathname} title={title} />
       <WoodBg overlayColor="blue.light">
-        <Flex sx={{ flexDirection: `column`, minHeight: `screenHeight` }}>
+        <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <StarDivider title={title} />
           <Container
             my="6"
-            px={[`3`, null, null, null, `0`]}
-            sx={{ flex: `1 1 auto` }}
+            px={["3", null, null, null, "0"]}
+            sx={{ flex: "1 1 auto" }}
           >
             <Stack gap="3">
               {heading && (
@@ -161,7 +161,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
               )}
               {birthdayPackage1Title && (
                 <Card variant="bDays">
-                  <Box sx={{ width: [`full`, null, `1/2`] }}>
+                  <Box sx={{ width: ["full", null, "1/2"] }}>
                     <Heading mb="2" variant="heading.title">
                       {birthdayPackage1Title.toLowerCase()}
                     </Heading>
@@ -177,9 +177,9 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         alt={image.title}
                         fluid={image.fluid}
                         sx={{
-                          width: [`full`, null, `1/2`],
-                          ml: [`0`, null, `3`],
-                          borderRadius: `lg`,
+                          width: ["full", null, "1/2"],
+                          ml: ["0", null, "3"],
+                          borderRadius: "lg",
                         }}
                       />
                     ))}
@@ -187,7 +187,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
               )}
               {birthdayPackage2Title && (
                 <Card variant="bDays">
-                  <Box sx={{ width: [`full`, null, `1/2`] }}>
+                  <Box sx={{ width: ["full", null, "1/2"] }}>
                     <Heading mb="2" variant="heading.title">
                       {birthdayPackage2Title.toLowerCase()}
                     </Heading>
@@ -203,9 +203,9 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         alt={image.title}
                         fluid={image.fluid}
                         sx={{
-                          width: [`full`, null, `1/2`],
-                          ml: [`0`, null, `3`],
-                          borderRadius: `lg`,
+                          width: ["full", null, "1/2"],
+                          ml: ["0", null, "3"],
+                          borderRadius: "lg",
                         }}
                       />
                     ))}
@@ -213,7 +213,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
               )}
               {birthdayPackage3Title && (
                 <Card variant="bDays">
-                  <Box sx={{ width: [`full`, null, `1/2`] }}>
+                  <Box sx={{ width: ["full", null, "1/2"] }}>
                     <Heading mb="2" variant="heading.title">
                       {birthdayPackage3Title.toLowerCase()}
                     </Heading>
@@ -229,9 +229,9 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         alt={image.title}
                         fluid={image.fluid}
                         sx={{
-                          width: [`full`, null, `1/2`],
-                          ml: [`0`, null, `3`],
-                          borderRadius: `lg`,
+                          width: ["full", null, "1/2"],
+                          ml: ["0", null, "3"],
+                          borderRadius: "lg",
                         }}
                       />
                     ))}
@@ -239,7 +239,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
               )}
               {birthdayPackage4Title && (
                 <Card variant="bDays">
-                  <Box sx={{ width: [`full`, null, `1/2`] }}>
+                  <Box sx={{ width: ["full", null, "1/2"] }}>
                     <Heading mb="2" variant="heading.title">
                       {birthdayPackage4Title.toLowerCase()}
                     </Heading>
@@ -255,9 +255,9 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         alt={image.title}
                         fluid={image.fluid}
                         sx={{
-                          width: [`full`, null, `1/2`],
-                          ml: [`0`, null, `3`],
-                          borderRadius: `lg`,
+                          width: ["full", null, "1/2"],
+                          ml: ["0", null, "3"],
+                          borderRadius: "lg",
                         }}
                       />
                     ))}
@@ -265,7 +265,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
               )}
               {birthdayPackage5Title && (
                 <Card variant="bDays">
-                  <Box sx={{ width: [`full`, null, `1/2`] }}>
+                  <Box sx={{ width: ["full", null, "1/2"] }}>
                     <Heading mb="2" variant="heading.title">
                       {birthdayPackage5Title.toLowerCase()}
                     </Heading>
@@ -281,9 +281,9 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                         alt={image.title}
                         fluid={image.fluid}
                         sx={{
-                          width: [`full`, null, `1/2`],
-                          ml: [`0`, null, `3`],
-                          borderRadius: `lg`,
+                          width: ["full", null, "1/2"],
+                          ml: ["0", null, "3"],
+                          borderRadius: "lg",
                         }}
                       />
                     ))}

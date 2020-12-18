@@ -24,14 +24,14 @@ const Footer = () => {
       as="footer"
       bg="black.dark"
       color="white.light"
-      px={[`3`, null, null, null, `0`]}
+      px={["3", null, null, null, "0"]}
       py="7"
     >
       <Container>
         <Stack gap="5">
           <Flex
             flexWrap="wrap"
-            gap={[`3`, null, null, `5`]}
+            gap={["3", null, null, "5"]}
             justifyContent="center"
           >
             {navLinks.map((link) => (
@@ -39,7 +39,7 @@ const Footer = () => {
                 key={link.name}
                 color="white.light"
                 fontFamily="heading"
-                fontSize={[`2`, null, `4`]}
+                fontSize={["2", null, "4"]}
                 fontWeight="bold"
                 hoverColor="blue.light"
                 letterSpacing="wide"
@@ -62,12 +62,12 @@ const Footer = () => {
               >
                 <FontAwesomeIcon
                   icon={socialIcons[link.name]}
-                  sx={{ maxHeight: `6` }}
+                  sx={{ maxHeight: "6" }}
                 />
               </StyledLink>
             ))}
           </Flex>
-          <Text sx={{ textAlign: `center` }} variant="body.normal">
+          <Text sx={{ textAlign: "center" }} variant="body.normal">
             {copyright}
           </Text>
         </Stack>

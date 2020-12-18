@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from "react";
 import { Global, css } from "@emotion/core";
 import fontFiles from "./fonts";

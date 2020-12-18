@@ -1,4 +1,4 @@
-require(`dotenv`).config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
@@ -7,9 +7,9 @@ const contentfulConfig = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   environment: process.env.NODE_ENV,
   host:
-    process.env.NODE_ENV === `development`
-      ? `preview.contentful.com`
-      : `cdn.contentful.com`,
+    process.env.NODE_ENV === "development"
+      ? "preview.contentful.com"
+      : "cdn.contentful.com",
 };
 
 if (process.env.CONTENTFUL_HOST) {
@@ -20,106 +20,106 @@ const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
   throw new Error(
-    `Contentful spaceId and the access token need to be provided.`
+    "Contentful spaceId and the access token need to be provided."
   );
 }
 
 const breakpoints = {
-  mobile: `(min-width: 475px)`,
-  tablet: `(min-width: 768px)`,
-  desktop: `(min-width: 1024px)`,
-  wide: `(min-width: 1280px)`,
+  mobile: "(min-width: 475px)",
+  tablet: "(min-width: 768px)",
+  desktop: "(min-width: 1024px)",
+  wide: "(min-width: 1280px)",
 };
 
 module.exports = {
   siteMetadata: {
-    title: `Charleston Fun Park in Mt. Pleasant, SC | Amusement Park`,
+    title: "Charleston Fun Park in Mt. Pleasant, SC | Amusement Park",
     description:
       // eslint-disable-next-line max-len
-      `Welcome to Charleston Fun Park! We are your locally owned and operated Family Entertainment Center in the Charleston area. We've got go-karts, putt-putt, an arcade, rock climbing, jumpland and more!`,
-    author: `Charleston Fun Park`,
-    siteUrl: `https://charlestonfunpark.com`,
+      "Welcome to Charleston Fun Park! We are your locally owned and operated Family Entertainment Center in the Charleston area. We've got go-karts, putt-putt, an arcade, rock climbing, jumpland and more!",
+    author: "Charleston Fun Park",
+    siteUrl: "https://charlestonfunpark.com",
     copyright: `© ${new Date().getFullYear()} Charleston Fun Park. All Rights Reserved.`,
     keywords: [
-      `Fun Park`,
-      `Amusement Park`,
-      `Go Karts`,
-      `Putt-Putt`,
-      `Mini Golf`,
+      "Fun Park",
+      "Amusement Park",
+      "Go Karts",
+      "Putt-Putt",
+      "Mini Golf",
     ],
     phoneNumber: {
-      number: `(843) 971-1223`,
-      link: `tel:843-971-1223`,
+      number: "(843) 971-1223",
+      link: "tel:843-971-1223",
     },
-    giftCardLink: `https://charlestonfunpark.centeredgeonline.com/retail`,
+    giftCardLink: "https://charlestonfunpark.centeredgeonline.com/retail",
     socialLinks: [
       {
-        name: `facebook`,
-        url: `https://www.facebook.com/charlestonfunpark/`,
+        name: "facebook",
+        url: "https://www.facebook.com/charlestonfunpark/",
       },
       {
-        name: `twitter`,
-        url: `https://twitter.com/charleston_fun/`,
+        name: "twitter",
+        url: "https://twitter.com/charleston_fun/",
       },
       {
-        name: `instagram`,
-        url: `https://www.instagram.com/charlestonfunpark/`,
+        name: "instagram",
+        url: "https://www.instagram.com/charlestonfunpark/",
       },
     ],
     navLinks: [
       {
-        name: `Home`,
-        url: `/`,
+        name: "Home",
+        url: "/",
       },
       {
-        name: `Attractions`,
-        url: `/attractions/`,
+        name: "Attractions",
+        url: "/attractions/",
       },
       {
-        name: `Birthday Parties`,
-        url: `/birthday-parties/`,
+        name: "Birthday Parties",
+        url: "/birthday-parties/",
       },
       {
-        name: `Park Info`,
-        url: `/park-info/`,
+        name: "Park Info",
+        url: "/park-info/",
       },
       {
-        name: `Group Events`,
-        url: `/group-events/`,
+        name: "Group Events",
+        url: "/group-events/",
       },
       {
-        name: `Specials`,
-        url: `/specials/`,
+        name: "Specials",
+        url: "/specials/",
       },
       {
-        name: `Gift Cards`,
-        url: `/gift-cards/`,
+        name: "Gift Cards",
+        url: "/gift-cards/",
       },
       {
-        name: `Food & Drink`,
-        url: `/food-and-drink-menu/`,
+        name: "Food & Drink",
+        url: "/food-and-drink-menu/",
       },
       {
-        name: `Employment`,
-        url: `/employment/`,
+        name: "Employment",
+        url: "/employment/",
       },
     ],
   },
-  pathPrefix: `/charleston-fun-park`,
+  pathPrefix: "/charleston-fun-park",
   plugins: [
-    `gatsby-plugin-mdx`,
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-theme-ui`,
-    `gatsby-plugin-sitemap`,
-    `gatsby-transformer-sharp`,
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-offline",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-theme-ui",
+    "gatsby-plugin-sitemap",
+    "gatsby-transformer-sharp",
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images-contentful`,
+            resolve: "gatsby-remark-images-contentful",
             options: {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
@@ -131,60 +131,60 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-breakpoints`,
+      resolve: "gatsby-plugin-breakpoints",
       options: {
         queries: breakpoints,
       },
     },
     {
-      resolve: `gatsby-plugin-layout`,
+      resolve: "gatsby-plugin-layout",
       options: {
-        component: require.resolve(`./src/templates/MainLayout.js`),
+        component: require.resolve("./src/templates/MainLayout.js"),
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `images`,
+        name: "images",
         path: `${__dirname}/src/images`,
       },
     },
     {
-      resolve: `gatsby-plugin-contentful-optional-fields`,
+      resolve: "gatsby-plugin-contentful-optional-fields",
       options: {
         optionalFields: {
           ContentfulBirthdaysEventsPage: {
-            heading: `String`,
-            birthdayPackage1Title: `String`,
-            birthdayPackage2Title: `String`,
-            birthdayPackage3Title: `String`,
-            birthdayPackage4Title: `String`,
-            birthdayPackage5Title: `String`,
+            heading: "String",
+            birthdayPackage1Title: "String",
+            birthdayPackage2Title: "String",
+            birthdayPackage3Title: "String",
+            birthdayPackage4Title: "String",
+            birthdayPackage5Title: "String",
           },
         },
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: `Charleston Fun Park`,
-        short_name: `Fun Park`,
-        icon: `src/images/logo.png`,
-        start_url: `/`,
-        background_color: `#003A59`,
-        theme_color: `#1DCDF2`,
-        display: `standalone`,
+        name: "Charleston Fun Park",
+        short_name: "Fun Park",
+        icon: "src/images/logo.png",
+        start_url: "/",
+        background_color: "#003A59",
+        theme_color: "#1DCDF2",
+        display: "standalone",
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-plugin-google-analytics",
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: `UA-169401521-1`,
+        trackingId: "UA-169401521-1",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: true,
         // Setting this parameter is optional
@@ -192,7 +192,7 @@ module.exports = {
         // Setting this parameter is also optional
         respectDNT: false,
         // Avoids sending pageview hits from custom paths
-        exclude: [`/preview/**`, `/do-not-track/me/too/`],
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
         // Enables Google Optimize using your container Id
@@ -206,13 +206,21 @@ module.exports = {
         // Any additional optional fields
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: `charlestonfunpark.com`,
+        cookieDomain: "charlestonfunpark.com",
       },
     },
     {
-      resolve: `gatsby-plugin-facebook-pixel`,
+      resolve: "gatsby-plugin-facebook-pixel",
       options: {
-        pixelId: `201365304406137`,
+        pixelId: "201365304406137",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-typescript",
+      options: {
+        isTSX: true, // defaults to false
+        jsxPragma: "jsx", // defaults to "React"
+        allExtensions: true, // defaults to false
       },
     },
   ],

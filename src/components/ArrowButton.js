@@ -6,18 +6,18 @@ import Arrow from "./Images/Arrow";
 const ArrowButton = ({ children, href }) => (
   <Box
     sx={{
-      display: `flex`,
-      alignItems: `center`,
-      justifyContent: `space-between`,
-      gap: [`3`, null, `7`],
-      mb: [`4`, null, `0`],
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: ["3", null, "7"],
+      mb: ["4", null, "0"],
     }}
   >
     <Arrow
       sx={{
-        display: `inline-block`,
-        width: `24`,
-        transform: `rotate(180deg)`,
+        display: "inline-block",
+        width: "24",
+        transform: "rotate(180deg)",
       }}
     />
     <Button as="a" href={href} target="_blank" variant="bookNow">
@@ -25,8 +25,8 @@ const ArrowButton = ({ children, href }) => (
     </Button>
     <Arrow
       sx={{
-        display: `inline-block`,
-        width: `24`,
+        display: "inline-block",
+        width: "24",
       }}
     />
   </Box>

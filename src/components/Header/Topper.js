@@ -44,29 +44,29 @@ const Topper = () => {
       className="topper"
       fluid={fluid}
       sx={{
-        backgroundRepeat: `repeat`,
-        backgroundSize: `auto`,
-        position: `relative`,
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
+        position: "relative",
       }}
     >
       <Box
         sx={{
-          position: `absolute`,
-          zIndex: `-1`,
-          top: `0`,
-          right: `0`,
-          bottom: `0`,
-          left: `0`,
-          bg: `green.dark`,
-          opacity: `0.5`,
+          position: "absolute",
+          zIndex: "-1",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
+          bg: "green.dark",
+          opacity: "0.5",
         }}
       />
       <Container
-        px={[`3`, null, null, null, `0`]}
+        px={["3", null, null, null, "0"]}
         py="1"
-        sx={{ position: `relative`, zIndex: `100` }}
+        sx={{ position: "relative", zIndex: "100" }}
       >
-        <Flex gap="5" justifyContent={[`space-between`, null, `flex-end`]}>
+        <Flex gap="5" justifyContent={["space-between", null, "flex-end"]}>
           <Inline gap="3">
             <Button
               as="a"
@@ -77,7 +77,7 @@ const Topper = () => {
             >
               <FontAwesomeIcon
                 icon={faCartPlus}
-                sx={{ mr: `2`, maxHeight: `4`, maxWidth: `4` }}
+                sx={{ mr: "2", maxHeight: "4", maxWidth: "4" }}
                 fixedWidth
               />
               Gift Cards
@@ -86,12 +86,12 @@ const Topper = () => {
               {phoneNumber.number}
               <FontAwesomeIcon
                 icon={faPhone}
-                sx={{ ml: `2`, maxHeight: `0.875rem`, maxWidth: `0.875rem` }}
+                sx={{ ml: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
                 fixedWidth
               />
             </Button>
           </Inline>
-          <Inline alignItems="center" gap="4" sx={{ height: `full` }}>
+          <Inline alignItems="center" gap="4" sx={{ height: "full" }}>
             {socialLinks.map((link) => (
               <StyledLink
                 key={link.name}
@@ -102,7 +102,7 @@ const Topper = () => {
               >
                 <FontAwesomeIcon
                   icon={socialIcons[link.name]}
-                  sx={{ maxHeight: `6` }}
+                  sx={{ maxHeight: "6" }}
                 />
               </StyledLink>
             ))}
