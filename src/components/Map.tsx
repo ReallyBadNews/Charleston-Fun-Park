@@ -1,43 +1,46 @@
 import React, { FC } from "react";
-import GoogleMapReact from "google-map-react";
+import ReactMapboxGl, { Marker } from "react-mapbox-gl";
 
-type MapProps = {
-  height: string;
-  width: string;
+// @ts-ignore
+import logo from "../images/logo.png";
+
+type MapBoxProps =
+  | {
+      height: string;
+      width: string;
+    }
+  | {
+      height?: never;
+      width?: never;
+    };
+
+const MapBox: FC<MapBoxProps> = ({ height, width }) => {
+  const mapStyle = "mapbox://styles/reallybadnews/ckb07yl340i0p1jp931yu09hn";
+
+  const Map = ReactMapboxGl({
+    accessToken: process.env.MAPBOX_API_KEY || "",
+  });
+
+  return (
+    <>
+      <Map
+        center={[-79.779456, 32.868205]}
+        containerStyle={{ height, width }}
+        style={mapStyle}
+        zoom={[15]}
+      >
+        <Marker anchor="bottom" coordinates={[-79.779456, 32.868205]}>
+          <img
+            alt="marker"
+            height="64"
+            src={logo}
+            style={{ cursor: "pointer" }}
+            width="64"
+          />
+        </Marker>
+      </Map>
+    </>
+  );
 };
 
-type IconProps = {
-  lat: number;
-  lng: number;
-};
-
-const defaultProps = {
-  center: {
-    lat: 32.86810312921223,
-    lng: -79.7794897624561,
-  },
-  zoom: 15,
-};
-
-const Icon: FC<IconProps> = (props) => (
-  <img
-    height="64"
-    src="https://charlestonfunpark.com/static/4cab3a6c3d07d254c4dd080c61226dfb/1ce16/logo.webp"
-    alt="logo"
-    {...props}
-  />
-);
-
-const GoogleMap: FC<MapProps> = ({ height, width }) => (
-  <div style={{ height, width }}>
-    <GoogleMapReact
-      bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_KEY }}
-      defaultCenter={defaultProps.center}
-      defaultZoom={defaultProps.zoom}
-    >
-      <Icon lat={defaultProps.center.lat} lng={defaultProps.center.lng} />
-    </GoogleMapReact>
-  </div>
-);
-
-export default GoogleMap;
+export default MapBox;
