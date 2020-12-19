@@ -31,7 +31,7 @@ const Icon: FC<IconProps> = (props) => (
 const GoogleMap: FC<MapProps> = ({ height, width }) => (
   <div style={{ height, width }}>
     <GoogleMapReact
-      bootstrapURLKeys={{ key: "AIzaSyAGc3OSw-vxktv7i19AaTeQ0z3DRj8cdls" }}
+      bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_KEY }}
       defaultCenter={defaultProps.center}
       defaultZoom={defaultProps.zoom}
     >
