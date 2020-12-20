@@ -54,12 +54,12 @@ const Hero = () => {
     <Box
       sx={{
         position: "relative",
-        minHeight: [
-          "calc(100vh - 136.5px - 80px)",
-          "calc(100vh - 136.5px - 96px)",
-          "calc(100vh - 136.5px - 76px)",
-          "calc(100vh - 136.5px - 96px)",
-          "calc(100vh - 133.5px - 104px)",
+        height: [
+          "calc(100vh - 147px - 80px)",
+          "calc(100vh - 147px - 96px)",
+          "calc(100vh - 147px - 76px)",
+          "calc(100vh - 147px - 96px)",
+          "calc(100vh - 147px - 104px)",
         ],
       }}
     >
