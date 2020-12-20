@@ -7,7 +7,7 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";
-import useSiteMetadata from "../../hooks/use-site-metadata";
+import { useSiteMetadata } from "../../hooks/use-site-metadata";
 import BrickBg from "../Images/BrickBg";
 
 const BirthdaySection = ({ id }) => {
@@ -75,10 +75,7 @@ const BirthdaySection = ({ id }) => {
             </Text>
             <Button as={Link} to={navLinks[2].url} variant="cta">
               View Package Options
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                sx={{ maxHeight: "4", ml: "2" }}
-              />
+              <FontAwesomeIcon icon={faArrowRight} sx={{ ml: "2" }} />
             </Button>
           </Stack>
           <Grid columns={["repeat(2, 1fr)", null, "repeat(4, 1fr)"]} gap="3">

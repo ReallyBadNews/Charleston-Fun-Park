@@ -6,12 +6,10 @@ import { Box, jsx, Flex, Card, Container, Heading, Text } from "theme-ui";
 import Img from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { MDXProvider } from "@mdx-js/react";
 import { Stack } from "raam";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
 import StarDivider from "../components/Dividers/StarDivider";
-import ArrowButton from "../components/ArrowButton";
 
 const BirthdaysEventsLayout = ({ location: { pathname } }) => {
   // TODO: Refactor to a page query
@@ -135,8 +133,6 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
     }
   `);
 
-  const shortcodes = { ArrowButton };
-
   return (
     <>
       <SEO description={description} pathname={pathname} title={title} />
@@ -166,9 +162,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                       {birthdayPackage1Title.toLowerCase()}
                     </Heading>
                     <Text variant="body.mid">{birthdayPackage1Price}</Text>
-                    <MDXProvider components={shortcodes}>
-                      <MDXRenderer>{package1Content}</MDXRenderer>
-                    </MDXProvider>
+                    <MDXRenderer>{package1Content}</MDXRenderer>
                   </Box>
                   {birthdayPackage1Media.length &&
                     birthdayPackage1Media.map((image) => (
@@ -192,9 +186,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                       {birthdayPackage2Title.toLowerCase()}
                     </Heading>
                     <Text variant="body.mid">{birthdayPackage2Price}</Text>
-                    <MDXProvider components={shortcodes}>
-                      <MDXRenderer>{package2Content}</MDXRenderer>
-                    </MDXProvider>
+                    <MDXRenderer>{package2Content}</MDXRenderer>
                   </Box>
                   {birthdayPackage2Media.length &&
                     birthdayPackage2Media.map((image) => (
@@ -218,9 +210,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                       {birthdayPackage3Title.toLowerCase()}
                     </Heading>
                     <Text variant="body.mid">{birthdayPackage3Price}</Text>
-                    <MDXProvider components={shortcodes}>
-                      <MDXRenderer>{package3Content}</MDXRenderer>
-                    </MDXProvider>
+                    <MDXRenderer>{package3Content}</MDXRenderer>
                   </Box>
                   {birthdayPackage3Media.length &&
                     birthdayPackage3Media.map((image) => (
@@ -244,9 +234,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                       {birthdayPackage4Title.toLowerCase()}
                     </Heading>
                     <Text variant="body.mid">{birthdayPackage4Price}</Text>
-                    <MDXProvider components={shortcodes}>
-                      <MDXRenderer>{package4Content}</MDXRenderer>
-                    </MDXProvider>
+                    <MDXRenderer>{package4Content}</MDXRenderer>
                   </Box>
                   {birthdayPackage4Media.length &&
                     birthdayPackage4Media.map((image) => (
@@ -270,9 +258,7 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
                       {birthdayPackage5Title.toLowerCase()}
                     </Heading>
                     <Text variant="body.mid">{birthdayPackage5Price}</Text>
-                    <MDXProvider components={shortcodes}>
-                      <MDXRenderer>{package5Content}</MDXRenderer>
-                    </MDXProvider>
+                    <MDXRenderer>{package5Content}</MDXRenderer>
                   </Box>
                   {birthdayPackage5Media.length &&
                     birthdayPackage5Media.map((image) => (

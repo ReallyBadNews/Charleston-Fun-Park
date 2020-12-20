@@ -8,7 +8,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
 import StarDivider from "../components/Dividers/StarDivider";
 import WoodBg from "../components/Images/WoodBg";
-import GoogleMap from "../components/Map";
+import MapBox from "../components/Map";
 
 const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
   const {
@@ -50,7 +50,7 @@ const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
               variant="attractionsPage"
             >
               <Card variant="image">
-                <GoogleMap height="512px" width="100%" />
+                <MapBox height="512px" width="100%" />
                 <Box p="4">
                   <MDXRenderer>{bodyContent}</MDXRenderer>
                 </Box>

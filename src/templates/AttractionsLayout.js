@@ -4,7 +4,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import {
   Box,
-  Button,
   Container,
   Flex,
   jsx,
@@ -15,7 +14,6 @@ import {
 } from "theme-ui";
 import { Flex as Flexbox } from "raam";
 import { graphql } from "gatsby";
-import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
@@ -25,8 +23,6 @@ const AttractionsLayout = ({
   data: { contentfulAttraction },
   location: { pathname },
 }) => {
-  const shortcodes = { Button };
-
   return (
     <>
       <SEO
@@ -60,11 +56,9 @@ const AttractionsLayout = ({
               sx={{ borderRadius: "lg", maxWidth: "3xl" }}
             >
               <Heading mb="3">{contentfulAttraction.title}</Heading>
-              <MDXProvider components={shortcodes}>
-                <MDXRenderer>
-                  {contentfulAttraction.body.childMdx.body}
-                </MDXRenderer>
-              </MDXProvider>
+              <MDXRenderer>
+                {contentfulAttraction.body.childMdx.body}
+              </MDXRenderer>
               {contentfulAttraction.pricePoint1Price && (
                 <Box>
                   <Divider />

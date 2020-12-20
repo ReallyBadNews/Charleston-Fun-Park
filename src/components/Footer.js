@@ -8,7 +8,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import StyledLink from "./Link.styled";
-import useSiteMetadata from "../hooks/use-site-metadata";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const Footer = () => {
   const { copyright, navLinks, socialLinks } = useSiteMetadata();
@@ -60,10 +60,7 @@ const Footer = () => {
                 href={link.url}
                 title={link.name}
               >
-                <FontAwesomeIcon
-                  icon={socialIcons[link.name]}
-                  sx={{ maxHeight: "6" }}
-                />
+                <FontAwesomeIcon icon={socialIcons[link.name]} />
               </StyledLink>
             ))}
           </Flex>

@@ -1,9 +1,13 @@
 /** @jsx jsx */
 import { jsx, Box, Button } from "theme-ui";
-import PropTypes from "prop-types";
 import Arrow from "./Images/Arrow";
+import { FC } from "react";
 
-const ArrowButton = ({ children, href }) => (
+type ArrowButtonProps = {
+  href?: string;
+};
+
+const ArrowButton: FC<ArrowButtonProps> = ({ children, href }) => (
   <Box
     sx={{
       display: "flex",
@@ -20,8 +24,15 @@ const ArrowButton = ({ children, href }) => (
         transform: "rotate(180deg)",
       }}
     />
-    <Button as="a" href={href} target="_blank" variant="bookNow">
-      {children}
+    <Button as="div" variant="bookNow">
+      <a
+        sx={{ color: "inherit", textDecoration: "none" }}
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {children}
+      </a>
     </Button>
     <Arrow
       sx={{
@@ -31,14 +42,5 @@ const ArrowButton = ({ children, href }) => (
     />
   </Box>
 );
-
-ArrowButton.propTypes = {
-  children: PropTypes.node.isRequired,
-  href: PropTypes.string,
-};
-
-ArrowButton.defaultProps = {
-  href: null,
-};
 
 export default ArrowButton;
