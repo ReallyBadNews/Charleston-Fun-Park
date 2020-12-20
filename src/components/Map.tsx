@@ -1,57 +1,58 @@
 import React, { FC } from "react";
-import ReactMapboxGl, { Marker } from "react-mapbox-gl";
+import GoogleMapReact from "google-map-react";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
-
-// @ts-ignore
-import logo from "../images/logo.png";
+import { Box } from "theme-ui";
 
 type MapProps = {
   height: string;
   width: string;
 };
 
-type MapPropsType = {
-  center: [number, number];
-  popup: boolean;
-  zoom: [number];
+type IconProps = {
+  lat: number;
+  lng: number;
 };
 
-const MapBox: FC<MapProps> = ({ height, width }) => {
-  if (typeof window === undefined) return null;
+const defaultProps = {
+  center: {
+    lat: 32.86810312921223,
+    lng: -79.7794897624561,
+  },
+  zoom: 15,
+};
 
-  const { mapboxToken } = useSiteMetadata();
-
-  const mapProps: MapPropsType = {
-    center: [-79.779456, 32.868205],
-    popup: false,
-    zoom: [15],
-  };
-
-  const mapStyle = "mapbox://styles/reallybadnews/ckb07yl340i0p1jp931yu09hn";
-
-  const Map = ReactMapboxGl({
-    accessToken: mapboxToken,
-  });
-
+const Icon: FC<IconProps> = ({ lat, lng }) => {
+  if (typeof window === "undefined") return null;
   return (
-    <Map
-      center={mapProps.center}
-      containerStyle={{ height, width }}
-      // eslint-disable-next-line react/style-prop-object
-      style={mapStyle}
-      zoom={mapProps.zoom}
-    >
-      <Marker anchor="bottom" coordinates={mapProps.center}>
-        <img
-          alt="marker"
-          height="64"
-          src={logo}
-          style={{ cursor: "pointer" }}
-          width="64"
-        />
-      </Marker>
-    </Map>
+    <img
+      height="64"
+      src="https://charlestonfunpark.com/static/4cab3a6c3d07d254c4dd080c61226dfb/1ce16/logo.webp"
+      alt="logo"
+      // @ts-ignore
+      lat={lat}
+      lng={lng}
+    />
   );
 };
 
-export default MapBox;
+const GoogleMap: FC<MapProps> = ({ height, width }) => {
+  if (typeof window === "undefined") {
+    return <Box sx={{ height, width, bg: "blue.mid" }} />;
+  }
+
+  const { googleMapsToken } = useSiteMetadata();
+
+  return (
+    <div style={{ height, width }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: googleMapsToken }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+      >
+        <Icon lat={defaultProps.center.lat} lng={defaultProps.center.lng} />
+      </GoogleMapReact>
+    </div>
+  );
+};
+
+export default GoogleMap;

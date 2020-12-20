@@ -58,6 +58,7 @@ typings/
 .env
 .env.development
 .env.production
+.npmrc
 
 # build folder
 public

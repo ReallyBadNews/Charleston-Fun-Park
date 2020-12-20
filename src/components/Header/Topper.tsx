@@ -13,7 +13,7 @@ import { faCartPlus, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
 import StyledLink from "../Link.styled";
 
-const Topper = () => {
+const Topper = (): JSX.Element => {
   const {
     grassBg: {
       childImageSharp: { fluid },
@@ -40,10 +40,10 @@ const Topper = () => {
 
   return (
     <BackgroundImage
-      bg="green.dark"
       className="topper"
       fluid={fluid}
       sx={{
+        backgroundColor: "green.dark",
         backgroundRepeat: "repeat",
         backgroundSize: "auto",
         position: "relative",
@@ -63,32 +63,33 @@ const Topper = () => {
       />
       <Container
         px={["3", null, null, null, "0"]}
-        py="1"
         sx={{ position: "relative", zIndex: "100" }}
       >
-        <Flex gap="5" justifyContent={["space-between", null, "flex-end"]}>
+        <Flex
+          gap="5"
+          py="1"
+          justifyContent={["space-between", null, "flex-end"]}
+        >
           <Inline gap="3">
-            <Button
-              as="a"
-              href={giftCardLink}
-              rel="noopener"
-              target="_blank"
-              variant="cta"
-            >
-              <FontAwesomeIcon
-                icon={faCartPlus}
-                sx={{ mr: "2", maxHeight: "4", maxWidth: "4" }}
-                fixedWidth
-              />
-              Gift Cards
+            <Button as="div" variant="cta">
+              <a
+                href={giftCardLink}
+                sx={{ color: "inherit", textDecoration: "none" }}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <FontAwesomeIcon icon={faCartPlus} sx={{ mr: "2" }} />
+                Gift Cards
+              </a>
             </Button>
-            <Button as="a" href={phoneNumber.link} variant="white">
-              {phoneNumber.number}
-              <FontAwesomeIcon
-                icon={faPhone}
-                sx={{ ml: "2", maxHeight: "0.875rem", maxWidth: "0.875rem" }}
-                fixedWidth
-              />
+            <Button as="div" variant="white">
+              <a
+                href={phoneNumber.link}
+                sx={{ color: "inherit", textDecoration: "none" }}
+              >
+                <FontAwesomeIcon icon={faPhone} sx={{ mr: "2" }} />
+                {phoneNumber.number}
+              </a>
             </Button>
           </Inline>
           <Inline alignItems="center" gap="4" sx={{ height: "full" }}>
@@ -100,10 +101,7 @@ const Topper = () => {
                 href={link.url}
                 title={link.name}
               >
-                <FontAwesomeIcon
-                  icon={socialIcons[link.name]}
-                  sx={{ maxHeight: "6" }}
-                />
+                <FontAwesomeIcon icon={socialIcons[link.name]} />
               </StyledLink>
             ))}
           </Inline>

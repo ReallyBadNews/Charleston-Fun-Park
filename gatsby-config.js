@@ -24,7 +24,7 @@ if (!spaceId || !accessToken) {
   );
 }
 
-const mapboxToken = process.env.MAPBOX_API_KEY;
+const googleMapsToken = process.env.GOOGLE_MAPS_TOKEN;
 
 const breakpoints = {
   mobile: "(min-width: 475px)",
@@ -35,7 +35,7 @@ const breakpoints = {
 
 module.exports = {
   siteMetadata: {
-    mapboxToken,
+    googleMapsToken,
     title: "Charleston Fun Park in Mt. Pleasant, SC | Amusement Park",
     description:
       // eslint-disable-next-line max-len
@@ -117,6 +117,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-mdx",
+    "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",

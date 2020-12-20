@@ -1,8 +1,9 @@
 /** @jsx jsx */
+
 import { useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
-import Img from "gatsby-image";
+import Img, { FluidObject } from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Container, jsx } from "theme-ui";
 import { Flex, Inline, Stack } from "raam";
@@ -18,7 +19,19 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata";
 import StyledLink from "../Link.styled";
 import Arrow from "../Images/Arrow";
 
-const Nav = () => {
+type ChildImage = {
+  childImageSharp: {
+    fluid: FluidObject;
+  };
+};
+
+type ImageProps = {
+  logo: ChildImage;
+  bg: ChildImage;
+  fun: ChildImage;
+};
+
+const Nav = (): JSX.Element => {
   const {
     logo: {
       childImageSharp: { fluid: headerLogo },
@@ -29,7 +42,7 @@ const Nav = () => {
     fun: {
       childImageSharp: { fluid: funLogo },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<ImageProps>(graphql`
     query NavQuery {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
@@ -75,7 +88,7 @@ const Nav = () => {
     <BackgroundImage
       fluid={woodTexture}
       sx={{
-        backgroundColor: "white.light",
+        backgroundColor: "blue.dark",
         backgroundRepeat: "repeat",
         backgroundSize: "auto",
         borderTopWidth: "4",
@@ -86,7 +99,7 @@ const Nav = () => {
         borderBottomStyle: "solid",
         position: "relative",
       }}
-      tag="div"
+      Tag="div"
     >
       <Container
         px={["3", null, null, null, "0"]}
@@ -138,7 +151,7 @@ const Nav = () => {
                 <Inline key={link.name} gap={["1", null, null, null, "2"]}>
                   <FontAwesomeIcon
                     icon={menuIcons[link.name]}
-                    sx={{ fontSize: ["2", null, null, "5"], maxHeight: "5" }}
+                    sx={{ fontSize: ["2", null, null, "3"] }}
                   />
                   <StyledLink
                     key={link.name}
@@ -157,11 +170,7 @@ const Nav = () => {
               ))}
             <FontAwesomeIcon
               icon={menuOpen ? faTimes : faBars}
-              sx={{
-                cursor: "pointer",
-                fontSize: "5",
-                maxHeight: "8",
-              }}
+              sx={{ cursor: "pointer", fontSize: "5" }}
               fixedWidth
               onClick={burgerHandler}
             />

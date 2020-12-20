@@ -54,7 +54,7 @@ const Hero = () => {
     <Box
       sx={{
         position: "relative",
-        height: [
+        minHeight: [
           "calc(100vh - 136.5px - 80px)",
           "calc(100vh - 136.5px - 96px)",
           "calc(100vh - 136.5px - 76px)",
@@ -69,6 +69,7 @@ const Hero = () => {
           preload="none"
           sx={{
             position: "absolute",
+            backgroundColor: "green.light",
             objectFit: "cover",
             width: "full",
             height: "full",

@@ -60,10 +60,7 @@ const Footer = () => {
                 href={link.url}
                 title={link.name}
               >
-                <FontAwesomeIcon
-                  icon={socialIcons[link.name]}
-                  sx={{ maxHeight: "6" }}
-                />
+                <FontAwesomeIcon icon={socialIcons[link.name]} />
               </StyledLink>
             ))}
           </Flex>
