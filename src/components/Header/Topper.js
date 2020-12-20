@@ -10,7 +10,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCartPlus, faPhone } from "@fortawesome/free-solid-svg-icons";
-import useSiteMetadata from "../../hooks/use-site-metadata";
+import { useSiteMetadata } from "../../hooks/use-site-metadata";
 import StyledLink from "../Link.styled";
 
 const Topper = () => {

@@ -20,7 +20,7 @@ import WoodBg from "../components/Images/WoodBg";
 import StarDivider from "../components/Dividers/StarDivider";
 import StyledLink from "../components/Link.styled";
 
-const AttractionsLayout = ({
+const SectionLayout = ({
   data: { contentfulSectionPages },
   location: { pathname },
 }) => {
@@ -136,7 +136,7 @@ export const sectionsQuery = graphql`
   }
 `;
 
-AttractionsLayout.propTypes = {
+SectionLayout.propTypes = {
   data: PropTypes.shape({
     contentfulSectionPages: PropTypes.shape({
       content: PropTypes.shape({
@@ -175,4 +175,4 @@ AttractionsLayout.propTypes = {
   }).isRequired,
 };
 
-export default AttractionsLayout;
+export default SectionLayout;

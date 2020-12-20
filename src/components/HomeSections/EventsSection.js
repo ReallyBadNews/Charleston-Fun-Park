@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { jsx, Heading, Container, Button, Card, Box } from "theme-ui";
+import { jsx, Heading, Container, Card, Box } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { MDXProvider } from "@mdx-js/react";
 import WoodBg from "../Images/WoodBg";
 
 const EventsSection = () => {
@@ -36,8 +35,6 @@ const EventsSection = () => {
     }
   `);
 
-  const shortcodes = { Button };
-
   return (
     <WoodBg overlayColor="green.light">
       <Container color="white.light" px="3" py="6">
@@ -45,9 +42,7 @@ const EventsSection = () => {
           <Img alt={alt} fluid={fluid} />
           <Box p="4">
             <Heading mb="3">{title}</Heading>
-            <MDXProvider components={shortcodes}>
-              <MDXRenderer>{body}</MDXRenderer>
-            </MDXProvider>
+            <MDXRenderer>{body}</MDXRenderer>
           </Box>
         </Card>
       </Container>

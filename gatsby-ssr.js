@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable react/prop-types */
 /* eslint-disable react/display-name */
+
 const React = require("react");
 
 exports.wrapPageElement = ({ element }) => (
@@ -13,6 +12,7 @@ exports.wrapPageElement = ({ element }) => (
         left: "0",
         zIndex: "-1000",
       }}
+      alt="tracking pixel"
       aria-hidden
     />
     <img
@@ -25,6 +25,7 @@ exports.wrapPageElement = ({ element }) => (
         zIndex: "-1000",
       }}
       width="1"
+      alt="tracking pixel"
       aria-hidden
     />
     {element}

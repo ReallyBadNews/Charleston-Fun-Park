@@ -8,7 +8,7 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import StyledLink from "./Link.styled";
-import useSiteMetadata from "../hooks/use-site-metadata";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const Footer = () => {
   const { copyright, navLinks, socialLinks } = useSiteMetadata();

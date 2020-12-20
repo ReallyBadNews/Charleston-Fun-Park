@@ -1,12 +1,13 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const useSiteMetadata = () => {
+export const useSiteMetadata = () => {
   const {
     site: { siteMetadata },
   } = useStaticQuery(graphql`
     query SiteMetaData {
       site {
         siteMetadata {
+          mapboxToken
           title
           description
           author
@@ -32,5 +33,3 @@ const useSiteMetadata = () => {
   `);
   return siteMetadata;
 };
-
-export default useSiteMetadata;

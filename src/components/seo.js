@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import useSiteMetadata from "../hooks/use-site-metadata";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 import OgImage from "../../static/images/og_image.jpg";
 import TwImage from "../../static/images/tw_card.jpg";
 
