@@ -7,7 +7,7 @@ import { Stack } from "raam";
 import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
 import Brick from "../../../images/brick.png";
-import MediaItem from "../../MediaItem";
+import { MediaItem } from "../../MediaItem";
 
 const MiniGolfFeature = ({ data: { node } }) => {
   const {

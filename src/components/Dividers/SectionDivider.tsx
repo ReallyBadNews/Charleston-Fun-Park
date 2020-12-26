@@ -1,12 +1,18 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+/**  @jsxFrag */
+
+import React, { FC } from "react";
 import PropTypes from "prop-types";
 import { Box, jsx } from "theme-ui";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, PageProps } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 
-const SectionDivider = ({ bg, stars }) => {
+interface SectionDividerProps extends PageProps {
+  bg?: string;
+  stars?: boolean;
+}
+
+const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => {
   const {
     darkWood: {
       childImageSharp: { fluid },

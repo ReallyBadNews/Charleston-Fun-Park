@@ -14,7 +14,7 @@ interface CommonProps {
 
 type MediaItemProps =
   | {
-      isVideo?: true;
+      isVideo: true;
       media: {
         fluid: never;
         file: {
@@ -28,14 +28,14 @@ type MediaItemProps =
       isVideo?: false;
       media: {
         fluid: FluidObject;
-        file: never;
+        file?: never;
       };
-      videoPoster: never;
+      videoPoster?: never;
     };
 
 type Props = CommonProps & MediaItemProps;
 
-const MediaItem: FC<Props & SxProps> = ({
+export const MediaItem: FC<Props & SxProps> = ({
   alt,
   dataTestId,
   media,
@@ -50,7 +50,7 @@ const MediaItem: FC<Props & SxProps> = ({
         alt={alt}
         className={className}
         dataTestId={dataTestId}
-        media={media}
+        media={media.file}
         poster={videoPoster}
         sx={sx}
       />
@@ -63,5 +63,3 @@ const MediaItem: FC<Props & SxProps> = ({
 MediaItem.defaultProps = {
   isVideo: false,
 };
-
-export default MediaItem;

@@ -1,15 +1,14 @@
 /** @jsx jsx */
+
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, jsx } from "theme-ui";
 import { FC } from "react";
 import { FluidObject } from "gatsby-image";
 
-const defaultProps = {
-  overlayColor: "blue.light",
+type WoodBgProps = {
+  overlayColor?: string;
 };
-
-type WoodBgProps = typeof defaultProps;
 
 type ImageProps = {
   darkWood: {
@@ -19,7 +18,7 @@ type ImageProps = {
   };
 };
 
-const WoodBg: FC<WoodBgProps> = ({ children, overlayColor }) => {
+const WoodBg: FC<WoodBgProps> = ({ children, overlayColor = "blue.light" }) => {
   const {
     darkWood: {
       childImageSharp: { fluid },
@@ -63,7 +62,5 @@ const WoodBg: FC<WoodBgProps> = ({ children, overlayColor }) => {
     </BackgroundImage>
   );
 };
-
-WoodBg.defaultProps = defaultProps;
 
 export default WoodBg;

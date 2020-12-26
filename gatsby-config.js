@@ -1,3 +1,5 @@
+const path = require("path");
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -110,10 +112,12 @@ module.exports = {
   },
   pathPrefix: "/charleston-fun-park",
   flags: {
+    // FAST_DEV: true,
     DEV_SSR: true,
     QUERY_ON_DEMAND: true,
     LAZY_IMAGES: true,
     FAST_REFRESH: true,
+    ARALLEL_SOURCING: true,
   },
   plugins: [
     "gatsby-plugin-mdx",
@@ -124,6 +128,25 @@ module.exports = {
     "gatsby-plugin-theme-ui",
     "gatsby-plugin-sitemap",
     "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        "@/src": path.join(__dirname, "src"),
+        "@/components": path.join(__dirname, "src/components"),
+        "@/hooks": path.join(__dirname, "src/hooks"),
+        "@/templates": path.join(__dirname, "src/templates"),
+        "@/images": path.join(__dirname, "src/images"),
+        "@/types": path.join(__dirname, "src/types"),
+        "@/lib": path.join(__dirname, "src/lib"),
+      },
+    },
+    {
+      resolve: "gatsby-source-formium",
+      options: {
+        projectId: process.env.GATSBY_FORMIUM_PROJECTID,
+        accessToken: process.env.FORMIUM_TOKEN,
+      },
+    },
     {
       resolve: "gatsby-transformer-remark",
       options: {

@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 import { Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import { Stack } from "raam";
-import MediaItem from "../../MediaItem";
+import { MediaItem } from "../../MediaItem";
 import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
 

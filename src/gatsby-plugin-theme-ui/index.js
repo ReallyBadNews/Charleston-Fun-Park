@@ -1,3 +1,5 @@
+const tailwind = require("./tailwindColors");
+
 export default {
   borderWidths: {
     0: "0",
@@ -46,6 +48,7 @@ export default {
       dark: "#399861",
       xdark: "#146143",
     },
+    tailwind,
   },
   fonts: {
     heading: "Playfair Display, serif",
@@ -253,6 +256,7 @@ export default {
       },
     },
     cta: {
+      fontFamily: "body",
       fontSize: "2",
       fontWeight: "heavy",
       textTransform: "uppercase",
@@ -303,6 +307,24 @@ export default {
       backgroundColor: "white.light",
       margin: 0,
       boxShadow: "neonWhite",
+    },
+  },
+  forms: {
+    input: {
+      fontFamily: "body",
+      border: "2px solid",
+      borderColor: "tailwind.coolGray.300",
+      "&:focus": {
+        borderColor: "blue.dark",
+        outline: "none",
+      },
+    },
+    textarea: {
+      variant: "forms.input",
+      lineHeight: "tight",
+    },
+    label: {
+      fontFamily: "body",
     },
   },
   styles: {

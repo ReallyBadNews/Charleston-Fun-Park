@@ -1,18 +1,49 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import PropTypes from "prop-types";
+/** @jsxFrag */
+
+import React, { FC } from "react";
 import { jsx, Grid, Container } from "theme-ui";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, PageProps } from "gatsby";
 import WoodBg from "../components/Images/WoodBg";
 import StarDivider from "../components/Dividers/StarDivider";
 import AttractionsCard from "../components/Attractions/AttractionsCard";
 import SEO from "../components/seo";
+import { FluidObject } from "gatsby-image";
 
-const AttractionsPage = ({ location: { pathname } }) => {
+type AllAttractions = {
+  node: {
+    id: string;
+    heroImage: {
+      fluid: FluidObject;
+    };
+    description: {
+      description: string;
+    };
+    isVideo: boolean;
+    title: string;
+    order: string;
+    pricePoint1Price: string;
+    pricePoint1Title: string;
+    pricePoint1Unit: string;
+    pricePoint2Price: string;
+    pricePoint2Title: string;
+    pricePoint2Unit: string;
+    videoPoster: {
+      fluid: FluidObject;
+    };
+  };
+};
+
+type AttractionsQuery = {
+  allContentfulAttraction: {
+    edges: AllAttractions[];
+  };
+};
+
+const AttractionsPage: FC<PageProps> = ({ location: { pathname } }) => {
   const {
     allContentfulAttraction: { edges: posts },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<AttractionsQuery>(graphql`
     query AttractionsPageQuery {
       allContentfulAttraction(sort: { order: ASC, fields: order }) {
         edges {
@@ -97,12 +128,6 @@ const AttractionsPage = ({ location: { pathname } }) => {
       </WoodBg>
     </>
   );
-};
-
-AttractionsPage.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
 };
 
 export default AttractionsPage;

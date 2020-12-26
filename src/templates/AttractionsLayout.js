@@ -17,7 +17,7 @@ import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "../components/seo";
 import WoodBg from "../components/Images/WoodBg";
-import MediaItem from "../components/MediaItem";
+import { MediaItem } from "../components/MediaItem";
 
 const AttractionsLayout = ({
   data: { contentfulAttraction },

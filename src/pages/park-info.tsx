@@ -45,10 +45,7 @@ const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
       <WoodBg overlayColor="blue.light">
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <Container px={["3", null, null, null, "0"]} py="7">
-            <Grid
-              columns={["1fr", null, "repeat(2, 1fr)", "1fr"]}
-              variant="attractionsPage"
-            >
+            <Grid columns="1fr" variant="attractionsPage">
               <Card variant="image">
                 <MapBox height="512px" width="100%" />
                 <Box p="4">

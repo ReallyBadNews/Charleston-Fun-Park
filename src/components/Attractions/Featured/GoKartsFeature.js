@@ -6,7 +6,7 @@ import { Box, Flex, Grid, Heading, Text, jsx, useThemeUI } from "theme-ui";
 import { Stack } from "raam";
 import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
-import MediaItem from "../../MediaItem";
+import { MediaItem } from "../../MediaItem";
 
 const GoKartsFeature = ({ data: { node } }) => {
   const {

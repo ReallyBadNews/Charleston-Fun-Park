@@ -1,20 +1,5 @@
 const path = require("path");
 
-// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-//   if (stage === "build-html") {
-//     actions.setWebpackConfig({
-//       module: {
-//         rules: [
-//           {
-//             test: /react-mapbox-gl/,
-//             use: loaders.null(),
-//           },
-//         ],
-//       },
-//     });
-//   }
-// };
-
 exports.createPages = async ({
   graphql,
   actions: { createPage },

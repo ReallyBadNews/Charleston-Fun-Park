@@ -1,14 +1,18 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
+
+import { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import { Stack } from "raam";
+import { FeaturedAttractionProps } from "../../../types";
 import StyledLink from "../../Link.styled";
 import Arrow from "../../Images/Arrow";
-import MediaItem from "../../MediaItem";
+import { MediaItem } from "../../MediaItem";
 
-const AxeThrowingFeature = ({ data: { node } }) => {
+const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
+  data: { node },
+}) => {
   const {
     axeThrowing: {
       childImageSharp: { fluid: goKartsBg },
@@ -36,6 +40,7 @@ const AxeThrowingFeature = ({ data: { node } }) => {
         <MediaItem
           isVideo={false}
           media={node.videoPoster}
+          alt="People throwing axes"
           sx={{
             width: ["full", null, null, "7/12"],
             height: ["sm", null, null, "full"],
@@ -52,7 +57,7 @@ const AxeThrowingFeature = ({ data: { node } }) => {
           <BackgroundImage
             fluid={goKartsBg}
             sx={{
-              position: "absolute !important",
+              position: "absolute",
               bg: "black.dark",
               height: "full",
               width: "full",
@@ -66,7 +71,7 @@ const AxeThrowingFeature = ({ data: { node } }) => {
           >
             <Arrow
               sx={{
-                position: "absolute !important",
+                position: "absolute",
                 right: ["3", null, null, "-80px"],
                 zIndex: "2",
                 width: "180px",
@@ -92,29 +97,6 @@ const AxeThrowingFeature = ({ data: { node } }) => {
       </Flex>
     </Box>
   );
-};
-
-AxeThrowingFeature.propTypes = {
-  data: PropTypes.shape({
-    node: PropTypes.shape({
-      description: PropTypes.shape({
-        description: PropTypes.string,
-      }),
-      id: PropTypes.string,
-      isVideo: PropTypes.bool,
-      title: PropTypes.string,
-      videoPoster: PropTypes.shape({
-        fluid: PropTypes.shape({
-          aspectRatio: PropTypes.number,
-          sizes: PropTypes.string,
-          src: PropTypes.string,
-          srcSet: PropTypes.string,
-          srcSetWebp: PropTypes.string,
-          srcWebp: PropTypes.string,
-        }),
-      }),
-    }),
-  }).isRequired,
 };
 
 export default AxeThrowingFeature;
