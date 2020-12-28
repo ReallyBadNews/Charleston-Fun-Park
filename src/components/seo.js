@@ -21,7 +21,7 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
     if (path === "/") {
       return {
         src:
-          "https://app.locbox.com/en-US/website_plugins/lb-d83ac581fec805cd1757fd1904f2b324551caf5e.js",
+          "https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js",
         type: "text/javascript",
       };
     }
@@ -39,13 +39,13 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
         type: "text/javascript",
       };
     }
-    if (path === "/attractions/mini-golf") {
-      return {
-        src:
-          "https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js",
-        type: "text/javascript",
-      };
-    }
+    // if (path === "/attractions/mini-golf") {
+    //   return {
+    //     src:
+    //       "https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js",
+    //     type: "text/javascript",
+    //   };
+    // }
     return {};
   };
   return (
