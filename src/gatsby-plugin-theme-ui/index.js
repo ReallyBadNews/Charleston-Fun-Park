@@ -322,6 +322,7 @@ export default {
     textarea: {
       variant: "forms.input",
       lineHeight: "tight",
+      minHeight: "48",
     },
     label: {
       fontFamily: "body",

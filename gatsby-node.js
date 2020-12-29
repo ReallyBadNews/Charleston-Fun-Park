@@ -58,6 +58,8 @@ exports.createPages = async ({
   });
 
   sections.forEach(({ node }) => {
+    if (node.slug === "employment") return null;
+
     createPage({
       path: `${node.slug}/`,
       component: sectionTemplate,

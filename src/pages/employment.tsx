@@ -115,20 +115,26 @@ const formComponents: FormiumComponents = {
 interface JobPageProps extends PageProps {
   data: {
     formiumForm: Form;
+    contentfulSectionPages: {
+      title: string;
+      description: string;
+    };
   };
 }
 
-const JobPage: FC<JobPageProps> = ({ location: { pathname }, data }) => {
+const JobPage: FC<JobPageProps> = ({
+  location: { pathname },
+  data: {
+    formiumForm,
+    contentfulSectionPages: { title, description },
+  },
+}) => {
   const [success, setSuccess] = useState(false);
-
-  if (success) {
-    return <div>Thank you! Your response has been recorded.</div>;
-  }
 
   return (
     <>
-      <SEO pathname={pathname} title="Jobs" />
-      <StarDivider title="Employment" />
+      <SEO pathname={pathname} title={title} description={description} />
+      <StarDivider title={title} />
       <WoodBg>
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <Container px={["3", null, null, null, "0"]} py="7">
@@ -149,15 +155,21 @@ const JobPage: FC<JobPageProps> = ({ location: { pathname }, data }) => {
                     accurately to be considered for employment.
                   </Text>
                 </Stack>
-                <FormiumForm
-                  data={data.formiumForm}
-                  components={formComponents}
-                  onSubmit={async (values) => {
-                    // Send form values to Formium
-                    await formium.submitForm("job-application", values);
-                    setSuccess(true);
-                  }}
-                />
+                {success ? (
+                  <Text variant="body.mid">
+                    Your application was successfully submitted. Thank you!
+                  </Text>
+                ) : (
+                  <FormiumForm
+                    data={formiumForm}
+                    components={formComponents}
+                    onSubmit={async (values) => {
+                      // Send form values to Formium
+                      await formium.submitForm("job-application", values);
+                      setSuccess(true);
+                    }}
+                  />
+                )}
               </Stack>
             </Card>
           </Container>
@@ -180,6 +192,12 @@ export const query = graphql`
       slug
       updateAt
       version
+    }
+    contentfulSectionPages(id: { eq: "698a581a-8d43-542d-8a04-3a218d362955" }) {
+      title
+      description {
+        description
+      }
     }
   }
 `;
