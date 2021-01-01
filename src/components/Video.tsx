@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { SxProps } from "theme-ui";
 
-type VideoProps = {
-  alt: string;
+interface VideoProps {
+  alt?: string;
   className?: string;
   dataTestId?: string;
   media?: {
@@ -10,7 +10,7 @@ type VideoProps = {
     url: string;
   };
   poster?: string;
-};
+}
 
 const Video: FC<VideoProps & SxProps> = ({
   alt,

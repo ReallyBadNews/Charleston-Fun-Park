@@ -7,9 +7,8 @@ import Arrow from "@/components/Images/Arrow";
 import BrickBg from "@/components/Images/BrickBg";
 import StyledLink from "@/components/Link.styled";
 import { FC } from "react";
-import { PageProps } from "gatsby";
 
-interface ArrowDividerProps extends PageProps {
+interface ArrowDividerProps {
   id?: string;
 }
 

@@ -10,15 +10,20 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faCartPlus, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { useSiteMetadata } from "../../hooks/use-site-metadata";
-import StyledLink from "../Link.styled";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import StyledLink from "@/components/Link.styled";
+import { ChildFluidObject } from "@/src/types";
+
+interface Query {
+  grassBg: ChildFluidObject;
+}
 
 const Topper = (): JSX.Element => {
   const {
     grassBg: {
       childImageSharp: { fluid },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query TopperQuery {
       grassBg: file(relativePath: { eq: "grassBg.png" }) {
         childImageSharp {

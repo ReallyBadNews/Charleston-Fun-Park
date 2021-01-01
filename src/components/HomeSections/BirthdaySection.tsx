@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
+
+import { FC } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { jsx, Container, Heading, Text, Button, Grid } from "theme-ui";
@@ -7,16 +8,39 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";
-import { useSiteMetadata } from "../../hooks/use-site-metadata";
-import BrickBg from "../Images/BrickBg";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import BrickBg from "@/components/Images/BrickBg";
+import { ChildFluidObject, MediaObject } from "@/src/types";
 
-const BirthdaySection = ({ id }) => {
+interface BirthdaySectionProps {
+  id?: string;
+}
+
+interface HomePageBirthday {
+  id: string;
+  title: string;
+  media: MediaObject;
+  description: {
+    description: string;
+  };
+}
+
+interface Query {
+  allContentfulHomePageBirthdays: {
+    edges: {
+      node: HomePageBirthday[];
+    };
+  };
+  file: ChildFluidObject;
+}
+
+const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
   const {
     allContentfulHomePageBirthdays: { edges },
     file: {
       childImageSharp: { fluid: baloonsImage },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query BirthdaySectionQuery {
       allContentfulHomePageBirthdays {
         edges {
@@ -73,9 +97,14 @@ const BirthdaySection = ({ id }) => {
             <Text color="white.light" variant="body.mid">
               {edges[0].node.description.description}
             </Text>
-            <Button as={Link} to={navLinks[2].url} variant="cta">
-              View Package Options
-              <FontAwesomeIcon icon={faArrowRight} sx={{ ml: "2" }} />
+            <Button as="div" variant="cta">
+              <Link
+                sx={{ color: "inherit", textDecoration: "none" }}
+                to={navLinks[2].url}
+              >
+                View Package Options
+                <FontAwesomeIcon icon={faArrowRight} sx={{ ml: "2" }} />
+              </Link>
             </Button>
           </Stack>
           <Grid columns={["repeat(2, 1fr)", null, "repeat(4, 1fr)"]} gap="3">
@@ -96,14 +125,6 @@ const BirthdaySection = ({ id }) => {
       </Container>
     </BrickBg>
   );
-};
-
-BirthdaySection.propTypes = {
-  id: PropTypes.string,
-};
-
-BirthdaySection.defaultProps = {
-  id: null,
 };
 
 export default BirthdaySection;

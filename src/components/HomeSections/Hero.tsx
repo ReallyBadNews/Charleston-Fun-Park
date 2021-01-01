@@ -69,7 +69,7 @@ const Hero = (): JSX.Element => {
           preload="none"
           sx={{
             position: "absolute",
-            backgroundColor: "green.light",
+            backgroundColor: "blue.dark",
             objectFit: "cover",
             width: "full",
             height: "full",

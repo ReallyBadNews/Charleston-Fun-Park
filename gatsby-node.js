@@ -43,9 +43,9 @@ exports.createPages = async ({
 
   // Layout templates
   const attractionTemplate = path.resolve(
-    "./src/templates/AttractionsLayout.js"
+    "./src/templates/AttractionsLayout.tsx"
   );
-  const sectionTemplate = path.resolve("./src/templates/SectionLayout.js");
+  const sectionTemplate = path.resolve("./src/templates/SectionLayout.tsx");
 
   attractions.forEach(({ node }) => {
     createPage({
@@ -58,7 +58,7 @@ exports.createPages = async ({
   });
 
   sections.forEach(({ node }) => {
-    if (node.slug === "employment") return null;
+    if (["group-events", "employment"].includes(node.slug)) return null;
 
     createPage({
       path: `${node.slug}/`,

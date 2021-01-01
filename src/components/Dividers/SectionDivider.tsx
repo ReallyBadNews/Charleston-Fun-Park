@@ -4,12 +4,17 @@
 import React, { FC } from "react";
 import PropTypes from "prop-types";
 import { Box, jsx } from "theme-ui";
-import { useStaticQuery, graphql, PageProps } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
+import { ChildFluidObject } from "@/src/types";
 
-interface SectionDividerProps extends PageProps {
+interface SectionDividerProps {
   bg?: string;
   stars?: boolean;
+}
+
+interface Query {
+  darkWood: ChildFluidObject;
 }
 
 const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => {
@@ -17,7 +22,7 @@ const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => {
     darkWood: {
       childImageSharp: { fluid },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query SectionDividerQuery {
       darkWood: file(relativePath: { eq: "darkWood.jpg" }) {
         childImageSharp {

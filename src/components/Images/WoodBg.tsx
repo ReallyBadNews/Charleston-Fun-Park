@@ -4,18 +4,14 @@ import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, jsx } from "theme-ui";
 import { FC } from "react";
-import { FluidObject } from "gatsby-image";
+import { ChildFluidObject } from "@/src/types";
 
 type WoodBgProps = {
   overlayColor?: string;
 };
 
-type ImageProps = {
-  darkWood: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
+type Query = {
+  darkWood: ChildFluidObject;
 };
 
 const WoodBg: FC<WoodBgProps> = ({ children, overlayColor = "blue.light" }) => {
@@ -23,7 +19,7 @@ const WoodBg: FC<WoodBgProps> = ({ children, overlayColor = "blue.light" }) => {
     darkWood: {
       childImageSharp: { fluid },
     },
-  } = useStaticQuery<ImageProps>(graphql`
+  } = useStaticQuery<Query>(graphql`
     query WoodQuery {
       darkWood: file(relativePath: { eq: "darkWood.jpg" }) {
         childImageSharp {

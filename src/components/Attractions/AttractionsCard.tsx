@@ -3,17 +3,15 @@
 import React, { FC, ReactText } from "react";
 import CSS from "csstype";
 import { Box, Card, Divider, Heading, Text, jsx } from "theme-ui";
-import { FluidObject } from "gatsby-image";
 import { motion } from "framer-motion";
 import { Stack, Flex } from "raam";
 import StyledLink from "@/components/Link.styled";
 import { MediaItem } from "@/components/MediaItem";
+import { MediaObject } from "@/src/types";
 
 interface AttractionCardProps {
   description?: string;
-  media: {
-    fluid: FluidObject;
-  };
+  media: MediaObject;
   pricePoint1Price?: string;
   pricePoint1Title?: string;
   pricePoint1Unit?: string;
@@ -49,7 +47,7 @@ const AttractionCard: FC<AttractionCardProps> = ({
             borderTopRightRadius: "lg",
             width: "full",
             objectFit: "cover",
-            bg: "blue.dark",
+            backgroundColor: "blue.dark",
           }}
         />
         <Flex

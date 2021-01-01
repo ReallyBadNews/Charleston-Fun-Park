@@ -22,7 +22,7 @@ type SiteMetadataType = {
   socialLinks: LinkType[];
 };
 
-type MetadataQueryType = {
+type Query = {
   site: {
     siteMetadata: SiteMetadataType;
   };
@@ -31,7 +31,7 @@ type MetadataQueryType = {
 export const useSiteMetadata = (): SiteMetadataType => {
   const {
     site: { siteMetadata },
-  } = useStaticQuery<MetadataQueryType>(graphql`
+  } = useStaticQuery<Query>(graphql`
     query SiteMetaData {
       site {
         siteMetadata {

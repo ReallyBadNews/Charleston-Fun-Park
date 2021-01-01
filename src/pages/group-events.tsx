@@ -9,17 +9,12 @@ import { formComponents } from "@/components/Forms/FormiumComponents";
 import SEO from "@/components/seo";
 import StarDivider from "@/components/Dividers/StarDivider";
 import WoodBg from "@/components/Images/WoodBg";
-import { FluidObject } from "gatsby-image";
+
 interface JobPageProps extends PageProps {
   data: {
     formiumForm: Form;
     contentfulSectionPages: {
       title: string;
-      seoTitle: string;
-      isVideo: boolean;
-      media: {
-        fluid: FluidObject;
-      };
       description: string;
     };
   };
@@ -69,7 +64,6 @@ const JobPage: FC<JobPageProps> = ({
                     onSubmit={async (values) => {
                       // Send form values to Formium
                       await formium.submitForm("job-application", values);
-                      window.scrollTo(0, 0);
                       setSuccess(true);
                     }}
                   />
@@ -87,7 +81,7 @@ export default JobPage;
 
 export const query = graphql`
   {
-    formiumForm(slug: { eq: "job-application" }) {
+    formiumForm(slug: { eq: "event-request" }) {
       id
       createAt
       name
@@ -99,20 +93,8 @@ export const query = graphql`
     }
     contentfulSectionPages(id: { eq: "84ee1051-4200-57f6-9ede-7a128f8ecace" }) {
       title
-      seoTitle
-      isVideo
-      media {
-        fluid {
-          src
-        }
-      }
       description {
         description
-      }
-      content {
-        childMdx {
-          body
-        }
       }
     }
   }

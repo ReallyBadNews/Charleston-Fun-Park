@@ -5,25 +5,40 @@ import React, { FC } from "react";
 import { Box, Container, Flex, Grid, jsx, Card } from "theme-ui";
 import { useStaticQuery, graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import SEO from "../components/seo";
-import StarDivider from "../components/Dividers/StarDivider";
-import WoodBg from "../components/Images/WoodBg";
-import MapBox from "../components/Map";
+import SEO from "@/components/seo";
+import StarDivider from "@/components/Dividers/StarDivider";
+import WoodBg from "@/components/Images/WoodBg";
+import MapBox from "@/components/Map";
+
+interface Query {
+  contentfulParkInfo: {
+    title: string;
+    seoTitle: string;
+    description: {
+      description: string;
+    };
+    content: {
+      childMdx: {
+        body: string;
+      };
+    };
+  };
+}
 
 const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
   const {
     contentfulParkInfo: {
+      title,
       seoTitle,
       description: { description },
       content: {
         childMdx: { body: bodyContent },
       },
-      title,
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query ParkInfo {
       contentfulParkInfo {
-        id
+        title
         seoTitle
         description {
           description
@@ -33,7 +48,6 @@ const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
             body
           }
         }
-        title
       }
     }
   `);
