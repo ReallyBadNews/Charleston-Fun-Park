@@ -116,7 +116,7 @@ module.exports = {
     QUERY_ON_DEMAND: true,
     LAZY_IMAGES: true,
     FAST_REFRESH: true,
-    ARALLEL_SOURCING: true,
+    PARALLEL_SOURCING: true,
   },
   plugins: [
     "gatsby-plugin-fontawesome-css",
