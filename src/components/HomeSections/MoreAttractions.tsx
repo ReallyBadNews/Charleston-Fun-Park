@@ -1,16 +1,35 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
+/** @jsxFrag */
+
 import React from "react";
 import { Container, Grid, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import WoodBg from "../Images/WoodBg";
-import StarDivider from "../Dividers/StarDivider";
-import AttractionsCard from "../Attractions/AttractionsCard";
+import WoodBg from "@/components/Images/WoodBg";
+import StarDivider from "@/components/Dividers/StarDivider";
+import AttractionsCard from "@/components/Attractions/AttractionsCard";
+import { MediaObject } from "@/src/types";
 
-const MoreAttractions = () => {
+interface AttractionProps {
+  node: {
+    id: string;
+    heroImage: MediaObject;
+    title: string;
+    isVideo: boolean;
+    order: number;
+    videoPoster: MediaObject;
+  };
+}
+
+interface Query {
+  allContentfulAttraction: {
+    edges: AttractionProps[];
+  };
+}
+
+const MoreAttractions = (): JSX.Element => {
   const {
     allContentfulAttraction: { edges: attractions },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query MoreAttractionsQuery {
       allContentfulAttraction(
         sort: { order: ASC, fields: order }
@@ -23,13 +42,21 @@ const MoreAttractions = () => {
               fluid {
                 ...GatsbyContentfulFluid_withWebp_noBase64
               }
+              file {
+                contentType
+                url
+              }
             }
-            isVideo
             title
+            isVideo
             order
             videoPoster {
               fluid {
                 ...GatsbyContentfulFluid_withWebp_noBase64
+              }
+              file {
+                contentType
+                url
               }
             }
           }

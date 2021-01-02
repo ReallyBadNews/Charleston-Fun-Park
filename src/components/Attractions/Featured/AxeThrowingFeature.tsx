@@ -1,19 +1,39 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
+
+import { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import { Stack } from "raam";
-import StyledLink from "../../Link.styled";
-import Arrow from "../../Images/Arrow";
-import MediaItem from "../../MediaItem";
+import { ChildFluidObject, Attraction } from "@/types/index";
+import StyledLink from "@/components/Link.styled";
+import Arrow from "@/components/Images/Arrow";
+import { MediaItem } from "@/components/MediaItem";
 
-const AxeThrowingFeature = ({ data: { node } }) => {
+interface FeaturedAttractionProps {
+  data: {
+    node: Attraction;
+  };
+}
+
+interface ImageQuery {
+  axeThrowing: ChildFluidObject;
+}
+
+const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
+  data: {
+    node: {
+      videoPoster,
+      description: { description },
+      title,
+    },
+  },
+}) => {
   const {
     axeThrowing: {
-      childImageSharp: { fluid: goKartsBg },
+      childImageSharp: { fluid: axeThrowingBg },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<ImageQuery>(graphql`
     query AxeThrowingBgQuery {
       axeThrowing: file(relativePath: { eq: "axeThrowingBg.jpg" }) {
         childImageSharp {
@@ -34,9 +54,10 @@ const AxeThrowingFeature = ({ data: { node } }) => {
         }}
       >
         <MediaItem
-          isVideo={false}
-          media={node.videoPoster}
+          media={videoPoster}
+          alt="People throwing axes"
           sx={{
+            bg: "red.dark",
             width: ["full", null, null, "7/12"],
             height: ["sm", null, null, "full"],
             objectFit: "cover",
@@ -50,8 +71,9 @@ const AxeThrowingFeature = ({ data: { node } }) => {
           }}
         >
           <BackgroundImage
-            fluid={goKartsBg}
+            fluid={axeThrowingBg}
             sx={{
+              // @ts-ignore
               position: "absolute !important",
               bg: "black.dark",
               height: "full",
@@ -66,6 +88,7 @@ const AxeThrowingFeature = ({ data: { node } }) => {
           >
             <Arrow
               sx={{
+                // @ts-ignore
                 position: "absolute !important",
                 right: ["3", null, null, "-80px"],
                 zIndex: "2",
@@ -78,13 +101,13 @@ const AxeThrowingFeature = ({ data: { node } }) => {
             <StyledLink
               color="white.light"
               hoverColor="blue.light"
-              to={`/attractions/${node.title
-                .toLowerCase()
-                .replace(/\s/g, "-")}`}
+              to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}
             >
               <Stack>
-                <Heading variant="heading.featuredTitle">{node.title}</Heading>
-                <Text variant="body.mid">{node.description.description}</Text>
+                <Heading variant="heading.featuredTitle">{title}</Heading>
+                <Text className="description" variant="body.mid">
+                  {description}
+                </Text>
               </Stack>
             </StyledLink>
           </Grid>
@@ -92,29 +115,6 @@ const AxeThrowingFeature = ({ data: { node } }) => {
       </Flex>
     </Box>
   );
-};
-
-AxeThrowingFeature.propTypes = {
-  data: PropTypes.shape({
-    node: PropTypes.shape({
-      description: PropTypes.shape({
-        description: PropTypes.string,
-      }),
-      id: PropTypes.string,
-      isVideo: PropTypes.bool,
-      title: PropTypes.string,
-      videoPoster: PropTypes.shape({
-        fluid: PropTypes.shape({
-          aspectRatio: PropTypes.number,
-          sizes: PropTypes.string,
-          src: PropTypes.string,
-          srcSet: PropTypes.string,
-          srcSetWebp: PropTypes.string,
-          srcWebp: PropTypes.string,
-        }),
-      }),
-    }),
-  }).isRequired,
 };
 
 export default AxeThrowingFeature;

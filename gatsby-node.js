@@ -1,20 +1,5 @@
 const path = require("path");
 
-// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-//   if (stage === "build-html") {
-//     actions.setWebpackConfig({
-//       module: {
-//         rules: [
-//           {
-//             test: /react-mapbox-gl/,
-//             use: loaders.null(),
-//           },
-//         ],
-//       },
-//     });
-//   }
-// };
-
 exports.createPages = async ({
   graphql,
   actions: { createPage },
@@ -58,9 +43,9 @@ exports.createPages = async ({
 
   // Layout templates
   const attractionTemplate = path.resolve(
-    "./src/templates/AttractionsLayout.js"
+    "./src/templates/AttractionsLayout.tsx"
   );
-  const sectionTemplate = path.resolve("./src/templates/SectionLayout.js");
+  const sectionTemplate = path.resolve("./src/templates/SectionLayout.tsx");
 
   attractions.forEach(({ node }) => {
     createPage({
@@ -73,6 +58,8 @@ exports.createPages = async ({
   });
 
   sections.forEach(({ node }) => {
+    if (["group-events", "employment"].includes(node.slug)) return null;
+
     createPage({
       path: `${node.slug}/`,
       component: sectionTemplate,

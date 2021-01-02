@@ -1,12 +1,20 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
+
 import { Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import { Stack } from "raam";
-import MediaItem from "../../MediaItem";
-import StyledLink from "../../Link.styled";
-import Arrow from "../../Images/Arrow";
+import { MediaItem } from "@/components/MediaItem";
+import StyledLink from "@/components/Link.styled";
+import Arrow from "@/components/Images/Arrow";
+import { Attraction } from "@/src/types";
+import { FC } from "react";
 
-const OmniArenaFeature = ({ data: { node } }) => (
+interface OmniFeatureProps {
+  data: {
+    node: Attraction;
+  };
+}
+
+const OmniArenaFeature: FC<OmniFeatureProps> = ({ data: { node } }) => (
   <Flex
     sx={{
       flexDirection: ["column", null, null, "row"],
@@ -14,8 +22,8 @@ const OmniArenaFeature = ({ data: { node } }) => (
     }}
   >
     <MediaItem
-      isVideo={false}
       media={node.videoPoster}
+      alt={node.videoPoster.description}
       sx={{
         width: ["full", null, null, "7/12"],
         height: ["sm", null, null, "full"],
@@ -35,6 +43,7 @@ const OmniArenaFeature = ({ data: { node } }) => (
     >
       <Arrow
         sx={{
+          // @ts-ignore
           position: "absolute !important",
           left: [null, null, null, "-80px"],
           right: ["3", null],
@@ -58,28 +67,5 @@ const OmniArenaFeature = ({ data: { node } }) => (
     </Grid>
   </Flex>
 );
-
-OmniArenaFeature.propTypes = {
-  data: PropTypes.shape({
-    node: PropTypes.shape({
-      description: PropTypes.shape({
-        description: PropTypes.string,
-      }),
-      id: PropTypes.string,
-      isVideo: PropTypes.bool,
-      title: PropTypes.string,
-      videoPoster: PropTypes.shape({
-        fluid: PropTypes.shape({
-          aspectRatio: PropTypes.number,
-          sizes: PropTypes.string,
-          src: PropTypes.string,
-          srcSet: PropTypes.string,
-          srcSetWebp: PropTypes.string,
-          srcWebp: PropTypes.string,
-        }),
-      }),
-    }),
-  }).isRequired,
-};
 
 export default OmniArenaFeature;

@@ -1,14 +1,28 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import PropTypes from "prop-types";
+
+import React, { FC, ReactText } from "react";
+import CSS from "csstype";
 import { Box, Card, Divider, Heading, Text, jsx } from "theme-ui";
 import { motion } from "framer-motion";
 import { Stack, Flex } from "raam";
-import StyledLink from "../Link.styled";
-import MediaItem from "../MediaItem";
+import StyledLink from "@/components/Link.styled";
+import { MediaItem } from "@/components/MediaItem";
+import { MediaObject } from "@/src/types";
 
-const AttractionsCard = ({
+interface AttractionCardProps {
+  description?: string;
+  media: MediaObject;
+  pricePoint1Price?: string;
+  pricePoint1Title?: string;
+  pricePoint1Unit?: string;
+  pricePoint2Price?: string;
+  pricePoint2Title?: string;
+  pricePoint2Unit?: string;
+  title: string;
+  textAlign?: CSS.Properties<ReactText>["textAlign"];
+}
+
+const AttractionCard: FC<AttractionCardProps> = ({
   description,
   media,
   pricePoint1Price,
@@ -33,6 +47,7 @@ const AttractionsCard = ({
             borderTopRightRadius: "lg",
             width: "full",
             objectFit: "cover",
+            backgroundColor: "blue.dark",
           }}
         />
         <Flex
@@ -53,7 +68,6 @@ const AttractionsCard = ({
               <Divider mb="3" />
               <Flex gap="3">
                 <Box
-                  gap="0"
                   pr="3"
                   sx={{
                     borderRight: pricePoint2Price && "1px solid",
@@ -86,37 +100,8 @@ const AttractionsCard = ({
   </motion.div>
 );
 
-AttractionsCard.propTypes = {
-  media: PropTypes.shape({
-    fluid: PropTypes.shape({
-      aspectRatio: PropTypes.number,
-      sizes: PropTypes.string,
-      src: PropTypes.string,
-      srcSet: PropTypes.string,
-      srcSetWebp: PropTypes.string,
-      srcWebp: PropTypes.string,
-    }),
-  }).isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  pricePoint1Price: PropTypes.number,
-  pricePoint1Title: PropTypes.string,
-  pricePoint1Unit: PropTypes.string,
-  pricePoint2Price: PropTypes.number,
-  pricePoint2Title: PropTypes.string,
-  pricePoint2Unit: PropTypes.string,
-  textAlign: PropTypes.string,
-};
+export default AttractionCard;
 
-AttractionsCard.defaultProps = {
-  description: null,
-  pricePoint1Price: null,
-  pricePoint1Title: null,
-  pricePoint1Unit: null,
-  pricePoint2Price: null,
-  pricePoint2Title: null,
-  pricePoint2Unit: null,
+AttractionCard.defaultProps = {
   textAlign: "left",
 };
-
-export default AttractionsCard;

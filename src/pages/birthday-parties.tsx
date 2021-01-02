@@ -1,19 +1,71 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import PropTypes from "prop-types";
+/** @jsxFrag */
+
+import React, { FC } from "react";
 import { Box, jsx, Flex, Card, Container, Heading, Text } from "theme-ui";
 import Img from "gatsby-image";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
-import SEO from "../components/seo";
-import WoodBg from "../components/Images/WoodBg";
-import StarDivider from "../components/Dividers/StarDivider";
+import SEO from "@/components/seo";
+import WoodBg from "@/components/Images/WoodBg";
+import StarDivider from "@/components/Dividers/StarDivider";
+import { MediaObject } from "@/types/index";
 
-const BirthdaysEventsLayout = ({ location: { pathname } }) => {
-  // TODO: Refactor to a page query
-  const {
+interface BirthdayPageProps extends PageProps {
+  data: {
+    contentfulBirthdaysEventsPage: {
+      title: string;
+      heading: string;
+      description: {
+        description: string;
+      };
+      birthdayPackage1Title: string;
+      birthdayPackage1Price: string;
+      birthdayPackage1Content: {
+        childMdx: {
+          body: string;
+        };
+      };
+      birthdayPackage1Media: MediaObject[];
+      birthdayPackage2Title: string;
+      birthdayPackage2Price: string;
+      birthdayPackage2Content: {
+        childMdx: {
+          body: string;
+        };
+      };
+      birthdayPackage2Media: MediaObject[];
+      birthdayPackage3Title: string;
+      birthdayPackage3Price: string;
+      birthdayPackage3Content: {
+        childMdx: {
+          body: string;
+        };
+      };
+      birthdayPackage3Media: MediaObject[];
+      birthdayPackage4Title: string;
+      birthdayPackage4Price: string;
+      birthdayPackage4Content: {
+        childMdx: {
+          body: string;
+        };
+      };
+      birthdayPackage4Media: MediaObject[];
+      birthdayPackage5Title: string;
+      birthdayPackage5Price: string;
+      birthdayPackage5Content: {
+        childMdx: {
+          body: string;
+        };
+      };
+      birthdayPackage5Media: MediaObject[];
+    };
+  };
+}
+
+const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
+  data: {
     contentfulBirthdaysEventsPage: {
       title,
       heading,
@@ -49,90 +101,9 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
       },
       birthdayPackage5Media,
     },
-  } = useStaticQuery(graphql`
-    query BirthdaysEventsQuery($id: String) {
-      contentfulBirthdaysEventsPage(id: { eq: $id }) {
-        id
-        title
-        slug
-        heading
-        description {
-          description
-        }
-        birthdayPackage1Title
-        birthdayPackage1Price
-        birthdayPackage1Content {
-          childMdx {
-            body
-          }
-        }
-        birthdayPackage1Media {
-          title
-          description
-          fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
-        }
-        birthdayPackage2Title
-        birthdayPackage2Price
-        birthdayPackage2Content {
-          childMdx {
-            body
-          }
-        }
-        birthdayPackage2Media {
-          title
-          description
-          fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
-        }
-        birthdayPackage3Title
-        birthdayPackage3Price
-        birthdayPackage3Content {
-          childMdx {
-            body
-          }
-        }
-        birthdayPackage3Media {
-          title
-          description
-          fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
-        }
-        birthdayPackage4Title
-        birthdayPackage4Price
-        birthdayPackage4Content {
-          childMdx {
-            body
-          }
-        }
-        birthdayPackage4Media {
-          title
-          description
-          fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
-        }
-        birthdayPackage5Title
-        birthdayPackage5Price
-        birthdayPackage5Content {
-          childMdx {
-            body
-          }
-        }
-        birthdayPackage5Media {
-          title
-          description
-          fluid(maxHeight: 342, maxWidth: 608) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
-
+  },
+  location: { pathname },
+}) => {
   return (
     <>
       <SEO description={description} pathname={pathname} title={title} />
@@ -283,10 +254,88 @@ const BirthdaysEventsLayout = ({ location: { pathname } }) => {
   );
 };
 
-BirthdaysEventsLayout.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
-};
-
 export default BirthdaysEventsLayout;
+
+export const query = graphql`
+  query BirthdaysEventsQuery($id: String) {
+    contentfulBirthdaysEventsPage(id: { eq: $id }) {
+      id
+      title
+      slug
+      heading
+      description {
+        description
+      }
+      birthdayPackage1Title
+      birthdayPackage1Price
+      birthdayPackage1Content {
+        childMdx {
+          body
+        }
+      }
+      birthdayPackage1Media {
+        title
+        description
+        fluid(maxHeight: 342, maxWidth: 608) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+      }
+      birthdayPackage2Title
+      birthdayPackage2Price
+      birthdayPackage2Content {
+        childMdx {
+          body
+        }
+      }
+      birthdayPackage2Media {
+        title
+        description
+        fluid(maxHeight: 342, maxWidth: 608) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+      }
+      birthdayPackage3Title
+      birthdayPackage3Price
+      birthdayPackage3Content {
+        childMdx {
+          body
+        }
+      }
+      birthdayPackage3Media {
+        title
+        description
+        fluid(maxHeight: 342, maxWidth: 608) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+      }
+      birthdayPackage4Title
+      birthdayPackage4Price
+      birthdayPackage4Content {
+        childMdx {
+          body
+        }
+      }
+      birthdayPackage4Media {
+        title
+        description
+        fluid(maxHeight: 342, maxWidth: 608) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+      }
+      birthdayPackage5Title
+      birthdayPackage5Price
+      birthdayPackage5Content {
+        childMdx {
+          body
+        }
+      }
+      birthdayPackage5Media {
+        title
+        description
+        fluid(maxHeight: 342, maxWidth: 608) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+      }
+    }
+  }
+`;

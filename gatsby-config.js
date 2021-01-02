@@ -1,3 +1,5 @@
+const path = require("path");
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -6,10 +8,9 @@ const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   environment: process.env.NODE_ENV,
-  host:
-    process.env.NODE_ENV === "development"
-      ? "preview.contentful.com"
-      : "cdn.contentful.com",
+  host: ["development", "dev"].includes(process.env.NODE_ENV)
+    ? "preview.contentful.com"
+    : "cdn.contentful.com",
 };
 
 if (process.env.CONTENTFUL_HOST) {
@@ -110,13 +111,14 @@ module.exports = {
   },
   pathPrefix: "/charleston-fun-park",
   flags: {
+    // FAST_DEV: true,
     DEV_SSR: true,
     QUERY_ON_DEMAND: true,
     LAZY_IMAGES: true,
     FAST_REFRESH: true,
+    PARALLEL_SOURCING: true,
   },
   plugins: [
-    "gatsby-plugin-mdx",
     "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
@@ -125,16 +127,33 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-transformer-sharp",
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: "gatsby-plugin-root-import",
       options: {
-        plugins: [
+        "@/src": path.join(__dirname, "src"),
+        "@/components": path.join(__dirname, "src/components"),
+        "@/hooks": path.join(__dirname, "src/hooks"),
+        "@/templates": path.join(__dirname, "src/templates"),
+        "@/images": path.join(__dirname, "src/images"),
+        "@/types": path.join(__dirname, "src/types"),
+        "@/lib": path.join(__dirname, "src/lib"),
+      },
+    },
+    {
+      resolve: "gatsby-source-formium",
+      options: {
+        projectId: process.env.GATSBY_FORMIUM_PROJECTID,
+        accessToken: process.env.FORMIUM_TOKEN,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-images-contentful",
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 688,
+              maxWidth: 1232,
+              backgroundColor: "#71D0E2",
             },
           },
         ],

@@ -1,18 +1,16 @@
 import React, { FC } from "react";
 import { SxProps } from "theme-ui";
 
-type VideoProps = {
-  alt: string;
+interface VideoProps {
+  alt?: string;
   className?: string;
   dataTestId?: string;
-  media: {
-    file: {
-      contentType: string;
-      url: string;
-    };
+  media?: {
+    contentType: string;
+    url: string;
   };
-  poster: string;
-};
+  poster?: string;
+}
 
 const Video: FC<VideoProps & SxProps> = ({
   alt,
@@ -32,7 +30,11 @@ const Video: FC<VideoProps & SxProps> = ({
     muted
     playsInline
   >
-    <source src={media.file.url} type={media.file.contentType} />
+    {media ? (
+      <source src={media.url} type={media.contentType} />
+    ) : (
+      console.error("No video source")
+    )}
     <p>{alt}</p>
   </video>
 );

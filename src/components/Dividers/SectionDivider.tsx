@@ -1,17 +1,28 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+/**  @jsxFrag */
+
+import React, { FC } from "react";
 import PropTypes from "prop-types";
 import { Box, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
+import { ChildFluidObject } from "@/src/types";
 
-const SectionDivider = ({ bg, stars }) => {
+interface SectionDividerProps {
+  bg?: string;
+  stars?: boolean;
+}
+
+interface Query {
+  darkWood: ChildFluidObject;
+}
+
+const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => {
   const {
     darkWood: {
       childImageSharp: { fluid },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query SectionDividerQuery {
       darkWood: file(relativePath: { eq: "darkWood.jpg" }) {
         childImageSharp {

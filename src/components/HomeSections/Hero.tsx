@@ -5,7 +5,7 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack, Flex } from "raam";
 
-const Hero = () => {
+const Hero = (): JSX.Element => {
   const {
     contentfulHomePageHero: {
       description: { description },
@@ -69,7 +69,7 @@ const Hero = () => {
           preload="none"
           sx={{
             position: "absolute",
-            backgroundColor: "green.light",
+            backgroundColor: "blue.dark",
             objectFit: "cover",
             width: "full",
             height: "full",
@@ -88,7 +88,7 @@ const Hero = () => {
           fluid={media.fluid}
           sx={{
             bg: "black.mid",
-            position: "absolute !important",
+            position: "absolute",
             width: "full",
             height: "full",
           }}
@@ -118,7 +118,7 @@ const Hero = () => {
         >
           <Flex
             alignItems="center"
-            flexShrink="1"
+            flexShrink={1}
             sx={{ height: "full", zIndex: "2" }}
           >
             <Box

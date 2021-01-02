@@ -1,13 +1,18 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
+
 import { Container, Divider, Text, jsx } from "theme-ui";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { Inline } from "raam";
-import Arrow from "../Images/Arrow";
-import BrickBg from "../Images/BrickBg";
-import StyledLink from "../Link.styled";
+import Arrow from "@/components/Images/Arrow";
+import BrickBg from "@/components/Images/BrickBg";
+import StyledLink from "@/components/Link.styled";
+import { FC } from "react";
 
-const ArrowDivider = ({ id }) => {
+interface ArrowDividerProps {
+  id?: string;
+}
+
+const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => {
   const breakpoints = useBreakpoint();
 
   return (
@@ -54,14 +59,6 @@ const ArrowDivider = ({ id }) => {
       />
     </BrickBg>
   );
-};
-
-ArrowDivider.propTypes = {
-  id: PropTypes.string,
-};
-
-ArrowDivider.defaultProps = {
-  id: null,
 };
 
 export default ArrowDivider;
