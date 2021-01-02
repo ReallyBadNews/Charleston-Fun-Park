@@ -373,7 +373,9 @@ export default {
     p: {
       fontSize: ["2", null, "3"],
       lineHeight: "normal",
-      mb: "5",
+      "&:not(:last-child)": {
+        mb: "5",
+      },
     },
     hr: {
       height: "px",

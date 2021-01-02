@@ -10,13 +10,18 @@ import SEO from "@/components/seo";
 import StarDivider from "@/components/Dividers/StarDivider";
 import WoodBg from "@/components/Images/WoodBg";
 import { FluidObject } from "gatsby-image";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 interface JobPageProps extends PageProps {
   data: {
     formiumForm: Form;
     contentfulSectionPages: {
       title: string;
       seoTitle: string;
-      isVideo: boolean;
+      content: {
+        childMdx: {
+          body: string;
+        };
+      };
       media: {
         fluid: FluidObject;
       };
@@ -29,20 +34,27 @@ const JobPage: FC<JobPageProps> = ({
   location: { pathname },
   data: {
     formiumForm,
-    contentfulSectionPages: { title, description },
+    contentfulSectionPages: {
+      title,
+      seoTitle,
+      description,
+      content: {
+        childMdx: { body: content },
+      },
+    },
   },
 }) => {
   const [success, setSuccess] = useState(false);
 
   return (
     <>
-      <SEO pathname={pathname} title={title} description={description} />
+      <SEO pathname={pathname} title={seoTitle} description={description} />
       <StarDivider title={title} />
       <WoodBg>
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <Container px={["3", null, null, null, "0"]} py="7">
             <Card variant="image">
-              <Stack p="4" gap="5">
+              <Stack p="4" gap="3">
                 <Stack gap="2">
                   <Heading
                     as="h2"
@@ -51,12 +63,9 @@ const JobPage: FC<JobPageProps> = ({
                       fontSize: ["4", null, "7"],
                     }}
                   >
-                    Charleston Fun Park Team Member Application
+                    {title}
                   </Heading>
-                  <Text variant="body.mid">
-                    This application must be filled out completely and
-                    accurately to be considered for employment.
-                  </Text>
+                  <MDXRenderer>{content}</MDXRenderer>
                 </Stack>
                 {success ? (
                   <Text variant="body.mid">
@@ -97,10 +106,9 @@ export const query = graphql`
       updateAt
       version
     }
-    contentfulSectionPages(id: { eq: "84ee1051-4200-57f6-9ede-7a128f8ecace" }) {
+    contentfulSectionPages(id: { eq: "698a581a-8d43-542d-8a04-3a218d362955" }) {
       title
       seoTitle
-      isVideo
       media {
         fluid {
           src

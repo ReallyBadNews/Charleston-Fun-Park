@@ -28,6 +28,8 @@ export const MediaItem: FC<Props & SxProps> = ({
   sx,
   videoPoster,
 }) => {
+  if (!media.file) return null;
+
   switch (media.file.contentType) {
     case "video/mp4":
       return (

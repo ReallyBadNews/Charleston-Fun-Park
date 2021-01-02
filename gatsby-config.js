@@ -7,11 +7,10 @@ require("dotenv").config({
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  environment: process.env.NODE_ENV,
-  host:
-    process.env.NODE_ENV === "development"
-      ? "preview.contentful.com"
-      : "cdn.contentful.com",
+  environment: "dev",
+  host: ["development", "dev"].includes(process.env.NODE_ENV)
+    ? "preview.contentful.com"
+    : "cdn.contentful.com",
 };
 
 if (process.env.CONTENTFUL_HOST) {
@@ -157,7 +156,9 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 688,
+              maxWidth: 1232,
+              backgroundColor: "#71D0E2",
+              showCaptions: ["alt", "title"],
             },
           },
         ],
