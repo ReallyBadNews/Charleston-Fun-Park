@@ -7,7 +7,7 @@ require("dotenv").config({
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  environment: "dev",
+  environment: process.env.NODE_ENV,
   host: ["development", "dev"].includes(process.env.NODE_ENV)
     ? "preview.contentful.com"
     : "cdn.contentful.com",
@@ -119,7 +119,6 @@ module.exports = {
     ARALLEL_SOURCING: true,
   },
   plugins: [
-    "gatsby-plugin-mdx",
     "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
@@ -147,18 +146,14 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: "gatsby-plugin-mdx",
       options: {
-        plugins: [
+        gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-images-contentful",
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
               maxWidth: 1232,
               backgroundColor: "#71D0E2",
-              showCaptions: ["alt", "title"],
             },
           },
         ],
