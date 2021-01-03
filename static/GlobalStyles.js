@@ -7,7 +7,7 @@ const GlobalStyles = () => (
     styles={css`
       @font-face {
         font-family: "Playfair Display";
-        font-display: swap;
+        font-display: optional;
         src: url(${fontFiles.PlayfairDisplayBlack}) format("woff2");
         font-weight: 900;
         font-style: normal;
@@ -15,7 +15,7 @@ const GlobalStyles = () => (
 
       @font-face {
         font-family: "Greycliff";
-        font-display: swap;
+        font-display: optional;
         src: url(${fontFiles.GreycliffRegular}) format("woff2");
         font-weight: 400;
         font-style: normal;
@@ -23,7 +23,7 @@ const GlobalStyles = () => (
 
       @font-face {
         font-family: "Greycliff";
-        font-display: swap;
+        font-display: optional;
         src: url(${fontFiles.GreycliffMedium}) format("woff2");
         font-weight: 500;
         font-style: normal;
@@ -31,7 +31,7 @@ const GlobalStyles = () => (
 
       @font-face {
         font-family: "Greycliff";
-        font-display: swap;
+        font-display: optional;
         src: url(${fontFiles.GreycliffBold}) format("woff2");
         font-weight: 700;
         font-style: normal;
@@ -39,7 +39,7 @@ const GlobalStyles = () => (
 
       @font-face {
         font-family: "Greycliff";
-        font-display: swap;
+        font-display: optional;
         src: url(${fontFiles.GreycliffHeavy}) format("woff2");
         font-weight: 900;
         font-style: normal;
@@ -47,7 +47,7 @@ const GlobalStyles = () => (
 
       @font-face {
         font-family: "Neon Tubes";
-        font-display: swap;
+        font-display: optional;
         src: url(${fontFiles.NeonTubes}) format("woff2");
         font-weight: 700;
         font-style: normal;
