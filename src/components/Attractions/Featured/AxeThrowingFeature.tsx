@@ -57,7 +57,7 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
           media={videoPoster}
           alt="People throwing axes"
           sx={{
-            bg: "red.dark",
+            bg: "tailwind.red.800",
             width: ["full", null, null, "7/12"],
             height: ["sm", null, null, "full"],
             objectFit: "cover",
@@ -73,9 +73,8 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
           <BackgroundImage
             fluid={axeThrowingBg}
             sx={{
-              // @ts-ignore
-              position: "absolute !important",
-              bg: "black.dark",
+              position: ["absolute !important"],
+              bg: "tailwind.red.900",
               height: "full",
               width: "full",
             }}
@@ -88,8 +87,7 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
           >
             <Arrow
               sx={{
-                // @ts-ignore
-                position: "absolute !important",
+                position: ["absolute !important"],
                 right: ["3", null, null, "-80px"],
                 zIndex: "2",
                 width: "180px",

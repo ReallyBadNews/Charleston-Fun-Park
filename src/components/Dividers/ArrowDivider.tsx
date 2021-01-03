@@ -32,19 +32,14 @@ const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => {
               width: ["72px", null, "24", null, "32"],
             }}
           />
-          {breakpoints.tablet ? (
-            <StyledLink scrollTo="birthdays">
-              <Text variant="display">The Party Starts Here</Text>
-            </StyledLink>
-          ) : (
-            <StyledLink scrollTo="birthdays">
-              <Text variant="display">
-                The Party
-                <br />
-                Starts Here
-              </Text>
-            </StyledLink>
-          )}
+          <StyledLink scrollTo="birthdays">
+            <Text
+              variant="display"
+              sx={{ maxWidth: ["14ch", null, "initial"] }}
+            >
+              The Party Starts Here
+            </Text>
+          </StyledLink>
           <Arrow
             sx={{
               height: "auto",

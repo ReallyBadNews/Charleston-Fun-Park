@@ -46,6 +46,7 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           width: ["full", null, null, "7/12"],
           height: ["sm", null, null, "full"],
           objectFit: "cover",
+          bg: "green.dark",
         }}
       />
       <Box
@@ -68,8 +69,7 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
         <BackgroundImage
           fluid={grassTexture}
           sx={{
-            // @ts-ignore
-            position: "absolute !important",
+            position: ["absolute !important"],
             bg: "green.light",
             height: "full",
             width: "full",
@@ -92,8 +92,7 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
         >
           <Arrow
             sx={{
-              // @ts-ignore
-              position: "absolute !important",
+              position: ["absolute !important"],
               left: [null, null, null, "-80px"],
               right: ["3", null],
               top: ["-3rem", null, null, "-1rem"],

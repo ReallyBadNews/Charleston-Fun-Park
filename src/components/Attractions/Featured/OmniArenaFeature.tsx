@@ -25,6 +25,7 @@ const OmniArenaFeature: FC<OmniFeatureProps> = ({ data: { node } }) => (
       media={node.videoPoster}
       alt={node.videoPoster.description}
       sx={{
+        backgroundColor: "green.dark",
         width: ["full", null, null, "7/12"],
         height: ["sm", null, null, "full"],
         objectFit: "cover",
@@ -43,8 +44,7 @@ const OmniArenaFeature: FC<OmniFeatureProps> = ({ data: { node } }) => (
     >
       <Arrow
         sx={{
-          // @ts-ignore
-          position: "absolute !important",
+          position: ["absolute !important"],
           left: [null, null, null, "-80px"],
           right: ["3", null],
           top: ["-4rem", null, null, "-1rem"],

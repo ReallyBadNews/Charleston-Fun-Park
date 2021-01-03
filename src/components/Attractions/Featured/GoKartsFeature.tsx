@@ -72,6 +72,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           media={node.videoPoster}
           alt={node.videoPoster.description}
           sx={{
+            bg: "tailwind.gray.800",
             width: ["full", null, null, "7/12"],
             height: ["sm", null, null, "full"],
             objectFit: "cover",
@@ -102,8 +103,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           <BackgroundImage
             fluid={goKartsBg}
             sx={{
-              // @ts-ignore
-              position: "absolute !important",
+              position: ["absolute !important"],
               bg: "black.dark",
               height: "full",
               width: "full",
@@ -119,8 +119,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           >
             <Arrow
               sx={{
-                // @ts-ignore
-                position: "absolute !important",
+                position: ["absolute !important"],
                 right: ["3", null, null, "-80px"],
                 zIndex: "2",
                 width: "180px",

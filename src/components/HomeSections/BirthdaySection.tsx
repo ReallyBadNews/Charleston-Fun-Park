@@ -4,7 +4,6 @@ import { FC } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { jsx, Container, Heading, Text, Button, Grid } from "theme-ui";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";
@@ -62,7 +61,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
       }
       file(relativePath: { eq: "baloons.png" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 316, maxHeight: 458) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -70,18 +69,19 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
     }
   `);
 
-  const breakpoints = useBreakpoint();
   const { navLinks } = useSiteMetadata();
 
   return (
     <BrickBg id={id} sx={{ position: "relative" }}>
       <Container variant="flexContainer">
-        {breakpoints.tablet && (
-          <Img
-            fluid={baloonsImage}
-            sx={{ alignSelf: "flex-start", width: "1/4" }}
-          />
-        )}
+        <Img
+          fluid={baloonsImage}
+          sx={{
+            alignSelf: "flex-start",
+            width: "1/4",
+            display: ["none", null, "initial"],
+          }}
+        />
         <Stack
           gap={["3", null, "4", null, "5"]}
           sx={{
@@ -114,6 +114,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
                 alt={image.description}
                 fluid={image.fluid}
                 sx={{
+                  bg: "blue.dark",
                   borderWidth: "0.125rem",
                   borderColor: "white.light",
                   borderStyle: "solid",
