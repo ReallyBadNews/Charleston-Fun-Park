@@ -4,7 +4,7 @@ import { Card, Container, Flex, Heading, Text } from "theme-ui";
 import { FormiumForm } from "@formium/react";
 import { Form } from "@formium/types";
 import { Stack } from "raam";
-import { formium } from "@/lib/formium";
+import { formium } from "@/src/lib/formium";
 import { formComponents } from "@/components/Forms/FormiumComponents";
 import SEO from "@/components/seo";
 import StarDivider from "@/components/Dividers/StarDivider";

@@ -1,4 +1,5 @@
 /** @jsx jsx */
+
 import { Box, Container, Text, jsx } from "theme-ui";
 import { Flex, Stack } from "raam";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,10 +8,10 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import StyledLink from "./Link.styled";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
+import StyledLink from "@/components/Link.styled";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   const { copyright, navLinks, socialLinks } = useSiteMetadata();
 
   const socialIcons = {

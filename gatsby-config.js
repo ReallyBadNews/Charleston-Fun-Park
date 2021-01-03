@@ -136,6 +136,7 @@ module.exports = {
         "@/images": path.join(__dirname, "src/images"),
         "@/types": path.join(__dirname, "src/types"),
         "@/lib": path.join(__dirname, "src/lib"),
+        "@/static": path.join(__dirname, "static"),
       },
     },
     {
@@ -168,7 +169,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-layout",
       options: {
-        component: require.resolve("./src/templates/MainLayout.js"),
+        component: require.resolve("./src/templates/MainLayout.tsx"),
       },
     },
     {

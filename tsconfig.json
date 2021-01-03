@@ -9,7 +9,8 @@
       "@/templates/*": ["src/templates/*"],
       "@/images/*": ["src/images/*"],
       "@/types/*": ["src/types/*"],
-      "@/lib/*": ["src/lib/*"]
+      "@/lib/*": ["src/lib/*"],
+      "@/static/*": ["static/*"]
     },
     "target": "esnext",
     "module": "commonjs",
