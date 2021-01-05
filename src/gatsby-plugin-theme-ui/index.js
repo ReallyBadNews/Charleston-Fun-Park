@@ -186,6 +186,10 @@ export default {
         fontSize: ["7", null, "8"],
         lineHeight: "none",
       },
+      largeTitle: {
+        variant: "heading",
+        fontSize: ["5", null, "6"],
+      },
       title: {
         variant: "heading",
         fontSize: "5",

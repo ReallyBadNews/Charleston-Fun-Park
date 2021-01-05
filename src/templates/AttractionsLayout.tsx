@@ -70,6 +70,7 @@ const AttractionsLayout: FC<AttractionsLayoutProps> = ({
               height: "xl",
               width: "full",
               objectFit: "cover",
+              backgroundColor: "blue.dark",
             }}
             videoPoster={contentfulAttraction.videoPoster.fixed.src}
           />
@@ -85,7 +86,9 @@ const AttractionsLayout: FC<AttractionsLayoutProps> = ({
               p="4"
               sx={{ borderRadius: "lg", maxWidth: "3xl" }}
             >
-              <Heading mb="3">{contentfulAttraction.title}</Heading>
+              <Heading as="h1" mb="3" variant="heading.largeTitle">
+                {contentfulAttraction.title}
+              </Heading>
               <MDXRenderer>
                 {contentfulAttraction.body.childMdx.body}
               </MDXRenderer>
