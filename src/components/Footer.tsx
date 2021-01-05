@@ -30,27 +30,6 @@ const Footer = (): JSX.Element => {
     >
       <Container>
         <Stack gap="5">
-          <Flex
-            flexWrap="wrap"
-            gap={["3", null, null, "5"]}
-            justifyContent="center"
-          >
-            {navLinks.map((link) => (
-              <StyledLink
-                key={link.name}
-                color="white.light"
-                fontFamily="heading"
-                fontSize={["2", null, "4"]}
-                fontWeight="bold"
-                hoverColor="blue.light"
-                letterSpacing="wide"
-                textDecoration="none"
-                to={link.url}
-              >
-                {link.name}
-              </StyledLink>
-            ))}
-          </Flex>
           <Flex gap="5" justifyContent="center">
             {socialLinks.map((link) => (
               <StyledLink
@@ -62,6 +41,27 @@ const Footer = (): JSX.Element => {
                 title={link.name}
               >
                 <FontAwesomeIcon icon={socialIcons[link.name]} />
+              </StyledLink>
+            ))}
+          </Flex>
+          <Flex
+            flexWrap="wrap"
+            gap={["3", null, null, "5"]}
+            justifyContent="center"
+          >
+            {navLinks.map((link) => (
+              <StyledLink
+                key={link.name}
+                color="white.light"
+                fontFamily="heading"
+                fontSize={["2", null, "3"]}
+                fontWeight="bold"
+                hoverColor="blue.light"
+                letterSpacing="wide"
+                textDecoration="none"
+                to={link.url}
+              >
+                {link.name}
               </StyledLink>
             ))}
           </Flex>
