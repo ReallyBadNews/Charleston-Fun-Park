@@ -47,7 +47,7 @@ const GlobalStyles = () => (
 
       @font-face {
         font-family: "Neon Tubes";
-        font-display: optional;
+        font-display: swap;
         src: url(${fontFiles.NeonTubes}) format("woff2");
         font-weight: 700;
         font-style: normal;

@@ -2,19 +2,25 @@
 
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { Box, jsx } from "theme-ui";
+import { Box, jsx, SxProps } from "theme-ui";
 import { FC } from "react";
 import { ChildFluidObject } from "@/src/types";
 
 interface BrickBgProps {
   id?: string;
+  className?: string;
 }
 
 interface Query {
   brickTexture: ChildFluidObject;
 }
 
-const BrickBg: FC<BrickBgProps> = ({ children, id }) => {
+const BrickBg: FC<BrickBgProps & SxProps> = ({
+  children,
+  id,
+  sx,
+  className,
+}) => {
   const {
     brickTexture: {
       childImageSharp: { fluid },
@@ -35,7 +41,8 @@ const BrickBg: FC<BrickBgProps> = ({ children, id }) => {
     <BackgroundImage
       fluid={fluid}
       id={id}
-      sx={{ position: "relative", bg: "black.dark" }}
+      sx={{ ...sx, position: "relative", bg: "black.dark" }}
+      className={className}
       Tag="section"
     >
       <Box
