@@ -19,7 +19,7 @@ const IndexPage: FC<PageProps> = ({ location: { pathname } }) => (
     <SEO pathname={pathname} title="Home" description="REPLACE ME" />
     <Hero />
     <ArrowDivider />
-    <MobileWelcome sx={{ display: ["initial", null, "none"] }} />
+    <MobileWelcome sx={{ display: ["block", null, "none"] }} />
     <BirthdaySection id="birthdays" />
     <SectionDivider bg="green.light" />
     <FeaturedAttractions />
