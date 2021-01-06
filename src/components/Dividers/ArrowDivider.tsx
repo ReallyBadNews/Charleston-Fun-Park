@@ -29,7 +29,7 @@ const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => (
           }}
         />
         <StyledLink scrollTo="birthdays">
-          <Text variant="display" sx={{ maxWidth: ["14ch", null, "initial"] }}>
+          <Text variant="display" sx={{ maxWidth: ["12ch", null, "initial"] }}>
             The Party Starts Here
           </Text>
         </StyledLink>
