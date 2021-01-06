@@ -1,9 +1,10 @@
 /** @jsx jsx */
 
-import { Box, Heading, Text, jsx } from "theme-ui";
+import { Box, Heading, Text, jsx, SxProps } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
 import WoodBg from "@/components/Images/WoodBg";
+import { FC } from "react";
 
 interface Query {
   contentfulHomePageHero: {
@@ -15,7 +16,11 @@ interface Query {
   };
 }
 
-const MobileWelcome = (): JSX.Element => {
+interface Props {
+  className?: string;
+}
+
+const MobileWelcome: FC<Props & SxProps> = ({ className, sx }) => {
   const {
     contentfulHomePageHero: {
       description: { description },
@@ -37,7 +42,7 @@ const MobileWelcome = (): JSX.Element => {
   `);
 
   return (
-    <WoodBg overlayColor="blue.light">
+    <WoodBg overlayColor="blue.light" className={className} sx={sx}>
       <Box color="white.light" px="3" py="6" sx={{ textAlign: "center" }}>
         <Heading variant="heading.smallTitle">{subtitle}</Heading>
         <Stack gap="3">

@@ -66,7 +66,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
   const { navLinks } = useSiteMetadata();
 
   return (
-    <BrickBg id={id} sx={{ position: "relative" }}>
+    <BrickBg id={id}>
       <Container variant="flexContainer">
         <Box
           sx={{
