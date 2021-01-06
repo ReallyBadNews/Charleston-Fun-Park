@@ -1,6 +1,17 @@
 {
   "include": ["./src/**/*"],
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/src/*": ["src/*"],
+      "@/components/*": ["src/components/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/templates/*": ["src/templates/*"],
+      "@/images/*": ["src/images/*"],
+      "@/types/*": ["src/types/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@/static/*": ["static/*"]
+    },
     "target": "esnext",
     "module": "commonjs",
     "lib": ["dom", "es2017"],

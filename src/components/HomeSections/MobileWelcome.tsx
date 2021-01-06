@@ -1,17 +1,33 @@
 /** @jsx jsx */
-import { Box, Heading, Text, jsx } from "theme-ui";
+
+import { Box, Heading, Text, jsx, SxProps } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
-import WoodBg from "../Images/WoodBg";
+import WoodBg from "@/components/Images/WoodBg";
+import { FC } from "react";
 
-const MobileWelcome = () => {
+interface Query {
+  contentfulHomePageHero: {
+    description: {
+      description: string;
+    };
+    subtitle: string;
+    title: string;
+  };
+}
+
+interface Props {
+  className?: string;
+}
+
+const MobileWelcome: FC<Props & SxProps> = ({ className, sx }) => {
   const {
     contentfulHomePageHero: {
       description: { description },
       subtitle,
       title,
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query MobileWelcomeQuery {
       contentfulHomePageHero(
         id: { eq: "017be6d2-0203-5b98-b841-201c01ab9432" }
@@ -26,7 +42,7 @@ const MobileWelcome = () => {
   `);
 
   return (
-    <WoodBg overlayColor="blue.light">
+    <WoodBg overlayColor="blue.light" className={className} sx={sx}>
       <Box color="white.light" px="3" py="6" sx={{ textAlign: "center" }}>
         <Heading variant="heading.smallTitle">{subtitle}</Heading>
         <Stack gap="3">

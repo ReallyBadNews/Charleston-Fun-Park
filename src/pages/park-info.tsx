@@ -5,25 +5,40 @@ import React, { FC } from "react";
 import { Box, Container, Flex, Grid, jsx, Card } from "theme-ui";
 import { useStaticQuery, graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import SEO from "../components/seo";
-import StarDivider from "../components/Dividers/StarDivider";
-import WoodBg from "../components/Images/WoodBg";
-import MapBox from "../components/Map";
+import SEO from "@/components/seo";
+import StarDivider from "@/components/Dividers/StarDivider";
+import WoodBg from "@/components/Images/WoodBg";
+import MapBox from "@/components/Map";
+
+interface Query {
+  contentfulParkInfo: {
+    title: string;
+    seoTitle: string;
+    description: {
+      description: string;
+    };
+    content: {
+      childMdx: {
+        body: string;
+      };
+    };
+  };
+}
 
 const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
   const {
     contentfulParkInfo: {
+      title,
       seoTitle,
       description: { description },
       content: {
         childMdx: { body: bodyContent },
       },
-      title,
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query ParkInfo {
       contentfulParkInfo {
-        id
+        title
         seoTitle
         description {
           description
@@ -33,7 +48,6 @@ const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
             body
           }
         }
-        title
       }
     }
   `);
@@ -45,10 +59,7 @@ const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
       <WoodBg overlayColor="blue.light">
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <Container px={["3", null, null, null, "0"]} py="7">
-            <Grid
-              columns={["1fr", null, "repeat(2, 1fr)", "1fr"]}
-              variant="attractionsPage"
-            >
+            <Grid columns="1fr" variant="attractionsPage">
               <Card variant="image">
                 <MapBox height="512px" width="100%" />
                 <Box p="4">

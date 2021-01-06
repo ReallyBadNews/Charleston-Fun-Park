@@ -1,11 +1,24 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { FC } from "react";
 import { Helmet } from "react-helmet";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 import OgImage from "../../static/images/og_image.jpg";
 import TwImage from "../../static/images/tw_card.jpg";
 
-const SEO = ({ description, lang, keywords, title, pathname }) => {
+interface SeoProps {
+  description: string;
+  lang?: string;
+  keywords?: string[];
+  title: string;
+  pathname: string;
+}
+
+const SEO: FC<SeoProps> = ({
+  description,
+  lang,
+  keywords,
+  title,
+  pathname,
+}) => {
   const {
     author,
     title: siteTitle,
@@ -113,16 +126,6 @@ const SEO = ({ description, lang, keywords, title, pathname }) => {
 
 SEO.defaultProps = {
   lang: "en",
-  keywords: [],
-  description: "",
-};
-
-SEO.propTypes = {
-  pathname: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  lang: PropTypes.string,
 };
 
 export default SEO;

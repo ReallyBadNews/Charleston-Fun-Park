@@ -1,7 +1,7 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import PropTypes from "prop-types";
+/** @jsxFrag */
+
+import React, { FC } from "react";
 import {
   Box,
   Container,
@@ -13,13 +13,43 @@ import {
   Divider,
 } from "theme-ui";
 import { Flex as Flexbox } from "raam";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
+import { FixedObject } from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import SEO from "../components/seo";
-import WoodBg from "../components/Images/WoodBg";
-import MediaItem from "../components/MediaItem";
+import SEO from "@/components/seo";
+import WoodBg from "@/components/Images/WoodBg";
+import { MediaItem } from "@/components/MediaItem";
+import { MediaObject } from "@/types/index";
 
-const AttractionsLayout = ({
+interface AttractionsLayoutProps extends PageProps {
+  data: {
+    contentfulAttraction: {
+      body: {
+        childMdx: {
+          body: string;
+        };
+      };
+      description: {
+        description: string;
+      };
+      heroImage: MediaObject;
+      id: string;
+      isVideo: boolean;
+      pricePoint1Price: number;
+      pricePoint1Title: string;
+      pricePoint1Unit: string;
+      pricePoint2Price: number;
+      pricePoint2Title: string;
+      pricePoint2Unit: string;
+      title: string;
+      videoPoster: {
+        fixed: FixedObject;
+      };
+    };
+  };
+}
+
+const AttractionsLayout: FC<AttractionsLayoutProps> = ({
   data: { contentfulAttraction },
   location: { pathname },
 }) => {
@@ -33,13 +63,14 @@ const AttractionsLayout = ({
       <WoodBg overlayColor="blue.light">
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <MediaItem
-            isVideo={contentfulAttraction.isVideo}
             media={contentfulAttraction.heroImage}
+            alt={contentfulAttraction.description.description}
             sx={{
               maxHeight: "xl",
               height: "xl",
               width: "full",
               objectFit: "cover",
+              backgroundColor: "blue.dark",
             }}
             videoPoster={contentfulAttraction.videoPoster.fixed.src}
           />
@@ -55,7 +86,9 @@ const AttractionsLayout = ({
               p="4"
               sx={{ borderRadius: "lg", maxWidth: "3xl" }}
             >
-              <Heading mb="3">{contentfulAttraction.title}</Heading>
+              <Heading as="h1" mb="3" variant="heading.largeTitle">
+                {contentfulAttraction.title}
+              </Heading>
               <MDXRenderer>
                 {contentfulAttraction.body.childMdx.body}
               </MDXRenderer>
@@ -64,7 +97,6 @@ const AttractionsLayout = ({
                   <Divider />
                   <Flexbox gap="3" py="3">
                     <Box
-                      gap="0"
                       pr="3"
                       sx={{
                         borderRight:
@@ -142,47 +174,5 @@ export const attractionsQuery = graphql`
     }
   }
 `;
-
-AttractionsLayout.propTypes = {
-  data: PropTypes.shape({
-    contentfulAttraction: PropTypes.shape({
-      body: PropTypes.shape({
-        childMdx: PropTypes.shape({
-          body: PropTypes.string,
-        }),
-      }),
-      description: PropTypes.shape({
-        description: PropTypes.string,
-      }),
-      heroImage: PropTypes.shape({
-        fluid: PropTypes.shape({
-          aspectRatio: PropTypes.number,
-          sizes: PropTypes.string,
-          src: PropTypes.string,
-          srcSet: PropTypes.string,
-          srcSetWebp: PropTypes.string,
-          srcWebp: PropTypes.string,
-        }),
-      }),
-      id: PropTypes.string,
-      isVideo: PropTypes.bool,
-      pricePoint1Price: PropTypes.number,
-      pricePoint1Title: PropTypes.string,
-      pricePoint1Unit: PropTypes.string,
-      pricePoint2Price: PropTypes.number,
-      pricePoint2Title: PropTypes.string,
-      pricePoint2Unit: PropTypes.string,
-      title: PropTypes.string,
-      videoPoster: PropTypes.shape({
-        fixed: PropTypes.shape({
-          src: PropTypes.string,
-        }),
-      }),
-    }),
-  }).isRequired,
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
-};
 
 export default AttractionsLayout;

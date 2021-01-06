@@ -3,8 +3,9 @@
 
 import React, { FC } from "react";
 import { jsx, SxProps } from "theme-ui";
-import Img, { FluidObject } from "gatsby-image";
+import Img from "gatsby-image";
 import Video from "./Video";
+import { MediaObject } from "../types";
 
 interface CommonProps {
   alt: string;
@@ -12,56 +13,38 @@ interface CommonProps {
   className?: string;
 }
 
-type MediaItemProps =
-  | {
-      isVideo?: true;
-      media: {
-        fluid: never;
-        file: {
-          contentType: string;
-          url: string;
-        };
-      };
-      videoPoster: string;
-    }
-  | {
-      isVideo?: false;
-      media: {
-        fluid: FluidObject;
-        file: never;
-      };
-      videoPoster: never;
-    };
+interface MediaItemProps {
+  media: MediaObject;
+  videoPoster?: string;
+}
 
 type Props = CommonProps & MediaItemProps;
 
-const MediaItem: FC<Props & SxProps> = ({
+export const MediaItem: FC<Props & SxProps> = ({
   alt,
   dataTestId,
   media,
-  isVideo,
   className,
   sx,
   videoPoster,
-}) => (
-  <>
-    {isVideo ? (
-      <Video
-        alt={alt}
-        className={className}
-        dataTestId={dataTestId}
-        media={media}
-        poster={videoPoster}
-        sx={sx}
-      />
-    ) : (
-      <Img alt={alt} className={className} fluid={media.fluid} sx={sx} />
-    )}
-  </>
-);
+}) => {
+  if (!media.file) return null;
 
-MediaItem.defaultProps = {
-  isVideo: false,
+  switch (media.file.contentType) {
+    case "video/mp4":
+      return (
+        <Video
+          alt={alt}
+          className={className}
+          dataTestId={dataTestId}
+          media={media.file}
+          poster={videoPoster}
+          sx={sx}
+        />
+      );
+    default:
+      return (
+        <Img alt={alt} className={className} fluid={media.fluid} sx={sx} />
+      );
+  }
 };
-
-export default MediaItem;

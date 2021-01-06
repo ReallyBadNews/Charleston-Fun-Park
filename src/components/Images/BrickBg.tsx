@@ -1,15 +1,31 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
+
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { Box, jsx } from "theme-ui";
+import { Box, jsx, SxProps } from "theme-ui";
+import { FC } from "react";
+import { ChildFluidObject } from "@/src/types";
 
-const BrickBg = ({ children, id }) => {
+interface BrickBgProps {
+  id?: string;
+  className?: string;
+}
+
+interface Query {
+  brickTexture: ChildFluidObject;
+}
+
+const BrickBg: FC<BrickBgProps & SxProps> = ({
+  children,
+  id,
+  sx,
+  className,
+}) => {
   const {
     brickTexture: {
       childImageSharp: { fluid },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query BrickQuery {
       brickTexture: file(relativePath: { eq: "brickTexture.jpg" }) {
         childImageSharp {
@@ -25,7 +41,8 @@ const BrickBg = ({ children, id }) => {
     <BackgroundImage
       fluid={fluid}
       id={id}
-      sx={{ position: "relative", bg: "black.dark" }}
+      sx={{ ...sx, position: "relative", bg: "black.dark" }}
+      className={className}
       Tag="section"
     >
       <Box
@@ -43,15 +60,6 @@ const BrickBg = ({ children, id }) => {
       {children}
     </BackgroundImage>
   );
-};
-
-BrickBg.propTypes = {
-  children: PropTypes.node.isRequired,
-  id: PropTypes.string,
-};
-
-BrickBg.defaultProps = {
-  id: null,
 };
 
 export default BrickBg;

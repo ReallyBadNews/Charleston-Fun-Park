@@ -1,4 +1,5 @@
 /** @jsx jsx */
+
 import { Box, Container, Text, jsx } from "theme-ui";
 import { Flex, Stack } from "raam";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,10 +8,10 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import StyledLink from "./Link.styled";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
+import StyledLink from "@/components/Link.styled";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   const { copyright, navLinks, socialLinks } = useSiteMetadata();
 
   const socialIcons = {
@@ -29,27 +30,6 @@ const Footer = () => {
     >
       <Container>
         <Stack gap="5">
-          <Flex
-            flexWrap="wrap"
-            gap={["3", null, null, "5"]}
-            justifyContent="center"
-          >
-            {navLinks.map((link) => (
-              <StyledLink
-                key={link.name}
-                color="white.light"
-                fontFamily="heading"
-                fontSize={["2", null, "4"]}
-                fontWeight="bold"
-                hoverColor="blue.light"
-                letterSpacing="wide"
-                textDecoration="none"
-                to={link.url}
-              >
-                {link.name}
-              </StyledLink>
-            ))}
-          </Flex>
           <Flex gap="5" justifyContent="center">
             {socialLinks.map((link) => (
               <StyledLink
@@ -61,6 +41,27 @@ const Footer = () => {
                 title={link.name}
               >
                 <FontAwesomeIcon icon={socialIcons[link.name]} />
+              </StyledLink>
+            ))}
+          </Flex>
+          <Flex
+            flexWrap="wrap"
+            gap={["3", null, null, "5"]}
+            justifyContent="center"
+          >
+            {navLinks.map((link) => (
+              <StyledLink
+                key={link.name}
+                color="white.light"
+                fontFamily="heading"
+                fontSize={["2", null, "3"]}
+                fontWeight="bold"
+                hoverColor="blue.light"
+                letterSpacing="wide"
+                textDecoration="none"
+                to={link.url}
+              >
+                {link.name}
               </StyledLink>
             ))}
           </Flex>

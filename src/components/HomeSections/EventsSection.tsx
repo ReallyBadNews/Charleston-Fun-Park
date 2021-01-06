@@ -1,20 +1,34 @@
 /** @jsx jsx */
+
 import { jsx, Heading, Container, Card, Box } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import WoodBg from "../Images/WoodBg";
+import WoodBg from "@/components/Images/WoodBg";
+import { MediaObject } from "@/src/types";
 
-const EventsSection = () => {
+interface Query {
+  contentfulHomePageEvents: {
+    content: {
+      childMdx: {
+        body: string;
+      };
+    };
+    media: MediaObject;
+    title: string;
+  };
+}
+
+const EventsSection = (): JSX.Element => {
   const {
     contentfulHomePageEvents: {
       content: {
         childMdx: { body },
       },
-      media: { fluid, title: alt },
+      media,
       title,
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     {
       contentfulHomePageEvents(
         id: { eq: "4f6731d3-7f5e-534e-a667-fc67fadf384e" }
@@ -39,7 +53,7 @@ const EventsSection = () => {
     <WoodBg overlayColor="green.light">
       <Container color="white.light" px="3" py="6">
         <Card variant="event">
-          <Img alt={alt} fluid={fluid} />
+          <Img alt={media.title} fluid={media.fluid} />
           <Box p="4">
             <Heading mb="3">{title}</Heading>
             <MDXRenderer>{body}</MDXRenderer>

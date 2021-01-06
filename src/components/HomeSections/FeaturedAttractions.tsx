@@ -1,16 +1,27 @@
 /** @jsx jsx */
 import { Box, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import SectionDivider from "../Dividers/SectionDivider";
-import OmniArenaFeature from "../Attractions/Featured/OmniArenaFeature";
-import GoKartsFeature from "../Attractions/Featured/GoKartsFeature";
-import MiniGolfFeature from "../Attractions/Featured/MiniGolfFeature";
-import AxeThrowingFeature from "../Attractions/Featured/AxeThrowingFeature";
+import SectionDivider from "@/components/Dividers/SectionDivider";
+import OmniArenaFeature from "@/components/Attractions/Featured/OmniArenaFeature";
+import GoKartsFeature from "@/components/Attractions/Featured/GoKartsFeature";
+import MiniGolfFeature from "@/components/Attractions/Featured/MiniGolfFeature";
+import AxeThrowingFeature from "@/components/Attractions/Featured/AxeThrowingFeature";
+import { Attraction } from "@/src/types";
 
-const AttractionsSection = () => {
+interface FeaturedAttraction {
+  node: Attraction;
+}
+
+interface Query {
+  allContentfulAttraction: {
+    edges: FeaturedAttraction[];
+  };
+}
+
+const AttractionsSection = (): JSX.Element => {
   const {
     allContentfulAttraction: { edges },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query AttractionsQuery {
       allContentfulAttraction(
         sort: { order: ASC, fields: order }
@@ -27,16 +38,23 @@ const AttractionsSection = () => {
                 contentType
                 url
               }
+              title
+              description
             }
             videoPoster {
               fluid {
                 ...GatsbyContentfulFluid_withWebp_noBase64
               }
+              file {
+                contentType
+                url
+              }
+              title
+              description
             }
             description {
               description
             }
-            isVideo
             title
             order
           }

@@ -1,15 +1,25 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
-import PropTypes from "prop-types";
+
+import { FC } from "react";
+import { jsx, SxProps } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { ChildFluidObject } from "@/src/types";
 
-const Arrow = ({ sx, className }) => {
+interface Query {
+  arrow: ChildFluidObject;
+}
+
+interface ArrowProps {
+  className?: string;
+}
+
+const Arrow: FC<ArrowProps & SxProps> = ({ sx, className }) => {
   const {
     arrow: {
       childImageSharp: { fluid },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query ArrowQuery {
       arrow: file(relativePath: { eq: "arrow.png" }) {
         childImageSharp {
@@ -22,16 +32,6 @@ const Arrow = ({ sx, className }) => {
   `);
 
   return <Img alt="Arrow" className={className} fluid={fluid} sx={sx} />;
-};
-
-Arrow.propTypes = {
-  className: PropTypes.string,
-  sx: PropTypes.shape({}),
-};
-
-Arrow.defaultProps = {
-  className: "",
-  sx: {},
 };
 
 export default Arrow;

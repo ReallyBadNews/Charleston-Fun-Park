@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
-import Img, { FluidObject } from "gatsby-image";
+import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Container, jsx } from "theme-ui";
 import { Flex, Inline, Stack } from "raam";
@@ -15,21 +15,16 @@ import {
   faBirthdayCake,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSiteMetadata } from "../../hooks/use-site-metadata";
-import StyledLink from "../Link.styled";
-import Arrow from "../Images/Arrow";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import StyledLink from "@/components/Link.styled";
+import Arrow from "@/components/Images/Arrow";
+import { ChildFluidObject } from "@/src/types";
 
-type ChildImage = {
-  childImageSharp: {
-    fluid: FluidObject;
-  };
-};
-
-type ImageProps = {
-  logo: ChildImage;
-  bg: ChildImage;
-  fun: ChildImage;
-};
+interface ImageProps {
+  logo: ChildFluidObject;
+  bg: ChildFluidObject;
+  fun: ChildFluidObject;
+}
 
 const Nav = (): JSX.Element => {
   const {

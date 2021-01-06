@@ -1,20 +1,26 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
+
+import { FC } from "react";
 import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import BackgroundImage from "gatsby-background-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
-import StyledLink from "../../Link.styled";
-import Arrow from "../../Images/Arrow";
-import Brick from "../../../images/brick.png";
-import MediaItem from "../../MediaItem";
+import StyledLink from "@/components/Link.styled";
+import Arrow from "@/components/Images/Arrow";
+import Brick from "@/components/../images/brick.png";
+import { MediaItem } from "@/components/MediaItem";
+import { ChildFluidObject, FeaturedAttractionProps } from "@/src/types";
 
-const MiniGolfFeature = ({ data: { node } }) => {
+interface Query {
+  grass: ChildFluidObject;
+}
+
+const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
   const {
     grass: {
       childImageSharp: { fluid: grassTexture },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query grassQuery {
       grass: file(relativePath: { eq: "grassTexture.jpg" }) {
         childImageSharp {
@@ -34,12 +40,13 @@ const MiniGolfFeature = ({ data: { node } }) => {
       }}
     >
       <MediaItem
-        isVideo={false}
         media={node.videoPoster}
+        alt={node.videoPoster.description}
         sx={{
           width: ["full", null, null, "7/12"],
           height: ["sm", null, null, "full"],
           objectFit: "cover",
+          bg: "green.dark",
         }}
       />
       <Box
@@ -62,7 +69,7 @@ const MiniGolfFeature = ({ data: { node } }) => {
         <BackgroundImage
           fluid={grassTexture}
           sx={{
-            position: "absolute !important",
+            position: ["absolute !important"],
             bg: "green.light",
             height: "full",
             width: "full",
@@ -85,7 +92,7 @@ const MiniGolfFeature = ({ data: { node } }) => {
         >
           <Arrow
             sx={{
-              position: "absolute !important",
+              position: ["absolute !important"],
               left: [null, null, null, "-80px"],
               right: ["3", null],
               top: ["-3rem", null, null, "-1rem"],
@@ -109,29 +116,6 @@ const MiniGolfFeature = ({ data: { node } }) => {
       </Box>
     </Flex>
   );
-};
-
-MiniGolfFeature.propTypes = {
-  data: PropTypes.shape({
-    node: PropTypes.shape({
-      description: PropTypes.shape({
-        description: PropTypes.string,
-      }),
-      id: PropTypes.string,
-      isVideo: PropTypes.bool,
-      title: PropTypes.string,
-      videoPoster: PropTypes.shape({
-        fluid: PropTypes.shape({
-          aspectRatio: PropTypes.number,
-          sizes: PropTypes.string,
-          src: PropTypes.string,
-          srcSet: PropTypes.string,
-          srcSetWebp: PropTypes.string,
-          srcWebp: PropTypes.string,
-        }),
-      }),
-    }),
-  }).isRequired,
 };
 
 export default MiniGolfFeature;

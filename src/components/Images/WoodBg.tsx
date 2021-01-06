@@ -1,30 +1,31 @@
 /** @jsx jsx */
+
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { Box, jsx } from "theme-ui";
+import { Box, jsx, SxProps } from "theme-ui";
 import { FC } from "react";
-import { FluidObject } from "gatsby-image";
+import { ChildFluidObject } from "@/src/types";
 
-const defaultProps = {
-  overlayColor: "blue.light",
+type WoodBgProps = {
+  overlayColor?: string;
+  className?: string;
 };
 
-type WoodBgProps = typeof defaultProps;
-
-type ImageProps = {
-  darkWood: {
-    childImageSharp: {
-      fluid: FluidObject;
-    };
-  };
+type Query = {
+  darkWood: ChildFluidObject;
 };
 
-const WoodBg: FC<WoodBgProps> = ({ children, overlayColor }) => {
+const WoodBg: FC<WoodBgProps & SxProps> = ({
+  children,
+  className,
+  overlayColor = "blue.light",
+  sx,
+}) => {
   const {
     darkWood: {
       childImageSharp: { fluid },
     },
-  } = useStaticQuery<ImageProps>(graphql`
+  } = useStaticQuery<Query>(graphql`
     query WoodQuery {
       darkWood: file(relativePath: { eq: "darkWood.jpg" }) {
         childImageSharp {
@@ -39,7 +40,9 @@ const WoodBg: FC<WoodBgProps> = ({ children, overlayColor }) => {
   return (
     <BackgroundImage
       fluid={fluid}
+      className={className}
       sx={{
+        ...sx,
         backgroundRepeat: "repeat",
         backgroundSize: "auto",
         backgroundColor: "blue.xdark",
@@ -63,7 +66,5 @@ const WoodBg: FC<WoodBgProps> = ({ children, overlayColor }) => {
     </BackgroundImage>
   );
 };
-
-WoodBg.defaultProps = defaultProps;
 
 export default WoodBg;

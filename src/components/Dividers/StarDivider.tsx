@@ -1,14 +1,26 @@
 /** @jsx jsx */
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import PropTypes from "prop-types";
+/** @jsxFrag */
+
+import React, { ElementType, FC } from "react";
 import { Container, Divider, Heading, jsx } from "theme-ui";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { Link } from "gatsby";
 import { Inline } from "raam";
-import WoodBg from "../Images/WoodBg";
+import WoodBg from "@/components/Images/WoodBg";
 
-const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
+interface MoreAttractionsProps {
+  as?: ElementType;
+  title?: string;
+  to?: string;
+  overlayColor?: string;
+}
+
+const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
+  as,
+  title,
+  to,
+  overlayColor = "blue.xdark",
+}) => {
   const breakpoints = useBreakpoint();
 
   return (
@@ -170,20 +182,6 @@ const MoreAttractionsDivider = ({ as, title, to, overlayColor }) => {
       </Container>
     </WoodBg>
   );
-};
-
-MoreAttractionsDivider.propTypes = {
-  as: PropTypes.string,
-  overlayColor: PropTypes.string,
-  title: PropTypes.string,
-  to: PropTypes.string,
-};
-
-MoreAttractionsDivider.defaultProps = {
-  as: "h1",
-  overlayColor: "blue.xdark",
-  title: "",
-  to: "",
 };
 
 export default MoreAttractionsDivider;

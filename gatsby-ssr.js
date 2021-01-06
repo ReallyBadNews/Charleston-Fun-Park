@@ -31,15 +31,3 @@ exports.wrapPageElement = ({ element }) => (
     {element}
   </>
 );
-
-const HeadComponents = [
-  <link
-    key="mapboxCss"
-    href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css"
-    rel="stylesheet"
-  />,
-];
-
-exports.onRenderBody = ({ setHeadComponents }) => {
-  setHeadComponents(HeadComponents);
-};

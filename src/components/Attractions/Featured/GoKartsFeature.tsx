@@ -1,14 +1,16 @@
 /** @jsx jsx */
-import PropTypes from "prop-types";
+
+import { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, jsx, useThemeUI } from "theme-ui";
 import { Stack } from "raam";
-import StyledLink from "../../Link.styled";
-import Arrow from "../../Images/Arrow";
-import MediaItem from "../../MediaItem";
+import StyledLink from "@/components/Link.styled";
+import Arrow from "@/components/Images/Arrow";
+import { MediaItem } from "@/components/MediaItem";
+import { FeaturedAttractionProps } from "@/src/types";
 
-const GoKartsFeature = ({ data: { node } }) => {
+const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
   const {
     goKarts: {
       childImageSharp: { fluid: goKartsBg },
@@ -37,7 +39,7 @@ const GoKartsFeature = ({ data: { node } }) => {
       <svg
         fill="white"
         height="32"
-        style={{ backgroundColor: theme.colors.background }}
+        style={{ backgroundColor: theme.colors?.background }}
         sx={{
           position: "absolute",
           zIndex: "1",
@@ -55,7 +57,7 @@ const GoKartsFeature = ({ data: { node } }) => {
             x="0"
             y="0"
           >
-            <rect fill={theme.colors.text} height="32" width="32" />
+            <rect fill={theme.colors?.text} height="32" width="32" />
           </pattern>
         </defs>
         <rect fill="url(#finishLine)" height="32" width="100%" />
@@ -67,9 +69,10 @@ const GoKartsFeature = ({ data: { node } }) => {
         }}
       >
         <MediaItem
-          isVideo={false}
           media={node.videoPoster}
+          alt={node.videoPoster.description}
           sx={{
+            bg: "tailwind.gray.800",
             width: ["full", null, null, "7/12"],
             height: ["sm", null, null, "full"],
             objectFit: "cover",
@@ -94,12 +97,13 @@ const GoKartsFeature = ({ data: { node } }) => {
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect fill={theme.colors.red.dark} height="16" width="100%" />
+            {/* @ts-ignore */}
+            <rect fill={theme.colors?.red.dark} height="16" width="100%" />
           </svg>
           <BackgroundImage
             fluid={goKartsBg}
             sx={{
-              position: "absolute !important",
+              position: ["absolute !important"],
               bg: "black.dark",
               height: "full",
               width: "full",
@@ -115,7 +119,7 @@ const GoKartsFeature = ({ data: { node } }) => {
           >
             <Arrow
               sx={{
-                position: "absolute !important",
+                position: ["absolute !important"],
                 right: ["3", null, null, "-80px"],
                 zIndex: "2",
                 width: "180px",
@@ -149,14 +153,15 @@ const GoKartsFeature = ({ data: { node } }) => {
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect fill={theme.colors.red.dark} height="16" width="100%" />
+            {/* @ts-ignore */}
+            <rect fill={theme.colors?.red.dark} height="16" width="100%" />
           </svg>
         </Box>
       </Flex>
       <svg
         fill="white"
         height="32"
-        style={{ backgroundColor: theme.colors.background }}
+        style={{ backgroundColor: theme.colors?.background }}
         sx={{
           position: "absolute",
           zIndex: "1",
@@ -174,36 +179,13 @@ const GoKartsFeature = ({ data: { node } }) => {
             x="0"
             y="0"
           >
-            <rect fill={theme.colors.text} height="32" width="32" />
+            <rect fill={theme.colors?.text} height="32" width="32" />
           </pattern>
         </defs>
         <rect fill="url(#finishLineBottom)" height="32" width="100%" />
       </svg>
     </Box>
   );
-};
-
-GoKartsFeature.propTypes = {
-  data: PropTypes.shape({
-    node: PropTypes.shape({
-      description: PropTypes.shape({
-        description: PropTypes.string,
-      }),
-      id: PropTypes.string,
-      isVideo: PropTypes.bool,
-      title: PropTypes.string,
-      videoPoster: PropTypes.shape({
-        fluid: PropTypes.shape({
-          aspectRatio: PropTypes.number,
-          sizes: PropTypes.string,
-          src: PropTypes.string,
-          srcSet: PropTypes.string,
-          srcSetWebp: PropTypes.string,
-          srcWebp: PropTypes.string,
-        }),
-      }),
-    }),
-  }).isRequired,
 };
 
 export default GoKartsFeature;
