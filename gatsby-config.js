@@ -122,6 +122,15 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-transformer-sharp",
     {
+      resolve: "@chakra-ui/gatsby-plugin",
+      options: {
+        isResettingCSS: true,
+        isUsingColorMode: true,
+        portalZIndex: 40,
+      },
+    },
+
+    {
       resolve: "gatsby-plugin-root-import",
       options: {
         "@/src": path.join(__dirname, "src"),
