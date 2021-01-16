@@ -5,7 +5,7 @@ type LinkType = {
   url: string;
 };
 
-type SiteMetadataType = {
+interface SiteMetadataType {
   googleMapsToken: string;
   title: string;
   description: string;
@@ -13,14 +13,11 @@ type SiteMetadataType = {
   siteUrl: string;
   copyright: string;
   keywords: string[];
-  phoneNumber: {
-    number: string;
-    link: string;
-  };
+  phoneNumber: LinkType;
   giftCardLink: string;
   navLinks: LinkType[];
   socialLinks: LinkType[];
-};
+}
 
 type Query = {
   site: {
@@ -43,8 +40,8 @@ export const useSiteMetadata = (): SiteMetadataType => {
           copyright
           keywords
           phoneNumber {
-            number
-            link
+            name
+            url
           }
           giftCardLink
           navLinks {

@@ -1,6 +1,7 @@
 import React from "react";
 import { ChakraProvider, CSSReset } from "@chakra-ui/react";
 import theme from "./src/@chakra-ui/gatsby-plugin/theme";
+import GlobalStyles from "./static/GlobalStyles";
 
 export const wrapPageElement = ({ element }) => {
   return (
@@ -30,6 +31,7 @@ export const wrapPageElement = ({ element }) => {
         aria-hidden
       />
       <ChakraProvider theme={theme}>
+        <GlobalStyles />
         <CSSReset />
         {element}
       </ChakraProvider>

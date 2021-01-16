@@ -1,23 +1,25 @@
 /** @jsx jsx */
 
+import { FC } from "react";
 import { Container, Divider, Text, jsx } from "theme-ui";
-import { Inline } from "raam";
+import { Stack } from "@chakra-ui/react";
 import Arrow from "@/components/Images/Arrow";
 import BrickBg from "@/components/Images/BrickBg";
 import StyledLink from "@/components/Link.styled";
-import { FC } from "react";
 
 interface ArrowDividerProps {
   id?: string;
 }
 
+// TODO: Refactor Stack to Flex & Spacer
 const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => (
   <BrickBg id={id}>
     <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
     <Container>
-      <Inline
+      <Stack
         alignItems="center"
-        gap={["2", null, "3", null, "4"]}
+        direction="row"
+        spacing={["2", null, "4", null, "6"]}
         justifyContent="center"
         py="3"
       >
@@ -39,7 +41,7 @@ const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => (
             width: ["72px", null, "24", null, "32"],
           }}
         />
-      </Inline>
+      </Stack>
     </Container>
     <Divider
       sx={{ position: "absolute", bottom: "0" }}

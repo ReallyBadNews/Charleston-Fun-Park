@@ -1,17 +1,14 @@
 import React, { memo, NamedExoticComponent } from "react";
-import { Inline, Stack } from "raam";
 import {
   Button,
   Grid,
-  Input,
   Textarea,
   Label,
   Radio as ThemeUIRadio,
   Text,
   Heading,
 } from "theme-ui";
-// import { Input } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Input, Stack } from "@chakra-ui/react";
 import {
   defaultComponents,
   FormiumComponents,
@@ -24,6 +21,7 @@ import {
 } from "@formium/react/dist/inputs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons/faTimesCircle";
+import { MotionBox } from "@/components/MotionBox";
 
 const fieldMessageVariant = {
   hide: { opacity: 0, y: -8 },
@@ -33,8 +31,8 @@ const fieldMessageVariant = {
 const FormControl: NamedExoticComponent<FormControlProps> = memo(
   function FormControl({ children, description, error, label, labelFor }) {
     return (
-      <Stack gap="2" sx={{ lineHeight: "none" }}>
-        <Stack gap="1">
+      <Stack spacing="2" sx={{ lineHeight: "none" }}>
+        <Stack spacing="1">
           {label && <Label htmlFor={labelFor}>{label}</Label>}
           {description && (
             <Text sx={{ color: "tailwind.coolGray.400", fontSize: "0" }}>
@@ -43,16 +41,22 @@ const FormControl: NamedExoticComponent<FormControlProps> = memo(
           )}
         </Stack>
         {children}
-        <motion.div
+        <MotionBox
           animate={error ? "show" : "hide"}
-          initial="hide"
+          initial="show"
           variants={fieldMessageVariant}
         >
-          <Inline gap="1" sx={{ color: "red.dark", fontSize: "0" }}>
+          <Stack
+            direction="row"
+            spacing="1"
+            alignItems="center"
+            fontSize="sm"
+            color="red.600"
+          >
             <FontAwesomeIcon icon={faTimesCircle} />
-            <Text>{error}</Text>
-          </Inline>
-        </motion.div>
+            <Text sx={{ ml: "1" }}>{error}</Text>
+          </Stack>
+        </MotionBox>
       </Stack>
     );
   }
@@ -78,7 +82,14 @@ const PageGrid = memo(function PageGrid(props) {
 const TextInput: NamedExoticComponent<TextInputProps> = memo(function TextInput(
   props
 ) {
-  return <Input {...props} />;
+  return (
+    <Input
+      borderColor="gray.400"
+      focusBorderColor="blue.400"
+      errorBorderColor="red.400"
+      {...props}
+    />
+  );
 });
 
 const TextArea: NamedExoticComponent<TextareaProps> = memo(function TextArea(

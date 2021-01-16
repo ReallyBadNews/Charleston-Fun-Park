@@ -4,7 +4,7 @@ import { FC } from "react";
 import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import BackgroundImage from "gatsby-background-image";
 import { useStaticQuery, graphql } from "gatsby";
-import { Stack } from "raam";
+import { Stack } from "@chakra-ui/react";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
 import Brick from "@/components/../images/brick.png";
@@ -107,7 +107,7 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             hoverColor="blue.light"
             to={`/attractions/${node.title.toLowerCase().replace(/\s/g, "-")}`}
           >
-            <Stack>
+            <Stack spacing="4">
               <Heading variant="heading.featuredTitle">{node.title}</Heading>
               <Text variant="body.mid">{node.description.description}</Text>
             </Stack>

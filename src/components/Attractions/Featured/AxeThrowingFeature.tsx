@@ -4,7 +4,7 @@ import { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
-import { Stack } from "raam";
+import { Stack } from "@chakra-ui/react";
 import { ChildFluidObject, Attraction } from "@/types/index";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
@@ -101,7 +101,7 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
               hoverColor="blue.light"
               to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}
             >
-              <Stack>
+              <Stack spacing="4">
                 <Heading variant="heading.featuredTitle">{title}</Heading>
                 <Text className="description" variant="body.mid">
                   {description}

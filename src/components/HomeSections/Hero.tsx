@@ -1,9 +1,10 @@
 /** @jsx jsx */
-import { jsx, Heading, Text, Container, Box } from "theme-ui";
+import { Box } from "@chakra-ui/react";
+import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
-import { useStaticQuery, graphql } from "gatsby";
-import { Stack, Flex } from "raam";
+import { Flex, Stack } from "raam";
+import { Container, Heading, jsx, Text } from "theme-ui";
 
 const Hero = (): JSX.Element => {
   const {
@@ -64,7 +65,8 @@ const Hero = (): JSX.Element => {
       }}
     >
       {isVideo ? (
-        <video
+        <Box
+          as="video"
           poster={videoPosterSrc}
           preload="none"
           sx={{
@@ -82,7 +84,7 @@ const Hero = (): JSX.Element => {
         >
           <source src={media.file.url} type={media.file.contentType} />
           <p>Video could not be found.</p>
-        </video>
+        </Box>
       ) : (
         <BackgroundImage
           fluid={media.fluid}
@@ -131,7 +133,7 @@ const Hero = (): JSX.Element => {
               }}
             >
               <Heading variant="heading.title">{subtitle}</Heading>
-              <Stack gap="3">
+              <Stack gap="3" sx={null}>
                 <Heading as="h1" variant="heading">
                   {title}
                 </Heading>

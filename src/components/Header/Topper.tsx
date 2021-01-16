@@ -2,7 +2,7 @@
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Container, Box, Button, jsx } from "theme-ui";
-import { Flex, Inline } from "raam";
+import { Stack, Link } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -74,23 +74,26 @@ const Topper = (): JSX.Element => {
         px={["3", null, null, null, "0"]}
         sx={{ position: "relative", zIndex: "100" }}
       >
-        <Flex
-          gap="5"
+        <Stack
           py="1"
+          direction="row"
+          spacing="8"
+          alignItems="center"
           justifyContent={["space-between", null, "flex-end"]}
         >
-          <Inline gap="3">
+          <Stack direction="row" spacing="4">
             <Button as="div" variant="green">
-              <a
-                href={phoneNumber.link}
+              <Link
+                as="a"
+                href={phoneNumber.url}
                 sx={{ color: "inherit", textDecoration: "none" }}
               >
                 <FontAwesomeIcon icon={faPhone} sx={{ mr: "2" }} />
-                {phoneNumber.number}
-              </a>
+                {phoneNumber.name}
+              </Link>
             </Button>
             <Button as="div" variant="cta">
-              <a
+              <Link
                 href={giftCardLink}
                 sx={{ color: "inherit", textDecoration: "none" }}
                 rel="noreferrer"
@@ -98,19 +101,19 @@ const Topper = (): JSX.Element => {
               >
                 <FontAwesomeIcon icon={faCartPlus} sx={{ mr: "2" }} />
                 Gift Cards
-              </a>
+              </Link>
             </Button>
             <Button as="div" variant="white">
-              <a
+              <Link
                 href="/group-events"
                 sx={{ color: "inherit", textDecoration: "none" }}
               >
                 <FontAwesomeIcon icon={faUsers} sx={{ mr: "2" }} />
                 Group Events
-              </a>
+              </Link>
             </Button>
-          </Inline>
-          <Inline alignItems="center" gap="4" sx={{ height: "full" }}>
+          </Stack>
+          <Stack direction="row" alignItems="center" spacing="6" height="6">
             {socialLinks.map((link) => (
               <StyledLink
                 key={link.name}
@@ -122,8 +125,8 @@ const Topper = (): JSX.Element => {
                 <FontAwesomeIcon icon={socialIcons[link.name]} />
               </StyledLink>
             ))}
-          </Inline>
-        </Flex>
+          </Stack>
+        </Stack>
       </Container>
     </BackgroundImage>
   );

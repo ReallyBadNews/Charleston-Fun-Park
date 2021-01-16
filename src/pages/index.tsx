@@ -6,7 +6,7 @@ import { jsx } from "theme-ui";
 import { PageProps } from "gatsby";
 import Hero from "@/components/HomeSections/Hero";
 import ArrowDivider from "@/components/Dividers/ArrowDivider";
-import BirthdaySection from "@/src/components/HomeSections/BirthdaySection.tsx";
+import BirthdaySection from "@/src/components/HomeSections/BirthdaySection";
 import FeaturedAttractions from "@/components/HomeSections/FeaturedAttractions";
 import MoreAttractions from "@/components/HomeSections/MoreAttractions";
 import SEO from "@/components/seo";

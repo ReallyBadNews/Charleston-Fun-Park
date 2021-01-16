@@ -115,10 +115,10 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
             px={["3", null, null, null, "0"]}
             sx={{ flex: "1 1 auto" }}
           >
-            <Stack gap="3">
+            <Stack gap="3" sx={null}>
               {heading && (
                 <Card px="3" py="4" variant="attraction">
-                  <Stack gap="3">
+                  <Stack gap="3" sx={null}>
                     <Heading as="h2" variant="heading.sectionTitle">
                       {heading}
                     </Heading>

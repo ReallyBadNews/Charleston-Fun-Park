@@ -1,54 +1,53 @@
 import React from "react";
-import { Global, css } from "@emotion/core";
-import fontFiles from "./fonts";
+import { Global } from "@emotion/react";
 
 const GlobalStyles = () => (
   <Global
-    styles={css`
+    styles={`
       @font-face {
         font-family: "Playfair Display";
-        font-display: swap;
-        src: url(${fontFiles.PlayfairDisplayBlack}) format("woff2");
+        font-display: optional;
+        src: url("./fonts/PlayfairDisplay-Black.woff2") format("woff2");
         font-weight: 900;
         font-style: normal;
       }
 
       @font-face {
         font-family: "Greycliff";
-        font-display: swap;
-        src: url(${fontFiles.GreycliffRegular}) format("woff2");
+        font-display: optional;
+        src: url("./fonts/greycliff-cf-regular.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
       }
 
       @font-face {
         font-family: "Greycliff";
-        font-display: swap;
-        src: url(${fontFiles.GreycliffMedium}) format("woff2");
+        font-display: optional;
+        src: url("./fonts/greycliff-cf-medium.woff2") format("woff2");
         font-weight: 500;
         font-style: normal;
       }
 
       @font-face {
         font-family: "Greycliff";
-        font-display: swap;
-        src: url(${fontFiles.GreycliffBold}) format("woff2");
+        font-display: optional;
+        src: url("./fonts/greycliff-cf-bold.woff2") format("woff2");
         font-weight: 700;
         font-style: normal;
       }
 
       @font-face {
         font-family: "Greycliff";
-        font-display: swap;
-        src: url(${fontFiles.GreycliffHeavy}) format("woff2");
+        font-display: optional;
+        src: url("./fonts/greycliff-cf-heavy.woff2") format("woff2");
         font-weight: 900;
         font-style: normal;
       }
 
       @font-face {
         font-family: "Neon Tubes";
-        font-display: swap;
-        src: url(${fontFiles.NeonTubes}) format("woff2");
+        font-display: optional;
+        src: url("./fonts/NeonTubes2-Regular.woff2") format("woff2");
         font-weight: 700;
         font-style: normal;
       }

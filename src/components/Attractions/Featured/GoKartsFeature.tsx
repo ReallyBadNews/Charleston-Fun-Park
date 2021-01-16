@@ -4,7 +4,7 @@ import { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, jsx, useThemeUI } from "theme-ui";
-import { Stack } from "raam";
+import { Stack } from "@chakra-ui/react";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
 import { MediaItem } from "@/components/MediaItem";
@@ -36,7 +36,9 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
         height: ["auto", null, null, "lg"],
       }}
     >
-      <svg
+      <Box
+        as="svg"
+        // @ts-ignore
         fill="white"
         height="32"
         style={{ backgroundColor: theme.colors?.background }}
@@ -61,7 +63,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           </pattern>
         </defs>
         <rect fill="url(#finishLine)" height="32" width="100%" />
-      </svg>
+      </Box>
       <Flex
         sx={{
           flexDirection: ["column", null, null, "row-reverse"],
@@ -85,7 +87,9 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             position: "relative",
           }}
         >
-          <svg
+          <Box
+            as="svg"
+            // @ts-ignore
             fill="none"
             height="16"
             sx={{
@@ -99,7 +103,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           >
             {/* @ts-ignore */}
             <rect fill={theme.colors?.red.dark} height="16" width="100%" />
-          </svg>
+          </Box>
           <BackgroundImage
             fluid={goKartsBg}
             sx={{
@@ -135,18 +139,20 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
                 .toLowerCase()
                 .replace(/\s/g, "-")}`}
             >
-              <Stack>
+              <Stack spacing="4">
                 <Heading variant="heading.featuredTitle">{node.title}</Heading>
                 <Text variant="body.mid">{node.description.description}</Text>
               </Stack>
             </StyledLink>
           </Grid>
-          <svg
+          <Box
+            as="svg"
+            // @ts-ignore
             fill="none"
             height="16"
-            sx={{
+            style={{
               position: "absolute",
-              zIndex: "1",
+              zIndex: 1,
               width: "full",
               bottom: "3rem",
             }}
@@ -155,10 +161,12 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           >
             {/* @ts-ignore */}
             <rect fill={theme.colors?.red.dark} height="16" width="100%" />
-          </svg>
+          </Box>
         </Box>
       </Flex>
-      <svg
+      <Box
+        as="svg"
+        // @ts-ignore
         fill="white"
         height="32"
         style={{ backgroundColor: theme.colors?.background }}
@@ -183,7 +191,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           </pattern>
         </defs>
         <rect fill="url(#finishLineBottom)" height="32" width="100%" />
-      </svg>
+      </Box>
     </Box>
   );
 };

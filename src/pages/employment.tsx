@@ -54,9 +54,9 @@ const JobPage: FC<JobPageProps> = ({
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           <Container px={["3", null, null, null, "0"]} py="7">
             <Card variant="image">
-              <Stack p="4" gap="3">
+              <Stack p="4" gap="3" sx={null}>
                 {success ? (
-                  <Stack gap="2">
+                  <Stack gap="2" sx={null}>
                     <Heading
                       as="h2"
                       sx={{
@@ -72,7 +72,7 @@ const JobPage: FC<JobPageProps> = ({
                   </Stack>
                 ) : (
                   <>
-                    <Stack gap="2">
+                    <Stack gap="2" sx={null}>
                       <Heading
                         as="h2"
                         sx={{

@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import React, { FC } from "react";
 import { SxProps } from "theme-ui";
 
@@ -24,6 +25,7 @@ const Video: FC<VideoProps & SxProps> = ({
     className={className}
     data-testid={dataTestId}
     poster={poster}
+    // @ts-ignore
     sx={sx}
     autoPlay
     loop
@@ -33,7 +35,7 @@ const Video: FC<VideoProps & SxProps> = ({
     {media ? (
       <source src={media.url} type={media.contentType} />
     ) : (
-      console.error("No video source")
+      <Box>No Video Source</Box>
     )}
     <p>{alt}</p>
   </video>

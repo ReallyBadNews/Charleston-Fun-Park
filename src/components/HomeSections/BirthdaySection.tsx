@@ -6,7 +6,7 @@ import Img from "gatsby-image";
 import { jsx, Container, Heading, Text, Button, Grid, Box } from "theme-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { Stack } from "raam";
+import { Stack } from "@chakra-ui/react";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import BrickBg from "@/components/Images/BrickBg";
 import { ChildFluidObject, MediaObject } from "@/src/types";
@@ -78,21 +78,21 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
           <Img fluid={baloonsImage} />
         </Box>
         <Stack
-          gap={["3", null, "4", null, "5"]}
+          spacing={["4", null, "6", null, "8"]}
           sx={{
             width: ["auto", null, "3/4"],
             ml: ["auto", null, "3"],
             mr: ["auto", null, "0"],
           }}
         >
-          <Stack gap="3">
+          <Stack spacing="4">
             <Heading sx={{ color: "yellow.light" }} variant="heading">
               {contentfulHomePageBirthdays.title}
             </Heading>
             <Text color="white.light" variant="body.mid">
               {contentfulHomePageBirthdays.description.description}
             </Text>
-            <Button as="div" variant="cta">
+            <Button as="div" sx={{ width: "auto" }} variant="cta">
               <Link
                 sx={{ color: "inherit", textDecoration: "none" }}
                 to={navLinks[2].url}

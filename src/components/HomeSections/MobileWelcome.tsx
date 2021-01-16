@@ -45,7 +45,7 @@ const MobileWelcome: FC<Props & SxProps> = ({ className, sx }) => {
     <WoodBg overlayColor="blue.light" className={className} sx={sx}>
       <Box color="white.light" px="3" py="6" sx={{ textAlign: "center" }}>
         <Heading variant="heading.smallTitle">{subtitle}</Heading>
-        <Stack gap="3">
+        <Stack gap="3" sx={null}>
           <Heading as="h1" variant="heading.title">
             {title}
           </Heading>

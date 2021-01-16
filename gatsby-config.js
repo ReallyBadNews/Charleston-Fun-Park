@@ -7,7 +7,8 @@ require("dotenv").config({
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  environment: process.env.NODE_ENV,
+  environment:
+    process.env.NODE_ENV === "development" ? "dev" : process.env.NODE_ENV,
   host: ["development", "dev"].includes(process.env.NODE_ENV)
     ? "preview.contentful.com"
     : "cdn.contentful.com",
@@ -52,8 +53,8 @@ module.exports = {
       "Mini Golf",
     ],
     phoneNumber: {
-      number: "(843) 971-1223",
-      link: "tel:843-971-1223",
+      name: "(843) 971-1223",
+      url: "tel:843-971-1223",
     },
     giftCardLink: "https://charlestonfunpark.centeredgeonline.com/retail",
     socialLinks: [

@@ -95,7 +95,7 @@ const AttractionsLayout: FC<AttractionsLayoutProps> = ({
               {contentfulAttraction.pricePoint1Price && (
                 <Box>
                   <Divider />
-                  <Flexbox gap="3" py="3">
+                  <Flexbox gap="3" py="3" sx={null}>
                     <Box
                       pr="3"
                       sx={{

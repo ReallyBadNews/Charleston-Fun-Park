@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { Flex, Grid, Heading, Text, jsx } from "theme-ui";
-import { Stack } from "raam";
+import { Stack } from "@chakra-ui/react";
 import { MediaItem } from "@/components/MediaItem";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
@@ -59,7 +59,7 @@ const OmniArenaFeature: FC<OmniFeatureProps> = ({ data: { node } }) => (
         hoverColor="blue.light"
         to={`/attractions/${node.title.toLowerCase().replace(/\s/g, "-")}`}
       >
-        <Stack>
+        <Stack spacing="4">
           <Heading variant="heading.featuredTitle">{node.title}</Heading>
           <Text variant="body.mid">{node.description.description}</Text>
         </Stack>

@@ -5,17 +5,17 @@ import React, { ElementType, FC } from "react";
 import { Container, Divider, Heading, jsx } from "theme-ui";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { Link } from "gatsby";
-import { Inline } from "raam";
 import WoodBg from "@/components/Images/WoodBg";
+import { Box, Stack } from "@chakra-ui/react";
 
-interface MoreAttractionsProps {
+interface StarDividerProps {
   as?: ElementType;
   title?: string;
   to?: string;
   overlayColor?: string;
 }
 
-const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
+const StarDivider: FC<StarDividerProps> = ({
   as,
   title,
   to,
@@ -23,19 +23,22 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
 }) => {
   const breakpoints = useBreakpoint();
 
+  // TODO: Fix alignment
   return (
     <WoodBg overlayColor={overlayColor} sx={{ bg: "blue.dark" }}>
       <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
       <Container>
-        <Inline
+        <Stack
           alignItems="center"
-          gap={["1", null, "3", null, "4"]}
+          direction="row"
+          spacing={["1", null, "2", null, "6"]}
           justifyContent="center"
           py="3"
         >
           {breakpoints.tablet ? (
             <>
-              <svg
+              <Box
+                as="svg"
                 fill="none"
                 height="33"
                 sx={{ filter: "drop-shadow( 0px 0px 4px #75E7FF)" }}
@@ -48,8 +51,9 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
                   stroke="#75E7FF"
                   strokeWidth="2"
                 />
-              </svg>
-              <svg
+              </Box>
+              <Box
+                as="svg"
                 fill="none"
                 height="33"
                 sx={{ filter: "drop-shadow( 0px 0px 4px #75E7FF)", ml: "2" }}
@@ -62,8 +66,9 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
                   stroke="#75E7FF"
                   strokeWidth="2"
                 />
-              </svg>
-              <svg
+              </Box>
+              <Box
+                as="svg"
                 fill="none"
                 height="33"
                 sx={{
@@ -80,10 +85,11 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
                   stroke="#75E7FF"
                   strokeWidth="2"
                 />
-              </svg>
+              </Box>
             </>
           ) : (
-            <svg
+            <Box
+              as="svg"
               fill="none"
               height="33"
               sx={{
@@ -99,7 +105,7 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
                 stroke="#75E7FF"
                 strokeWidth="2"
               />
-            </svg>
+            </Box>
           )}
           <Heading as={as} mx="3" variant="display">
             {to ? (
@@ -112,7 +118,8 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
           </Heading>
           {breakpoints.tablet ? (
             <>
-              <svg
+              <Box
+                as="svg"
                 fill="none"
                 height="33"
                 sx={{
@@ -129,8 +136,9 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
                   stroke="#75E7FF"
                   strokeWidth="2"
                 />
-              </svg>
-              <svg
+              </Box>
+              <Box
+                as="svg"
                 fill="none"
                 height="33"
                 sx={{ filter: "drop-shadow( 0px 0px 4px #75E7FF)", mr: "2" }}
@@ -143,8 +151,9 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
                   stroke="#75E7FF"
                   strokeWidth="2"
                 />
-              </svg>
-              <svg
+              </Box>
+              <Box
+                as="svg"
                 fill="none"
                 height="33"
                 sx={{ filter: "drop-shadow( 0px 0px 4px #75E7FF)" }}
@@ -157,10 +166,11 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
                   stroke="#75E7FF"
                   strokeWidth="2"
                 />
-              </svg>
+              </Box>
             </>
           ) : (
-            <svg
+            <Box
+              as="svg"
               fill="none"
               height="33"
               sx={{
@@ -176,12 +186,12 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
                 stroke="#75E7FF"
                 strokeWidth="2"
               />
-            </svg>
+            </Box>
           )}
-        </Inline>
+        </Stack>
       </Container>
     </WoodBg>
   );
 };
 
-export default MoreAttractionsDivider;
+export default StarDivider;

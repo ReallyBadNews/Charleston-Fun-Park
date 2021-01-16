@@ -1,13 +1,11 @@
-/** @jsx jsx */
-
 import React, { FC, ReactText } from "react";
 import CSS from "csstype";
-import { Box, Card, Divider, Heading, Text, jsx } from "theme-ui";
-import { motion } from "framer-motion";
-import { Stack, Flex } from "raam";
+// import { Box, Card, Divider, Heading, Text, jsx } from "theme-ui";
+import { Heading, Box, Divider, Text, Stack } from "@chakra-ui/react";
 import StyledLink from "@/components/Link.styled";
 import { MediaItem } from "@/components/MediaItem";
 import { MediaObject } from "@/src/types";
+import { MotionBox } from "../MotionBox";
 
 interface AttractionCardProps {
   description?: string;
@@ -34,9 +32,16 @@ const AttractionCard: FC<AttractionCardProps> = ({
   title,
   textAlign,
 }) => (
-  <motion.div whileHover={{ y: -8 }}>
+  <MotionBox whileHover={{ y: -8 }}>
     <StyledLink to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}>
-      <Card variant="attraction">
+      <Stack
+        spacing="0"
+        bg="white.light"
+        borderRadius="lg"
+        layerStyle="dropShadow"
+        color="black.dark"
+        height="full"
+      >
         <MediaItem
           alt={title}
           media={media}
@@ -50,23 +55,39 @@ const AttractionCard: FC<AttractionCardProps> = ({
             backgroundColor: "blue.dark",
           }}
         />
-        <Flex
-          flexDirection="column"
-          gap="3"
+        <Stack
+          spacing="4"
+          direction="column"
           justifyContent="space-between"
-          p="3"
-          sx={{ height: "full" }}
+          padding="4"
+          pb="6"
+          height="full"
         >
-          <Stack gap="3">
-            <Heading as="h5" sx={{ textAlign }} variant="heading.title">
+          <Stack spacing="2">
+            <Heading
+              as="h5"
+              lineHeight="none"
+              textAlign={textAlign}
+              fontFamily="body"
+              fontWeight="black"
+            >
               {title}
             </Heading>
-            {description && <Text variant="body.normal">{description}</Text>}
+            {description && (
+              <Text
+                fontSize="1"
+                lineHeight="shorter"
+                fontWeight="normal"
+                color="black"
+              >
+                {description}
+              </Text>
+            )}
           </Stack>
           {pricePoint1Price && (
             <Box>
               <Divider mb="3" />
-              <Flex gap="3">
+              <Stack spacing="4">
                 <Box
                   pr="3"
                   sx={{
@@ -74,7 +95,7 @@ const AttractionCard: FC<AttractionCardProps> = ({
                     borderRightColor: "black.border",
                   }}
                 >
-                  <Text variant="text.cardPricing">{pricePoint1Title}</Text>
+                  <Text variant="text.StackPricing">{pricePoint1Title}</Text>
                   <Text variant="text.cardPricing">
                     {`$${pricePoint1Price}`}
                     <span> / </span>
@@ -91,13 +112,13 @@ const AttractionCard: FC<AttractionCardProps> = ({
                     </Text>
                   </Box>
                 )}
-              </Flex>
+              </Stack>
             </Box>
           )}
-        </Flex>
-      </Card>
+        </Stack>
+      </Stack>
     </StyledLink>
-  </motion.div>
+  </MotionBox>
 );
 
 export default AttractionCard;

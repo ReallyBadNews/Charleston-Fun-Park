@@ -14,7 +14,7 @@
     },
     "target": "esnext",
     "module": "commonjs",
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "es2019"],
     // "allowJs": true,
     // "checkJs": true,
     "jsx": "react",

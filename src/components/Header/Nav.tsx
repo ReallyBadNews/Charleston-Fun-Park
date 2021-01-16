@@ -6,7 +6,7 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Container, jsx } from "theme-ui";
-import { Flex, Inline, Stack } from "raam";
+import { Stack } from "@chakra-ui/react/";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -100,13 +100,14 @@ const Nav = (): JSX.Element => {
         px={["3", null, null, null, "0"]}
         sx={{ position: "relative" }}
       >
-        <Flex
-          alignItems="center"
+        <Stack
           className="nav"
+          direction="row"
+          alignItems="center"
           justifyContent="space-between"
-          sx={{ height: "24" }}
+          height="24"
         >
-          <Inline gap={["1", null, "3"]}>
+          <Stack direction="row" alignItems="center" spacing={["1", null, "4"]}>
             <Link to="/">
               <Img
                 alt="Charleston Fun Park"
@@ -134,22 +135,29 @@ const Nav = (): JSX.Element => {
                 transform: "rotateZ(180deg)",
               }}
             />
-          </Inline>
-          <Inline
+          </Stack>
+          <Stack
             as="nav"
+            direction="row"
+            alignItems="center"
             color="white.light"
-            gap={["3", null, null, null, "5"]}
+            spacing={["4", null, null, null, "6"]}
           >
             {breakpoints.desktop &&
               navLinks.slice(1, 4).map((link) => (
-                <Inline
+                <Stack
                   key={link.name}
-                  gap={["1", null, null, null, "2"]}
+                  direction="row"
+                  alignItems="center"
+                  spacing={["1", null, null, null, "2"]}
                   sx={{ display: ["none", null, null, "flex"] }}
                 >
                   <FontAwesomeIcon
                     icon={menuIcons[link.name]}
-                    sx={{ fontSize: ["2", null, null, "3"] }}
+                    sx={{
+                      fontSize: ["2", null, null, "3"],
+                      color: "white.light",
+                    }}
                   />
                   <StyledLink
                     key={link.name}
@@ -164,16 +172,16 @@ const Nav = (): JSX.Element => {
                   >
                     {link.name}
                   </StyledLink>
-                </Inline>
+                </Stack>
               ))}
             <FontAwesomeIcon
               icon={menuOpen ? faTimes : faBars}
-              sx={{ cursor: "pointer", fontSize: "5" }}
+              sx={{ cursor: "pointer", fontSize: "5", color: "white.light" }}
               fixedWidth
               onClick={burgerHandler}
             />
-          </Inline>
-        </Flex>
+          </Stack>
+        </Stack>
         {menuOpen && (
           <Box
             as="nav"
@@ -188,7 +196,7 @@ const Nav = (): JSX.Element => {
               textAlign: "right",
             }}
           >
-            <Stack gap="3">
+            <Stack spacing="4">
               {navLinks.slice(!breakpoints.desktop ? 0 : 4).map((link) => (
                 <StyledLink
                   key={link.name}

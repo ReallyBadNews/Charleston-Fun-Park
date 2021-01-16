@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Box, Button } from "theme-ui";
+import { jsx, Box, Button, Link } from "theme-ui";
 import Arrow from "./Images/Arrow";
 import { FC } from "react";
 
@@ -25,14 +25,15 @@ const ArrowButton: FC<ArrowButtonProps> = ({ children, href }) => (
       }}
     />
     <Button as="div" variant="bookNow">
-      <a
+      <Link
+        as="a"
         sx={{ color: "inherit", textDecoration: "none" }}
         href={href}
         target="_blank"
         rel="noreferrer"
       >
         {children}
-      </a>
+      </Link>
     </Button>
     <Arrow
       sx={{

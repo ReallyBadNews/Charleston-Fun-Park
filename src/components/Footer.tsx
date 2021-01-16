@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { Box, Container, Text, jsx } from "theme-ui";
-import { Flex, Stack } from "raam";
+import { Stack } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -29,8 +29,12 @@ const Footer = (): JSX.Element => {
       py="7"
     >
       <Container>
-        <Stack gap="5">
-          <Flex gap="5" justifyContent="center">
+        <Stack spacing="6">
+          <Stack
+            spacing={["6", null, "8"]}
+            direction="row"
+            justifyContent="center"
+          >
             {socialLinks.map((link) => (
               <StyledLink
                 key={link.name}
@@ -43,10 +47,11 @@ const Footer = (): JSX.Element => {
                 <FontAwesomeIcon icon={socialIcons[link.name]} />
               </StyledLink>
             ))}
-          </Flex>
-          <Flex
+          </Stack>
+          <Stack
+            direction="row"
             flexWrap="wrap"
-            gap={["3", null, null, "5"]}
+            spacing={["6", null, null, "8"]}
             justifyContent="center"
           >
             {navLinks.map((link) => (
@@ -64,7 +69,7 @@ const Footer = (): JSX.Element => {
                 {link.name}
               </StyledLink>
             ))}
-          </Flex>
+          </Stack>
           <Text sx={{ textAlign: "center" }} variant="body.normal">
             {copyright}
           </Text>

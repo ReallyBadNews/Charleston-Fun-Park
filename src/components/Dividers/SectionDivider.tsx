@@ -46,7 +46,9 @@ const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => {
     >
       {stars && (
         <>
-          <svg
+          <Box
+            as="svg"
+            // @ts-ignore
             fill="none"
             height="40"
             sx={{
@@ -82,8 +84,10 @@ const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => {
               </pattern>
             </defs>
             <rect fill="url(#Pattern2)" height="40" width="100%" />
-          </svg>
-          <svg
+          </Box>
+          <Box
+            as="svg"
+            // @ts-ignore
             fill="none"
             height="40"
             sx={{
@@ -112,7 +116,7 @@ const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => {
               </pattern>
             </defs>
             <rect fill="url(#Pattern3)" height="40" width="100%" />
-          </svg>
+          </Box>
         </>
       )}
       <Box

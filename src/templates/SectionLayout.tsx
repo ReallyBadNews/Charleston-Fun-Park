@@ -71,8 +71,8 @@ const SectionLayout: FC<SectionLayoutProps & CommonProps> = ({
         ) : null}
         <Container px={["3", null, null, null, "0"]} py="7">
           <Card variant="image">
-            <Stack p="4" gap="5">
-              <Stack gap="2">
+            <Stack sx={{ p: "4" }} gap="5">
+              <Stack sx={null} gap="2">
                 <Heading
                   as="h2"
                   sx={{
