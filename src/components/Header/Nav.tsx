@@ -120,7 +120,6 @@ const Nav = (): JSX.Element => {
                 }}
               />
             </Link>
-
             <Img
               fluid={funLogo}
               sx={{
@@ -141,28 +140,31 @@ const Nav = (): JSX.Element => {
             color="white.light"
             gap={["3", null, null, null, "5"]}
           >
-            {breakpoints.desktop &&
-              navLinks.slice(1, 4).map((link) => (
-                <Inline key={link.name} gap={["1", null, null, null, "2"]}>
-                  <FontAwesomeIcon
-                    icon={menuIcons[link.name]}
-                    sx={{ fontSize: ["2", null, null, "3"] }}
-                  />
-                  <StyledLink
-                    key={link.name}
-                    color="white.light"
-                    fontSize={["1", null, null, null, "2"]}
-                    fontWeight="bold"
-                    letterSpacing="wide"
-                    textDecoration="none"
-                    textTransform="uppercase"
-                    to={link.url}
-                    onClick={menuOpen ? burgerHandler : null}
-                  >
-                    {link.name}
-                  </StyledLink>
-                </Inline>
-              ))}
+            {navLinks.slice(1, 4).map((link) => (
+              <Inline
+                key={link.name}
+                gap={["1", null, null, null, "2"]}
+                sx={{ display: ["none", null, null, "flex"] }}
+              >
+                <FontAwesomeIcon
+                  icon={menuIcons[link.name]}
+                  sx={{ fontSize: ["2", null, null, "3"] }}
+                />
+                <StyledLink
+                  key={link.name}
+                  color="white.light"
+                  fontSize={["1", null, null, null, "2"]}
+                  fontWeight="bold"
+                  letterSpacing="wide"
+                  textDecoration="none"
+                  textTransform="uppercase"
+                  to={link.url}
+                  onClick={menuOpen ? burgerHandler : null}
+                >
+                  {link.name}
+                </StyledLink>
+              </Inline>
+            ))}
             <FontAwesomeIcon
               icon={menuOpen ? faTimes : faBars}
               sx={{ cursor: "pointer", fontSize: "5" }}

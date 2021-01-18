@@ -55,33 +55,46 @@ const JobPage: FC<JobPageProps> = ({
           <Container px={["3", null, null, null, "0"]} py="7">
             <Card variant="image">
               <Stack p="4" gap="3">
-                <Stack gap="2">
-                  <Heading
-                    as="h2"
-                    sx={{
-                      fontFamily: "body",
-                      fontSize: ["4", null, "7"],
-                    }}
-                  >
-                    {title}
-                  </Heading>
-                  <MDXRenderer>{content}</MDXRenderer>
-                </Stack>
                 {success ? (
-                  <Text variant="body.mid">
-                    Your application was successfully submitted. Thank you!
-                  </Text>
+                  <Stack gap="2">
+                    <Heading
+                      as="h2"
+                      sx={{
+                        fontFamily: "body",
+                        fontSize: ["4", null, "7"],
+                      }}
+                    >
+                      {title}
+                    </Heading>
+                    <Text variant="body.mid">
+                      Your application was successfly submitted. Thank you!
+                    </Text>
+                  </Stack>
                 ) : (
-                  <FormiumForm
-                    data={formiumForm}
-                    components={formComponents}
-                    onSubmit={async (values) => {
-                      // Send form values to Formium
-                      await formium.submitForm("job-application", values);
-                      window.scrollTo(0, 0);
-                      setSuccess(true);
-                    }}
-                  />
+                  <>
+                    <Stack gap="2">
+                      <Heading
+                        as="h2"
+                        sx={{
+                          fontFamily: "body",
+                          fontSize: ["4", null, "7"],
+                        }}
+                      >
+                        {title}
+                      </Heading>
+                      <MDXRenderer>{content}</MDXRenderer>
+                    </Stack>
+                    <FormiumForm
+                      data={formiumForm}
+                      components={formComponents}
+                      onSubmit={async (values) => {
+                        // Send form values to Formium
+                        await formium.submitForm("job-application", values);
+                        window.scrollTo(0, 0);
+                        setSuccess(true);
+                      }}
+                    />
+                  </>
                 )}
               </Stack>
             </Card>
