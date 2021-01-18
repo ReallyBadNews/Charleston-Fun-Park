@@ -2,7 +2,7 @@
   "name": "charleston-fun-park",
   "description": "Charleston Fun Park",
   "private": false,
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": "Kenny Elshoff <me@kennyelshoff.com>",
   "bugs": {
     "url": "https://github.com/reallybadnews/charleston-fun-park/issues"
@@ -36,7 +36,7 @@
     "gatsby-plugin-typescript": "^2.10.0",
     "gatsby-remark-images-contentful": "^2.8.0",
     "gatsby-source-contentful": "^4.4.0",
-    "gatsby-source-filesystem": "^2.9.0",
+    "gatsby-source-filesystem": "^2.9.1",
     "gatsby-source-formium": "^0.1.1",
     "gatsby-transformer-sharp": "^2.10.0",
     "google-map-react": "^2.1.9",
