@@ -7662,10 +7662,10 @@ gatsby-remark-images-contentful@^2.8.0:
     sharp "^0.27.0"
     unist-util-select "^1.5.0"
 
-gatsby-source-contentful@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-contentful/-/gatsby-source-contentful-4.4.0.tgz#ef49a205e41b631e1fa3fb660eb3bdbe88a226fe"
-  integrity sha512-wHl9PCCm0CagtFdipdMxU8wSS1lnqZz+I73rCK+SV8qlOCYrLfBOS8RHe44NYb70qOsM1XSym0MCa1itwVw4ew==
+gatsby-source-contentful@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-contentful/-/gatsby-source-contentful-4.4.1.tgz#a03d2d3142bc9ec321b2337c2343004aea30a158"
+  integrity sha512-WTlwwj/qSN7sQUPyP3Wkov3WwvQ33auIQxBQf/i1ZyYvuzYYVy3xS9eQRgHAESd81LebttVDwp/4kZT6K8BumQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@contentful/rich-text-react-renderer" "^14.1.2"
@@ -7679,7 +7679,7 @@ gatsby-source-contentful@^4.4.0:
     fs-extra "^9.0.1"
     gatsby-core-utils "^1.8.0"
     gatsby-plugin-utils "^0.7.0"
-    gatsby-source-filesystem "^2.9.0"
+    gatsby-source-filesystem "^2.9.1"
     is-online "^8.5.1"
     json-stringify-safe "^5.0.1"
     lodash "^4.17.20"
@@ -7687,10 +7687,10 @@ gatsby-source-contentful@^4.4.0:
     progress "^2.0.3"
     qs "^6.9.4"
 
-gatsby-source-filesystem@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.9.0.tgz#df89799456dc7edc22c36ea6cc3060e25287bb48"
-  integrity sha512-aKsb5GnnYwhAzCJZ9ChMWZqd1QhN6VGCEX3UAM/XuG6LSoqLmWyPUXo687n2ULpNPZfwb0X+HZRYzUhkje1UZA==
+gatsby-source-filesystem@^2.9.0, gatsby-source-filesystem@^2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.9.1.tgz#25d603739d0ee818a72391f7711c3a6a0385c05e"
+  integrity sha512-irXzH0EK3Y+jSwzhpnxG02fzvXBfkFFsT7tvv5Gp3CosPNX5LWz14PiKYFlylPC0rj2Q/zR7sgHVvkIeqgs3vA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     better-queue "^3.8.10"
