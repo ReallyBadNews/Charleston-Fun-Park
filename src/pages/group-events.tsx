@@ -93,7 +93,7 @@ const JobPage: FC<JobPageProps> = ({
                     components={formComponents}
                     onSubmit={async (values) => {
                       // Send form values to Formium
-                      await formium.submitForm("job-application", values);
+                      await formium.submitForm("event-request", values);
                       setSuccess(true);
                     }}
                   />

@@ -113,10 +113,10 @@ module.exports = {
   flags: {
     // FAST_DEV: true,
     DEV_SSR: true,
-    QUERY_ON_DEMAND: true,
-    LAZY_IMAGES: true,
     FAST_REFRESH: true,
     PARALLEL_SOURCING: true,
+    PRESERVE_WEBPACK_CACHE: false,
+    PRESERVE_FILE_DOWNLOAD_CACHE: false,
   },
   plugins: [
     "gatsby-plugin-fontawesome-css",
