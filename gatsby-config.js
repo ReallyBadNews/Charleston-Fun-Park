@@ -111,12 +111,7 @@ module.exports = {
   },
   pathPrefix: "/charleston-fun-park",
   flags: {
-    // FAST_DEV: true,
-    DEV_SSR: true,
-    FAST_REFRESH: true,
-    PARALLEL_SOURCING: true,
-    PRESERVE_WEBPACK_CACHE: false,
-    PRESERVE_FILE_DOWNLOAD_CACHE: false,
+    FAST_DEV: true,
   },
   plugins: [
     "gatsby-plugin-fontawesome-css",
