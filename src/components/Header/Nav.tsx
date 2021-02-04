@@ -112,8 +112,8 @@ const Nav = (): JSX.Element => {
                 alt="Charleston Fun Park"
                 fluid={headerLogo}
                 sx={{
-                  width: ["122px", null, null, "172px", "261px"],
-                  height: ["94px", null, null, "132px", "200px"],
+                  width: ["96px", null, null, "172px", "261px"],
+                  height: ["74px", null, null, "132px", "200px"],
                   position: "relative",
                   zIndex: "100",
                   mt: ["0", null, null, null, "5"],
@@ -140,31 +140,32 @@ const Nav = (): JSX.Element => {
             color="white.light"
             gap={["3", null, null, null, "5"]}
           >
-            {navLinks.slice(1, 4).map((link) => (
-              <Inline
-                key={link.name}
-                gap={["1", null, null, null, "2"]}
-                sx={{ display: ["none", null, null, "flex"] }}
-              >
-                <FontAwesomeIcon
-                  icon={menuIcons[link.name]}
-                  sx={{ fontSize: ["2", null, null, "3"] }}
-                />
-                <StyledLink
+            {breakpoints.desktop &&
+              navLinks.slice(1, 4).map((link) => (
+                <Inline
                   key={link.name}
-                  color="white.light"
-                  fontSize={["1", null, null, null, "2"]}
-                  fontWeight="bold"
-                  letterSpacing="wide"
-                  textDecoration="none"
-                  textTransform="uppercase"
-                  to={link.url}
-                  onClick={menuOpen ? burgerHandler : null}
+                  gap={["1", null, null, null, "2"]}
+                  sx={{ display: ["none", null, null, "flex"] }}
                 >
-                  {link.name}
-                </StyledLink>
-              </Inline>
-            ))}
+                  <FontAwesomeIcon
+                    icon={menuIcons[link.name]}
+                    sx={{ fontSize: ["2", null, null, "3"] }}
+                  />
+                  <StyledLink
+                    key={link.name}
+                    color="white.light"
+                    fontSize={["1", null, null, null, "2"]}
+                    fontWeight="bold"
+                    letterSpacing="wide"
+                    textDecoration="none"
+                    textTransform="uppercase"
+                    to={link.url}
+                    onClick={menuOpen ? burgerHandler : null}
+                  >
+                    {link.name}
+                  </StyledLink>
+                </Inline>
+              ))}
             <FontAwesomeIcon
               icon={menuOpen ? faTimes : faBars}
               sx={{ cursor: "pointer", fontSize: "5" }}
