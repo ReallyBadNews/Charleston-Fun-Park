@@ -3251,10 +3251,10 @@ axios@^0.20.0:
   dependencies:
     follow-redirects "^1.10.0"
 
-axios@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"
-  integrity sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
+axios@^0.21.0, axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
     follow-redirects "^1.10.0"
 
@@ -7674,13 +7674,13 @@ gatsby-recipes@^0.7.1:
     xstate "^4.9.1"
     yoga-layout-prebuilt "^1.9.6"
 
-gatsby-remark-images-contentful@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-images-contentful/-/gatsby-remark-images-contentful-2.8.0.tgz#0c7a711a80665b9baa9ef3cdb088392481d480d2"
-  integrity sha512-aQldF1eYPD77J/b6TH3U2iku2RTxAuISV/K/4sxjyaZ9NN95ZFstnM8NZS1l9Xh/d+JkjR24fRnlO6/rzCjlcQ==
+gatsby-remark-images-contentful@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-images-contentful/-/gatsby-remark-images-contentful-2.10.0.tgz#5f858a084f138ead827cfa671880207ab752ef25"
+  integrity sha512-vgmhCjMm7znaj1GFz6aY4OZ0Npj3Zvn3pnksm6HY/8Iw547IEMu3n0yL3y1e6jzalj2HnM7284mvok62937G0A==
   dependencies:
     "@babel/runtime" "^7.12.5"
-    axios "^0.21.0"
+    axios "^0.21.1"
     chalk "^4.1.0"
     cheerio "^1.0.0-rc.3"
     is-relative-url "^3.0.0"
