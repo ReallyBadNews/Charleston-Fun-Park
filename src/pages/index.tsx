@@ -8,7 +8,6 @@ import Hero from "@/components/HomeSections/Hero";
 import ArrowDivider from "@/components/Dividers/ArrowDivider";
 import BirthdaySection from "@/src/components/HomeSections/BirthdaySection.tsx";
 import FeaturedAttractions from "@/components/HomeSections/FeaturedAttractions";
-import SectionDivider from "@/components/Dividers/SectionDivider";
 import MoreAttractions from "@/components/HomeSections/MoreAttractions";
 import SEO from "@/components/seo";
 import MobileWelcome from "@/components/HomeSections/MobileWelcome";
@@ -21,9 +20,8 @@ const IndexPage: FC<PageProps> = ({ location: { pathname } }) => (
     <ArrowDivider />
     <MobileWelcome sx={{ display: ["block", null, "none"] }} />
     <BirthdaySection id="birthdays" />
-    <SectionDivider bg="green.light" />
-    <FeaturedAttractions />
     <EventsSection />
+    <FeaturedAttractions />
     <MoreAttractions />
   </>
 );

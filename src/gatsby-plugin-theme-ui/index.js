@@ -242,6 +242,11 @@ export default {
       color: "green.xdark",
       backgroundColor: "white.light",
     },
+    green: {
+      variant: "buttons.white",
+      color: "white.light",
+      backgroundColor: "green.xdark",
+    },
     mini: {
       white: {
         fontSize: "1",

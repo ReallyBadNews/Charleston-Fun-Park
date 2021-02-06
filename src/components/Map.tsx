@@ -36,11 +36,11 @@ const Icon: FC<IconProps> = ({ lat, lng }) => {
 };
 
 const GoogleMap: FC<MapProps> = ({ height, width }) => {
+  const { googleMapsToken } = useSiteMetadata();
+
   if (typeof window === "undefined") {
     return <Box sx={{ height, width, bg: "blue.mid" }} />;
   }
-
-  const { googleMapsToken } = useSiteMetadata();
 
   return (
     <div style={{ height, width }}>

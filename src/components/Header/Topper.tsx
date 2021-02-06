@@ -9,7 +9,11 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faCartPlus, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartPlus,
+  faPhone,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import StyledLink from "@/components/Link.styled";
 import { ChildFluidObject } from "@/src/types";
@@ -76,6 +80,15 @@ const Topper = (): JSX.Element => {
           justifyContent={["space-between", null, "flex-end"]}
         >
           <Inline gap="3">
+            <Button as="div" variant="green">
+              <a
+                href={phoneNumber.link}
+                sx={{ color: "inherit", textDecoration: "none" }}
+              >
+                <FontAwesomeIcon icon={faPhone} sx={{ mr: "2" }} />
+                {phoneNumber.number}
+              </a>
+            </Button>
             <Button as="div" variant="cta">
               <a
                 href={giftCardLink}
@@ -89,11 +102,11 @@ const Topper = (): JSX.Element => {
             </Button>
             <Button as="div" variant="white">
               <a
-                href={phoneNumber.link}
+                href="/group-events"
                 sx={{ color: "inherit", textDecoration: "none" }}
               >
-                <FontAwesomeIcon icon={faPhone} sx={{ mr: "2" }} />
-                {phoneNumber.number}
+                <FontAwesomeIcon icon={faUsers} sx={{ mr: "2" }} />
+                Group Events
               </a>
             </Button>
           </Inline>
