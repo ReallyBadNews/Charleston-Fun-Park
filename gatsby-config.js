@@ -88,6 +88,10 @@ module.exports = {
         url: "/park-info/",
       },
       {
+        name: "Side Sessions",
+        url: "/side-sessions/",
+      },
+      {
         name: "Group Events",
         url: "/group-events/",
       },

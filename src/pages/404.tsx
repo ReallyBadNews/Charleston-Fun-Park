@@ -1,6 +1,7 @@
 import { PageProps } from "gatsby";
 import React, { FC } from "react";
-import { Container, Heading, Text } from "theme-ui";
+import { Container, Heading, Text, Box, Card, Grid, Flex } from "theme-ui";
+import StarDivider from "@/components/Dividers/StarDivider";
 import StyledLink from "@/components/Link.styled";
 import SEO from "@/components/seo";
 
@@ -11,13 +12,28 @@ const NotFoundPage: FC<PageProps> = ({ location: { pathname } }) => (
       description="404 | Page Not Found"
       pathname={pathname}
     />
-    <Container py="6">
-      <Heading variant="caps">Not Found</Heading>
-      <Text mt="4" variant="body.normal">
-        <span>Did you take a wrong turn? </span>
-        <StyledLink to="/">Go back home</StyledLink>
-      </Text>
-    </Container>
+    <StarDivider title="Page Not Found" />
+    <Flex
+      sx={{
+        flexDirection: "column",
+        minHeight: "screenHeight",
+        bg: "blue.dark",
+      }}
+    >
+      <Container px={["3", null, null, null, "0"]} py="7">
+        <Grid columns="1fr" variant="attractionsPage">
+          <Card variant="image">
+            <Box p="4">
+              <Heading variant="heading.title">Not Found</Heading>
+              <Text mt="3" variant="body.normal">
+                <span>Did you take a wrong turn? </span>
+                <StyledLink to="/">Go back home</StyledLink>
+              </Text>
+            </Box>
+          </Card>
+        </Grid>
+      </Container>
+    </Flex>
   </>
 );
 
