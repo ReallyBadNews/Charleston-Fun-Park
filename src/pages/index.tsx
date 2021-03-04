@@ -43,21 +43,34 @@ const IndexPage: FC<PageProps> = ({ location: { pathname } }) => {
 
   return (
     <>
-      <SEO pathname={pathname} title="Home" description="REPLACE ME" />
+      <SEO pathname={pathname} title="Home" description="Charleston Fun Park" />
       <Hero />
       <WoodBg overlayColor="tailwind.orange.300">
         <Container color="white.light" px="3" py="6">
-          <Card variant="event">
+          <Card variant="event" sx={{ bg: "tailwind.orange.50" }}>
             <Img
               alt="Side Sessions at the Charleston Fun Park"
               fluid={sideSessions}
             />
             <Box p="4">
               <Stack gap="3">
-                <Heading>Live Music</Heading>
+                <Heading variant="heading.largeTitle">Thursdays: 6-9pm</Heading>
+                <Heading variant="heading.smallTitle">
+                  Starting March 11
+                </Heading>
                 <Text variant="body.mid">
-                  Live music, drink specials, food trucks, axe throwing, and a
-                  fun park!
+                  SIDE SESSION ARE BACK AT THE CHARLESTON FUN PARK!
+                </Text>
+                <Text variant="body.mid">
+                  Live music every week, a rotating line-up of the areas most
+                  sought after food trucks (including some sweets trucks!).
+                  Incredible drink specials... if you&apos;re into that sort of
+                  thing. An Axe Throwing competition with prizes that anyone can
+                  get involved in. Plus there&apos;s the rest of the fun park to
+                  play in!! Hangout, relax and listen to some music while your
+                  kids have fun and when you&apos;re hungry the food trucks have
+                  you covered. For more info including the latest lineup of
+                  musicians and food trucks
                 </Text>
                 <Text variant="body.mid">
                   Every Thursday starting March 11, from 6-9pm
