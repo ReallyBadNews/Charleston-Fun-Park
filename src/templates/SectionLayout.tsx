@@ -59,7 +59,7 @@ const SectionLayout: FC<SectionLayoutProps & CommonProps> = ({
         {media ? (
           <MediaItem
             media={media}
-            alt="REPLACE_ME"
+            alt={description}
             sx={{
               bg: "blue.dark",
               maxHeight: "xl",
