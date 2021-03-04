@@ -65,7 +65,7 @@ const IndexPage: FC<PageProps> = ({ location: { pathname } }) => {
                 <Button as="div" variant="cta">
                   <Link
                     sx={{ color: "inherit", textDecoration: "none" }}
-                    to="/"
+                    to="/side-sessions/"
                   >
                     Get More Info
                     <FontAwesomeIcon icon={faArrowRight} sx={{ ml: "2" }} />

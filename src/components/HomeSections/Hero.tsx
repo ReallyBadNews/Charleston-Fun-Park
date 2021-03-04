@@ -55,11 +55,11 @@ const Hero = (): JSX.Element => {
       sx={{
         position: "relative",
         height: [
-          "calc(100vh - 147px - 80px)",
-          "calc(100vh - 147px - 96px)",
-          "calc(100vh - 147px - 76px)",
-          "calc(100vh - 147px - 96px)",
-          "calc(100vh - 147px - 104px)",
+          "calc((100vh - 147px) - 80px)",
+          "calc((100vh - 147px) - 256px)",
+          "calc((100vh - 147px) - 256px)",
+          "calc((100vh - 147px) - 256px)",
+          "calc((100vh - 147px) - 256px)",
         ],
       }}
     >
