@@ -120,7 +120,22 @@ const SEO: FC<SeoProps> = ({
       script={[popupScript(pathname)]}
       title={title}
       titleTemplate={`%s | ${siteTitle}`}
-    />
+    >
+      <script
+        src="https://js.adsrvr.org/up_loader.1.1.0.js"
+        type="text/javascript"
+      ></script>
+      <script type="text/javascript">
+        {`
+          ttd_dom_ready( function() {
+            if (typeof TTDUniversalPixelApi === 'function') {
+              var universalPixelApi = new TTDUniversalPixelApi();
+              universalPixelApi.init("l7kvmjg", ["tf6ilo9"], "https://insight.adsrvr.org/track/up");
+            }
+          });
+        `}
+      </script>
+    </Helmet>
   );
 };
 
