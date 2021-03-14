@@ -9,7 +9,7 @@ import Hero from "@/components/HomeSections/Hero";
 import MobileWelcome from "@/components/HomeSections/MobileWelcome";
 import MoreAttractions from "@/components/HomeSections/MoreAttractions";
 import SEO from "@/components/seo";
-import BirthdaySection from "@/src/components/HomeSections/BirthdaySection.tsx";
+import BirthdaySection from "@/src/components/HomeSections/BirthdaySection";
 import { Link, graphql, PageProps, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { Stack } from "raam";

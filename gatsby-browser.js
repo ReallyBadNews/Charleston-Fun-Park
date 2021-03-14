@@ -2,8 +2,9 @@
 
 const React = require("react");
 
-exports.wrapPageElement = ({ element }) => (
+export const wrapRootElement = ({ element }) => (
   <>
+    {element}
     <img
       src="https://tags.w55c.net/rs?id=0f94f5ee47224e9085965cb413903a1d&t=marketing"
       style={{
@@ -28,6 +29,5 @@ exports.wrapPageElement = ({ element }) => (
       alt="tracking pixel"
       aria-hidden
     />
-    {element}
   </>
 );
