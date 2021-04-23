@@ -1,9 +1,7 @@
 /** @jsx jsx */
-import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
-import { Container, Box, Button, jsx } from "theme-ui";
-import { Flex, Inline } from "raam";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import StyledLink from "@/components/Link.styled";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import { ChildFluidObject } from "@/src/types";
 import {
   faFacebook,
   faInstagram,
@@ -11,12 +9,14 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faCartPlus,
+  faGolfBall,
   faPhone,
-  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import StyledLink from "@/components/Link.styled";
-import { ChildFluidObject } from "@/src/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { graphql, useStaticQuery } from "gatsby";
+import BackgroundImage from "gatsby-background-image";
+import { Flex, Inline } from "raam";
+import { Box, Button, Container, jsx } from "theme-ui";
 
 interface Query {
   grassBg: ChildFluidObject;
@@ -102,11 +102,11 @@ const Topper = (): JSX.Element => {
             </Button>
             <Button as="div" variant="white">
               <a
-                href="/group-events"
+                href="/fun-putt-open"
                 sx={{ color: "inherit", textDecoration: "none" }}
               >
-                <FontAwesomeIcon icon={faUsers} sx={{ mr: "2" }} />
-                Group Events
+                <FontAwesomeIcon icon={faGolfBall} sx={{ mr: "2" }} />
+                Fun Putt Open
               </a>
             </Button>
           </Inline>
