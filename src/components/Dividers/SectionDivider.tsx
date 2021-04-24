@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { Box, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { ChildFluidObject } from "@/src/types";
+import { ChildFluidObject } from "@/types/types";
 
 interface SectionDividerProps {
   bg?: string;

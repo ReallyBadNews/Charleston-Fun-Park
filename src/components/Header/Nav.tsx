@@ -18,7 +18,7 @@ import {
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
-import { ChildFluidObject } from "@/src/types";
+import { ChildFluidObject } from "@/types/types";
 
 interface ImageProps {
   logo: ChildFluidObject;

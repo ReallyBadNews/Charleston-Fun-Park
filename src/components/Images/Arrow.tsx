@@ -4,7 +4,7 @@ import { FC } from "react";
 import { jsx, SxProps } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
-import { ChildFluidObject } from "@/src/types";
+import { ChildFluidObject } from "@/types/types";
 
 interface Query {
   arrow: ChildFluidObject;

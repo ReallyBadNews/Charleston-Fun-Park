@@ -9,7 +9,7 @@ import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
 import Brick from "@/components/../images/brick.png";
 import { MediaItem } from "@/components/MediaItem";
-import { ChildFluidObject, FeaturedAttractionProps } from "@/src/types";
+import { ChildFluidObject, FeaturedAttractionProps } from "@/types/types";
 
 interface Query {
   grass: ChildFluidObject;

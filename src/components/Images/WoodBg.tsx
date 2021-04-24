@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, jsx, SxProps } from "theme-ui";
 import { FC } from "react";
-import { ChildFluidObject } from "@/src/types";
+import { ChildFluidObject } from "@/types/types";
 
 type WoodBgProps = {
   overlayColor?: string;

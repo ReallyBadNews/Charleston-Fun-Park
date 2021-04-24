@@ -10,7 +10,7 @@ import WoodBg from "@/components/Images/WoodBg";
 import StarDivider from "@/components/Dividers/StarDivider";
 import { MediaItem } from "@/components/MediaItem";
 import { Stack } from "raam";
-import { MediaObject } from "@/types/index";
+import { MediaObject } from "@/types/types";
 
 type CommonProps = {
   description?: string;

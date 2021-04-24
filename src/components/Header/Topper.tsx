@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import StyledLink from "@/components/Link.styled";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import { ChildFluidObject } from "@/src/types";
+import { ChildFluidObject } from "@/types/types";
 import {
   faFacebook,
   faInstagram,

@@ -10,7 +10,7 @@ import { Stack } from "raam";
 import SEO from "@/components/seo";
 import WoodBg from "@/components/Images/WoodBg";
 import StarDivider from "@/components/Dividers/StarDivider";
-import { MediaObject } from "@/types/index";
+import { MediaObject } from "@/types/types";
 
 interface BirthdayPageProps extends PageProps {
   data: {

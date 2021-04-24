@@ -5,10 +5,10 @@ import React, { FC } from "react";
 import { jsx, SxProps } from "theme-ui";
 import Img from "gatsby-image";
 import Video from "./Video";
-import { MediaObject } from "../types";
+import { MediaObject } from "@/types/types";
 
 interface CommonProps {
-  alt: string;
+  alt?: string;
   dataTestId?: string;
   className?: string;
 }

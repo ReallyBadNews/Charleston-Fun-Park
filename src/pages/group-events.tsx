@@ -9,8 +9,8 @@ import { formComponents } from "@/components/Forms/FormiumComponents";
 import SEO from "@/components/seo";
 import StarDivider from "@/components/Dividers/StarDivider";
 import WoodBg from "@/components/Images/WoodBg";
-import { MediaItem } from "../components/MediaItem";
-import { MediaObject } from "../types";
+import { MediaItem } from "@/components/MediaItem";
+import { MediaObject } from "@/types/types";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
 interface JobPageProps extends PageProps {
