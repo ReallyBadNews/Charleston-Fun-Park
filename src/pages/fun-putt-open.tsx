@@ -52,8 +52,11 @@ const PuttOpenPage: FC<PuttOpenPageProps> = ({
   const [formValues, setFormValues] = useState<FormikValues | null>(null);
 
   const groupCount = formValues
-    ? Object.keys(formValues).filter((val) => val.includes("addPerson"))
-        .length + 1
+    ? [
+        formValues["addPerson1"],
+        formValues["addPerson2"],
+        formValues["addPerson3"],
+      ].filter((val) => val !== "").length + 1
     : null;
 
   return (
@@ -91,7 +94,7 @@ const PuttOpenPage: FC<PuttOpenPageProps> = ({
                         {`Thanks for signing up ${formValues?.name}!`}
                       </Heading>
                       <Text variant="body.lg">
-                        {`An email was sent to ${formValues?.emailAddress}. Your tee time is at ${formValues?.teeTime}, good luck!`}
+                        {`An email was sent to ${formValues?.emailAddress}. Your tee time is at ${formValues?.teeTime}. Good luck!`}
                       </Text>
                     </Stack>
                     {groupCount && (
@@ -106,10 +109,6 @@ const PuttOpenPage: FC<PuttOpenPageProps> = ({
                           Subtotal:
                         </Heading>
                         <Text variant="body.lg">${groupCount * 15}.00</Text>
-                        <Text variant="body.lg">
-                          Please go to LINK_HERE to pay and reserve your tee
-                          time
-                        </Text>
                       </Stack>
                     )}
                   </Stack>
@@ -132,6 +131,7 @@ const PuttOpenPage: FC<PuttOpenPageProps> = ({
                       components={formComponents}
                       onSubmit={async (values) => {
                         // Send form values to Formium
+                        setFormValues(null);
                         await formium.submitForm(
                           "mini-golf-tournament",
                           values
