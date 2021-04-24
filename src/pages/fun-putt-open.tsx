@@ -11,8 +11,8 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
 import React, { FC, useState } from "react";
 import { Card, Container, Flex, Heading, Text } from "theme-ui";
-import { MediaItem } from "../components/MediaItem";
-import { MediaObject } from "../types";
+import { MediaItem } from "@/components/MediaItem";
+import { MediaObject } from "@/types/types";
 
 interface PuttOpenPageProps extends PageProps {
   data: {
@@ -51,28 +51,16 @@ const PuttOpenPage: FC<PuttOpenPageProps> = ({
   const [success, setSuccess] = useState(false);
   const [formValues, setFormValues] = useState<FormikValues | null>(null);
 
-  //   {
-  //   "name": "name 1",
-  //   "phoneNumber": "phone 1",
-  //   "emailAddress": "kelshoff+email1@grahamdigital.com",
-  //   "addPerson1": "+ Player",
-  //   "fullName2": "name 2",
-  //   "emailAddress2": "kelshoff+email2@grahamdigital.com",
-  //   "addPerson2": "+ Player",
-  //   "fullName3": "name 3",
-  //   "emailAddress3": "kelshoff+email3@grahamdigital.com",
-  //   "addPerson3": "+ Player",
-  //   "fullName4": "name 4",
-  //   "emailAddress4": "kelshoff+email4@grahamdigital.com",
-  //   "teeTime": "3pm",
-  //   "website": ""
-  // }
+  const groupCount = formValues
+    ? Object.keys(formValues).filter((val) => val.includes("addPerson"))
+        .length + 1
+    : null;
 
   return (
     <>
       <SEO pathname={pathname} title={seoTitle} description={description} />
       <StarDivider title={title} />
-      <WoodBg>
+      <WoodBg overlayColor="tailwind.green.300">
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           {media ? (
             <MediaItem
@@ -91,19 +79,39 @@ const PuttOpenPage: FC<PuttOpenPageProps> = ({
             <Card variant="image" sx={{ minHeight: "32rem" }}>
               <Stack p="4" gap="3">
                 {success ? (
-                  <Stack gap="2">
-                    <Heading
-                      as="h2"
-                      sx={{
-                        fontFamily: "body",
-                        fontSize: ["4", null, "7"],
-                      }}
-                    >
-                      {title}
-                    </Heading>
-                    <Text variant="body.lg">
-                      {`Thanks for signing up ${formValues?.name}, an email was sent to ${formValues?.emailAddress}. Your tee time is at ${formValues?.teeTime}, good luck!`}
-                    </Text>
+                  <Stack gap="4">
+                    <Stack gap="2">
+                      <Heading
+                        as="h2"
+                        sx={{
+                          fontFamily: "body",
+                          fontSize: ["4", null, "7"],
+                        }}
+                      >
+                        {`Thanks for signing up ${formValues?.name}!`}
+                      </Heading>
+                      <Text variant="body.lg">
+                        {`An email was sent to ${formValues?.emailAddress}. Your tee time is at ${formValues?.teeTime}, good luck!`}
+                      </Text>
+                    </Stack>
+                    {groupCount && (
+                      <Stack gap="2">
+                        <Heading
+                          as="h3"
+                          sx={{
+                            fontFamily: "body",
+                            fontSize: ["3", null, "5"],
+                          }}
+                        >
+                          Subtotal:
+                        </Heading>
+                        <Text variant="body.lg">${groupCount * 15}.00</Text>
+                        <Text variant="body.lg">
+                          Please go to LINK_HERE to pay and reserve your tee
+                          time
+                        </Text>
+                      </Stack>
+                    )}
                   </Stack>
                 ) : (
                   <>
