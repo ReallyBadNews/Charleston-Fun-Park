@@ -5,7 +5,7 @@ import { Stack } from "raam";
 import { MediaItem } from "@/components/MediaItem";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
-import { Attraction } from "@/src/types";
+import { Attraction } from "@/types/types";
 import { FC } from "react";
 
 interface OmniFeatureProps {

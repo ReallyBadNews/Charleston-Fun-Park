@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { Stack, Flex } from "raam";
 import StyledLink from "@/components/Link.styled";
 import { MediaItem } from "@/components/MediaItem";
-import { MediaObject } from "@/src/types";
+import { MediaObject } from "@/types/types";
 
 interface AttractionCardProps {
   description?: string;

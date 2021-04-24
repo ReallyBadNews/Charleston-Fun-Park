@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import { Stack } from "raam";
-import { ChildFluidObject, Attraction } from "@/types/index";
+import { ChildFluidObject, Attraction } from "@/types/types";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
 import { MediaItem } from "@/components/MediaItem";

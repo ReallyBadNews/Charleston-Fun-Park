@@ -1,16 +1,17 @@
 /** @jsx jsx */
 /** @jsxFrag */
 
-import React, { FC } from "react";
-import { Container, Flex, jsx, Card, Text, Heading } from "theme-ui";
+import React from "react";
+import StarDivider from "@/components/Dividers/StarDivider";
+import WoodBg from "@/components/Images/WoodBg";
+import { MediaItem } from "@/components/MediaItem";
+import SEO from "@/components/seo";
+import { MediaObject } from "@/types/types";
 import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import SEO from "@/components/seo";
-import WoodBg from "@/components/Images/WoodBg";
-import StarDivider from "@/components/Dividers/StarDivider";
-import { MediaItem } from "@/components/MediaItem";
 import { Stack } from "raam";
-import { MediaObject } from "@/types/index";
+import { FC } from "react";
+import { Card, Container, Flex, Heading, jsx, Text } from "theme-ui";
 
 type CommonProps = {
   description?: string;

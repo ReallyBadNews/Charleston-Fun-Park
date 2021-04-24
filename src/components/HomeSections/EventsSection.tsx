@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import WoodBg from "@/components/Images/WoodBg";
-import { MediaObject } from "@/src/types";
+import { MediaObject } from "@/types/types";
 
 interface Query {
   contentfulHomePageEvents: {

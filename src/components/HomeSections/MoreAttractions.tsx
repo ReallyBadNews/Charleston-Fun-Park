@@ -7,7 +7,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import WoodBg from "@/components/Images/WoodBg";
 import StarDivider from "@/components/Dividers/StarDivider";
 import AttractionsCard from "@/components/Attractions/AttractionsCard";
-import { MediaObject } from "@/src/types";
+import { MediaObject } from "@/types/types";
 
 interface AttractionProps {
   node: {

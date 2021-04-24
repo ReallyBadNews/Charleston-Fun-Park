@@ -8,7 +8,7 @@ import { Stack } from "raam";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
 import { MediaItem } from "@/components/MediaItem";
-import { FeaturedAttractionProps } from "@/src/types";
+import { FeaturedAttractionProps } from "@/types/types";
 
 const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
   const {

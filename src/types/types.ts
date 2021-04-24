@@ -26,8 +26,8 @@ interface VideoProps {
 }
 
 interface MediaMeta {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
 export type MediaObject = (ImageProps | VideoProps) & MediaMeta;

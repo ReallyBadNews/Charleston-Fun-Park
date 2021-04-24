@@ -6,7 +6,7 @@ import OmniArenaFeature from "@/components/Attractions/Featured/OmniArenaFeature
 import GoKartsFeature from "@/components/Attractions/Featured/GoKartsFeature";
 import MiniGolfFeature from "@/components/Attractions/Featured/MiniGolfFeature";
 import AxeThrowingFeature from "@/components/Attractions/Featured/AxeThrowingFeature";
-import { Attraction } from "@/src/types";
+import { Attraction } from "@/types/types";
 
 interface FeaturedAttraction {
   node: Attraction;

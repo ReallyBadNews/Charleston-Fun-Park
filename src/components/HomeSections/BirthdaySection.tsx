@@ -9,7 +9,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import BrickBg from "@/components/Images/BrickBg";
-import { ChildFluidObject, MediaObject } from "@/src/types";
+import { ChildFluidObject, MediaObject } from "@/types/types";
 
 interface BirthdaySectionProps {
   id?: string;

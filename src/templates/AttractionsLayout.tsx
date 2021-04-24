@@ -19,7 +19,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "@/components/seo";
 import WoodBg from "@/components/Images/WoodBg";
 import { MediaItem } from "@/components/MediaItem";
-import { MediaObject } from "@/types/index";
+import { MediaObject } from "@/types/types";
 
 interface AttractionsLayoutProps extends PageProps {
   data: {

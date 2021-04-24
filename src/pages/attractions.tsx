@@ -8,7 +8,7 @@ import WoodBg from "@/components/Images/WoodBg";
 import StarDivider from "@/components/Dividers/StarDivider";
 import AttractionsCard from "@/components/Attractions/AttractionsCard";
 import SEO from "@/components/seo";
-import { MediaObject } from "@/types/index";
+import { MediaObject } from "@/types/types";
 
 type AllAttractions = {
   node: {

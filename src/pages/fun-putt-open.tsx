@@ -1,19 +1,20 @@
-import React, { FC, useState } from "react";
-import { graphql, PageProps } from "gatsby";
-import { Card, Container, Flex, Heading, Text } from "theme-ui";
+import StarDivider from "@/components/Dividers/StarDivider";
+import { formComponents } from "@/components/Forms/FormiumComponents";
+import WoodBg from "@/components/Images/WoodBg";
+import SEO from "@/components/seo";
+import { formium } from "@/src/lib/formium";
 import { FormiumForm } from "@formium/react";
 import { Form } from "@formium/types";
+import { FormikValues } from "formik";
+import { graphql, PageProps } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
-import { formium } from "@/src/lib/formium";
-import { formComponents } from "@/components/Forms/FormiumComponents";
-import SEO from "@/components/seo";
-import StarDivider from "@/components/Dividers/StarDivider";
-import WoodBg from "@/components/Images/WoodBg";
+import React, { FC, useState } from "react";
+import { Card, Container, Flex, Heading, Text } from "theme-ui";
 import { MediaItem } from "@/components/MediaItem";
 import { MediaObject } from "@/types/types";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
-interface JobPageProps extends PageProps {
+interface PuttOpenPageProps extends PageProps {
   data: {
     formiumForm: Form;
     contentfulSectionPages: {
@@ -32,7 +33,7 @@ interface JobPageProps extends PageProps {
   };
 }
 
-const JobPage: FC<JobPageProps> = ({
+const PuttOpenPage: FC<PuttOpenPageProps> = ({
   location: { pathname },
   data: {
     formiumForm,
@@ -48,12 +49,21 @@ const JobPage: FC<JobPageProps> = ({
   },
 }) => {
   const [success, setSuccess] = useState(false);
+  const [formValues, setFormValues] = useState<FormikValues | null>(null);
+
+  const groupCount = formValues
+    ? [
+        formValues["addPerson1"],
+        formValues["addPerson2"],
+        formValues["addPerson3"],
+      ].filter((val) => val !== "").length + 1
+    : null;
 
   return (
     <>
       <SEO pathname={pathname} title={seoTitle} description={description} />
       <StarDivider title={title} />
-      <WoodBg>
+      <WoodBg overlayColor="tailwind.green.300">
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
           {media ? (
             <MediaItem
@@ -69,22 +79,38 @@ const JobPage: FC<JobPageProps> = ({
             />
           ) : null}
           <Container px={["3", null, null, null, "0"]} py="7">
-            <Card variant="image">
+            <Card variant="image" sx={{ minHeight: "32rem" }}>
               <Stack p="4" gap="3">
                 {success ? (
-                  <Stack gap="2">
-                    <Heading
-                      as="h2"
-                      sx={{
-                        fontFamily: "body",
-                        fontSize: ["4", null, "7"],
-                      }}
-                    >
-                      {title}
-                    </Heading>
-                    <Text variant="body.mid">
-                      Your application was successfly submitted. Thank you!
-                    </Text>
+                  <Stack gap="4">
+                    <Stack gap="2">
+                      <Heading
+                        as="h2"
+                        sx={{
+                          fontFamily: "body",
+                          fontSize: ["4", null, "7"],
+                        }}
+                      >
+                        {`Thanks for signing up ${formValues?.name}!`}
+                      </Heading>
+                      <Text variant="body.lg">
+                        {`An email was sent to ${formValues?.emailAddress}. Your tee time is at ${formValues?.teeTime}. Good luck!`}
+                      </Text>
+                    </Stack>
+                    {groupCount && (
+                      <Stack gap="2">
+                        <Heading
+                          as="h3"
+                          sx={{
+                            fontFamily: "body",
+                            fontSize: ["3", null, "5"],
+                          }}
+                        >
+                          Subtotal:
+                        </Heading>
+                        <Text variant="body.lg">${groupCount * 15}.00</Text>
+                      </Stack>
+                    )}
                   </Stack>
                 ) : (
                   <>
@@ -105,8 +131,13 @@ const JobPage: FC<JobPageProps> = ({
                       components={formComponents}
                       onSubmit={async (values) => {
                         // Send form values to Formium
-                        await formium.submitForm("event-request", values);
+                        setFormValues(null);
+                        await formium.submitForm(
+                          "mini-golf-tournament",
+                          values
+                        );
                         window.scrollTo(0, 0);
+                        setFormValues(values);
                         setSuccess(true);
                       }}
                     />
@@ -121,11 +152,11 @@ const JobPage: FC<JobPageProps> = ({
   );
 };
 
-export default JobPage;
+export default PuttOpenPage;
 
 export const query = graphql`
   {
-    formiumForm(slug: { eq: "event-request" }) {
+    formiumForm(slug: { eq: "mini-golf-tournament" }) {
       id
       createAt
       name
@@ -135,7 +166,7 @@ export const query = graphql`
       updateAt
       version
     }
-    contentfulSectionPages(id: { eq: "84ee1051-4200-57f6-9ede-7a128f8ecace" }) {
+    contentfulSectionPages(slug: { eq: "fun-putt-open" }) {
       title
       seoTitle
       description {
