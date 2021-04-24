@@ -84,7 +84,6 @@ const FeaturedEvents: FC = () => {
                   alt="Fun Putt Open at Charleston Fun Park"
                   fluid={funPuttOpen}
                   sx={{
-                    bg: "tailwind.green.300",
                     maxWidth: ["full", null, "64"],
                     height: "auto",
                   }}
