@@ -44,9 +44,9 @@ const FeaturedEvents: FC = () => {
           }
         }
       }
-      funPuttOpen: file(relativePath: { eq: "funPuttOpen.jpg" }) {
+      funPuttOpen: file(relativePath: { eq: "funPuttOpenLogo.png" }) {
         childImageSharp {
-          fluid(maxHeight: 96, maxWidth: 96) {
+          fluid {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
