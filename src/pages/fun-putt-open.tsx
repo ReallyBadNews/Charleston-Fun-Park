@@ -3,7 +3,6 @@ import WoodBg from "@/components/Images/WoodBg";
 import { MediaItem } from "@/components/MediaItem";
 import SEO from "@/components/seo";
 import { MediaObject } from "@/types/types";
-import { Form } from "@formium/types";
 import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
@@ -12,7 +11,6 @@ import { Card, Container, Flex, Heading } from "theme-ui";
 
 interface PuttOpenPageProps extends PageProps {
   data: {
-    formiumForm: Form;
     contentfulSectionPages: {
       title: string;
       seoTitle: string;
