@@ -1,18 +1,14 @@
 import StarDivider from "@/components/Dividers/StarDivider";
-import { formComponents } from "@/components/Forms/FormiumComponents";
 import WoodBg from "@/components/Images/WoodBg";
+import { MediaItem } from "@/components/MediaItem";
 import SEO from "@/components/seo";
-import { formium } from "@/src/lib/formium";
-import { FormiumForm } from "@formium/react";
+import { MediaObject } from "@/types/types";
 import { Form } from "@formium/types";
-import { FormikValues } from "formik";
 import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
-import React, { FC, useState } from "react";
-import { Card, Container, Flex, Heading, Text } from "theme-ui";
-import { MediaItem } from "@/components/MediaItem";
-import { MediaObject } from "@/types/types";
+import React, { FC } from "react";
+import { Card, Container, Flex, Heading } from "theme-ui";
 
 interface PuttOpenPageProps extends PageProps {
   data: {
@@ -36,7 +32,6 @@ interface PuttOpenPageProps extends PageProps {
 const PuttOpenPage: FC<PuttOpenPageProps> = ({
   location: { pathname },
   data: {
-    formiumForm,
     contentfulSectionPages: {
       title,
       seoTitle,
@@ -48,17 +43,6 @@ const PuttOpenPage: FC<PuttOpenPageProps> = ({
     },
   },
 }) => {
-  const [success, setSuccess] = useState(false);
-  const [formValues, setFormValues] = useState<FormikValues | null>(null);
-
-  const groupCount = formValues
-    ? [
-        formValues["addPerson1"],
-        formValues["addPerson2"],
-        formValues["addPerson3"],
-      ].filter((val) => val !== "").length + 1
-    : null;
-
   return (
     <>
       <SEO pathname={pathname} title={seoTitle} description={description} />
@@ -81,68 +65,16 @@ const PuttOpenPage: FC<PuttOpenPageProps> = ({
           <Container px={["3", null, null, null, "0"]} py="7">
             <Card variant="image" sx={{ minHeight: "32rem" }}>
               <Stack p="4" gap="3">
-                {success ? (
-                  <Stack gap="4">
-                    <Stack gap="2">
-                      <Heading
-                        as="h2"
-                        sx={{
-                          fontFamily: "body",
-                          fontSize: ["4", null, "7"],
-                        }}
-                      >
-                        {`Thanks for signing up ${formValues?.name}!`}
-                      </Heading>
-                      <Text variant="body.lg">
-                        {`An email was sent to ${formValues?.emailAddress}. Your tee time is at ${formValues?.teeTime}. Good luck!`}
-                      </Text>
-                    </Stack>
-                    {groupCount && (
-                      <Stack gap="2">
-                        <Heading
-                          as="h3"
-                          sx={{
-                            fontFamily: "body",
-                            fontSize: ["3", null, "5"],
-                          }}
-                        >
-                          Subtotal:
-                        </Heading>
-                        <Text variant="body.lg">${groupCount * 15}.00</Text>
-                      </Stack>
-                    )}
-                  </Stack>
-                ) : (
-                  <>
-                    <Stack gap="2">
-                      <Heading
-                        as="h2"
-                        sx={{
-                          fontFamily: "body",
-                          fontSize: ["4", null, "7"],
-                        }}
-                      >
-                        {title}
-                      </Heading>
-                      <MDXRenderer>{content}</MDXRenderer>
-                    </Stack>
-                    <FormiumForm
-                      data={formiumForm}
-                      components={formComponents}
-                      onSubmit={async (values) => {
-                        // Send form values to Formium
-                        setFormValues(null);
-                        await formium.submitForm(
-                          "mini-golf-tournament",
-                          values
-                        );
-                        window.scrollTo(0, 0);
-                        setFormValues(values);
-                        setSuccess(true);
-                      }}
-                    />
-                  </>
-                )}
+                <Heading
+                  as="h2"
+                  sx={{
+                    fontFamily: "body",
+                    fontSize: ["4", null, "7"],
+                  }}
+                >
+                  {title}
+                </Heading>
+                <MDXRenderer>{content}</MDXRenderer>
               </Stack>
             </Card>
           </Container>
@@ -156,16 +88,6 @@ export default PuttOpenPage;
 
 export const query = graphql`
   {
-    formiumForm(slug: { eq: "mini-golf-tournament" }) {
-      id
-      createAt
-      name
-      projectId
-      schema
-      slug
-      updateAt
-      version
-    }
     contentfulSectionPages(slug: { eq: "fun-putt-open" }) {
       title
       seoTitle
