@@ -47,21 +47,25 @@ const PuttOpenPage: FC<PuttOpenPageProps> = ({
       <StarDivider title={title} />
       <WoodBg overlayColor="tailwind.green.300">
         <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-          {media ? (
-            <MediaItem
-              media={media}
-              alt={media.description}
-              sx={{
-                bg: "blue.dark",
-                maxHeight: "xl",
-                height: "md",
-                width: "full",
-                objectFit: "cover",
-              }}
-            />
-          ) : null}
           <Container px={["3", null, null, null, "0"]} py="7">
-            <Card variant="image" sx={{ minHeight: "32rem" }}>
+            {media ? (
+              <MediaItem
+                media={media}
+                alt={media.description}
+                sx={{
+                  bg: "blue.dark",
+                  borderRadius: "0.25rem 0.25rem 0 0",
+                }}
+              />
+            ) : null}
+            <Card
+              variant="image"
+              sx={{
+                minHeight: "32rem",
+                borderTopLeftRadius: "0",
+                borderTopRightRadius: "0",
+              }}
+            >
               <Stack p="4" gap="3">
                 <Heading
                   as="h2"
