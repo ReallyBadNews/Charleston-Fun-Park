@@ -9,8 +9,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faCartPlus,
-  faGolfBall,
   faPhone,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { graphql, useStaticQuery } from "gatsby";
@@ -102,11 +102,11 @@ const Topper = (): JSX.Element => {
             </Button>
             <Button as="div" variant="white">
               <a
-                href="/fun-putt-open"
+                href="/group-events"
                 sx={{ color: "inherit", textDecoration: "none" }}
               >
-                <FontAwesomeIcon icon={faGolfBall} sx={{ mr: "2" }} />
-                Fun Putt Open
+                <FontAwesomeIcon icon={faUsers} sx={{ mr: "2" }} />
+                Group Events
               </a>
             </Button>
           </Inline>
