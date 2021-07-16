@@ -13,14 +13,12 @@ import BirthdaySection from "@/src/components/HomeSections/BirthdaySection";
 import { PageProps } from "gatsby";
 import { FC } from "react";
 import { jsx } from "theme-ui";
-import FeaturedEvents from "../components/HomeSections/FeaturedEvents";
 
 const IndexPage: FC<PageProps> = ({ location: { pathname } }) => {
   return (
     <>
       <SEO pathname={pathname} title="Home" description="Charleston Fun Park" />
       <Hero />
-      <FeaturedEvents />
       <ArrowDivider />
       <MobileWelcome sx={{ display: ["block", null, "none"] }} />
       <BirthdaySection id="birthdays" />
