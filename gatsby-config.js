@@ -114,13 +114,14 @@ module.exports = {
     FAST_DEV: true,
   },
   plugins: [
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
     "gatsby-plugin-theme-ui",
     "gatsby-plugin-sitemap",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-root-import",
       options: {
