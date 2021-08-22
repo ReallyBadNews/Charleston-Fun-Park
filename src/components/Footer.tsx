@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { Box, Container, Text, jsx } from "theme-ui";
 import { Flex, Stack } from "raam";

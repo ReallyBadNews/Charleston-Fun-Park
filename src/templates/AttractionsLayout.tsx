@@ -1,17 +1,7 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
 import React, { FC } from "react";
-import {
-  Box,
-  Container,
-  Flex,
-  jsx,
-  Heading,
-  Text,
-  Card,
-  Divider,
-} from "theme-ui";
+import { Box, Container, Flex, Heading, Text, Card, Divider } from "theme-ui";
 import { Flex as Flexbox } from "raam";
 import { graphql, PageProps } from "gatsby";
 import { FixedObject } from "gatsby-image";

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
 import React from "react";
 import StarDivider from "@/components/Dividers/StarDivider";
@@ -11,7 +10,7 @@ import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
 import { FC } from "react";
-import { Card, Container, Flex, Heading, jsx, Text } from "theme-ui";
+import { Card, Container, Flex, Heading, Text } from "theme-ui";
 
 type CommonProps = {
   description?: string;

@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import React, { FC, ReactText } from "react";
 import CSS from "csstype";

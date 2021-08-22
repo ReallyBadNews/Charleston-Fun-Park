@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import PropTypes from "prop-types";
-import { jsx, Styled } from "theme-ui";
+import { Themed } from "theme-ui";
 import { Link } from "gatsby";
 import { Link as ScrollLink } from "react-scroll";
 
@@ -32,7 +32,7 @@ const StyledLink = ({
   textDecorationHover,
   textTransform,
 }) => (
-  <Styled.a
+  <Themed.a
     as={(scrollTo && ScrollLink) || (to && Link) || "a"}
     duration={duration}
     href={href}
@@ -71,7 +71,7 @@ const StyledLink = ({
     onClick={onClick}
   >
     {children}
-  </Styled.a>
+  </Themed.a>
 );
 
 StyledLink.propTypes = {

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
 import React from "react";
 import { Container, Grid, jsx } from "theme-ui";

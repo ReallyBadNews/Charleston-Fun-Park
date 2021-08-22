@@ -1,9 +1,9 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { FC } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
-import { jsx, Container, Heading, Text, Button, Grid, Box } from "theme-ui";
+import { Container, Heading, Text, Button, Grid, Box } from "theme-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Stack } from "raam";

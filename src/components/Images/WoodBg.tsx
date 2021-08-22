@@ -1,8 +1,8 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { Box, jsx, SxProps } from "theme-ui";
+import { Box, SxProps } from "theme-ui";
 import { FC } from "react";
 import { ChildFluidObject } from "@/types/types";
 

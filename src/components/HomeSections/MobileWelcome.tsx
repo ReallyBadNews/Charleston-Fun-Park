@@ -1,6 +1,6 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
-import { Box, Heading, Text, jsx, SxProps } from "theme-ui";
+import { Box, Heading, Text, SxProps } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
 import WoodBg from "@/components/Images/WoodBg";

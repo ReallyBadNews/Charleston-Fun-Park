@@ -1,7 +1,7 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { FC } from "react";
-import { jsx, SxProps } from "theme-ui";
+import { SxProps } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { ChildFluidObject } from "@/types/types";

@@ -1,8 +1,7 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
 import React, { FC } from "react";
-import { jsx, SxProps } from "theme-ui";
+import { SxProps } from "theme-ui";
 import Img from "gatsby-image";
 import Video from "./Video";
 import { MediaObject } from "@/types/types";

@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { Flex, Grid, Heading, Text, jsx } from "theme-ui";
 import { Stack } from "raam";

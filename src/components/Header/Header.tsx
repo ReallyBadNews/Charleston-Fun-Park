@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { FC } from "react";
 import { Box, jsx } from "theme-ui";

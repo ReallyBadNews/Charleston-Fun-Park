@@ -1,5 +1,6 @@
-/** @jsx jsx */
-import { jsx, Heading, Text, Container, Box } from "theme-ui";
+/** @jsxImportSource theme-ui */
+
+import { Heading, Text, Container, Box } from "theme-ui";
 import BackgroundImage from "gatsby-background-image";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { useStaticQuery, graphql } from "gatsby";

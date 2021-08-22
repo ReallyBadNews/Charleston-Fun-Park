@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import StyledLink from "@/components/Link.styled";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import { ChildFluidObject } from "@/types/types";

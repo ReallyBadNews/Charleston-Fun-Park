@@ -1,8 +1,7 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
 import React, { FC } from "react";
-import { Box, Container, Flex, Grid, jsx, Card } from "theme-ui";
+import { Box, Container, Flex, Grid, Card } from "theme-ui";
 import { useStaticQuery, graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "@/components/seo";

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
 import React, { FC } from "react";
 import { SxProps, jsx } from "theme-ui";

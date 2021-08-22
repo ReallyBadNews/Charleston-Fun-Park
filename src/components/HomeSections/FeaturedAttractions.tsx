@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import { Box, jsx } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import SectionDivider from "@/components/Dividers/SectionDivider";

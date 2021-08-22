@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { Container, Divider, Text, jsx } from "theme-ui";
 import { Inline } from "raam";

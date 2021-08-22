@@ -1,11 +1,11 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
-import { Box, Container, jsx } from "theme-ui";
+import { Box, Container } from "theme-ui";
 import { Flex, Inline, Stack } from "raam";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

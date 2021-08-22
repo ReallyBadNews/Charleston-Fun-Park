@@ -1,9 +1,9 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
-import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
+import { Box, Flex, Grid, Heading, Text } from "theme-ui";
 import { Stack } from "raam";
 import { ChildFluidObject, Attraction } from "@/types/types";
 import StyledLink from "@/components/Link.styled";
@@ -73,7 +73,7 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
           <BackgroundImage
             fluid={axeThrowingBg}
             sx={{
-              position: ["absolute !important"],
+              position: "absolute !important",
               bg: "tailwind.red.900",
               height: "full",
               width: "full",

@@ -1,8 +1,7 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
 import React, { FC } from "react";
-import { jsx, Grid, Container } from "theme-ui";
+import { Grid, Container } from "theme-ui";
 import { graphql, PageProps } from "gatsby";
 import WoodBg from "@/components/Images/WoodBg";
 import StarDivider from "@/components/Dividers/StarDivider";

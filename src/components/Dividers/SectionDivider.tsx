@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 /**  @jsxFrag */
 
 import React, { FC } from "react";

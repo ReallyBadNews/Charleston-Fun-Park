@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx, Box, Button } from "theme-ui";
+/** @jsxImportSource theme-ui */
+import { Box, Button } from "theme-ui";
 import Arrow from "./Images/Arrow";
 import { FC } from "react";
 
