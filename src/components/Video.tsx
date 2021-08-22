@@ -1,5 +1,8 @@
+/** @jsx jsx */
+/** @jsxFrag */
+
 import React, { FC } from "react";
-import { SxProps } from "theme-ui";
+import { SxProps, jsx } from "theme-ui";
 
 interface VideoProps {
   alt?: string;
@@ -33,7 +36,10 @@ const Video: FC<VideoProps & SxProps> = ({
     {media ? (
       <source src={media.url} type={media.contentType} />
     ) : (
-      console.error("No video source")
+      <>
+        <p>no video source</p>
+        {console.error("No video source")}
+      </>
     )}
     <p>{alt}</p>
   </video>
