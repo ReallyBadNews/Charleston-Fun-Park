@@ -93,7 +93,7 @@ const SEO: FC<SeoProps> = ({
         src="https://js.adsrvr.org/up_loader.1.1.0.js"
         type="text/javascript"
       ></script>
-      <script type="text/javascript">
+      {/* <script type="text/javascript">
         {`
           ttd_dom_ready( function() {
             if (typeof TTDUniversalPixelApi === 'function') {
@@ -102,7 +102,7 @@ const SEO: FC<SeoProps> = ({
             }
           });
         `}
-      </script>
+      </script> */}
     </Helmet>
   );
 };

@@ -19,9 +19,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
     query GoKartsBgQuery {
       goKarts: file(relativePath: { eq: "goKartsBg.jpg" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
         }
       }
     }

@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import { Box, Container, Flex, Heading, Text, Card, Divider } from "theme-ui";
 import { Flex as Flexbox } from "raam";
 import { graphql, PageProps } from "gatsby";
-import { FixedObject } from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "@/components/seo";
 import WoodBg from "@/components/Images/WoodBg";
@@ -33,7 +33,7 @@ interface AttractionsLayoutProps extends PageProps {
       pricePoint2Unit: string;
       title: string;
       videoPoster: {
-        fixed: FixedObject;
+        fixed: GatsbyImage;
       };
     };
   };

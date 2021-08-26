@@ -1,10 +1,9 @@
 /** @jsxImportSource theme-ui */
 
 import { useState } from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
-import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { Box, Container } from "theme-ui";
 import { Flex, Inline, Stack } from "raam";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,51 +17,8 @@ import {
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
-import { ChildFluidObject } from "@/types/types";
-
-interface ImageProps {
-  logo: ChildFluidObject;
-  bg: ChildFluidObject;
-  fun: ChildFluidObject;
-}
 
 const Nav = (): JSX.Element => {
-  const {
-    logo: {
-      childImageSharp: { fluid: headerLogo },
-    },
-    bg: {
-      childImageSharp: { fluid: woodTexture },
-    },
-    fun: {
-      childImageSharp: { fluid: funLogo },
-    },
-  } = useStaticQuery<ImageProps>(graphql`
-    query NavQuery {
-      logo: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 261, maxHeight: 200) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-      bg: file(relativePath: { eq: "woodTexture.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2048, maxHeight: 96) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-      fun: file(relativePath: { eq: "funSign.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 176, maxHeight: 76) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
-
   const breakpoints = useBreakpoint();
 
   const { navLinks } = useSiteMetadata();
@@ -80,25 +36,29 @@ const Nav = (): JSX.Element => {
   };
 
   return (
-    <BackgroundImage
-      fluid={woodTexture}
-      sx={{
-        backgroundColor: "blue.dark",
-        backgroundRepeat: "repeat",
-        backgroundSize: "auto",
-        borderTopWidth: "4",
-        borderTopColor: "blue.light",
-        borderTopStyle: "solid",
-        borderBottomWidth: "4",
-        borderBottomColor: "blue.light",
-        borderBottomStyle: "solid",
-        position: "relative",
-      }}
-      Tag="div"
-    >
+    <div sx={{ display: "grid" }}>
+      <StaticImage
+        className="woodTexture"
+        src="../../images/woodTexture.png"
+        layout="fullWidth"
+        placeholder="none"
+        alt=""
+        sx={{
+          gridArea: "1 / 1",
+          backgroundColor: "blue.dark",
+          borderTopWidth: "4",
+          borderTopColor: "blue.light",
+          borderTopStyle: "solid",
+          borderBottomWidth: "4",
+          borderBottomColor: "blue.light",
+          borderBottomStyle: "solid",
+          position: "relative",
+          height: "24",
+        }}
+      />
       <Container
         px={["3", null, null, null, "0"]}
-        sx={{ position: "relative" }}
+        sx={{ position: "relative", gridArea: "1 / 1" }}
       >
         <Flex
           alignItems="center"
@@ -108,9 +68,10 @@ const Nav = (): JSX.Element => {
         >
           <Inline gap={["1", null, "3"]}>
             <Link to="/">
-              <Img
+              <StaticImage
+                src="../../images/logo.png"
+                placeholder="none"
                 alt="Charleston Fun Park"
-                fluid={headerLogo}
                 sx={{
                   width: ["96px", null, null, "172px", "261px"],
                   height: ["74px", null, null, "132px", "200px"],
@@ -120,8 +81,10 @@ const Nav = (): JSX.Element => {
                 }}
               />
             </Link>
-            <Img
-              fluid={funLogo}
+            <StaticImage
+              src="../../images/funSign.png"
+              placeholder="none"
+              alt=""
               sx={{
                 width: ["91px", "132px", "130px", null, "176px"],
                 height: ["40px", "57px", "56px", null, "76px"],
@@ -208,7 +171,7 @@ const Nav = (): JSX.Element => {
           </Box>
         )}
       </Container>
-    </BackgroundImage>
+    </div>
   );
 };
 

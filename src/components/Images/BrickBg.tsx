@@ -29,9 +29,7 @@ const BrickBg: FC<BrickBgProps & SxProps> = ({
     query BrickQuery {
       brickTexture: file(relativePath: { eq: "brickTexture.jpg" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
         }
       }
     }

@@ -37,9 +37,7 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
     query AxeThrowingBgQuery {
       axeThrowing: file(relativePath: { eq: "axeThrowingBg.jpg" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
         }
       }
     }

@@ -24,9 +24,7 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
     query grassQuery {
       grass: file(relativePath: { eq: "grassTexture.jpg" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
         }
       }
     }

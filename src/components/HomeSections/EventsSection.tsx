@@ -2,7 +2,7 @@
 
 import { Heading, Container, Card, Box } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import WoodBg from "@/components/Images/WoodBg";
 import { MediaObject } from "@/types/types";
@@ -53,7 +53,7 @@ const EventsSection = (): JSX.Element => {
     <WoodBg overlayColor="green.light">
       <Container color="white.light" px="3" py="6">
         <Card variant="event">
-          <Img alt={media.title} fluid={media.fluid} />
+          <GatsbyImage image={media.gatsbyImageData} alt={media.title} />
           <Box p="4">
             <Heading mb="3">{title}</Heading>
             <MDXRenderer>{body}</MDXRenderer>

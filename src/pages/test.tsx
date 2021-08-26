@@ -1,7 +1,6 @@
+import SEO from "@/components/seo";
 import { PageProps } from "gatsby";
 import React, { FC } from "react";
-import StarDivider from "@/components/Dividers/StarDivider";
-import SEO from "@/components/seo";
 
 const NotFoundPage: FC<PageProps> = ({ location: { pathname } }) => (
   <>
@@ -10,7 +9,7 @@ const NotFoundPage: FC<PageProps> = ({ location: { pathname } }) => (
       description="404 | Page Not Found"
       pathname={pathname}
     />
-    <StarDivider title="Page Not Found" />
+    <h1>Hello world</h1>
   </>
 );
 

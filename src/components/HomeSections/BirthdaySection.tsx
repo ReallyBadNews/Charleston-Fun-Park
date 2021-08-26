@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Container, Heading, Text, Button, Grid, Box } from "theme-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -55,9 +55,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
       }
       file(relativePath: { eq: "baloons.png" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
         }
       }
     }
@@ -75,7 +73,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
             display: ["none", null, "initial"],
           }}
         >
-          <Img fluid={baloonsImage} />
+          <GatsbyImage image={baloonsImage} />
         </Box>
         <Stack
           gap={["3", null, "4", null, "5"]}
@@ -104,10 +102,10 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
           </Stack>
           <Grid columns={["repeat(2, 1fr)", null, "repeat(4, 1fr)"]} gap="3">
             {contentfulHomePageBirthdays.media.map((image) => (
-              <Img
+              <GatsbyImage
+                image={image.gatsbyImageData}
                 key={image.title}
                 alt={image.description}
-                fluid={image.fluid}
                 sx={{
                   bg: "blue.dark",
                   borderWidth: "0.125rem",

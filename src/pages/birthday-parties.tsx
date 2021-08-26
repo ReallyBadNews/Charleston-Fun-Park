@@ -2,7 +2,7 @@
 
 import React, { FC } from "react";
 import { Box, Flex, Card, Container, Heading, Text } from "theme-ui";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
@@ -136,10 +136,10 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                   </Box>
                   {birthdayPackage1Media.length &&
                     birthdayPackage1Media.map((image) => (
-                      <Img
+                      <GatsbyImage
+                        image={image.gatsbyImageData}
                         key={image.title}
                         alt={image.title}
-                        fluid={image.fluid}
                         sx={{
                           width: ["full", null, "1/2"],
                           ml: ["0", null, "3"],
@@ -160,10 +160,10 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                   </Box>
                   {birthdayPackage2Media.length &&
                     birthdayPackage2Media.map((image) => (
-                      <Img
+                      <GatsbyImage
+                        image={image.gatsbyImageData}
                         key={image.title}
                         alt={image.title}
-                        fluid={image.fluid}
                         sx={{
                           width: ["full", null, "1/2"],
                           ml: ["0", null, "3"],
@@ -184,10 +184,10 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                   </Box>
                   {birthdayPackage3Media.length &&
                     birthdayPackage3Media.map((image) => (
-                      <Img
+                      <GatsbyImage
+                        image={image.gatsbyImageData}
                         key={image.title}
                         alt={image.title}
-                        fluid={image.fluid}
                         sx={{
                           width: ["full", null, "1/2"],
                           ml: ["0", null, "3"],
@@ -208,10 +208,10 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                   </Box>
                   {birthdayPackage4Media.length &&
                     birthdayPackage4Media.map((image) => (
-                      <Img
+                      <GatsbyImage
+                        image={image.gatsbyImageData}
                         key={image.title}
                         alt={image.title}
-                        fluid={image.fluid}
                         sx={{
                           width: ["full", null, "1/2"],
                           ml: ["0", null, "3"],
@@ -232,10 +232,10 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                   </Box>
                   {birthdayPackage5Media.length &&
                     birthdayPackage5Media.map((image) => (
-                      <Img
+                      <GatsbyImage
+                        image={image.gatsbyImageData}
                         key={image.title}
                         alt={image.title}
-                        fluid={image.fluid}
                         sx={{
                           width: ["full", null, "1/2"],
                           ml: ["0", null, "3"],

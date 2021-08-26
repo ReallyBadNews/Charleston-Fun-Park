@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import { FC } from "react";
-import { Box, jsx } from "theme-ui";
+import { Box } from "theme-ui";
 import Topper from "./Topper";
 import Nav from "./Nav";
 

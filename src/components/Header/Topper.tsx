@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
+
 import StyledLink from "@/components/Link.styled";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import { ChildFluidObject } from "@/types/types";
 import {
   faFacebook,
   faInstagram,
@@ -13,32 +13,11 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { graphql, useStaticQuery } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { Flex, Inline } from "raam";
-import { Box, Button, Container, jsx } from "theme-ui";
-
-interface Query {
-  grassBg: ChildFluidObject;
-}
+import { Box, Button, Container } from "theme-ui";
 
 const Topper = (): JSX.Element => {
-  const {
-    grassBg: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery<Query>(graphql`
-    query TopperQuery {
-      grassBg: file(relativePath: { eq: "grassBg.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2048, maxHeight: 43) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
-
   const { giftCardLink, phoneNumber, socialLinks } = useSiteMetadata();
 
   const socialIcons = {
@@ -48,20 +27,19 @@ const Topper = (): JSX.Element => {
   };
 
   return (
-    <BackgroundImage
-      className="topper"
-      fluid={fluid}
-      sx={{
-        backgroundColor: "green.dark",
-        backgroundRepeat: "repeat",
-        backgroundSize: "auto",
-        position: "relative",
-      }}
-    >
+    <div sx={{ display: "grid" }}>
+      <StaticImage
+        className="topper"
+        layout="fullWidth"
+        src="../../images/grass.jpg"
+        placeholder="none"
+        alt=""
+        sx={{ gridArea: "1 / 1", height: "43px" }}
+      />
       <Box
         sx={{
-          position: "absolute",
-          zIndex: "-1",
+          gridArea: "1 / 1",
+          zIndex: 1,
           top: "0",
           right: "0",
           bottom: "0",
@@ -72,7 +50,7 @@ const Topper = (): JSX.Element => {
       />
       <Container
         px={["3", null, null, null, "0"]}
-        sx={{ position: "relative", zIndex: "100" }}
+        sx={{ gridArea: "1 / 1", position: "relative", zIndex: "100" }}
       >
         <Flex
           gap="5"
@@ -125,7 +103,7 @@ const Topper = (): JSX.Element => {
           </Inline>
         </Flex>
       </Container>
-    </BackgroundImage>
+    </div>
   );
 };
 

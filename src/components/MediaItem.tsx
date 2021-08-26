@@ -2,7 +2,7 @@
 
 import React, { FC } from "react";
 import { SxProps } from "theme-ui";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import Video from "./Video";
 import { MediaObject } from "@/types/types";
 
@@ -43,7 +43,12 @@ export const MediaItem: FC<Props & SxProps> = ({
       );
     default:
       return (
-        <Img alt={alt} className={className} fluid={media.fluid} sx={sx} />
+        <GatsbyImage
+          image={media.gatsbyImageData}
+          alt={alt}
+          className={className}
+          sx={sx}
+        />
       );
   }
 };

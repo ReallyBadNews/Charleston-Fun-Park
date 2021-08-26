@@ -1,4 +1,4 @@
-import { FluidObject } from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export type CommonProps = {
   dataTestId?: string;
@@ -10,7 +10,7 @@ export interface MediaCommonProps extends CommonProps {
 }
 
 interface ImageProps {
-  fluid: FluidObject;
+  fluid: GatsbyImage;
   file: {
     contentType: string;
     url: string;
@@ -34,7 +34,7 @@ export type MediaObject = (ImageProps | VideoProps) & MediaMeta;
 
 export interface ChildFluidObject {
   childImageSharp: {
-    fluid: FluidObject;
+    fluid: GatsbyImage;
   };
 }
 
