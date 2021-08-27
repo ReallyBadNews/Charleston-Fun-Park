@@ -27,14 +27,21 @@ const Topper = (): JSX.Element => {
   };
 
   return (
-    <div sx={{ display: "grid" }}>
+    <div sx={{ display: "grid", position: "relative" }}>
       <StaticImage
         className="topper"
         layout="fullWidth"
         src="../../images/grass.jpg"
         placeholder="none"
         alt=""
-        sx={{ gridArea: "1 / 1", height: "43px" }}
+        sx={{
+          gridArea: "1 / 1",
+          position: "absolute !important",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
+        }}
       />
       <Box
         sx={{

@@ -2,8 +2,8 @@
 
 import { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
 import { Box, Flex, Grid, Heading, Text, useThemeUI } from "theme-ui";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Stack } from "raam";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
@@ -13,7 +13,7 @@ import { FeaturedAttractionProps } from "@/types/types";
 const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
   const {
     goKarts: {
-      childImageSharp: { fluid: goKartsBg },
+      childImageSharp: { gatsbyImageData: goKartsBg },
     },
   } = useStaticQuery(graphql`
     query GoKartsBgQuery {
@@ -25,7 +25,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
     }
   `);
 
-  const { rawColors: colors } = useThemeUI().theme;
+  const { rawColors: colors = {} } = useThemeUI().theme;
 
   return (
     <Box
@@ -55,7 +55,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             x="0"
             y="0"
           >
-            <rect fill={colors?.text} height="32" width="32" />
+            <rect fill={colors.text} height="32" width="32" />
           </pattern>
         </defs>
         <rect fill="url(#finishLine)" height="32" width="100%" />
@@ -96,10 +96,10 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* @ts-ignore */}
-            <rect fill={colors?.red.dark} height="16" width="100%" />
+            <rect fill={colors.red.dark} height="16" width="100%" />
           </svg>
-          <BackgroundImage
-            fluid={goKartsBg}
+          <GatsbyImage
+            image={goKartsBg}
             sx={{
               position: ["absolute !important"],
               bg: "black.dark",
@@ -152,14 +152,14 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* @ts-ignore */}
-            <rect fill={colors?.red.dark} height="16" width="100%" />
+            <rect fill={colors.red.dark} height="16" width="100%" />
           </svg>
         </Box>
       </Flex>
       <svg
         fill="white"
         height="32"
-        style={{ backgroundColor: colors?.background }}
+        style={{ backgroundColor: colors.background }}
         sx={{
           position: "absolute",
           zIndex: "1",
@@ -177,7 +177,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             x="0"
             y="0"
           >
-            <rect fill={colors?.text} height="32" width="32" />
+            <rect fill={colors.text} height="32" width="32" />
           </pattern>
         </defs>
         <rect fill="url(#finishLineBottom)" height="32" width="100%" />

@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import { Flex, Grid, Heading, Text, jsx } from "theme-ui";
+import { Flex, Grid, Heading, Text } from "theme-ui";
 import { Stack } from "raam";
 import { MediaItem } from "@/components/MediaItem";
 import StyledLink from "@/components/Link.styled";

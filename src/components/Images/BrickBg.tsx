@@ -1,52 +1,37 @@
 /** @jsxImportSource theme-ui */
 
-import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
-import { Box, SxProps } from "theme-ui";
+import { StaticImage } from "gatsby-plugin-image";
 import { FC } from "react";
-import { ChildFluidObject } from "@/types/types";
+import { Box, SxProp } from "theme-ui";
 
 interface BrickBgProps {
   id?: string;
   className?: string;
 }
 
-interface Query {
-  brickTexture: ChildFluidObject;
-}
-
-const BrickBg: FC<BrickBgProps & SxProps> = ({
+const BrickBg: FC<BrickBgProps & SxProp> = ({
   children,
   id,
   sx,
   className,
 }) => {
-  const {
-    brickTexture: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery<Query>(graphql`
-    query BrickQuery {
-      brickTexture: file(relativePath: { eq: "brickTexture.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
-        }
-      }
-    }
-  `);
-
   return (
-    <BackgroundImage
-      fluid={fluid}
+    <Box
+      as="section"
       id={id}
-      sx={{ ...sx, position: "relative", bg: "black.dark" }}
       className={className}
-      Tag="section"
+      sx={{ display: "grid", position: "relative", ...sx }}
     >
+      <StaticImage
+        src="../../images/brickTexture.jpg"
+        id={id}
+        sx={{ position: "relative", bg: "black.dark" }}
+        placeholder="blurred"
+        alt=""
+      />
       <Box
         sx={{
           position: "absolute",
-          zIndex: "-1",
           top: "0",
           right: "0",
           bottom: "0",
@@ -56,7 +41,7 @@ const BrickBg: FC<BrickBgProps & SxProps> = ({
         }}
       />
       {children}
-    </BackgroundImage>
+    </Box>
   );
 };
 

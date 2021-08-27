@@ -31,26 +31,22 @@ const AttractionsSection = (): JSX.Element => {
           node {
             id
             heroImage {
-              fluid {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-              }
               file {
                 contentType
                 url
               }
               title
               description
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
             }
             videoPoster {
-              fluid {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-              }
               file {
                 contentType
                 url
               }
               title
               description
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
             }
             description {
               description

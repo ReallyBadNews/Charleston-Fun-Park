@@ -1,4 +1,4 @@
-const tailwind = require("./tailwindColors");
+import tailwind from "./tailwindColors";
 
 export default {
   borderWidths: {

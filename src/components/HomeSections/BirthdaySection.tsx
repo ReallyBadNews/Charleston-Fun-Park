@@ -1,15 +1,15 @@
 /** @jsxImportSource theme-ui */
 
-import { FC } from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { Container, Heading, Text, Button, Grid, Box } from "theme-ui";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { Stack } from "raam";
-import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import BrickBg from "@/components/Images/BrickBg";
-import { ChildFluidObject, MediaObject } from "@/types/types";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import { ChildFluidObject, MediaObject } from "@/src/types/types";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Stack } from "raam";
+import { FC } from "react";
+import { Box, Button, Container, Grid, Heading, Text } from "theme-ui";
 
 interface BirthdaySectionProps {
   id?: string;
@@ -33,7 +33,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
   const {
     contentfulHomePageBirthdays,
     file: {
-      childImageSharp: { fluid: baloonsImage },
+      childImageSharp: { gatsbyImageData: baloonsImage },
     },
   } = useStaticQuery<Query>(graphql`
     query BirthdaySectionQuery {
@@ -45,9 +45,12 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
         media {
           title
           description
-          fluid(maxHeight: 400, maxWidth: 400) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
+          gatsbyImageData(
+            placeholder: BLURRED
+            layout: FIXED
+            width: 220
+            height: 220
+          )
         }
         description {
           description
@@ -64,7 +67,18 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
   const { navLinks } = useSiteMetadata();
 
   return (
-    <BrickBg id={id}>
+    <div sx={{ display: "grid", position: "relative" }} id={id}>
+      <BrickBg
+        sx={{
+          // bg: "blue.dark",
+          gridArea: "1 / 1",
+          position: "absolute",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
+        }}
+      />
       <Container variant="flexContainer">
         <Box
           sx={{
@@ -73,7 +87,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
             display: ["none", null, "initial"],
           }}
         >
-          <GatsbyImage image={baloonsImage} />
+          <GatsbyImage alt="baloons" image={baloonsImage} />
         </Box>
         <Stack
           gap={["3", null, "4", null, "5"]}
@@ -105,7 +119,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
               <GatsbyImage
                 image={image.gatsbyImageData}
                 key={image.title}
-                alt={image.description}
+                alt={image.description || ""}
                 sx={{
                   bg: "blue.dark",
                   borderWidth: "0.125rem",
@@ -117,7 +131,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
           </Grid>
         </Stack>
       </Container>
-    </BrickBg>
+    </div>
   );
 };
 
