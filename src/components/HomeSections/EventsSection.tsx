@@ -39,9 +39,7 @@ const EventsSection = (): JSX.Element => {
           }
         }
         media {
-          fluid {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
+          gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
           title
         }
         title
@@ -50,17 +48,21 @@ const EventsSection = (): JSX.Element => {
   `);
 
   return (
-    <WoodBg overlayColor="green.light">
-      <Container color="white.light" px="3" py="6">
+    <div sx={{ display: "grid", position: "relative" }}>
+      <WoodBg overlayColor="green.light" sx={{ position: "absolute" }} />
+      <Container color="white.light" px="3" py="6" sx={{ zIndex: "1" }}>
         <Card variant="event">
-          <GatsbyImage image={media.gatsbyImageData} alt={media.title} />
+          <GatsbyImage
+            image={media.gatsbyImageData}
+            alt={media.title || "No image description"}
+          />
           <Box p="4">
             <Heading mb="3">{title}</Heading>
             <MDXRenderer>{body}</MDXRenderer>
           </Box>
         </Card>
       </Container>
-    </WoodBg>
+    </div>
   );
 };
 

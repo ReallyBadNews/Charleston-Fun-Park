@@ -23,7 +23,8 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
   const breakpoints = useBreakpoint();
 
   return (
-    <WoodBg overlayColor={overlayColor} sx={{ bg: "blue.dark" }}>
+    <div sx={{ display: "grid", position: "relative" }}>
+      <WoodBg overlayColor={overlayColor} sx={{ position: "absolute" }} />
       <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
       <Container>
         <Inline
@@ -179,7 +180,7 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
           )}
         </Inline>
       </Container>
-    </WoodBg>
+    </div>
   );
 };
 

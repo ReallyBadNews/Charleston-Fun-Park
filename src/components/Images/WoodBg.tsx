@@ -1,67 +1,45 @@
 /** @jsxImportSource theme-ui */
 
-import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
-import { Box, SxProps } from "theme-ui";
+import { StaticImage } from "gatsby-plugin-image";
 import { FC } from "react";
-import { ChildFluidObject } from "@/types/types";
+import { Box, SxProp } from "theme-ui";
 
 type WoodBgProps = {
   overlayColor?: string;
   className?: string;
 };
 
-type Query = {
-  darkWood: ChildFluidObject;
-};
-
-const WoodBg: FC<WoodBgProps & SxProps> = ({
+const WoodBg: FC<WoodBgProps & SxProp> = ({
   children,
   className,
   overlayColor = "blue.light",
   sx,
 }) => {
-  const {
-    darkWood: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery<Query>(graphql`
-    query WoodQuery {
-      darkWood: file(relativePath: { eq: "darkWood.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
-        }
-      }
-    }
-  `);
-
   return (
-    <BackgroundImage
-      fluid={fluid}
+    <Box
+      as="section"
       className={className}
-      sx={{
-        ...sx,
-        backgroundRepeat: "repeat",
-        backgroundSize: "auto",
-        backgroundColor: "blue.xdark",
-        backgroundPosition: "top center",
-      }}
-      Tag="section"
+      sx={{ display: "grid", position: "relative", ...sx }}
     >
+      <StaticImage
+        src="../../images/darkWood.jpg"
+        sx={{ position: "relative", bg: "blue.dark" }}
+        placeholder="blurred"
+        alt=""
+      />
       <Box
         sx={{
           position: "absolute",
-          zIndex: "-1",
           top: "0",
           right: "0",
           bottom: "0",
           left: "0",
           bg: overlayColor,
-          opacity: "0.85",
+          opacity: "0.75",
         }}
       />
       {children}
-    </BackgroundImage>
+    </Box>
   );
 };
 

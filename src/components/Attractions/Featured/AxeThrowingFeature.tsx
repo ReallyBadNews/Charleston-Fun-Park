@@ -1,14 +1,14 @@
 /** @jsxImportSource theme-ui */
 
-import { FC } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
-import { Box, Flex, Grid, Heading, Text } from "theme-ui";
-import { Stack } from "raam";
-import { ChildFluidObject, Attraction } from "@/types/types";
-import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
+import StyledLink from "@/components/Link.styled";
 import { MediaItem } from "@/components/MediaItem";
+import { Attraction, ChildFluidObject } from "@/types/types";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Stack } from "raam";
+import { FC } from "react";
+import { Box, Flex, Grid, Heading, Text } from "theme-ui";
 
 interface FeaturedAttractionProps {
   data: {
@@ -31,7 +31,7 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
 }) => {
   const {
     axeThrowing: {
-      childImageSharp: { fluid: axeThrowingBg },
+      childImageSharp: { gatsbyImageData: axeThrowingBg },
     },
   } = useStaticQuery<ImageQuery>(graphql`
     query AxeThrowingBgQuery {
@@ -68,45 +68,49 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
             position: "relative",
           }}
         >
-          <BackgroundImage
-            fluid={axeThrowingBg}
-            sx={{
-              position: "absolute !important",
-              bg: "tailwind.red.900",
-              height: "full",
-              width: "full",
-            }}
-          />
-          <Grid
-            color="white.light"
-            p="7"
-            sx={{ height: "full" }}
-            variant="featuredAttraction"
-          >
-            <Arrow
+          <div sx={{ display: "grid", height: "full", placeContent: "center" }}>
+            <GatsbyImage
+              image={axeThrowingBg}
+              alt="Textured background"
+              aria-roledescription="background"
               sx={{
-                position: ["absolute !important"],
-                right: ["3", null, null, "-80px"],
-                zIndex: "2",
-                width: "180px",
-                height: "80px",
-                top: ["-3rem", null, null, "-1rem"],
-                transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
+                gridArea: "1 / 1",
+                bg: "black.dark",
+                height: "full",
+                width: "full",
               }}
             />
-            <StyledLink
+            <Grid
               color="white.light"
-              hoverColor="blue.light"
-              to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}
+              pb={["9", null, null, "7"]}
+              pt="7"
+              px={["3", null, null, "7"]}
+              sx={{ height: "full", gridArea: "1 / 1" }}
+              variant="featuredAttraction"
             >
-              <Stack>
-                <Heading variant="heading.featuredTitle">{title}</Heading>
-                <Text className="description" variant="body.mid">
-                  {description}
-                </Text>
-              </Stack>
-            </StyledLink>
-          </Grid>
+              <Arrow
+                sx={{
+                  position: ["absolute !important"],
+                  right: ["3", null, null, "-80px"],
+                  zIndex: "2",
+                  width: "180px",
+                  height: "80px",
+                  top: ["-3rem", null, null, "-1rem"],
+                  transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
+                }}
+              />
+              <StyledLink
+                color="white.light"
+                hoverColor="blue.light"
+                to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}
+              >
+                <Stack>
+                  <Heading variant="heading.featuredTitle">{title}</Heading>
+                  <Text variant="body.normal">{description}</Text>
+                </Stack>
+              </StyledLink>
+            </Grid>
+          </div>
         </Box>
       </Flex>
     </Box>

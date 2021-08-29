@@ -38,9 +38,7 @@ const MoreAttractions = (): JSX.Element => {
           node {
             id
             heroImage {
-              fluid {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-              }
+              gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
               file {
                 contentType
                 url
@@ -50,9 +48,7 @@ const MoreAttractions = (): JSX.Element => {
             isVideo
             order
             videoPoster {
-              fluid {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-              }
+              gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
               file {
                 contentType
                 url
@@ -72,8 +68,13 @@ const MoreAttractions = (): JSX.Element => {
         title="More Attractions"
         to="/attractions/"
       />
-      <WoodBg overlayColor="blue.light">
-        <Container px={["3", null, null, null, "0"]} py="7">
+      <div sx={{ display: "grid", position: "relative", overflow: "hidden" }}>
+        <WoodBg overlayColor="blue.light" sx={{ position: "absolute" }} />
+        <Container
+          px={["3", null, null, null, "0"]}
+          py="7"
+          sx={{ zIndex: "1" }}
+        >
           <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
             {attractions.map((attraction) => (
               <AttractionsCard
@@ -89,7 +90,7 @@ const MoreAttractions = (): JSX.Element => {
             ))}
           </Grid>
         </Container>
-      </WoodBg>
+      </div>
     </>
   );
 };

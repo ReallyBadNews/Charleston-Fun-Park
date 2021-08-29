@@ -24,7 +24,6 @@ const BrickBg: FC<BrickBgProps & SxProp> = ({
     >
       <StaticImage
         src="../../images/brickTexture.jpg"
-        id={id}
         sx={{ position: "relative", bg: "black.dark" }}
         placeholder="blurred"
         alt=""

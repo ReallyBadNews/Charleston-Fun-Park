@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
-import { Box, jsx } from "theme-ui";
+
+import { Box } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import SectionDivider from "@/components/Dividers/SectionDivider";
 import OmniArenaFeature from "@/components/Attractions/Featured/OmniArenaFeature";

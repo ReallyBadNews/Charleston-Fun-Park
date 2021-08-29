@@ -47,7 +47,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
           description
           gatsbyImageData(
             placeholder: BLURRED
-            layout: FIXED
+            layout: CONSTRAINED
             width: 220
             height: 220
           )
@@ -70,13 +70,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
     <div sx={{ display: "grid", position: "relative" }} id={id}>
       <BrickBg
         sx={{
-          // bg: "blue.dark",
-          gridArea: "1 / 1",
           position: "absolute",
-          top: "0",
-          right: "0",
-          bottom: "0",
-          left: "0",
         }}
       />
       <Container variant="flexContainer">
@@ -114,7 +108,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
               </Link>
             </Button>
           </Stack>
-          <Grid columns={["repeat(2, 1fr)", null, "repeat(4, 1fr)"]} gap="3">
+          <Grid columns={[2, null, 4]} gap="3">
             {contentfulHomePageBirthdays.media.map((image) => (
               <GatsbyImage
                 image={image.gatsbyImageData}

@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import { Box, Container, Text, jsx } from "theme-ui";
+import { Box, Container, Text } from "theme-ui";
 import { Flex, Stack } from "raam";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -65,7 +65,7 @@ const Footer = (): JSX.Element => {
               </StyledLink>
             ))}
           </Flex>
-          <Text sx={{ textAlign: "center" }} variant="body.normal">
+          <Text as="p" sx={{ textAlign: "center" }} variant="body.normal">
             {copyright}
           </Text>
         </Stack>

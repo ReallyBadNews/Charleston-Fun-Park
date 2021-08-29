@@ -61,7 +61,7 @@ const OmniArenaFeature: FC<OmniFeatureProps> = ({ data: { node } }) => (
       >
         <Stack>
           <Heading variant="heading.featuredTitle">{node.title}</Heading>
-          <Text variant="body.mid">{node.description.description}</Text>
+          <Text variant="body.normal">{node.description.description}</Text>
         </Stack>
       </StyledLink>
     </Grid>
