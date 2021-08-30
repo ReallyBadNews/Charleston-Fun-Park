@@ -11,7 +11,6 @@ import SEO from "@/components/seo";
 import BirthdaySection from "@/src/components/HomeSections/BirthdaySection";
 import { PageProps } from "gatsby";
 import { FC } from "react";
-import { jsx } from "theme-ui";
 
 const IndexPage: FC<PageProps> = ({ location: { pathname } }) => {
   return (

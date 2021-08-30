@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import { ChildFluidObject } from "@/types/types";
 import PropTypes from "prop-types";
 import React, { FC } from "react";
 import { Box } from "theme-ui";
@@ -9,10 +8,6 @@ import WoodBg from "../Images/WoodBg";
 interface SectionDividerProps {
   bg?: string;
   stars?: boolean;
-}
-
-interface Query {
-  darkWood: ChildFluidObject;
 }
 
 const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => {

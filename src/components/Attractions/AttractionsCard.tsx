@@ -2,7 +2,7 @@
 
 import React, { FC, ReactText } from "react";
 import CSS from "csstype";
-import { Box, Card, Divider, Heading, Text, jsx } from "theme-ui";
+import { Box, Card, Divider, Heading, Text } from "theme-ui";
 import { motion } from "framer-motion";
 import { Stack, Flex } from "raam";
 import StyledLink from "@/components/Link.styled";

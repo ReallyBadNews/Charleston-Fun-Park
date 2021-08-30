@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import React from "react";
-import { Container, Grid, jsx } from "theme-ui";
+import { Container, Grid } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import WoodBg from "@/components/Images/WoodBg";
 import StarDivider from "@/components/Dividers/StarDivider";

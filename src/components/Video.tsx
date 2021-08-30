@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import React, { FC } from "react";
-import { SxProps, jsx } from "theme-ui";
+import { SxProp } from "theme-ui";
 
 interface VideoProps {
   alt?: string;
@@ -14,7 +14,7 @@ interface VideoProps {
   poster?: string;
 }
 
-const Video: FC<VideoProps & SxProps> = ({
+const Video: FC<VideoProps & SxProp> = ({
   alt,
   className,
   dataTestId,
