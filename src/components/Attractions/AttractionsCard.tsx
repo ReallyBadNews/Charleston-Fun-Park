@@ -47,7 +47,6 @@ const AttractionCard: FC<AttractionCardProps> = ({
             borderTopRightRadius: "lg",
             width: "full",
             objectFit: "cover",
-            backgroundColor: "blue.dark",
           }}
         />
         <Flex
