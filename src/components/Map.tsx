@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import GoogleMapReact from "google-map-react";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { Box } from "theme-ui";

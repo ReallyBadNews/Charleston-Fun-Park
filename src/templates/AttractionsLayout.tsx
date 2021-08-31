@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
+import { FC } from "react";
 import { Box, Container, Flex, Heading, Text, Card, Divider } from "theme-ui";
 import { Flex as Flexbox } from "raam";
 import { graphql, PageProps } from "gatsby";

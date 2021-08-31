@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import GlobalStyles from "../../static/GlobalStyles";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";

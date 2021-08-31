@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
+import { FC } from "react";
 import { SxProp } from "theme-ui";
 
 interface VideoProps {

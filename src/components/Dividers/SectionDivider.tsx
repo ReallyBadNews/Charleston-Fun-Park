@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import PropTypes from "prop-types";
-import React, { FC } from "react";
+import { FC } from "react";
 import { Box } from "theme-ui";
 import WoodBg from "../Images/WoodBg";
 

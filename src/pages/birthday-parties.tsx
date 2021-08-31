@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
+import { FC } from "react";
 import { Box, Flex, Card, Container, Heading, Text } from "theme-ui";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, PageProps } from "gatsby";

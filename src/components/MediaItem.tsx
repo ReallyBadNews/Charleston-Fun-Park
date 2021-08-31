@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
-import { SxProps } from "theme-ui";
+import { FC } from "react";
+import { SxProp } from "theme-ui";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Video from "./Video";
 import { MediaObject } from "@/types/types";
@@ -19,7 +19,7 @@ interface MediaItemProps {
 
 type Props = CommonProps & MediaItemProps;
 
-export const MediaItem: FC<Props & SxProps> = ({
+export const MediaItem: FC<Props & SxProp> = ({
   alt,
   dataTestId,
   media,
@@ -45,7 +45,7 @@ export const MediaItem: FC<Props & SxProps> = ({
       return (
         <GatsbyImage
           image={media.gatsbyImageData}
-          alt={alt}
+          alt={alt || "No alt text available"}
           className={className}
           sx={sx}
         />

@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import React from "react";
 import ArrowDivider from "@/components/Dividers/ArrowDivider";
 import EventsSection from "@/components/HomeSections/EventsSection";
 import FeaturedAttractions from "@/components/HomeSections/FeaturedAttractions";

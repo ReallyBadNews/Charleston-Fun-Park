@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { graphql, PageProps } from "gatsby";
 import { Card, Container, Flex, Heading, Text } from "theme-ui";
 import { FormiumForm } from "@formium/react";

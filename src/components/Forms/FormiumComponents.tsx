@@ -1,4 +1,4 @@
-import React, { memo, NamedExoticComponent } from "react";
+import { memo, NamedExoticComponent } from "react";
 import { Inline, Stack } from "raam";
 import {
   Button,

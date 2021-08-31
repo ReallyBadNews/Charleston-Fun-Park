@@ -1,5 +1,5 @@
 import { PageProps } from "gatsby";
-import React, { FC } from "react";
+import { FC } from "react";
 import { Container, Heading, Text, Box, Card, Grid, Flex } from "theme-ui";
 import StarDivider from "@/components/Dividers/StarDivider";
 import StyledLink from "@/components/Link.styled";

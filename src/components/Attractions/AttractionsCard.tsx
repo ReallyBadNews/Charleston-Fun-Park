@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import React, { FC, ReactText } from "react";
+import { FC, ReactText } from "react";
 import CSS from "csstype";
 import { Box, Card, Divider, Heading, Text } from "theme-ui";
 import { motion } from "framer-motion";

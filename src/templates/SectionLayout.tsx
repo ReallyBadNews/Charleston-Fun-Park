@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import React from "react";
 import StarDivider from "@/components/Dividers/StarDivider";
 import WoodBg from "@/components/Images/WoodBg";
 import { MediaItem } from "@/components/MediaItem";

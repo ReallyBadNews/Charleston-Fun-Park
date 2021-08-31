@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import { Box, Heading, Text, SxProps } from "theme-ui";
+import { Box, Heading, Text, SxProp } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
 import WoodBg from "@/components/Images/WoodBg";
@@ -20,7 +20,7 @@ interface Props {
   className?: string;
 }
 
-const MobileWelcome: FC<Props & SxProps> = ({ className, sx }) => {
+const MobileWelcome: FC<Props & SxProp> = ({ className, sx }) => {
   const {
     contentfulHomePageHero: {
       description: { description },

@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
+import { FC } from "react";
 import { Grid, Container } from "theme-ui";
 import { graphql, PageProps } from "gatsby";
 import WoodBg from "@/components/Images/WoodBg";

@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import React, { ElementType, FC } from "react";
+import { ElementType, FC } from "react";
 import { Container, Divider, Heading } from "theme-ui";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { Link } from "gatsby";
