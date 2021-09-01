@@ -44,4 +44,12 @@ const Video: FC<VideoProps & SxProp> = ({
   </video>
 );
 
+Video.defaultProps = {
+  alt: undefined,
+  className: undefined,
+  dataTestId: "videoPlayer",
+  media: undefined,
+  poster: undefined,
+};
+
 export default Video;

@@ -1,5 +1,5 @@
-/* eslint-disable react/jsx-pascal-case */
 /** @jsxImportSource theme-ui */
+
 import PropTypes from "prop-types";
 import { Themed } from "theme-ui";
 import { Link } from "gatsby";

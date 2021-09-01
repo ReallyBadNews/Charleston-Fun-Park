@@ -6,7 +6,7 @@ import Topper from "./Topper";
 import Nav from "./Nav";
 
 const Header: FC = () => (
-  <Box as="header" sx={{ position: "relative", zIndex: "1" }}>
+  <Box as="header" sx={{ position: "relative", zIndex: "10" }}>
     <Topper />
     <Nav />
   </Box>

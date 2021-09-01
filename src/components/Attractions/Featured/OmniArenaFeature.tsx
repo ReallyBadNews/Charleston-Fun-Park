@@ -2,11 +2,11 @@
 
 import { Flex, Grid, Heading, Text } from "theme-ui";
 import { Stack } from "raam";
+import { FC } from "react";
 import { MediaItem } from "@/components/MediaItem";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
 import { Attraction } from "@/types/types";
-import { FC } from "react";
 
 interface OmniFeatureProps {
   data: {
@@ -44,7 +44,7 @@ const OmniArenaFeature: FC<OmniFeatureProps> = ({ data: { node } }) => (
     >
       <Arrow
         sx={{
-          position: ["absolute !important"],
+          position: "absolute !important" as any,
           left: [null, null, null, "-80px"],
           right: ["3", null],
           top: ["-4rem", null, null, "-1rem"],
@@ -54,6 +54,7 @@ const OmniArenaFeature: FC<OmniFeatureProps> = ({ data: { node } }) => (
           transform: ["rotate(-30deg)", null, null, "rotateZ(-145deg)"],
         }}
       />
+      {/* @ts-expect-error TODO: Refactor link component */}
       <StyledLink
         color="white.light"
         hoverColor="blue.light"

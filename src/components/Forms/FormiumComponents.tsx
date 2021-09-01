@@ -9,6 +9,8 @@ import {
   Radio as ThemeUIRadio,
   Text,
   Heading,
+  ButtonProps,
+  HeadingProps,
 } from "theme-ui";
 import { motion } from "framer-motion";
 import {
@@ -30,63 +32,54 @@ const fieldMessageVariant = {
 };
 
 const FormControl: NamedExoticComponent<FormControlProps> = memo(
-  function FormControl({ children, description, error, label, labelFor }) {
-    return (
-      <Stack gap="2" sx={{ lineHeight: "none" }}>
-        <Stack gap="1">
-          {label && <Label htmlFor={labelFor}>{label}</Label>}
-          {description && (
-            <Text sx={{ color: "tailwind.coolGray.400", fontSize: "0" }}>
-              {description}
-            </Text>
-          )}
-        </Stack>
-        {children}
-        <motion.div
-          animate={error ? "show" : "hide"}
-          initial="hide"
-          variants={fieldMessageVariant}
-        >
-          <Inline gap="1" sx={{ color: "red.dark", fontSize: "0" }}>
-            <FontAwesomeIcon icon={faTimesCircle} />
-            <Text>{error}</Text>
-          </Inline>
-        </motion.div>
+  ({ children, description, error, label, labelFor }) => (
+    <Stack gap="2" sx={{ lineHeight: "none" }}>
+      <Stack gap="1">
+        {label && <Label htmlFor={labelFor}>{label}</Label>}
+        {description && (
+          <Text sx={{ color: "tailwind.coolGray.400", fontSize: "0" }}>
+            {description}
+          </Text>
+        )}
       </Stack>
-    );
-  }
+      {children}
+      <motion.div
+        animate={error ? "show" : "hide"}
+        initial="hide"
+        variants={fieldMessageVariant}
+      >
+        <Inline gap="1" sx={{ color: "red.dark", fontSize: "0" }}>
+          <FontAwesomeIcon icon={faTimesCircle} />
+          <Text>{error}</Text>
+        </Inline>
+      </motion.div>
+    </Stack>
+  )
 );
 
-const CustomHeading = memo(function CustomHeading(props) {
-  return <Heading variant="heading.title" {...props} />;
-});
+const CustomHeading = memo((props: HeadingProps) => (
+  <Heading variant="heading.title" {...props} />
+));
 
-const CustomButton = memo(function CustomButton(props) {
-  return <Button variant="cta" {...props} />;
-});
+const CustomButton = memo((props: ButtonProps) => (
+  <Button variant="cta" {...props} />
+));
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const PreviousButton = (props) => (
+const PreviousButton = (props: ButtonProps) => (
   <CustomButton mr="3" bg="blue.dark" color="white.light" {...props} />
 );
 
-const PageGrid = memo(function PageGrid(props) {
-  return <Grid columns="1fr" my="3" {...props} />;
-});
+const PageGrid = memo((props) => <Grid columns="1fr" my="3" {...props} />);
 
-const TextInput: NamedExoticComponent<TextInputProps> = memo(function TextInput(
-  props
-) {
-  return <Input {...props} />;
-});
+const TextInput: NamedExoticComponent<TextInputProps> = memo((props) => (
+  <Input {...props} />
+));
 
-const TextArea: NamedExoticComponent<TextareaProps> = memo(function TextArea(
-  props
-) {
-  return <Textarea {...props} />;
-});
+const TextArea: NamedExoticComponent<TextareaProps> = memo((props) => (
+  <Textarea {...props} />
+));
 
-const Radio: NamedExoticComponent<ControlProps> = memo(function Radio(props) {
+const Radio: NamedExoticComponent<ControlProps> = memo((props) => {
   const { label } = props;
 
   return (
@@ -100,9 +93,9 @@ const Radio: NamedExoticComponent<ControlProps> = memo(function Radio(props) {
 export const formComponents: FormiumComponents = {
   ...defaultComponents,
   FormControl,
-  SubmitButton: CustomButton,
-  NextButton: CustomButton,
-  PreviousButton,
+  SubmitButton: CustomButton as FormiumComponents["SubmitButton"],
+  NextButton: CustomButton as FormiumComponents["NextButton"],
+  PreviousButton: PreviousButton as FormiumComponents["PreviousButton"],
   TextInput,
   Textarea: TextArea,
   ElementsWrapper: PageGrid,

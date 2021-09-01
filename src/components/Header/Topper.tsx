@@ -1,7 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import StyledLink from "@/components/Link.styled";
-import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import {
   faFacebook,
   faInstagram,
@@ -16,8 +14,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StaticImage } from "gatsby-plugin-image";
 import { Flex, Inline } from "raam";
 import { Box, Button, Container } from "theme-ui";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import StyledLink from "@/components/Link.styled";
 
-const Topper = (): JSX.Element => {
+const Topper = () => {
   const { giftCardLink, phoneNumber, socialLinks } = useSiteMetadata();
 
   const socialIcons = {

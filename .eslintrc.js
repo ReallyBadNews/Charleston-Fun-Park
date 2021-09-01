@@ -5,27 +5,46 @@ module.exports = {
     ecmaFeatures: { jsx: true },
     sourceType: "module",
     ecmaVersion: 6,
+    project: "./tsconfig.eslint.json",
+    extraFileExtensions: [".json"],
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "eslint-plugin-prettier"],
   env: {
     browser: true,
     node: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
+    "airbnb",
+    "airbnb-typescript",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
+    "eslint-config-prettier",
   ],
   rules: {
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
     "react/prop-types": "off",
+    "react/jsx-one-expression-per-line": ["error", { allow: "single-child" }],
     "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
     "no-console": ["error", { allow: ["warn", "error"] }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { devDependencies: true, bundledDependencies: true },
+    ],
+    "import/extensions": [
+      "error",
+      "never",
+      { svg: "always", styled: "always", png: "always", jpg: "always" },
+    ],
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": [
+      1,
+      { extensions: [".js", ".jsx", ".tsx"] },
+    ],
     quotes: ["error", "double"],
+    // "react/jsx-sort-props": [
+    //   "error",
+    //   { callbacksLast: true, shorthandLast: true, reservedFirst: true },
+    // ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
@@ -43,18 +62,14 @@ module.exports = {
         depth: 25,
       },
     ],
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-var-requires": "off",
   },
   overrides: [
     {
       // enable the rule specifically for TypeScript files
       files: ["**/*.ts", "**/*.tsx"],
       rules: {
-        "@typescript-eslint/ban-ts-comment": "off",
-        "@typescript-eslint/explicit-module-boundary-types": ["error"],
-        "@typescript-eslint/no-var-requires": ["error"],
-        // "@typescript-eslint/explicit-function-return-type": ["error"],
+        // "@typescript-eslint/ban-ts-comment": "off",
+        // "@typescript-eslint/no-var-requires": ["error"],
       },
     },
   ],

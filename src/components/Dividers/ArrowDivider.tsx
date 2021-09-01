@@ -2,10 +2,10 @@
 
 import { Container, Divider, Text, Box } from "theme-ui";
 import { Inline } from "raam";
+import { FC } from "react";
 import Arrow from "@/components/Images/Arrow";
 import BrickBg from "@/components/Images/BrickBg";
 import StyledLink from "@/components/Link.styled";
-import { FC } from "react";
 
 interface ArrowDividerProps {
   id?: string;
@@ -51,6 +51,7 @@ const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => (
             width: ["72px", null, "24", null, "32"],
           }}
         />
+        {/* @ts-expect-error TODO: Refactor link component */}
         <StyledLink scrollTo="birthdays">
           <Text variant="display" sx={{ maxWidth: ["12ch", null, "initial"] }}>
             The Party Starts Here
@@ -70,5 +71,9 @@ const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => (
     />
   </div>
 );
+
+ArrowDivider.defaultProps = {
+  id: undefined,
+};
 
 export default ArrowDivider;

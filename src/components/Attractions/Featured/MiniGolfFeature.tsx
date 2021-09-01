@@ -7,7 +7,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
-import Brick from "@/components/../images/brick.png";
+import Brick from "@/src/images/brick.png";
 import { MediaItem } from "@/components/MediaItem";
 import { ChildFluidObject, FeaturedAttractionProps } from "@/types/types";
 
@@ -94,7 +94,7 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
         >
           <Arrow
             sx={{
-              position: ["absolute !important"],
+              position: "absolute !important" as any,
               left: [null, null, null, "-80px"],
               right: ["3", null],
               top: ["-3rem", null, null, "-1rem"],
@@ -104,6 +104,7 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
               transform: ["rotate(-30deg)", null, null, "rotateZ(-145deg)"],
             }}
           />
+          {/* @ts-expect-error TODO: Refactor link component */}
           <StyledLink
             color="white.light"
             hoverColor="blue.light"

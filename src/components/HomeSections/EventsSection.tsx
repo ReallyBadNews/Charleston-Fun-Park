@@ -19,7 +19,7 @@ interface Query {
   };
 }
 
-const EventsSection = (): JSX.Element => {
+const EventsSection = () => {
   const {
     contentfulHomePageEvents: {
       content: {

@@ -43,7 +43,7 @@ const SEO: FC<SeoProps> = ({
         },
         {
           name: "keywords",
-          content: keywords,
+          content: keywords?.join(", "),
         },
         {
           property: "og:title",
@@ -92,7 +92,7 @@ const SEO: FC<SeoProps> = ({
       <script
         src="https://js.adsrvr.org/up_loader.1.1.0.js"
         type="text/javascript"
-      ></script>
+      />
       {/* <script type="text/javascript">
         {`
           ttd_dom_ready( function() {
@@ -109,6 +109,13 @@ const SEO: FC<SeoProps> = ({
 
 SEO.defaultProps = {
   lang: "en",
+  keywords: [
+    "Fun Park",
+    "Amusement Park",
+    "Go Karts",
+    "Putt-Putt",
+    "Mini Golf",
+  ],
 };
 
 export default SEO;

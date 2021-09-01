@@ -18,7 +18,7 @@ import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import StyledLink from "@/components/Link.styled";
 import Arrow from "@/components/Images/Arrow";
 
-const Nav = (): JSX.Element => {
+const Nav = () => {
   const breakpoints = useBreakpoint();
 
   const { navLinks } = useSiteMetadata();

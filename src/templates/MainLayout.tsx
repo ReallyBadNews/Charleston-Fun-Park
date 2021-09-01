@@ -1,8 +1,8 @@
 import { FC } from "react";
+import { Box, Flex } from "theme-ui";
 import GlobalStyles from "../../static/GlobalStyles";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
-import { Box, Flex } from "theme-ui";
 
 const MainLayout: FC = ({ children }) => (
   <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>

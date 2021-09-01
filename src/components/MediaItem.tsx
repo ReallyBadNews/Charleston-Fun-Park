@@ -52,3 +52,10 @@ export const MediaItem: FC<Props & SxProp> = ({
       );
   }
 };
+
+MediaItem.defaultProps = {
+  alt: "No alt text avaliable",
+  dataTestId: "mediaItem",
+  className: undefined,
+  videoPoster: undefined,
+};

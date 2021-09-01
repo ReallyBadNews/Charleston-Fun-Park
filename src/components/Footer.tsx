@@ -11,7 +11,7 @@ import {
 import StyledLink from "@/components/Link.styled";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 
-const Footer = (): JSX.Element => {
+const Footer = () => {
   const { copyright, navLinks, socialLinks } = useSiteMetadata();
 
   const socialIcons = {

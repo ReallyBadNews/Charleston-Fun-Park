@@ -35,6 +35,7 @@ const AttractionCard: FC<AttractionCardProps> = ({
   textAlign,
 }) => (
   <motion.div whileHover={{ y: -8 }}>
+    {/* @ts-expect-error TODO: Refactor link component */}
     <StyledLink to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}>
       <Card variant="attraction">
         <MediaItem
@@ -47,6 +48,7 @@ const AttractionCard: FC<AttractionCardProps> = ({
             borderTopRightRadius: "lg",
             width: "full",
             objectFit: "cover",
+            backgroundColor: "blue.dark",
           }}
         />
         <Flex
@@ -102,5 +104,12 @@ const AttractionCard: FC<AttractionCardProps> = ({
 export default AttractionCard;
 
 AttractionCard.defaultProps = {
+  description: undefined,
+  pricePoint1Price: undefined,
+  pricePoint1Title: undefined,
+  pricePoint1Unit: undefined,
+  pricePoint2Price: undefined,
+  pricePoint2Title: undefined,
+  pricePoint2Unit: undefined,
   textAlign: "left",
 };

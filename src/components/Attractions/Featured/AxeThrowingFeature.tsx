@@ -1,14 +1,14 @@
 /** @jsxImportSource theme-ui */
 
-import Arrow from "@/components/Images/Arrow";
-import StyledLink from "@/components/Link.styled";
-import { MediaItem } from "@/components/MediaItem";
-import { Attraction, ChildFluidObject } from "@/types/types";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Stack } from "raam";
 import { FC } from "react";
 import { Box, Flex, Grid, Heading, Text } from "theme-ui";
+import { Attraction, ChildFluidObject } from "@/types/types";
+import { MediaItem } from "@/components/MediaItem";
+import StyledLink from "@/components/Link.styled";
+import Arrow from "@/components/Images/Arrow";
 
 interface FeaturedAttractionProps {
   data: {

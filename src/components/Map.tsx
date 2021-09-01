@@ -1,7 +1,7 @@
 import { FC } from "react";
 import GoogleMapReact from "google-map-react";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { Box } from "theme-ui";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 type MapProps = {
   height: string;

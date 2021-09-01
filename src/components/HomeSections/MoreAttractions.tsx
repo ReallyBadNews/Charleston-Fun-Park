@@ -24,7 +24,7 @@ interface Query {
   };
 }
 
-const MoreAttractions = (): JSX.Element => {
+const MoreAttractions = () => {
   const {
     allContentfulAttraction: { edges: attractions },
   } = useStaticQuery<Query>(graphql`

@@ -1,6 +1,6 @@
-import SEO from "@/components/seo";
 import { PageProps } from "gatsby";
 import { FC } from "react";
+import SEO from "@/components/seo";
 
 const NotFoundPage: FC<PageProps> = ({ location: { pathname } }) => (
   <>

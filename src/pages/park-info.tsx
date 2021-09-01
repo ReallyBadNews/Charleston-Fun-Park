@@ -56,8 +56,15 @@ const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
       <SEO description={description} pathname={pathname} title={seoTitle} />
       <StarDivider title={title} />
       <WoodBg overlayColor="blue.light">
-        <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-          <Container px={["3", null, null, null, "0"]} py="7">
+        <Flex
+          sx={{
+            flexDirection: "column",
+            minHeight: "screenHeight",
+            gridArea: "1 / 1",
+            zIndex: "1",
+          }}
+        >
+          <Container py="7">
             <Grid columns="1fr" variant="attractionsPage">
               <Card variant="image">
                 <MapBox height="512px" width="100%" />

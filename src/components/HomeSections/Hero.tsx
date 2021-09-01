@@ -6,7 +6,7 @@ import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack, Flex } from "raam";
 
-const Hero = (): JSX.Element => {
+const Hero = () => {
   const {
     contentfulHomePageHero: {
       description: { description },

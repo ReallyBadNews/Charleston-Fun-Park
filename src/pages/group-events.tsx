@@ -4,6 +4,7 @@ import { Card, Container, Flex, Heading, Text } from "theme-ui";
 import { FormiumForm } from "@formium/react";
 import { Form } from "@formium/types";
 import { Stack } from "raam";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { formium } from "@/src/lib/formium";
 import { formComponents } from "@/components/Forms/FormiumComponents";
 import SEO from "@/components/seo";
@@ -11,7 +12,6 @@ import StarDivider from "@/components/Dividers/StarDivider";
 import WoodBg from "@/components/Images/WoodBg";
 import { MediaItem } from "@/components/MediaItem";
 import { MediaObject } from "@/types/types";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
 interface JobPageProps extends PageProps {
   data: {
@@ -54,7 +54,14 @@ const JobPage: FC<JobPageProps> = ({
       <SEO pathname={pathname} title={seoTitle} description={description} />
       <StarDivider title={title} />
       <WoodBg>
-        <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
+        <Flex
+          sx={{
+            flexDirection: "column",
+            minHeight: "screenHeight",
+            gridArea: "1 / 1",
+            zIndex: "1",
+          }}
+        >
           {media ? (
             <MediaItem
               media={media}
@@ -68,7 +75,7 @@ const JobPage: FC<JobPageProps> = ({
               }}
             />
           ) : null}
-          <Container px={["3", null, null, null, "0"]} py="7">
+          <Container py="7">
             <Card variant="image">
               <Stack p="4" gap="3">
                 {success ? (

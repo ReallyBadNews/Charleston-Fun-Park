@@ -1,7 +1,8 @@
 /** @jsxImportSource theme-ui */
+
 import { Box, Button } from "theme-ui";
-import Arrow from "./Images/Arrow";
 import { FC } from "react";
+import Arrow from "./Images/Arrow";
 
 type ArrowButtonProps = {
   href?: string;
@@ -42,5 +43,9 @@ const ArrowButton: FC<ArrowButtonProps> = ({ children, href }) => (
     />
   </Box>
 );
+
+ArrowButton.defaultProps = {
+  href: "#",
+};
 
 export default ArrowButton;

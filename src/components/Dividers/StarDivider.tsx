@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import { ElementType, FC } from "react";
+import { FC } from "react";
 import { Container, Divider, Heading } from "theme-ui";
 import { useBreakpoint } from "gatsby-plugin-breakpoints";
 import { Link } from "gatsby";
@@ -8,7 +8,7 @@ import { Inline } from "raam";
 import WoodBg from "@/components/Images/WoodBg";
 
 interface MoreAttractionsProps {
-  as?: ElementType;
+  as?: React.ElementType | React.FunctionComponent<unknown>;
   title?: string;
   to?: string;
   overlayColor?: string;
@@ -182,6 +182,13 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
       </Container>
     </div>
   );
+};
+
+MoreAttractionsDivider.defaultProps = {
+  as: "div",
+  title: undefined,
+  to: undefined,
+  overlayColor: "blue.xdark",
 };
 
 export default MoreAttractionsDivider;

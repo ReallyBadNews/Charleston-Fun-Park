@@ -1,8 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import BrickBg from "@/components/Images/BrickBg";
-import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import { ChildFluidObject, MediaObject } from "@/src/types/types";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { graphql, Link, useStaticQuery } from "gatsby";
@@ -10,6 +7,9 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { Stack } from "raam";
 import { FC } from "react";
 import { Box, Button, Container, Grid, Heading, Text } from "theme-ui";
+import { ChildFluidObject, MediaObject } from "@/src/types/types";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import BrickBg from "@/components/Images/BrickBg";
 
 interface BirthdaySectionProps {
   id?: string;
@@ -127,6 +127,10 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
       </Container>
     </div>
   );
+};
+
+BirthdaySection.defaultProps = {
+  id: undefined,
 };
 
 export default BirthdaySection;

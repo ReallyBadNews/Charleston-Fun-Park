@@ -51,11 +51,7 @@ const AttractionsPage: FC<AttractionsPageProps> = ({
     />
     <StarDivider title="Attractions" />
     <WoodBg overlayColor="blue.light">
-      <Container
-        px={["3", null, null, null, "0"]}
-        py="7"
-        sx={{ gridArea: "1 / 1", zIndex: "1" }}
-      >
+      <Container py="7" sx={{ gridArea: "1 / 1", zIndex: "1" }}>
         <Grid
           columns={["1fr", null, "repeat(2, 1fr)", "repeat(3, 1fr)"]}
           variant="attractionsPage"

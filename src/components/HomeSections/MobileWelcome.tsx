@@ -3,8 +3,8 @@
 import { Box, Heading, Text, SxProp } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
-import WoodBg from "@/components/Images/WoodBg";
 import { FC } from "react";
+import WoodBg from "@/components/Images/WoodBg";
 
 interface Query {
   contentfulHomePageHero: {
@@ -54,6 +54,10 @@ const MobileWelcome: FC<Props & SxProp> = ({ className, sx }) => {
       </Box>
     </WoodBg>
   );
+};
+
+MobileWelcome.defaultProps = {
+  className: undefined,
 };
 
 export default MobileWelcome;
