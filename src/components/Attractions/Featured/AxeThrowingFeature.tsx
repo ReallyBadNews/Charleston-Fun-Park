@@ -7,7 +7,7 @@ import { FC } from "react";
 import { Box, Flex, Grid, Heading, Text } from "theme-ui";
 import { Attraction, ChildFluidObject } from "@/types/types";
 import { MediaItem } from "@/components/MediaItem";
-import StyledLink from "@/components/Link.styled";
+import { Link } from "@/components/Link";
 import Arrow from "@/components/Images/Arrow";
 
 interface FeaturedAttractionProps {
@@ -52,8 +52,8 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
         }}
       >
         <MediaItem
-          media={videoPoster}
           alt="People throwing axes"
+          media={videoPoster}
           sx={{
             bg: "tailwind.red.800",
             width: ["full", null, null, "7/12"],
@@ -70,9 +70,9 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
         >
           <div sx={{ display: "grid", height: "full", placeContent: "center" }}>
             <GatsbyImage
-              image={axeThrowingBg}
               alt="Textured background"
               aria-roledescription="background"
+              image={axeThrowingBg}
               sx={{
                 gridArea: "1 / 1",
                 bg: "black.dark",
@@ -90,7 +90,7 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
             >
               <Arrow
                 sx={{
-                  position: ["absolute !important"],
+                  position: "absolute !important" as any,
                   right: ["3", null, null, "-80px"],
                   zIndex: "2",
                   width: "180px",
@@ -99,16 +99,15 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
                   transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
                 }}
               />
-              <StyledLink
-                color="white.light"
-                hoverColor="blue.light"
+              <Link
+                sx={{ color: "white.light" }}
                 to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}
               >
                 <Stack>
                   <Heading variant="heading.featuredTitle">{title}</Heading>
                   <Text variant="body.normal">{description}</Text>
                 </Stack>
-              </StyledLink>
+              </Link>
             </Grid>
           </div>
         </Box>

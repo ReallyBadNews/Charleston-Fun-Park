@@ -51,7 +51,7 @@ const JobPage: FC<JobPageProps> = ({
 
   return (
     <>
-      <SEO pathname={pathname} title={seoTitle} description={description} />
+      <SEO description={description} pathname={pathname} title={seoTitle} />
       <StarDivider title={title} />
       <WoodBg>
         <Flex
@@ -64,8 +64,8 @@ const JobPage: FC<JobPageProps> = ({
         >
           {media ? (
             <MediaItem
-              media={media}
               alt={media.description}
+              media={media}
               sx={{
                 bg: "blue.dark",
                 maxHeight: "xl",
@@ -77,7 +77,7 @@ const JobPage: FC<JobPageProps> = ({
           ) : null}
           <Container py="7">
             <Card variant="image">
-              <Stack p="4" gap="3">
+              <Stack gap="3" p="4">
                 {success ? (
                   <Stack gap="2">
                     <Heading
@@ -108,8 +108,8 @@ const JobPage: FC<JobPageProps> = ({
                       <MDXRenderer>{content}</MDXRenderer>
                     </Stack>
                     <FormiumForm
-                      data={formiumForm}
                       components={formComponents}
+                      data={formiumForm}
                       onSubmit={async (values) => {
                         // Send form values to Formium
                         await formium.submitForm("event-request", values);

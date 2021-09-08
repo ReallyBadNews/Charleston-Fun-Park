@@ -21,10 +21,10 @@ const WoodBg: FC<WoodBgProps & SxProp> = ({
     sx={{ display: "grid", position: "relative", overflow: "hidden", ...sx }}
   >
     <StaticImage
+      alt=""
+      placeholder="blurred"
       src="../../images/darkWood.jpg"
       sx={{ gridArea: "1 / 1", bg: "blue.dark" }}
-      placeholder="blurred"
-      alt=""
     />
     <Box
       sx={{

@@ -139,9 +139,9 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                 {birthdayPackage1Media.length &&
                   birthdayPackage1Media.map((image) => (
                     <GatsbyImage
-                      image={image.gatsbyImageData}
                       key={image.title}
                       alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
                       sx={{
                         width: ["full", null, "1/2"],
                         ml: ["0", null, "3"],
@@ -163,9 +163,9 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                 {birthdayPackage2Media.length &&
                   birthdayPackage2Media.map((image) => (
                     <GatsbyImage
-                      image={image.gatsbyImageData}
                       key={image.title}
                       alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
                       sx={{
                         width: ["full", null, "1/2"],
                         ml: ["0", null, "3"],
@@ -187,9 +187,9 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                 {birthdayPackage3Media.length &&
                   birthdayPackage3Media.map((image) => (
                     <GatsbyImage
-                      image={image.gatsbyImageData}
                       key={image.title}
                       alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
                       sx={{
                         width: ["full", null, "1/2"],
                         ml: ["0", null, "3"],
@@ -211,9 +211,9 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                 {birthdayPackage4Media.length &&
                   birthdayPackage4Media.map((image) => (
                     <GatsbyImage
-                      image={image.gatsbyImageData}
                       key={image.title}
                       alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
                       sx={{
                         width: ["full", null, "1/2"],
                         ml: ["0", null, "3"],
@@ -235,9 +235,9 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                 {birthdayPackage5Media.length &&
                   birthdayPackage5Media.map((image) => (
                     <GatsbyImage
-                      image={image.gatsbyImageData}
                       key={image.title}
                       alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
                       sx={{
                         width: ["full", null, "1/2"],
                         ml: ["0", null, "3"],

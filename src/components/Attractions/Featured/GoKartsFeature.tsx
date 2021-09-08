@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Box, Flex, Grid, Heading, Text, useThemeUI } from "theme-ui";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Stack } from "raam";
-import StyledLink from "@/components/Link.styled";
+import { Link } from "@/components/Link";
 import Arrow from "@/components/Images/Arrow";
 import { MediaItem } from "@/components/MediaItem";
 import { FeaturedAttractionProps } from "@/types/types";
@@ -67,8 +67,8 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
         }}
       >
         <MediaItem
-          media={node.videoPoster}
           alt={node.videoPoster.description}
+          media={node.videoPoster}
           sx={{
             bg: "tailwind.gray.800",
             width: ["full", null, null, "7/12"],
@@ -100,9 +100,9 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           </svg>
           <div sx={{ display: "grid", height: "full", placeContent: "center" }}>
             <GatsbyImage
-              image={goKartsBg}
               alt="Textured background"
               aria-roledescription="background"
+              image={goKartsBg}
               sx={{
                 gridArea: "1 / 1",
                 bg: "black.dark",
@@ -120,7 +120,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             >
               <Arrow
                 sx={{
-                  position: ["absolute !important"],
+                  position: "absolute !important" as any,
                   right: ["3", null, null, "-80px"],
                   zIndex: "2",
                   width: "180px",
@@ -129,9 +129,8 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
                   transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
                 }}
               />
-              <StyledLink
-                color="white.light"
-                hoverColor="blue.light"
+              <Link
+                sx={{ color: "white.light" }}
                 to={`/attractions/${node.title
                   .toLowerCase()
                   .replace(/\s/g, "-")}`}
@@ -144,7 +143,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
                     {node.description.description}
                   </Text>
                 </Stack>
-              </StyledLink>
+              </Link>
             </Grid>
           </div>
           <svg

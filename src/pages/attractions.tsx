@@ -45,9 +45,9 @@ const AttractionsPage: FC<AttractionsPageProps> = ({
 }) => (
   <>
     <SEO
+      description="Get your FUN on with Go-Karts, 36 Holes of Mini-Golf, an Outdoor Axe Throwing Arena, a Virtual Reality Roller Coaster, Bumper Cars, a Full Arcade with Prizes and the all new OMNI VR Battle Arena! And if all that makes you hungry or thirsty… we have snacks like Dippin’ Dots, F’Real Milkshakes, chips and drinks (including adult beverages like beer and wine). If you’re looking for some fun, then you’ve come to the right place!"
       pathname={pathname}
       title="Things to Do in Charleston – Fun Family Entertainment"
-      description="Get your FUN on with Go-Karts, 36 Holes of Mini-Golf, an Outdoor Axe Throwing Arena, a Virtual Reality Roller Coaster, Bumper Cars, a Full Arcade with Prizes and the all new OMNI VR Battle Arena! And if all that makes you hungry or thirsty… we have snacks like Dippin’ Dots, F’Real Milkshakes, chips and drinks (including adult beverages like beer and wine). If you’re looking for some fun, then you’ve come to the right place!"
     />
     <StarDivider title="Attractions" />
     <WoodBg overlayColor="blue.light">

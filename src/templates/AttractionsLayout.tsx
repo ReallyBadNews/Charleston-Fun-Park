@@ -59,8 +59,8 @@ const AttractionsLayout: FC<AttractionsLayoutProps> = ({
         }}
       >
         <MediaItem
-          media={contentfulAttraction.heroImage}
           alt={contentfulAttraction.description.description}
+          media={contentfulAttraction.heroImage}
           sx={{
             maxHeight: "xl",
             height: "xl",

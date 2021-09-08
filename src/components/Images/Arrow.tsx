@@ -10,10 +10,10 @@ interface ArrowProps {
 
 const Arrow: FC<ArrowProps & SxProp> = ({ sx, className }) => (
   <StaticImage
-    src="../../images/arrow.png"
-    placeholder="none"
     alt="Arrow"
     className={className}
+    placeholder="none"
+    src="../../images/arrow.png"
     sx={sx}
   />
 );

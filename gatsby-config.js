@@ -1,7 +1,7 @@
 const path = require("path");
 
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env.${process.env.NODE_ENV.toString()}`,
 });
 
 const contentfulConfig = {
@@ -26,13 +26,6 @@ if (!spaceId || !accessToken) {
 }
 
 const googleMapsToken = process.env.GOOGLE_MAPS_TOKEN;
-
-const breakpoints = {
-  mobile: "(min-width: 475px)",
-  tablet: "(min-width: 768px)",
-  desktop: "(min-width: 1024px)",
-  wide: "(min-width: 1280px)",
-};
 
 module.exports = {
   siteMetadata: {
@@ -154,12 +147,6 @@ module.exports = {
             },
           },
         ],
-      },
-    },
-    {
-      resolve: "gatsby-plugin-breakpoints",
-      options: {
-        queries: breakpoints,
       },
     },
     {

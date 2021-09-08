@@ -53,8 +53,8 @@ const EventsSection = () => {
       <Container color="white.light" px="3" py="6" sx={{ zIndex: "1" }}>
         <Card variant="event">
           <GatsbyImage
-            image={media.gatsbyImageData}
             alt={media.title || "No image description"}
+            image={media.gatsbyImageData}
           />
           <Box p="4">
             <Heading mb="3">{title}</Heading>

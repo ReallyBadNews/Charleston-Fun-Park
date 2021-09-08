@@ -37,7 +37,7 @@ const MoreAttractions = () => {
           node {
             id
             heroImage {
-              gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
               file {
                 contentType
                 url
@@ -47,7 +47,7 @@ const MoreAttractions = () => {
             isVideo
             order
             videoPoster {
-              gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
               file {
                 contentType
                 url
@@ -69,11 +69,7 @@ const MoreAttractions = () => {
       />
       <div sx={{ display: "grid", position: "relative", overflow: "hidden" }}>
         <WoodBg overlayColor="blue.light" sx={{ position: "absolute" }} />
-        <Container
-          px={["3", null, null, null, "0"]}
-          py="7"
-          sx={{ zIndex: "1" }}
-        >
+        <Container py="7" sx={{ zIndex: "1" }}>
           <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
             {attractions.map((attraction) => (
               <AttractionsCard

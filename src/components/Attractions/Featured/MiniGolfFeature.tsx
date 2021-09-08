@@ -5,7 +5,7 @@ import { Box, Flex, Grid, Heading, Text } from "theme-ui";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
-import StyledLink from "@/components/Link.styled";
+import { Link } from "@/components/Link";
 import Arrow from "@/components/Images/Arrow";
 import Brick from "@/src/images/brick.png";
 import { MediaItem } from "@/components/MediaItem";
@@ -38,8 +38,8 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
       }}
     >
       <MediaItem
-        media={node.videoPoster}
         alt={node.videoPoster.description}
+        media={node.videoPoster}
         sx={{
           width: ["full", null, null, "7/12"],
           height: ["sm", null, null, "full"],
@@ -66,9 +66,9 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
         }}
       >
         <GatsbyImage
-          image={grassTexture}
           alt="Textured background"
           aria-roledescription="background"
+          image={grassTexture}
           sx={{
             gridArea: "1 / 1",
             bg: "green.light",
@@ -104,17 +104,15 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
               transform: ["rotate(-30deg)", null, null, "rotateZ(-145deg)"],
             }}
           />
-          {/* @ts-expect-error TODO: Refactor link component */}
-          <StyledLink
-            color="white.light"
-            hoverColor="blue.light"
+          <Link
+            sx={{ color: "white.light" }}
             to={`/attractions/${node.title.toLowerCase().replace(/\s/g, "-")}`}
           >
             <Stack>
               <Heading variant="heading.featuredTitle">{node.title}</Heading>
               <Text variant="body.normal">{node.description.description}</Text>
             </Stack>
-          </StyledLink>
+          </Link>
         </Grid>
       </Box>
     </Flex>

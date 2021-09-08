@@ -5,7 +5,8 @@ module.exports = {
     ecmaFeatures: { jsx: true },
     sourceType: "module",
     ecmaVersion: 6,
-    project: "./tsconfig.eslint.json",
+    tsconfigRootDir: __dirname,
+    project: ["./tsconfig.eslint.json"],
     extraFileExtensions: [".json"],
   },
   plugins: ["@typescript-eslint", "eslint-plugin-prettier"],
@@ -17,7 +18,8 @@ module.exports = {
     "airbnb",
     "airbnb-typescript",
     "plugin:react-hooks/recommended",
-    "eslint-config-prettier",
+    "prettier",
+    // "plugin:@typescript-eslint/recommended-requiring-type-checking",
   ],
   rules: {
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
@@ -41,10 +43,10 @@ module.exports = {
       { extensions: [".js", ".jsx", ".tsx"] },
     ],
     quotes: ["error", "double"],
-    // "react/jsx-sort-props": [
-    //   "error",
-    //   { callbacksLast: true, shorthandLast: true, reservedFirst: true },
-    // ],
+    "react/jsx-sort-props": [
+      "error",
+      { callbacksLast: true, shorthandLast: true, reservedFirst: true },
+    ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
@@ -65,9 +67,11 @@ module.exports = {
   },
   overrides: [
     {
-      // enable the rule specifically for TypeScript files
-      files: ["**/*.ts", "**/*.tsx"],
+      // enable the rule specifically for javascipt files
+      files: ["**/*.js", "**/*.jsx"],
       rules: {
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
         // "@typescript-eslint/ban-ts-comment": "off",
         // "@typescript-eslint/no-var-requires": ["error"],
       },

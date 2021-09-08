@@ -13,7 +13,7 @@ import BirthdaySection from "@/src/components/HomeSections/BirthdaySection";
 
 const IndexPage: FC<PageProps> = ({ location: { pathname } }) => (
   <>
-    <SEO pathname={pathname} title="Home" description="Charleston Fun Park" />
+    <SEO description="Charleston Fun Park" pathname={pathname} title="Home" />
     <Hero />
     <ArrowDivider />
     <MobileWelcome sx={{ display: ["block", null, "none"] }} />

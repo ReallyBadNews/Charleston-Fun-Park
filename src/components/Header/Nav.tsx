@@ -1,8 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import { useState } from "react";
-import { Link } from "gatsby";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
+import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { Box, Container } from "theme-ui";
 import { Flex, Inline, Stack } from "raam";
@@ -13,23 +12,17 @@ import {
   faFlagCheckered,
   faBirthdayCake,
   faInfoCircle,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import StyledLink from "@/components/Link.styled";
+import { Link } from "@/components/Link";
 import Arrow from "@/components/Images/Arrow";
 
 const Nav = () => {
-  const breakpoints = useBreakpoint();
-
   const { navLinks } = useSiteMetadata();
-
   const [menuOpen, setMenuOpenState] = useState(false);
 
-  const burgerHandler = () => {
-    setMenuOpenState(!menuOpen);
-  };
-
-  const menuIcons = {
+  const menuIcons: Record<string, IconDefinition> = {
     Attractions: faFlagCheckered,
     "Birthday Parties": faBirthdayCake,
     "Park Info": faInfoCircle,
@@ -38,11 +31,11 @@ const Nav = () => {
   return (
     <div sx={{ display: "grid" }}>
       <StaticImage
+        alt=""
         className="woodTexture"
-        src="../../images/woodTexture.png"
         layout="fullWidth"
         placeholder="none"
-        alt=""
+        src="../../images/woodTexture.png"
         sx={{
           gridArea: "1 / 1",
           backgroundColor: "blue.dark",
@@ -56,10 +49,7 @@ const Nav = () => {
           height: "24",
         }}
       />
-      <Container
-        px={["3", null, null, null, "0"]}
-        sx={{ position: "relative", gridArea: "1 / 1" }}
-      >
+      <Container sx={{ position: "relative", gridArea: "1 / 1" }}>
         <Flex
           alignItems="center"
           className="nav"
@@ -67,11 +57,11 @@ const Nav = () => {
           sx={{ height: "24" }}
         >
           <Inline gap={["1", null, "3"]}>
-            <Link to="/">
+            <GatsbyLink to="/">
               <StaticImage
-                src="../../images/logo.png"
-                placeholder="none"
                 alt="Charleston Fun Park"
+                placeholder="none"
+                src="../../images/logo.png"
                 sx={{
                   width: ["96px", null, null, "172px", "261px"],
                   height: ["74px", null, null, "132px", "200px"],
@@ -80,11 +70,11 @@ const Nav = () => {
                   mt: ["0", null, null, null, "5"],
                 }}
               />
-            </Link>
+            </GatsbyLink>
             <StaticImage
-              src="../../images/funSign.png"
-              placeholder="none"
               alt=""
+              placeholder="none"
+              src="../../images/funSign.png"
               sx={{
                 width: ["91px", "132px", "130px", null, "176px"],
                 height: ["40px", "57px", "56px", null, "76px"],
@@ -103,37 +93,39 @@ const Nav = () => {
             color="white.light"
             gap={["3", null, null, null, "5"]}
           >
-            {breakpoints.desktop &&
-              navLinks.slice(1, 4).map((link) => (
-                <Inline
+            {navLinks.slice(1, 4).map((link) => (
+              <Inline
+                key={link.name}
+                gap={["1", null, null, null, "2"]}
+                sx={{ display: ["none", null, null, "flex"] }}
+              >
+                <FontAwesomeIcon
+                  icon={menuIcons[link.name]}
+                  sx={{ fontSize: ["2", null, null, "3"] }}
+                />
+                <Link
                   key={link.name}
-                  gap={["1", null, null, null, "2"]}
-                  sx={{ display: ["none", null, null, "flex"] }}
+                  sx={{
+                    color: "white.light",
+                    fontSize: ["1", null, null, null, "2"],
+                    fontWeight: "bold",
+                    letterSpacing: "wide",
+                    textTransform: "uppercase",
+                  }}
+                  to={link.url}
+                  onClick={
+                    menuOpen ? () => setMenuOpenState(!menuOpen) : undefined
+                  }
                 >
-                  <FontAwesomeIcon
-                    icon={menuIcons[link.name]}
-                    sx={{ fontSize: ["2", null, null, "3"] }}
-                  />
-                  <StyledLink
-                    key={link.name}
-                    color="white.light"
-                    fontSize={["1", null, null, null, "2"]}
-                    fontWeight="bold"
-                    letterSpacing="wide"
-                    textDecoration="none"
-                    textTransform="uppercase"
-                    to={link.url}
-                    onClick={menuOpen ? burgerHandler : null}
-                  >
-                    {link.name}
-                  </StyledLink>
-                </Inline>
-              ))}
+                  {link.name}
+                </Link>
+              </Inline>
+            ))}
             <FontAwesomeIcon
               icon={menuOpen ? faTimes : faBars}
               sx={{ cursor: "pointer", fontSize: "5" }}
               fixedWidth
-              onClick={burgerHandler}
+              onClick={() => setMenuOpenState(!menuOpen)}
             />
           </Inline>
         </Flex>
@@ -152,20 +144,24 @@ const Nav = () => {
             }}
           >
             <Stack gap="3">
-              {navLinks.slice(!breakpoints.desktop ? 0 : 4).map((link) => (
-                <StyledLink
+              {/* {navLinks.slice(!breakpoints.desktop ? 0 : 4).map((link) => ( */}
+              {navLinks.map((link) => (
+                <Link
                   key={link.name}
-                  color="black.dark"
-                  fontSize="2"
-                  fontWeight="bold"
-                  letterSpacing="widest"
-                  textDecoration="none"
-                  textTransform="uppercase"
+                  sx={{
+                    color: "black.dark",
+                    fontSize: "2",
+                    fontWeight: "bold",
+                    letterSpacing: "widest",
+                    textTransform: "uppercase",
+                  }}
                   to={link.url}
-                  onClick={menuOpen ? burgerHandler : null}
+                  onClick={
+                    menuOpen ? () => setMenuOpenState(!menuOpen) : undefined
+                  }
                 >
                   {link.name}
-                </StyledLink>
+                </Link>
               ))}
             </Stack>
           </Box>

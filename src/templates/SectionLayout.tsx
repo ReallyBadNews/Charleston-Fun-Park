@@ -51,7 +51,7 @@ const SectionLayout: FC<SectionLayoutProps & CommonProps> = ({
   location: { pathname },
 }) => (
   <>
-    <SEO pathname={pathname} title={seoTitle} description={description} />
+    <SEO description={description} pathname={pathname} title={seoTitle} />
     <StarDivider title={title} />
     <WoodBg>
       <Flex
@@ -64,8 +64,8 @@ const SectionLayout: FC<SectionLayoutProps & CommonProps> = ({
       >
         {media ? (
           <MediaItem
-            media={media}
             alt={description}
+            media={media}
             sx={{
               bg: "blue.dark",
               maxHeight: "xl",
@@ -77,7 +77,7 @@ const SectionLayout: FC<SectionLayoutProps & CommonProps> = ({
         ) : null}
         <Container py="7">
           <Card variant="image">
-            <Stack p="4" gap="5">
+            <Stack gap="5" p="4">
               <Stack gap="2">
                 <Heading
                   as="h2"

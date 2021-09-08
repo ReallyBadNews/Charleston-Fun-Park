@@ -17,15 +17,15 @@ const BrickBg: FC<BrickBgProps & SxProp> = ({
 }) => (
   <Box
     as="section"
-    id={id}
     className={className}
+    id={id}
     sx={{ display: "grid", position: "relative", ...sx }}
   >
     <StaticImage
+      alt=""
+      placeholder="blurred"
       src="../../images/brickTexture.jpg"
       sx={{ position: "relative", bg: "black.dark" }}
-      placeholder="blurred"
-      alt=""
     />
     <Box
       sx={{

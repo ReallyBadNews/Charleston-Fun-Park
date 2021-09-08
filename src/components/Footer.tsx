@@ -1,20 +1,21 @@
 /** @jsxImportSource theme-ui */
 
-import { Box, Container, Text } from "theme-ui";
-import { Flex, Stack } from "raam";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
   faInstagram,
   faTwitter,
+  IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
-import StyledLink from "@/components/Link.styled";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Flex, Stack } from "raam";
+import { Box, Container, Text } from "theme-ui";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import { Link } from "@/components/Link";
 
 const Footer = () => {
   const { copyright, navLinks, socialLinks } = useSiteMetadata();
 
-  const socialIcons = {
+  const socialIcons: Record<string, IconDefinition> = {
     facebook: faFacebook,
     twitter: faTwitter,
     instagram: faInstagram,
@@ -32,16 +33,14 @@ const Footer = () => {
         <Stack gap="5">
           <Flex gap="5" justifyContent="center">
             {socialLinks.map((link) => (
-              <StyledLink
+              <Link
                 key={link.name}
-                color="white.light"
-                fontSize="4"
-                hoverColor="blue.light"
-                href={link.url}
+                sx={{ color: "white.light", fontSize: "4" }}
                 title={link.name}
+                to={link.url}
               >
                 <FontAwesomeIcon icon={socialIcons[link.name]} />
-              </StyledLink>
+              </Link>
             ))}
           </Flex>
           <Flex
@@ -50,19 +49,20 @@ const Footer = () => {
             justifyContent="center"
           >
             {navLinks.map((link) => (
-              <StyledLink
+              <Link
                 key={link.name}
-                color="white.light"
-                fontFamily="heading"
-                fontSize={["2", null, "3"]}
-                fontWeight="bold"
-                hoverColor="blue.light"
-                letterSpacing="wide"
-                textDecoration="none"
+                sx={{
+                  color: "white.light",
+                  fontFamily: "body",
+                  fontSize: ["2", null, "3"],
+                  fontWeight: "bold",
+                  letterSpacing: "wide",
+                  textDecoration: "none",
+                }}
                 to={link.url}
               >
                 {link.name}
-              </StyledLink>
+              </Link>
             ))}
           </Flex>
           <Text as="p" sx={{ textAlign: "center" }} variant="body.normal">

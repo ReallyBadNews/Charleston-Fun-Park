@@ -9,18 +9,19 @@ import {
   faCartPlus,
   faPhone,
   faUsers,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StaticImage } from "gatsby-plugin-image";
 import { Flex, Inline } from "raam";
 import { Box, Button, Container } from "theme-ui";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import StyledLink from "@/components/Link.styled";
+import { Link } from "@/components/Link";
 
 const Topper = () => {
   const { giftCardLink, phoneNumber, socialLinks } = useSiteMetadata();
 
-  const socialIcons = {
+  const socialIcons: Record<string, IconDefinition> = {
     facebook: faFacebook,
     twitter: faTwitter,
     instagram: faInstagram,
@@ -29,14 +30,14 @@ const Topper = () => {
   return (
     <div sx={{ display: "grid", position: "relative" }}>
       <StaticImage
+        alt=""
         className="topper"
         layout="fullWidth"
-        src="../../images/grass.jpg"
         placeholder="none"
-        alt=""
+        src="../../images/grass.jpg"
         sx={{
           gridArea: "1 / 1",
-          position: "absolute !important",
+          position: "absolute !important" as any,
           top: "0",
           right: "0",
           bottom: "0",
@@ -56,13 +57,12 @@ const Topper = () => {
         }}
       />
       <Container
-        px={["3", null, null, null, "0"]}
         sx={{ gridArea: "1 / 1", position: "relative", zIndex: "100" }}
       >
         <Flex
           gap="5"
-          py="1"
           justifyContent={["space-between", null, "flex-end"]}
+          py="1"
         >
           <Inline gap="3">
             <Button as="div" variant="green">
@@ -77,8 +77,8 @@ const Topper = () => {
             <Button as="div" variant="cta">
               <a
                 href={giftCardLink}
-                sx={{ color: "inherit", textDecoration: "none" }}
                 rel="noreferrer"
+                sx={{ color: "inherit", textDecoration: "none" }}
                 target="_blank"
               >
                 <FontAwesomeIcon icon={faCartPlus} sx={{ mr: "2" }} />
@@ -97,15 +97,14 @@ const Topper = () => {
           </Inline>
           <Inline alignItems="center" gap="4" sx={{ height: "full" }}>
             {socialLinks.map((link) => (
-              <StyledLink
+              <Link
                 key={link.name}
-                color="white.light"
-                fontSize="4"
-                href={link.url}
+                sx={{ color: "white.light", fontSize: "4" }}
                 title={link.name}
+                to={link.url}
               >
                 <FontAwesomeIcon icon={socialIcons[link.name]} />
-              </StyledLink>
+              </Link>
             ))}
           </Inline>
         </Flex>

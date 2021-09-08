@@ -44,9 +44,9 @@ export const MediaItem: FC<Props & SxProp> = ({
     default:
       return (
         <GatsbyImage
-          image={media.gatsbyImageData}
           alt={alt || "No alt text available"}
           className={className}
+          image={media.gatsbyImageData}
           sx={sx}
         />
       );

@@ -66,7 +66,7 @@ const CustomButton = memo((props: ButtonProps) => (
 ));
 
 const PreviousButton = (props: ButtonProps) => (
-  <CustomButton mr="3" bg="blue.dark" color="white.light" {...props} />
+  <CustomButton bg="blue.dark" color="white.light" mr="3" {...props} />
 );
 
 const PageGrid = memo((props) => <Grid columns="1fr" my="3" {...props} />);

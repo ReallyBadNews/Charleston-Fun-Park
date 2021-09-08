@@ -27,10 +27,10 @@ const ArrowButton: FC<ArrowButtonProps> = ({ children, href }) => (
     />
     <Button as="div" variant="bookNow">
       <a
-        sx={{ color: "inherit", textDecoration: "none" }}
         href={href}
-        target="_blank"
         rel="noreferrer"
+        sx={{ color: "inherit", textDecoration: "none" }}
+        target="_blank"
       >
         {children}
       </a>

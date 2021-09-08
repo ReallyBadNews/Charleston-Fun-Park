@@ -67,7 +67,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
   const { navLinks } = useSiteMetadata();
 
   return (
-    <div sx={{ display: "grid", position: "relative" }} id={id}>
+    <div id={id} sx={{ display: "grid", position: "relative" }}>
       <BrickBg
         sx={{
           position: "absolute",
@@ -111,9 +111,9 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
           <Grid columns={[2, null, 4]} gap="3">
             {contentfulHomePageBirthdays.media.map((image) => (
               <GatsbyImage
-                image={image.gatsbyImageData}
                 key={image.title}
                 alt={image.description || ""}
+                image={image.gatsbyImageData}
                 sx={{
                   bg: "blue.dark",
                   borderWidth: "0.125rem",
