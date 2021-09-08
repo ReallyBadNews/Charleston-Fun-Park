@@ -29,21 +29,25 @@ const Topper = () => {
 
   return (
     <div sx={{ display: "grid", position: "relative" }}>
-      <StaticImage
-        alt=""
-        className="topper"
-        layout="fullWidth"
-        placeholder="none"
-        src="../../images/grass.jpg"
+      <div
         sx={{
           gridArea: "1 / 1",
-          position: "absolute !important" as any,
+          position: "absolute",
           top: "0",
           right: "0",
           bottom: "0",
           left: "0",
+          overflow: "hidden",
         }}
-      />
+      >
+        <StaticImage
+          alt=""
+          className="topper"
+          layout="fullWidth"
+          placeholder="none"
+          src="../../images/grass.jpg"
+        />
+      </div>
       <Box
         sx={{
           gridArea: "1 / 1",

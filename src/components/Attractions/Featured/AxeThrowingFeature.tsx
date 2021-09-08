@@ -90,7 +90,7 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
             >
               <Arrow
                 sx={{
-                  position: "absolute !important" as any,
+                  position: "absolute",
                   right: ["3", null, null, "-80px"],
                   zIndex: "2",
                   width: "180px",

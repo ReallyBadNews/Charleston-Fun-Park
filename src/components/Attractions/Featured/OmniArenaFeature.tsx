@@ -44,7 +44,7 @@ const OmniArenaFeature: FC<OmniFeatureProps> = ({ data: { node } }) => (
     >
       <Arrow
         sx={{
-          position: "absolute !important" as any,
+          position: "absolute",
           left: [null, null, null, "-80px"],
           right: ["3", null],
           top: ["-4rem", null, null, "-1rem"],

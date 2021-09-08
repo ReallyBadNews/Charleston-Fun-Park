@@ -2,20 +2,16 @@
 
 import { StaticImage } from "gatsby-plugin-image";
 import { FC } from "react";
-import { SxProp } from "theme-ui";
+import { Box, SxProp } from "theme-ui";
 
 interface ArrowProps {
   className?: string;
 }
 
 const Arrow: FC<ArrowProps & SxProp> = ({ sx, className }) => (
-  <StaticImage
-    alt="Arrow"
-    className={className}
-    placeholder="none"
-    src="../../images/arrow.png"
-    sx={sx}
-  />
+  <Box className={className} sx={sx}>
+    <StaticImage alt="Arrow" placeholder="none" src="../../images/arrow.png" />
+  </Box>
 );
 
 Arrow.defaultProps = {

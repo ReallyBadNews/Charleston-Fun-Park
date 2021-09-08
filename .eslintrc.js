@@ -19,7 +19,7 @@ module.exports = {
     "airbnb-typescript",
     "plugin:react-hooks/recommended",
     "prettier",
-    // "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
   ],
   rules: {
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
@@ -72,8 +72,9 @@ module.exports = {
       rules: {
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/restrict-template-expressions": "off",
-        // "@typescript-eslint/ban-ts-comment": "off",
-        // "@typescript-eslint/no-var-requires": ["error"],
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
       },
     },
   ],

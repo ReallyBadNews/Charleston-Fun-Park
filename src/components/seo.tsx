@@ -55,7 +55,7 @@ const SEO: FC<SeoProps> = ({
         },
         {
           property: "og:image",
-          content: `${siteUrl}${OgImage}`,
+          content: `${siteUrl}${OgImage as string}`,
         },
         {
           property: "og:url",
@@ -67,7 +67,7 @@ const SEO: FC<SeoProps> = ({
         },
         {
           name: "twitter:image",
-          content: `${siteUrl}${TwImage}`,
+          content: `${siteUrl}${TwImage as string}`,
         },
         {
           name: "twitter:card",

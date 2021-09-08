@@ -58,10 +58,10 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
           borderBottom: "0",
           borderLeft: ["0", null, null, "48px solid"],
           borderImage: [
-            `url(${Brick}) 24 0 repeat`,
+            `url(${Brick as string}) 24 0 repeat`,
             null,
             null,
-            `url(${Brick}) 0 48 repeat`,
+            `url(${Brick as string}) 0 48 repeat`,
           ],
         }}
       >
@@ -94,7 +94,7 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
         >
           <Arrow
             sx={{
-              position: "absolute !important" as any,
+              position: "absolute",
               left: [null, null, null, "-80px"],
               right: ["3", null],
               top: ["-3rem", null, null, "-1rem"],

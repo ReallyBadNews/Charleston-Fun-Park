@@ -8,14 +8,18 @@ import { Stack } from "raam";
 import { Link } from "@/components/Link";
 import Arrow from "@/components/Images/Arrow";
 import { MediaItem } from "@/components/MediaItem";
-import { FeaturedAttractionProps } from "@/types/types";
+import { FeaturedAttractionProps, ChildFluidObject } from "@/types/types";
+
+interface Query {
+  goKarts: ChildFluidObject;
+}
 
 const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
   const {
     goKarts: {
       childImageSharp: { gatsbyImageData: goKartsBg },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query GoKartsBgQuery {
       goKarts: file(relativePath: { eq: "goKartsBg.jpg" }) {
         childImageSharp {
@@ -96,7 +100,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* @ts-ignore */}
-            <rect fill={colors.red.dark} height="16" width="100%" />
+            <rect fill={colors.red.dark as string} height="16" width="100%" />
           </svg>
           <div sx={{ display: "grid", height: "full", placeContent: "center" }}>
             <GatsbyImage
@@ -120,7 +124,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             >
               <Arrow
                 sx={{
-                  position: "absolute !important" as any,
+                  position: "absolute",
                   right: ["3", null, null, "-80px"],
                   zIndex: "2",
                   width: "180px",
@@ -159,7 +163,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* @ts-ignore */}
-            <rect fill={colors.red.dark} height="16" width="100%" />
+            <rect fill={colors.red.dark as string} height="16" width="100%" />
           </svg>
         </Box>
       </Flex>
