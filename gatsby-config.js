@@ -1,7 +1,7 @@
 const path = require("path");
 
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV.toString()}`,
+  path: `.env.${process.env.NODE_ENV}`,
 });
 
 const contentfulConfig = {
