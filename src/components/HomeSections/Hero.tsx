@@ -1,11 +1,34 @@
-/** @jsx jsx */
-import { jsx, Heading, Text, Container, Box } from "theme-ui";
-import BackgroundImage from "gatsby-background-image";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
+/** @jsxImportSource theme-ui */
+
+import { Heading, Text, Container, Box } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack, Flex } from "raam";
+import { IGatsbyImageData, GatsbyImage } from "gatsby-plugin-image";
 
-const Hero = (): JSX.Element => {
+interface Query {
+  contentfulHomePageHero: {
+    description: {
+      description: string;
+    };
+    isVideo: boolean;
+    media: {
+      gatsbyImageData: IGatsbyImageData;
+      description?: string;
+      title: string;
+      file: {
+        contentType: string;
+        url: string;
+      };
+    };
+    title: string;
+    subtitle: string;
+    videoPoster: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+}
+
+const Hero = () => {
   const {
     contentfulHomePageHero: {
       description: { description },
@@ -13,11 +36,9 @@ const Hero = (): JSX.Element => {
       media,
       subtitle,
       title,
-      videoPoster: {
-        fixed: { src: videoPosterSrc },
-      },
+      videoPoster: { gatsbyImageData: videoPoster },
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<Query>(graphql`
     query HeroQuery {
       contentfulHomePageHero(
         id: { eq: "017be6d2-0203-5b98-b841-201c01ab9432" }
@@ -27,9 +48,7 @@ const Hero = (): JSX.Element => {
         }
         isVideo
         media {
-          fluid(maxWidth: 2048) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
+          gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
           description
           title
           file {
@@ -40,15 +59,11 @@ const Hero = (): JSX.Element => {
         subtitle
         title
         videoPoster {
-          fixed(height: 1080, width: 1920) {
-            src
-          }
+          gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
         }
       }
     }
   `);
-
-  const breakpoints = useBreakpoint();
 
   return (
     <Box
@@ -65,7 +80,7 @@ const Hero = (): JSX.Element => {
     >
       {isVideo ? (
         <video
-          poster={videoPosterSrc}
+          poster={videoPoster.images.fallback?.src}
           preload="none"
           sx={{
             position: "absolute",
@@ -84,8 +99,9 @@ const Hero = (): JSX.Element => {
           <p>Video could not be found.</p>
         </video>
       ) : (
-        <BackgroundImage
-          fluid={media.fluid}
+        <GatsbyImage
+          alt={media.description || ""}
+          image={media.gatsbyImageData}
           sx={{
             bg: "black.mid",
             position: "absolute",
@@ -110,37 +126,35 @@ const Hero = (): JSX.Element => {
           opacity: "0.5",
         }}
       />
-      {breakpoints.tablet && (
-        <Container
-          px={["3", null, null, null, "0"]}
-          py="7"
-          sx={{ height: "full" }}
+      <Container
+        px={["3", null, null, null, "0"]}
+        py="7"
+        sx={{ display: ["none", null, "block"], height: "full" }}
+      >
+        <Flex
+          alignItems="center"
+          flexShrink={1}
+          sx={{ height: "full", zIndex: "2" }}
         >
-          <Flex
-            alignItems="center"
-            flexShrink={1}
-            sx={{ height: "full", zIndex: "2" }}
+          <Box
+            color="white.light"
+            mx="auto"
+            sx={{
+              width: "3/4",
+              textAlign: "center",
+              textShadow: "text",
+            }}
           >
-            <Box
-              color="white.light"
-              mx="auto"
-              sx={{
-                width: "3/4",
-                textAlign: "center",
-                textShadow: "text",
-              }}
-            >
-              <Heading variant="heading.title">{subtitle}</Heading>
-              <Stack gap="3">
-                <Heading as="h1" variant="heading">
-                  {title}
-                </Heading>
-                <Text variant="body.lg">{description}</Text>
-              </Stack>
-            </Box>
-          </Flex>
-        </Container>
-      )}
+            <Heading variant="heading.title">{subtitle}</Heading>
+            <Stack gap="3">
+              <Heading as="h1" variant="heading">
+                {title}
+              </Heading>
+              <Text variant="body.lg">{description}</Text>
+            </Stack>
+          </Box>
+        </Flex>
+      </Container>
     </Box>
   );
 };

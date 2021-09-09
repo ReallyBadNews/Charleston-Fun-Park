@@ -1,13 +1,13 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { FC } from "react";
-import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
-import BackgroundImage from "gatsby-background-image";
+import { Box, Flex, Grid, Heading, Text } from "theme-ui";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { useStaticQuery, graphql } from "gatsby";
 import { Stack } from "raam";
-import StyledLink from "@/components/Link.styled";
+import { Link } from "@/components/Link";
 import Arrow from "@/components/Images/Arrow";
-import Brick from "@/components/../images/brick.png";
+import Brick from "@/src/images/brick.png";
 import { MediaItem } from "@/components/MediaItem";
 import { ChildFluidObject, FeaturedAttractionProps } from "@/types/types";
 
@@ -18,15 +18,13 @@ interface Query {
 const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
   const {
     grass: {
-      childImageSharp: { fluid: grassTexture },
+      childImageSharp: { gatsbyImageData: grassTexture },
     },
   } = useStaticQuery<Query>(graphql`
     query grassQuery {
-      grass: file(relativePath: { eq: "grassTexture.jpg" }) {
+      grass: file(relativePath: { eq: "grass.jpg" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
         }
       }
     }
@@ -40,8 +38,8 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
       }}
     >
       <MediaItem
-        media={node.videoPoster}
         alt={node.videoPoster.description}
+        media={node.videoPoster}
         sx={{
           width: ["full", null, null, "7/12"],
           height: ["sm", null, null, "full"],
@@ -51,25 +49,28 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
       />
       <Box
         sx={{
+          display: "grid",
+          position: "relative",
           width: ["full", null, null, "5/12"],
           minHeight: ["xs", null, null, "auto"],
-          position: "relative",
           borderTop: ["24px solid", null, null, "none"],
           borderRight: "0",
           borderBottom: "0",
           borderLeft: ["0", null, null, "48px solid"],
           borderImage: [
-            `url(${Brick}) 24 0 repeat`,
+            `url(${Brick as string}) 24 0 repeat`,
             null,
             null,
-            `url(${Brick}) 0 48 repeat`,
+            `url(${Brick as string}) 0 48 repeat`,
           ],
         }}
       >
-        <BackgroundImage
-          fluid={grassTexture}
+        <GatsbyImage
+          alt="Textured background"
+          aria-roledescription="background"
+          image={grassTexture}
           sx={{
-            position: ["absolute !important"],
+            gridArea: "1 / 1",
             bg: "green.light",
             height: "full",
             width: "full",
@@ -77,6 +78,7 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
         />
         <Box
           sx={{
+            gridArea: "1 / 1",
             position: "absolute",
             bg: "green.dark",
             width: "full",
@@ -87,12 +89,12 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
         <Grid
           color="white.light"
           p="7"
-          sx={{ height: "full" }}
+          sx={{ height: "full", gridArea: "1 / 1" }}
           variant="featuredAttraction"
         >
           <Arrow
             sx={{
-              position: ["absolute !important"],
+              position: "absolute",
               left: [null, null, null, "-80px"],
               right: ["3", null],
               top: ["-3rem", null, null, "-1rem"],
@@ -102,16 +104,15 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
               transform: ["rotate(-30deg)", null, null, "rotateZ(-145deg)"],
             }}
           />
-          <StyledLink
-            color="white.light"
-            hoverColor="blue.light"
+          <Link
+            sx={{ color: "white.light" }}
             to={`/attractions/${node.title.toLowerCase().replace(/\s/g, "-")}`}
           >
             <Stack>
               <Heading variant="heading.featuredTitle">{node.title}</Heading>
-              <Text variant="body.mid">{node.description.description}</Text>
+              <Text variant="body.normal">{node.description.description}</Text>
             </Stack>
-          </StyledLink>
+          </Link>
         </Grid>
       </Box>
     </Flex>

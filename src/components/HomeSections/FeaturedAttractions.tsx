@@ -1,5 +1,6 @@
-/** @jsx jsx */
-import { Box, jsx } from "theme-ui";
+/** @jsxImportSource theme-ui */
+
+import { Box } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import SectionDivider from "@/components/Dividers/SectionDivider";
 import OmniArenaFeature from "@/components/Attractions/Featured/OmniArenaFeature";
@@ -18,7 +19,7 @@ interface Query {
   };
 }
 
-const AttractionsSection = (): JSX.Element => {
+const AttractionsSection = () => {
   const {
     allContentfulAttraction: { edges },
   } = useStaticQuery<Query>(graphql`
@@ -31,26 +32,22 @@ const AttractionsSection = (): JSX.Element => {
           node {
             id
             heroImage {
-              fluid {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-              }
               file {
                 contentType
                 url
               }
               title
               description
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
             }
             videoPoster {
-              fluid {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-              }
               file {
                 contentType
                 url
               }
               title
               description
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
             }
             description {
               description

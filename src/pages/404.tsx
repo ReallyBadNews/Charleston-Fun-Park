@@ -1,16 +1,16 @@
 import { PageProps } from "gatsby";
-import React, { FC } from "react";
+import { FC } from "react";
 import { Container, Heading, Text, Box, Card, Grid, Flex } from "theme-ui";
 import StarDivider from "@/components/Dividers/StarDivider";
-import StyledLink from "@/components/Link.styled";
+import { Link } from "@/components/Link";
 import SEO from "@/components/seo";
 
 const NotFoundPage: FC<PageProps> = ({ location: { pathname } }) => (
   <>
     <SEO
-      title="404 | Page Not Found"
       description="404 | Page Not Found"
       pathname={pathname}
+      title="404 | Page Not Found"
     />
     <StarDivider title="Page Not Found" />
     <Flex
@@ -27,7 +27,7 @@ const NotFoundPage: FC<PageProps> = ({ location: { pathname } }) => (
               <Heading variant="heading.title">Not Found</Heading>
               <Text mt="3" variant="body.normal">
                 <span>Did you take a wrong turn? </span>
-                <StyledLink to="/">Go back home</StyledLink>
+                <Link to="/">Go back home</Link>
               </Text>
             </Box>
           </Card>

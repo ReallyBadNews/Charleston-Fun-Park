@@ -60,7 +60,7 @@ exports.createPages = async ({
   sections.forEach(({ node }) => {
     if (["group-events", "employment"].includes(node.slug)) return null;
 
-    createPage({
+    return createPage({
       path: `${node.slug}/`,
       component: sectionTemplate,
       context: {

@@ -1,9 +1,8 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
-import { Box, jsx, Flex, Card, Container, Heading, Text } from "theme-ui";
-import Img from "gatsby-image";
+import { FC } from "react";
+import { Box, Flex, Card, Container, Heading, Text } from "theme-ui";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
@@ -103,156 +102,157 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
     },
   },
   location: { pathname },
-}) => {
-  return (
-    <>
-      <SEO description={description} pathname={pathname} title={title} />
-      <WoodBg overlayColor="blue.light">
-        <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-          <StarDivider title={title} />
-          <Container
-            my="6"
-            px={["3", null, null, null, "0"]}
-            sx={{ flex: "1 1 auto" }}
-          >
-            <Stack gap="3">
-              {heading && (
-                <Card px="3" py="4" variant="attraction">
-                  <Stack gap="3">
-                    <Heading as="h2" variant="heading.sectionTitle">
-                      {heading}
-                    </Heading>
-                    <Text variant="body.mid">{description}</Text>
-                  </Stack>
-                </Card>
-              )}
-              {birthdayPackage1Title && (
-                <Card variant="bDays">
-                  <Box sx={{ width: ["full", null, "1/2"] }}>
-                    <Heading mb="2" variant="heading.title">
-                      {birthdayPackage1Title.toLowerCase()}
-                    </Heading>
-                    <Text variant="body.mid">{birthdayPackage1Price}</Text>
-                    <MDXRenderer>{package1Content}</MDXRenderer>
-                  </Box>
-                  {birthdayPackage1Media.length &&
-                    birthdayPackage1Media.map((image) => (
-                      <Img
-                        key={image.title}
-                        alt={image.title}
-                        fluid={image.fluid}
-                        sx={{
-                          width: ["full", null, "1/2"],
-                          ml: ["0", null, "3"],
-                          borderRadius: "lg",
-                        }}
-                      />
-                    ))}
-                </Card>
-              )}
-              {birthdayPackage2Title && (
-                <Card variant="bDays">
-                  <Box sx={{ width: ["full", null, "1/2"] }}>
-                    <Heading mb="2" variant="heading.title">
-                      {birthdayPackage2Title.toLowerCase()}
-                    </Heading>
-                    <Text variant="body.mid">{birthdayPackage2Price}</Text>
-                    <MDXRenderer>{package2Content}</MDXRenderer>
-                  </Box>
-                  {birthdayPackage2Media.length &&
-                    birthdayPackage2Media.map((image) => (
-                      <Img
-                        key={image.title}
-                        alt={image.title}
-                        fluid={image.fluid}
-                        sx={{
-                          width: ["full", null, "1/2"],
-                          ml: ["0", null, "3"],
-                          borderRadius: "lg",
-                        }}
-                      />
-                    ))}
-                </Card>
-              )}
-              {birthdayPackage3Title && (
-                <Card variant="bDays">
-                  <Box sx={{ width: ["full", null, "1/2"] }}>
-                    <Heading mb="2" variant="heading.title">
-                      {birthdayPackage3Title.toLowerCase()}
-                    </Heading>
-                    <Text variant="body.mid">{birthdayPackage3Price}</Text>
-                    <MDXRenderer>{package3Content}</MDXRenderer>
-                  </Box>
-                  {birthdayPackage3Media.length &&
-                    birthdayPackage3Media.map((image) => (
-                      <Img
-                        key={image.title}
-                        alt={image.title}
-                        fluid={image.fluid}
-                        sx={{
-                          width: ["full", null, "1/2"],
-                          ml: ["0", null, "3"],
-                          borderRadius: "lg",
-                        }}
-                      />
-                    ))}
-                </Card>
-              )}
-              {birthdayPackage4Title && (
-                <Card variant="bDays">
-                  <Box sx={{ width: ["full", null, "1/2"] }}>
-                    <Heading mb="2" variant="heading.title">
-                      {birthdayPackage4Title.toLowerCase()}
-                    </Heading>
-                    <Text variant="body.mid">{birthdayPackage4Price}</Text>
-                    <MDXRenderer>{package4Content}</MDXRenderer>
-                  </Box>
-                  {birthdayPackage4Media.length &&
-                    birthdayPackage4Media.map((image) => (
-                      <Img
-                        key={image.title}
-                        alt={image.title}
-                        fluid={image.fluid}
-                        sx={{
-                          width: ["full", null, "1/2"],
-                          ml: ["0", null, "3"],
-                          borderRadius: "lg",
-                        }}
-                      />
-                    ))}
-                </Card>
-              )}
-              {birthdayPackage5Title && (
-                <Card variant="bDays">
-                  <Box sx={{ width: ["full", null, "1/2"] }}>
-                    <Heading mb="2" variant="heading.title">
-                      {birthdayPackage5Title.toLowerCase()}
-                    </Heading>
-                    <Text variant="body.mid">{birthdayPackage5Price}</Text>
-                    <MDXRenderer>{package5Content}</MDXRenderer>
-                  </Box>
-                  {birthdayPackage5Media.length &&
-                    birthdayPackage5Media.map((image) => (
-                      <Img
-                        key={image.title}
-                        alt={image.title}
-                        fluid={image.fluid}
-                        sx={{
-                          width: ["full", null, "1/2"],
-                          ml: ["0", null, "3"],
-                          borderRadius: "lg",
-                        }}
-                      />
-                    ))}
-                </Card>
-              )}
-            </Stack>
-          </Container>
-        </Flex>
-      </WoodBg>
-    </>
-  );
-};
+}) => (
+  <>
+    <SEO description={description} pathname={pathname} title={title} />
+    <WoodBg overlayColor="blue.light">
+      <Flex
+        sx={{
+          flexDirection: "column",
+          minHeight: "screenHeight",
+          gridArea: "1 / 1",
+          zIndex: "1",
+        }}
+      >
+        <StarDivider title={title} />
+        <Container my="6" sx={{ flex: "1 1 auto" }}>
+          <Stack gap="3">
+            {heading && (
+              <Card px="3" py="4" variant="attraction">
+                <Stack gap="3">
+                  <Heading as="h2" variant="heading.sectionTitle">
+                    {heading}
+                  </Heading>
+                  <Text variant="body.mid">{description}</Text>
+                </Stack>
+              </Card>
+            )}
+            {birthdayPackage1Title && (
+              <Card variant="bDays">
+                <Box sx={{ width: ["full", null, "1/2"] }}>
+                  <Heading mb="2" variant="heading.title">
+                    {birthdayPackage1Title.toLowerCase()}
+                  </Heading>
+                  <Text variant="body.mid">{birthdayPackage1Price}</Text>
+                  <MDXRenderer>{package1Content}</MDXRenderer>
+                </Box>
+                {birthdayPackage1Media.length &&
+                  birthdayPackage1Media.map((image) => (
+                    <GatsbyImage
+                      key={image.title}
+                      alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
+                      sx={{
+                        width: ["full", null, "1/2"],
+                        ml: ["0", null, "3"],
+                        borderRadius: "lg",
+                      }}
+                    />
+                  ))}
+              </Card>
+            )}
+            {birthdayPackage2Title && (
+              <Card variant="bDays">
+                <Box sx={{ width: ["full", null, "1/2"] }}>
+                  <Heading mb="2" variant="heading.title">
+                    {birthdayPackage2Title.toLowerCase()}
+                  </Heading>
+                  <Text variant="body.mid">{birthdayPackage2Price}</Text>
+                  <MDXRenderer>{package2Content}</MDXRenderer>
+                </Box>
+                {birthdayPackage2Media.length &&
+                  birthdayPackage2Media.map((image) => (
+                    <GatsbyImage
+                      key={image.title}
+                      alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
+                      sx={{
+                        width: ["full", null, "1/2"],
+                        ml: ["0", null, "3"],
+                        borderRadius: "lg",
+                      }}
+                    />
+                  ))}
+              </Card>
+            )}
+            {birthdayPackage3Title && (
+              <Card variant="bDays">
+                <Box sx={{ width: ["full", null, "1/2"] }}>
+                  <Heading mb="2" variant="heading.title">
+                    {birthdayPackage3Title.toLowerCase()}
+                  </Heading>
+                  <Text variant="body.mid">{birthdayPackage3Price}</Text>
+                  <MDXRenderer>{package3Content}</MDXRenderer>
+                </Box>
+                {birthdayPackage3Media.length &&
+                  birthdayPackage3Media.map((image) => (
+                    <GatsbyImage
+                      key={image.title}
+                      alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
+                      sx={{
+                        width: ["full", null, "1/2"],
+                        ml: ["0", null, "3"],
+                        borderRadius: "lg",
+                      }}
+                    />
+                  ))}
+              </Card>
+            )}
+            {birthdayPackage4Title && (
+              <Card variant="bDays">
+                <Box sx={{ width: ["full", null, "1/2"] }}>
+                  <Heading mb="2" variant="heading.title">
+                    {birthdayPackage4Title.toLowerCase()}
+                  </Heading>
+                  <Text variant="body.mid">{birthdayPackage4Price}</Text>
+                  <MDXRenderer>{package4Content}</MDXRenderer>
+                </Box>
+                {birthdayPackage4Media.length &&
+                  birthdayPackage4Media.map((image) => (
+                    <GatsbyImage
+                      key={image.title}
+                      alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
+                      sx={{
+                        width: ["full", null, "1/2"],
+                        ml: ["0", null, "3"],
+                        borderRadius: "lg",
+                      }}
+                    />
+                  ))}
+              </Card>
+            )}
+            {birthdayPackage5Title && (
+              <Card variant="bDays">
+                <Box sx={{ width: ["full", null, "1/2"] }}>
+                  <Heading mb="2" variant="heading.title">
+                    {birthdayPackage5Title.toLowerCase()}
+                  </Heading>
+                  <Text variant="body.mid">{birthdayPackage5Price}</Text>
+                  <MDXRenderer>{package5Content}</MDXRenderer>
+                </Box>
+                {birthdayPackage5Media.length &&
+                  birthdayPackage5Media.map((image) => (
+                    <GatsbyImage
+                      key={image.title}
+                      alt={image.title || "No alt text"}
+                      image={image.gatsbyImageData}
+                      sx={{
+                        width: ["full", null, "1/2"],
+                        ml: ["0", null, "3"],
+                        borderRadius: "lg",
+                      }}
+                    />
+                  ))}
+              </Card>
+            )}
+          </Stack>
+        </Container>
+      </Flex>
+    </WoodBg>
+  </>
+);
 
 export default BirthdaysEventsLayout;
 
@@ -276,9 +276,12 @@ export const query = graphql`
       birthdayPackage1Media {
         title
         description
-        fluid(maxHeight: 342, maxWidth: 608) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          placeholder: BLURRED
+          layout: CONSTRAINED
+          width: 220
+          height: 220
+        )
       }
       birthdayPackage2Title
       birthdayPackage2Price
@@ -290,9 +293,12 @@ export const query = graphql`
       birthdayPackage2Media {
         title
         description
-        fluid(maxHeight: 342, maxWidth: 608) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          placeholder: BLURRED
+          layout: CONSTRAINED
+          width: 220
+          height: 220
+        )
       }
       birthdayPackage3Title
       birthdayPackage3Price
@@ -304,9 +310,12 @@ export const query = graphql`
       birthdayPackage3Media {
         title
         description
-        fluid(maxHeight: 342, maxWidth: 608) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          placeholder: BLURRED
+          layout: CONSTRAINED
+          width: 220
+          height: 220
+        )
       }
       birthdayPackage4Title
       birthdayPackage4Price
@@ -318,9 +327,12 @@ export const query = graphql`
       birthdayPackage4Media {
         title
         description
-        fluid(maxHeight: 342, maxWidth: 608) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          placeholder: BLURRED
+          layout: CONSTRAINED
+          width: 220
+          height: 220
+        )
       }
       birthdayPackage5Title
       birthdayPackage5Price
@@ -332,9 +344,12 @@ export const query = graphql`
       birthdayPackage5Media {
         title
         description
-        fluid(maxHeight: 342, maxWidth: 608) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          placeholder: BLURRED
+          layout: CONSTRAINED
+          width: 220
+          height: 220
+        )
       }
     }
   }

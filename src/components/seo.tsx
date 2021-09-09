@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import { FC, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
 import OgImage from "../../static/images/og_image.jpg";
 import TwImage from "../../static/images/tw_card.jpg";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 interface SeoProps {
   description: string;
@@ -10,6 +10,13 @@ interface SeoProps {
   keywords?: string[];
   title: string;
   pathname: string;
+}
+
+declare global {
+  interface Window {
+    ttd_dom_ready: (e: any) => void;
+    TTDUniversalPixelApi: any;
+  }
 }
 
 const SEO: FC<SeoProps> = ({
@@ -30,37 +37,27 @@ const SEO: FC<SeoProps> = ({
 
   const canonical = pathname && `${siteUrl}${pathname}`;
 
-  const popupScript = (path) => {
-    if (path === "/") {
-      return {
-        src:
-          "https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js",
-        type: "text/javascript",
-      };
+  useEffect(() => {
+    if (
+      typeof window === "object" &&
+      typeof window.ttd_dom_ready === "function"
+    ) {
+      window.ttd_dom_ready(() => {
+        if (typeof window.TTDUniversalPixelApi === "function") {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+          const universalPixelApi = new window.TTDUniversalPixelApi();
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+          universalPixelApi.init(
+            "l7kvmjg",
+            ["tf6ilo9"],
+            "https://insight.adsrvr.org/track/up"
+          );
+        }
+      });
     }
-    if (path === "/birthday-parties/") {
-      return {
-        src:
-          "https://app.locbox.com/en-US/website_plugins/lb-85f3c60d6482c555173861510bee8a595f21a44b.js",
-        type: "text/javascript",
-      };
-    }
-    if (path === "/attractions/") {
-      return {
-        src:
-          "https://app.locbox.com/en-US/website_plugins/lb-cbdd44e1522ec9a5a23ae45cac178d988c65115e.js",
-        type: "text/javascript",
-      };
-    }
-    // if (path === "/attractions/mini-golf") {
-    //   return {
-    //     src:
-    //       "https://app.locbox.com/en-US/website_plugins/lb-149f8b64b30410698e6533c697340dac0a95fe75.js",
-    //     type: "text/javascript",
-    //   };
-    // }
-    return {};
-  };
+    return undefined;
+  }, []);
+
   return (
     <Helmet
       htmlAttributes={{
@@ -74,7 +71,7 @@ const SEO: FC<SeoProps> = ({
         },
         {
           name: "keywords",
-          content: keywords,
+          content: keywords?.join(", "),
         },
         {
           property: "og:title",
@@ -86,7 +83,7 @@ const SEO: FC<SeoProps> = ({
         },
         {
           property: "og:image",
-          content: `${siteUrl}${OgImage}`,
+          content: `${siteUrl}${OgImage as string}`,
         },
         {
           property: "og:url",
@@ -98,7 +95,7 @@ const SEO: FC<SeoProps> = ({
         },
         {
           name: "twitter:image",
-          content: `${siteUrl}${TwImage}`,
+          content: `${siteUrl}${TwImage as string}`,
         },
         {
           name: "twitter:card",
@@ -117,30 +114,26 @@ const SEO: FC<SeoProps> = ({
           content: metaDescription,
         },
       ]}
-      script={[popupScript(pathname)]}
       title={title}
       titleTemplate={`%s | ${siteTitle}`}
     >
       <script
         src="https://js.adsrvr.org/up_loader.1.1.0.js"
         type="text/javascript"
-      ></script>
-      <script type="text/javascript">
-        {`
-          ttd_dom_ready( function() {
-            if (typeof TTDUniversalPixelApi === 'function') {
-              var universalPixelApi = new TTDUniversalPixelApi();
-              universalPixelApi.init("l7kvmjg", ["tf6ilo9"], "https://insight.adsrvr.org/track/up");
-            }
-          });
-        `}
-      </script>
+      />
     </Helmet>
   );
 };
 
 SEO.defaultProps = {
   lang: "en",
+  keywords: [
+    "Fun Park",
+    "Amusement Park",
+    "Go Karts",
+    "Putt-Putt",
+    "Mini Golf",
+  ],
 };
 
 export default SEO;

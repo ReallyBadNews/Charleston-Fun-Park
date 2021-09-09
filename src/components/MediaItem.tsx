@@ -1,9 +1,8 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
-import { jsx, SxProps } from "theme-ui";
-import Img from "gatsby-image";
+import { FC } from "react";
+import { SxProp } from "theme-ui";
+import { GatsbyImage } from "gatsby-plugin-image";
 import Video from "./Video";
 import { MediaObject } from "@/types/types";
 
@@ -20,7 +19,7 @@ interface MediaItemProps {
 
 type Props = CommonProps & MediaItemProps;
 
-export const MediaItem: FC<Props & SxProps> = ({
+export const MediaItem: FC<Props & SxProp> = ({
   alt,
   dataTestId,
   media,
@@ -44,7 +43,19 @@ export const MediaItem: FC<Props & SxProps> = ({
       );
     default:
       return (
-        <Img alt={alt} className={className} fluid={media.fluid} sx={sx} />
+        <GatsbyImage
+          alt={alt || "No alt text available"}
+          className={className}
+          image={media.gatsbyImageData}
+          sx={sx}
+        />
       );
   }
+};
+
+MediaItem.defaultProps = {
+  alt: "No alt text avaliable",
+  dataTestId: "mediaItem",
+  className: undefined,
+  videoPoster: undefined,
 };

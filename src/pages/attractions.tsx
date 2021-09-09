@@ -1,8 +1,7 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
-import { jsx, Grid, Container } from "theme-ui";
+import { FC } from "react";
+import { Grid, Container } from "theme-ui";
 import { graphql, PageProps } from "gatsby";
 import WoodBg from "@/components/Images/WoodBg";
 import StarDivider from "@/components/Dividers/StarDivider";
@@ -46,16 +45,13 @@ const AttractionsPage: FC<AttractionsPageProps> = ({
 }) => (
   <>
     <SEO
+      description="Get your FUN on with Go-Karts, 36 Holes of Mini-Golf, an Outdoor Axe Throwing Arena, a Virtual Reality Roller Coaster, Bumper Cars, a Full Arcade with Prizes and the all new OMNI VR Battle Arena! And if all that makes you hungry or thirsty… we have snacks like Dippin’ Dots, F’Real Milkshakes, chips and drinks (including adult beverages like beer and wine). If you’re looking for some fun, then you’ve come to the right place!"
       pathname={pathname}
       title="Things to Do in Charleston – Fun Family Entertainment"
-      description="Get your FUN on with Go-Karts, 36 Holes of Mini-Golf, an Outdoor Axe Throwing Arena, a Virtual Reality Roller Coaster, Bumper Cars, a Full Arcade with Prizes and the all new OMNI VR Battle Arena! And if all that makes you hungry or thirsty… we have snacks like Dippin’ Dots, F’Real Milkshakes, chips and drinks (including adult beverages like beer and wine). If you’re looking for some fun, then you’ve come to the right place!"
     />
     <StarDivider title="Attractions" />
-    <WoodBg
-      overlayColor="blue.light"
-      sx={{ backgroundRepeat: "repeat", backgroundSize: "auto" }}
-    >
-      <Container px={["3", null, null, null, "0"]} py="7">
+    <WoodBg overlayColor="blue.light">
+      <Container py="7" sx={{ gridArea: "1 / 1", zIndex: "1" }}>
         <Grid
           columns={["1fr", null, "repeat(2, 1fr)", "repeat(3, 1fr)"]}
           variant="attractionsPage"
@@ -105,9 +101,7 @@ export const query = graphql`
         node {
           id
           heroImage {
-            fluid {
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
+            gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
             file {
               contentType
               url
@@ -128,9 +122,7 @@ export const query = graphql`
           pricePoint2Title
           pricePoint2Unit
           videoPoster {
-            fluid {
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
+            gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
             file {
               contentType
               url

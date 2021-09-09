@@ -1,7 +1,8 @@
-/** @jsx jsx */
-import { jsx, Box, Button } from "theme-ui";
-import Arrow from "./Images/Arrow";
+/** @jsxImportSource theme-ui */
+
+import { Box, Button } from "theme-ui";
 import { FC } from "react";
+import Arrow from "./Images/Arrow";
 
 type ArrowButtonProps = {
   href?: string;
@@ -26,10 +27,10 @@ const ArrowButton: FC<ArrowButtonProps> = ({ children, href }) => (
     />
     <Button as="div" variant="bookNow">
       <a
-        sx={{ color: "inherit", textDecoration: "none" }}
         href={href}
-        target="_blank"
         rel="noreferrer"
+        sx={{ color: "inherit", textDecoration: "none" }}
+        target="_blank"
       >
         {children}
       </a>
@@ -42,5 +43,9 @@ const ArrowButton: FC<ArrowButtonProps> = ({ children, href }) => (
     />
   </Box>
 );
+
+ArrowButton.defaultProps = {
+  href: "#",
+};
 
 export default ArrowButton;

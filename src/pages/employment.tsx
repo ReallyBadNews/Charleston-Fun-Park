@@ -1,16 +1,16 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { graphql, PageProps } from "gatsby";
 import { Card, Container, Flex, Heading, Text } from "theme-ui";
 import { FormiumForm } from "@formium/react";
 import { Form } from "@formium/types";
 import { Stack } from "raam";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { formium } from "@/src/lib/formium";
 import { formComponents } from "@/components/Forms/FormiumComponents";
 import SEO from "@/components/seo";
 import StarDivider from "@/components/Dividers/StarDivider";
 import WoodBg from "@/components/Images/WoodBg";
-import { FluidObject } from "gatsby-image";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+
 interface JobPageProps extends PageProps {
   data: {
     formiumForm: Form;
@@ -22,10 +22,7 @@ interface JobPageProps extends PageProps {
           body: string;
         };
       };
-      media: {
-        fluid: FluidObject;
-      };
-      description: string;
+      description: { description: string };
     };
   };
 }
@@ -37,7 +34,7 @@ const JobPage: FC<JobPageProps> = ({
     contentfulSectionPages: {
       title,
       seoTitle,
-      description,
+      description: { description },
       content: {
         childMdx: { body: content },
       },
@@ -48,13 +45,20 @@ const JobPage: FC<JobPageProps> = ({
 
   return (
     <>
-      <SEO pathname={pathname} title={seoTitle} description={description} />
+      <SEO description={description} pathname={pathname} title={seoTitle} />
       <StarDivider title={title} />
       <WoodBg>
-        <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-          <Container px={["3", null, null, null, "0"]} py="7">
+        <Flex
+          sx={{
+            flexDirection: "column",
+            minHeight: "screenHeight",
+            gridArea: "1 / 1",
+            zIndex: "1",
+          }}
+        >
+          <Container py="7">
             <Card variant="image">
-              <Stack p="4" gap="3">
+              <Stack gap="3" p="4">
                 {success ? (
                   <Stack gap="2">
                     <Heading
@@ -85,8 +89,8 @@ const JobPage: FC<JobPageProps> = ({
                       <MDXRenderer>{content}</MDXRenderer>
                     </Stack>
                     <FormiumForm
-                      data={formiumForm}
                       components={formComponents}
+                      data={formiumForm}
                       onSubmit={async (values) => {
                         // Send form values to Formium
                         await formium.submitForm("job-application", values);
@@ -122,11 +126,6 @@ export const query = graphql`
     contentfulSectionPages(id: { eq: "698a581a-8d43-542d-8a04-3a218d362955" }) {
       title
       seoTitle
-      media {
-        fluid {
-          src
-        }
-      }
       description {
         description
       }

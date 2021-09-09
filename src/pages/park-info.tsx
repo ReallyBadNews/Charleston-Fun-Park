@@ -1,8 +1,7 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
-import { Box, Container, Flex, Grid, jsx, Card } from "theme-ui";
+import { FC } from "react";
+import { Box, Container, Flex, Grid, Card } from "theme-ui";
 import { useStaticQuery, graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "@/components/seo";
@@ -57,8 +56,15 @@ const ParkInfo: FC<PageProps> = ({ location: { pathname } }) => {
       <SEO description={description} pathname={pathname} title={seoTitle} />
       <StarDivider title={title} />
       <WoodBg overlayColor="blue.light">
-        <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-          <Container px={["3", null, null, null, "0"]} py="7">
+        <Flex
+          sx={{
+            flexDirection: "column",
+            minHeight: "screenHeight",
+            gridArea: "1 / 1",
+            zIndex: "1",
+          }}
+        >
+          <Container py="7">
             <Grid columns="1fr" variant="attractionsPage">
               <Card variant="image">
                 <MapBox height="512px" width="100%" />

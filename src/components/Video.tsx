@@ -1,5 +1,7 @@
-import React, { FC } from "react";
-import { SxProps } from "theme-ui";
+/** @jsxImportSource theme-ui */
+
+import { FC } from "react";
+import { SxProp } from "theme-ui";
 
 interface VideoProps {
   alt?: string;
@@ -12,7 +14,7 @@ interface VideoProps {
   poster?: string;
 }
 
-const Video: FC<VideoProps & SxProps> = ({
+const Video: FC<VideoProps & SxProp> = ({
   alt,
   className,
   dataTestId,
@@ -33,10 +35,21 @@ const Video: FC<VideoProps & SxProps> = ({
     {media ? (
       <source src={media.url} type={media.contentType} />
     ) : (
-      console.error("No video source")
+      <>
+        <p>no video source</p>
+        {console.error("No video source")}
+      </>
     )}
     <p>{alt}</p>
   </video>
 );
+
+Video.defaultProps = {
+  alt: undefined,
+  className: undefined,
+  dataTestId: "videoPlayer",
+  media: undefined,
+  poster: undefined,
+};
 
 export default Video;

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import GoogleMapReact from "google-map-react";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { Box } from "theme-ui";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 type MapProps = {
   height: string;
@@ -25,12 +25,13 @@ const Icon: FC<IconProps> = ({ lat, lng }) => {
   if (typeof window === "undefined") return null;
   return (
     <img
-      height="64"
-      src="https://charlestonfunpark.com/static/4cab3a6c3d07d254c4dd080c61226dfb/1ce16/logo.webp"
       alt="logo"
+      height="64"
       // @ts-ignore
       lat={lat}
+      // @ts-ignore
       lng={lng}
+      src="https://charlestonfunpark.com/static/4cab3a6c3d07d254c4dd080c61226dfb/1ce16/logo.webp"
     />
   );
 };

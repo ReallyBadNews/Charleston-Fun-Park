@@ -1,8 +1,8 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
-import { jsx, Heading, Container, Card, Box } from "theme-ui";
+import { Heading, Container, Card, Box } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import WoodBg from "@/components/Images/WoodBg";
 import { MediaObject } from "@/types/types";
@@ -19,7 +19,7 @@ interface Query {
   };
 }
 
-const EventsSection = (): JSX.Element => {
+const EventsSection = () => {
   const {
     contentfulHomePageEvents: {
       content: {
@@ -39,9 +39,7 @@ const EventsSection = (): JSX.Element => {
           }
         }
         media {
-          fluid {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
+          gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
           title
         }
         title
@@ -50,17 +48,21 @@ const EventsSection = (): JSX.Element => {
   `);
 
   return (
-    <WoodBg overlayColor="green.light">
-      <Container color="white.light" px="3" py="6">
+    <div sx={{ display: "grid", position: "relative" }}>
+      <WoodBg overlayColor="green.light" sx={{ position: "absolute" }} />
+      <Container color="white.light" px="3" py="6" sx={{ zIndex: "1" }}>
         <Card variant="event">
-          <Img alt={media.title} fluid={media.fluid} />
+          <GatsbyImage
+            alt={media.title || "No image description"}
+            image={media.gatsbyImageData}
+          />
           <Box p="4">
             <Heading mb="3">{title}</Heading>
             <MDXRenderer>{body}</MDXRenderer>
           </Box>
         </Card>
       </Container>
-    </WoodBg>
+    </div>
   );
 };
 

@@ -1,11 +1,9 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
 import { useState } from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import { useBreakpoint } from "gatsby-plugin-breakpoints";
-import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
-import { Box, Container, jsx } from "theme-ui";
+import { Link as GatsbyLink } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import { Box, Container } from "theme-ui";
 import { Flex, Inline, Stack } from "raam";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,92 +12,44 @@ import {
   faFlagCheckered,
   faBirthdayCake,
   faInfoCircle,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import StyledLink from "@/components/Link.styled";
+import { Link } from "@/components/Link";
 import Arrow from "@/components/Images/Arrow";
-import { ChildFluidObject } from "@/types/types";
 
-interface ImageProps {
-  logo: ChildFluidObject;
-  bg: ChildFluidObject;
-  fun: ChildFluidObject;
-}
-
-const Nav = (): JSX.Element => {
-  const {
-    logo: {
-      childImageSharp: { fluid: headerLogo },
-    },
-    bg: {
-      childImageSharp: { fluid: woodTexture },
-    },
-    fun: {
-      childImageSharp: { fluid: funLogo },
-    },
-  } = useStaticQuery<ImageProps>(graphql`
-    query NavQuery {
-      logo: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 261, maxHeight: 200) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-      bg: file(relativePath: { eq: "woodTexture.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2048, maxHeight: 96) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-      fun: file(relativePath: { eq: "funSign.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 176, maxHeight: 76) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
-
-  const breakpoints = useBreakpoint();
-
+const Nav = () => {
   const { navLinks } = useSiteMetadata();
-
   const [menuOpen, setMenuOpenState] = useState(false);
 
-  const burgerHandler = () => {
-    setMenuOpenState(!menuOpen);
-  };
-
-  const menuIcons = {
+  const menuIcons: Record<string, IconDefinition> = {
     Attractions: faFlagCheckered,
     "Birthday Parties": faBirthdayCake,
     "Park Info": faInfoCircle,
   };
 
   return (
-    <BackgroundImage
-      fluid={woodTexture}
-      sx={{
-        backgroundColor: "blue.dark",
-        backgroundRepeat: "repeat",
-        backgroundSize: "auto",
-        borderTopWidth: "4",
-        borderTopColor: "blue.light",
-        borderTopStyle: "solid",
-        borderBottomWidth: "4",
-        borderBottomColor: "blue.light",
-        borderBottomStyle: "solid",
-        position: "relative",
-      }}
-      Tag="div"
-    >
-      <Container
-        px={["3", null, null, null, "0"]}
-        sx={{ position: "relative" }}
-      >
+    <div sx={{ display: "grid" }}>
+      <StaticImage
+        alt=""
+        className="woodTexture"
+        layout="fullWidth"
+        placeholder="none"
+        src="../../images/woodTexture.png"
+        sx={{
+          gridArea: "1 / 1",
+          backgroundColor: "blue.dark",
+          borderTopWidth: "4",
+          borderTopColor: "blue.light",
+          borderTopStyle: "solid",
+          borderBottomWidth: "4",
+          borderBottomColor: "blue.light",
+          borderBottomStyle: "solid",
+          position: "relative",
+          height: "24",
+        }}
+      />
+      <Container sx={{ position: "relative", gridArea: "1 / 1" }}>
         <Flex
           alignItems="center"
           className="nav"
@@ -107,10 +57,11 @@ const Nav = (): JSX.Element => {
           sx={{ height: "24" }}
         >
           <Inline gap={["1", null, "3"]}>
-            <Link to="/">
-              <Img
+            <GatsbyLink to="/">
+              <StaticImage
                 alt="Charleston Fun Park"
-                fluid={headerLogo}
+                placeholder="none"
+                src="../../images/logo.png"
                 sx={{
                   width: ["96px", null, null, "172px", "261px"],
                   height: ["74px", null, null, "132px", "200px"],
@@ -119,9 +70,11 @@ const Nav = (): JSX.Element => {
                   mt: ["0", null, null, null, "5"],
                 }}
               />
-            </Link>
-            <Img
-              fluid={funLogo}
+            </GatsbyLink>
+            <StaticImage
+              alt=""
+              placeholder="none"
+              src="../../images/funSign.png"
               sx={{
                 width: ["91px", "132px", "130px", null, "176px"],
                 height: ["40px", "57px", "56px", null, "76px"],
@@ -140,37 +93,39 @@ const Nav = (): JSX.Element => {
             color="white.light"
             gap={["3", null, null, null, "5"]}
           >
-            {breakpoints.desktop &&
-              navLinks.slice(1, 4).map((link) => (
-                <Inline
+            {navLinks.slice(1, 4).map((link) => (
+              <Inline
+                key={link.name}
+                gap={["1", null, null, null, "2"]}
+                sx={{ display: ["none", null, null, "flex"] }}
+              >
+                <FontAwesomeIcon
+                  icon={menuIcons[link.name]}
+                  sx={{ fontSize: ["2", null, null, "3"] }}
+                />
+                <Link
                   key={link.name}
-                  gap={["1", null, null, null, "2"]}
-                  sx={{ display: ["none", null, null, "flex"] }}
+                  sx={{
+                    color: "white.light",
+                    fontSize: ["1", null, null, null, "2"],
+                    fontWeight: "bold",
+                    letterSpacing: "wide",
+                    textTransform: "uppercase",
+                  }}
+                  to={link.url}
+                  onClick={
+                    menuOpen ? () => setMenuOpenState(!menuOpen) : undefined
+                  }
                 >
-                  <FontAwesomeIcon
-                    icon={menuIcons[link.name]}
-                    sx={{ fontSize: ["2", null, null, "3"] }}
-                  />
-                  <StyledLink
-                    key={link.name}
-                    color="white.light"
-                    fontSize={["1", null, null, null, "2"]}
-                    fontWeight="bold"
-                    letterSpacing="wide"
-                    textDecoration="none"
-                    textTransform="uppercase"
-                    to={link.url}
-                    onClick={menuOpen ? burgerHandler : null}
-                  >
-                    {link.name}
-                  </StyledLink>
-                </Inline>
-              ))}
+                  {link.name}
+                </Link>
+              </Inline>
+            ))}
             <FontAwesomeIcon
               icon={menuOpen ? faTimes : faBars}
               sx={{ cursor: "pointer", fontSize: "5" }}
               fixedWidth
-              onClick={burgerHandler}
+              onClick={() => setMenuOpenState(!menuOpen)}
             />
           </Inline>
         </Flex>
@@ -189,26 +144,30 @@ const Nav = (): JSX.Element => {
             }}
           >
             <Stack gap="3">
-              {navLinks.slice(!breakpoints.desktop ? 0 : 4).map((link) => (
-                <StyledLink
+              {/* {navLinks.slice(!breakpoints.desktop ? 0 : 4).map((link) => ( */}
+              {navLinks.map((link) => (
+                <Link
                   key={link.name}
-                  color="black.dark"
-                  fontSize="2"
-                  fontWeight="bold"
-                  letterSpacing="widest"
-                  textDecoration="none"
-                  textTransform="uppercase"
+                  sx={{
+                    color: "black.dark",
+                    fontSize: "2",
+                    fontWeight: "bold",
+                    letterSpacing: "widest",
+                    textTransform: "uppercase",
+                  }}
                   to={link.url}
-                  onClick={menuOpen ? burgerHandler : null}
+                  onClick={
+                    menuOpen ? () => setMenuOpenState(!menuOpen) : undefined
+                  }
                 >
                   {link.name}
-                </StyledLink>
+                </Link>
               ))}
             </Stack>
           </Box>
         )}
       </Container>
-    </BackgroundImage>
+    </div>
   );
 };
 

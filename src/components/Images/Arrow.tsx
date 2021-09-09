@@ -1,37 +1,21 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
+import { StaticImage } from "gatsby-plugin-image";
 import { FC } from "react";
-import { jsx, SxProps } from "theme-ui";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-import { ChildFluidObject } from "@/types/types";
-
-interface Query {
-  arrow: ChildFluidObject;
-}
+import { Box, SxProp } from "theme-ui";
 
 interface ArrowProps {
   className?: string;
 }
 
-const Arrow: FC<ArrowProps & SxProps> = ({ sx, className }) => {
-  const {
-    arrow: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery<Query>(graphql`
-    query ArrowQuery {
-      arrow: file(relativePath: { eq: "arrow.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
+const Arrow: FC<ArrowProps & SxProp> = ({ sx, className }) => (
+  <Box className={className} sx={sx}>
+    <StaticImage alt="Arrow" placeholder="none" src="../../images/arrow.png" />
+  </Box>
+);
 
-  return <Img alt="Arrow" className={className} fluid={fluid} sx={sx} />;
+Arrow.defaultProps = {
+  className: undefined,
 };
 
 export default Arrow;

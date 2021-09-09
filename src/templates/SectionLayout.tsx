@@ -1,17 +1,15 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
-import React from "react";
+import { graphql, PageProps } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Stack } from "raam";
+import { FC } from "react";
+import { Card, Container, Flex, Heading, Text } from "theme-ui";
 import StarDivider from "@/components/Dividers/StarDivider";
 import WoodBg from "@/components/Images/WoodBg";
 import { MediaItem } from "@/components/MediaItem";
 import SEO from "@/components/seo";
 import { MediaObject } from "@/types/types";
-import { graphql, PageProps } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Stack } from "raam";
-import { FC } from "react";
-import { Card, Container, Flex, Heading, jsx, Text } from "theme-ui";
 
 type CommonProps = {
   description?: string;
@@ -53,14 +51,21 @@ const SectionLayout: FC<SectionLayoutProps & CommonProps> = ({
   location: { pathname },
 }) => (
   <>
-    <SEO pathname={pathname} title={seoTitle} description={description} />
+    <SEO description={description} pathname={pathname} title={seoTitle} />
     <StarDivider title={title} />
     <WoodBg>
-      <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
+      <Flex
+        sx={{
+          flexDirection: "column",
+          minHeight: "screenHeight",
+          gridArea: "1 / 1",
+          zIndex: "1",
+        }}
+      >
         {media ? (
           <MediaItem
-            media={media}
             alt={description}
+            media={media}
             sx={{
               bg: "blue.dark",
               maxHeight: "xl",
@@ -70,9 +75,9 @@ const SectionLayout: FC<SectionLayoutProps & CommonProps> = ({
             }}
           />
         ) : null}
-        <Container px={["3", null, null, null, "0"]} py="7">
+        <Container py="7">
           <Card variant="image">
-            <Stack p="4" gap="5">
+            <Stack gap="5" p="4">
               <Stack gap="2">
                 <Heading
                   as="h2"
@@ -110,9 +115,7 @@ export const sectionsQuery = graphql`
         }
       }
       media {
-        fluid(maxWidth: 735) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
         file {
           contentType
           url
@@ -123,5 +126,10 @@ export const sectionsQuery = graphql`
     }
   }
 `;
+
+SectionLayout.defaultProps = {
+  description: undefined,
+  title: undefined,
+};
 
 export default SectionLayout;

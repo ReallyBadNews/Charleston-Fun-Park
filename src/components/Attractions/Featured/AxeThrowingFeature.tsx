@@ -1,14 +1,14 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
-import { FC } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
-import { Box, Flex, Grid, Heading, Text, jsx } from "theme-ui";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Stack } from "raam";
-import { ChildFluidObject, Attraction } from "@/types/types";
-import StyledLink from "@/components/Link.styled";
-import Arrow from "@/components/Images/Arrow";
+import { FC } from "react";
+import { Box, Flex, Grid, Heading, Text } from "theme-ui";
+import { Attraction, ChildFluidObject } from "@/types/types";
 import { MediaItem } from "@/components/MediaItem";
+import { Link } from "@/components/Link";
+import Arrow from "@/components/Images/Arrow";
 
 interface FeaturedAttractionProps {
   data: {
@@ -31,15 +31,13 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
 }) => {
   const {
     axeThrowing: {
-      childImageSharp: { fluid: axeThrowingBg },
+      childImageSharp: { gatsbyImageData: axeThrowingBg },
     },
   } = useStaticQuery<ImageQuery>(graphql`
     query AxeThrowingBgQuery {
       axeThrowing: file(relativePath: { eq: "axeThrowingBg.jpg" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
         }
       }
     }
@@ -54,8 +52,8 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
         }}
       >
         <MediaItem
-          media={videoPoster}
           alt="People throwing axes"
+          media={videoPoster}
           sx={{
             bg: "tailwind.red.800",
             width: ["full", null, null, "7/12"],
@@ -70,45 +68,48 @@ const AxeThrowingFeature: FC<FeaturedAttractionProps> = ({
             position: "relative",
           }}
         >
-          <BackgroundImage
-            fluid={axeThrowingBg}
-            sx={{
-              position: ["absolute !important"],
-              bg: "tailwind.red.900",
-              height: "full",
-              width: "full",
-            }}
-          />
-          <Grid
-            color="white.light"
-            p="7"
-            sx={{ height: "full" }}
-            variant="featuredAttraction"
-          >
-            <Arrow
+          <div sx={{ display: "grid", height: "full", placeContent: "center" }}>
+            <GatsbyImage
+              alt="Textured background"
+              aria-roledescription="background"
+              image={axeThrowingBg}
               sx={{
-                position: ["absolute !important"],
-                right: ["3", null, null, "-80px"],
-                zIndex: "2",
-                width: "180px",
-                height: "80px",
-                top: ["-3rem", null, null, "-1rem"],
-                transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
+                gridArea: "1 / 1",
+                bg: "black.dark",
+                height: "full",
+                width: "full",
               }}
             />
-            <StyledLink
+            <Grid
               color="white.light"
-              hoverColor="blue.light"
-              to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}
+              pb={["9", null, null, "7"]}
+              pt="7"
+              px={["3", null, null, "7"]}
+              sx={{ height: "full", gridArea: "1 / 1" }}
+              variant="featuredAttraction"
             >
-              <Stack>
-                <Heading variant="heading.featuredTitle">{title}</Heading>
-                <Text className="description" variant="body.mid">
-                  {description}
-                </Text>
-              </Stack>
-            </StyledLink>
-          </Grid>
+              <Arrow
+                sx={{
+                  position: "absolute",
+                  right: ["3", null, null, "-80px"],
+                  zIndex: "2",
+                  width: "180px",
+                  height: "80px",
+                  top: ["-3rem", null, null, "-1rem"],
+                  transform: ["rotateZ(-30deg)", null, null, "rotateZ(325deg)"],
+                }}
+              />
+              <Link
+                sx={{ color: "white.light" }}
+                to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}
+              >
+                <Stack>
+                  <Heading variant="heading.featuredTitle">{title}</Heading>
+                  <Text variant="body.normal">{description}</Text>
+                </Stack>
+              </Link>
+            </Grid>
+          </div>
         </Box>
       </Flex>
     </Box>

@@ -1,20 +1,10 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
-import React, { FC } from "react";
-import {
-  Box,
-  Container,
-  Flex,
-  jsx,
-  Heading,
-  Text,
-  Card,
-  Divider,
-} from "theme-ui";
+import { FC } from "react";
+import { Box, Container, Flex, Heading, Text, Card, Divider } from "theme-ui";
 import { Flex as Flexbox } from "raam";
 import { graphql, PageProps } from "gatsby";
-import { FixedObject } from "gatsby-image";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "@/components/seo";
 import WoodBg from "@/components/Images/WoodBg";
@@ -43,7 +33,7 @@ interface AttractionsLayoutProps extends PageProps {
       pricePoint2Unit: string;
       title: string;
       videoPoster: {
-        fixed: FixedObject;
+        gatsbyImageData: IGatsbyImageData;
       };
     };
   };
@@ -52,90 +42,96 @@ interface AttractionsLayoutProps extends PageProps {
 const AttractionsLayout: FC<AttractionsLayoutProps> = ({
   data: { contentfulAttraction },
   location: { pathname },
-}) => {
-  return (
-    <>
-      <SEO
-        description={contentfulAttraction.description.description}
-        pathname={pathname}
-        title={contentfulAttraction.title}
-      />
-      <WoodBg overlayColor="blue.light">
-        <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
-          <MediaItem
-            media={contentfulAttraction.heroImage}
-            alt={contentfulAttraction.description.description}
-            sx={{
-              maxHeight: "xl",
-              height: "xl",
-              width: "full",
-              objectFit: "cover",
-              backgroundColor: "blue.dark",
-            }}
-            videoPoster={contentfulAttraction.videoPoster.fixed.src}
-          />
-          <Container
-            mx="auto"
-            my="6"
-            px="3"
-            sx={{ flex: "1 1 auto", width: "auto" }}
+}) => (
+  <>
+    <SEO
+      description={contentfulAttraction.description.description}
+      pathname={pathname}
+      title={contentfulAttraction.title}
+    />
+    <WoodBg overlayColor="blue.light">
+      <Flex
+        sx={{
+          flexDirection: "column",
+          minHeight: "screenHeight",
+          gridArea: "1 / 1",
+          zIndex: "1",
+        }}
+      >
+        <MediaItem
+          alt={contentfulAttraction.description.description}
+          media={contentfulAttraction.heroImage}
+          sx={{
+            maxHeight: "xl",
+            height: "xl",
+            width: "full",
+            objectFit: "cover",
+            backgroundColor: "blue.dark",
+          }}
+          videoPoster={
+            contentfulAttraction.videoPoster.gatsbyImageData.images.fallback
+              ?.src
+          }
+        />
+        <Container
+          mx="auto"
+          my="6"
+          px="3"
+          sx={{ flex: "1 1 auto", width: "auto" }}
+        >
+          <Card
+            bg="white.light"
+            color="black.dark"
+            p="4"
+            sx={{ borderRadius: "lg", maxWidth: "3xl" }}
           >
-            <Card
-              bg="white.light"
-              color="black.dark"
-              p="4"
-              sx={{ borderRadius: "lg", maxWidth: "3xl" }}
-            >
-              <Heading as="h1" mb="3" variant="heading.largeTitle">
-                {contentfulAttraction.title}
-              </Heading>
-              <MDXRenderer>
-                {contentfulAttraction.body.childMdx.body}
-              </MDXRenderer>
-              {contentfulAttraction.pricePoint1Price && (
-                <Box>
-                  <Divider />
-                  <Flexbox gap="3" py="3">
-                    <Box
-                      pr="3"
-                      sx={{
-                        borderRight:
-                          contentfulAttraction.pricePoint2Price && "1px solid",
-                        borderRightColor: "black.border",
-                      }}
-                    >
+            <Heading as="h1" mb="3" variant="heading.largeTitle">
+              {contentfulAttraction.title}
+            </Heading>
+            <MDXRenderer>{contentfulAttraction.body.childMdx.body}</MDXRenderer>
+            {contentfulAttraction.pricePoint1Price && (
+              <Box>
+                <Divider />
+                <Flexbox gap="3" py="3">
+                  <Box
+                    pr="3"
+                    sx={{
+                      borderRight:
+                        contentfulAttraction.pricePoint2Price && "1px solid",
+                      borderRightColor: "black.border",
+                    }}
+                  >
+                    <Text variant="text.cardPricing">
+                      {contentfulAttraction.pricePoint1Title}
+                    </Text>
+                    <Text variant="text.cardPricing">
+                      {`$${contentfulAttraction.pricePoint1Price}`}
+                      <span> / </span>
+                      {contentfulAttraction.pricePoint1Unit}
+                    </Text>
+                  </Box>
+                  {contentfulAttraction.pricePoint2Price && (
+                    <Box>
                       <Text variant="text.cardPricing">
-                        {contentfulAttraction.pricePoint1Title}
+                        {contentfulAttraction.pricePoint2Title}
                       </Text>
                       <Text variant="text.cardPricing">
-                        {`$${contentfulAttraction.pricePoint1Price}`}
+                        {`$${contentfulAttraction.pricePoint2Price}`}
                         <span> / </span>
-                        {contentfulAttraction.pricePoint1Unit}
+                        {contentfulAttraction.pricePoint2Unit}
                       </Text>
                     </Box>
-                    {contentfulAttraction.pricePoint2Price && (
-                      <Box>
-                        <Text variant="text.cardPricing">
-                          {contentfulAttraction.pricePoint2Title}
-                        </Text>
-                        <Text variant="text.cardPricing">
-                          {`$${contentfulAttraction.pricePoint2Price}`}
-                          <span> / </span>
-                          {contentfulAttraction.pricePoint2Unit}
-                        </Text>
-                      </Box>
-                    )}
-                  </Flexbox>
-                  <Divider />
-                </Box>
-              )}
-            </Card>
-          </Container>
-        </Flex>
-      </WoodBg>
-    </>
-  );
-};
+                  )}
+                </Flexbox>
+                <Divider />
+              </Box>
+            )}
+          </Card>
+        </Container>
+      </Flex>
+    </WoodBg>
+  </>
+);
 
 export const attractionsQuery = graphql`
   query AutoAttractionsQuery($id: String) {
@@ -149,13 +145,11 @@ export const attractionsQuery = graphql`
         description
       }
       heroImage {
-        fluid(maxWidth: 2048) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
         file {
           contentType
           url
         }
+        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
       }
       id
       isVideo
@@ -167,9 +161,7 @@ export const attractionsQuery = graphql`
       pricePoint2Title
       pricePoint2Unit
       videoPoster {
-        fixed(width: 1920) {
-          src
-        }
+        gatsbyImageData(layout: FIXED, width: 720, formats: JPG)
       }
     }
   }

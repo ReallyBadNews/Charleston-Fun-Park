@@ -27,13 +27,6 @@ if (!spaceId || !accessToken) {
 
 const googleMapsToken = process.env.GOOGLE_MAPS_TOKEN;
 
-const breakpoints = {
-  mobile: "(min-width: 475px)",
-  tablet: "(min-width: 768px)",
-  desktop: "(min-width: 1024px)",
-  wide: "(min-width: 1280px)",
-};
-
 module.exports = {
   siteMetadata: {
     googleMapsToken,
@@ -114,13 +107,14 @@ module.exports = {
     FAST_DEV: true,
   },
   plugins: [
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
     "gatsby-plugin-theme-ui",
     "gatsby-plugin-sitemap",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-root-import",
       options: {
@@ -153,12 +147,6 @@ module.exports = {
             },
           },
         ],
-      },
-    },
-    {
-      resolve: "gatsby-plugin-breakpoints",
-      options: {
-        queries: breakpoints,
       },
     },
     {

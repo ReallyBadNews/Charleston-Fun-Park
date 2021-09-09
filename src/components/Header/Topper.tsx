@@ -1,7 +1,5 @@
-/** @jsx jsx */
-import StyledLink from "@/components/Link.styled";
-import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import { ChildFluidObject } from "@/types/types";
+/** @jsxImportSource theme-ui */
+
 import {
   faFacebook,
   faInstagram,
@@ -11,57 +9,49 @@ import {
   faCartPlus,
   faPhone,
   faUsers,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { graphql, useStaticQuery } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { Flex, Inline } from "raam";
-import { Box, Button, Container, jsx } from "theme-ui";
+import { Box, Button, Container } from "theme-ui";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import { Link } from "@/components/Link";
 
-interface Query {
-  grassBg: ChildFluidObject;
-}
-
-const Topper = (): JSX.Element => {
-  const {
-    grassBg: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery<Query>(graphql`
-    query TopperQuery {
-      grassBg: file(relativePath: { eq: "grassBg.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 2048, maxHeight: 43) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
-
+const Topper = () => {
   const { giftCardLink, phoneNumber, socialLinks } = useSiteMetadata();
 
-  const socialIcons = {
+  const socialIcons: Record<string, IconDefinition> = {
     facebook: faFacebook,
     twitter: faTwitter,
     instagram: faInstagram,
   };
 
   return (
-    <BackgroundImage
-      className="topper"
-      fluid={fluid}
-      sx={{
-        backgroundColor: "green.dark",
-        backgroundRepeat: "repeat",
-        backgroundSize: "auto",
-        position: "relative",
-      }}
-    >
+    <div sx={{ display: "grid", position: "relative" }}>
+      <div
+        sx={{
+          gridArea: "1 / 1",
+          position: "absolute",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
+          overflow: "hidden",
+        }}
+      >
+        <StaticImage
+          alt=""
+          className="topper"
+          layout="fullWidth"
+          placeholder="none"
+          src="../../images/grass.jpg"
+        />
+      </div>
       <Box
         sx={{
-          position: "absolute",
-          zIndex: "-1",
+          gridArea: "1 / 1",
+          zIndex: 1,
           top: "0",
           right: "0",
           bottom: "0",
@@ -71,13 +61,12 @@ const Topper = (): JSX.Element => {
         }}
       />
       <Container
-        px={["3", null, null, null, "0"]}
-        sx={{ position: "relative", zIndex: "100" }}
+        sx={{ gridArea: "1 / 1", position: "relative", zIndex: "100" }}
       >
         <Flex
           gap="5"
-          py="1"
           justifyContent={["space-between", null, "flex-end"]}
+          py="1"
         >
           <Inline gap="3">
             <Button as="div" variant="green">
@@ -92,8 +81,8 @@ const Topper = (): JSX.Element => {
             <Button as="div" variant="cta">
               <a
                 href={giftCardLink}
-                sx={{ color: "inherit", textDecoration: "none" }}
                 rel="noreferrer"
+                sx={{ color: "inherit", textDecoration: "none" }}
                 target="_blank"
               >
                 <FontAwesomeIcon icon={faCartPlus} sx={{ mr: "2" }} />
@@ -112,20 +101,19 @@ const Topper = (): JSX.Element => {
           </Inline>
           <Inline alignItems="center" gap="4" sx={{ height: "full" }}>
             {socialLinks.map((link) => (
-              <StyledLink
+              <Link
                 key={link.name}
-                color="white.light"
-                fontSize="4"
-                href={link.url}
+                sx={{ color: "white.light", fontSize: "4" }}
                 title={link.name}
+                to={link.url}
               >
                 <FontAwesomeIcon icon={socialIcons[link.name]} />
-              </StyledLink>
+              </Link>
             ))}
           </Inline>
         </Flex>
       </Container>
-    </BackgroundImage>
+    </div>
   );
 };
 

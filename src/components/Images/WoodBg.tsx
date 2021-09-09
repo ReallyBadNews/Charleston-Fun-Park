@@ -1,70 +1,45 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
-import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
-import { Box, jsx, SxProps } from "theme-ui";
+import { StaticImage } from "gatsby-plugin-image";
 import { FC } from "react";
-import { ChildFluidObject } from "@/types/types";
+import { Box, SxProp } from "theme-ui";
 
 type WoodBgProps = {
   overlayColor?: string;
   className?: string;
 };
 
-type Query = {
-  darkWood: ChildFluidObject;
-};
-
-const WoodBg: FC<WoodBgProps & SxProps> = ({
+const WoodBg: FC<WoodBgProps & SxProp> = ({
   children,
   className,
   overlayColor = "blue.light",
   sx,
-}) => {
-  const {
-    darkWood: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery<Query>(graphql`
-    query WoodQuery {
-      darkWood: file(relativePath: { eq: "darkWood.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2048) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
-
-  return (
-    <BackgroundImage
-      fluid={fluid}
-      className={className}
+}) => (
+  <Box
+    as="section"
+    className={className}
+    sx={{ display: "grid", position: "relative", overflow: "hidden", ...sx }}
+  >
+    <StaticImage
+      alt=""
+      placeholder="blurred"
+      src="../../images/darkWood.jpg"
+      sx={{ gridArea: "1 / 1", bg: "blue.dark" }}
+    />
+    <Box
       sx={{
-        ...sx,
-        backgroundRepeat: "repeat",
-        backgroundSize: "auto",
-        backgroundColor: "blue.xdark",
-        backgroundPosition: "top center",
+        gridArea: "1 / 1",
+        bg: overlayColor,
+        opacity: "0.75",
       }}
-      Tag="section"
-    >
-      <Box
-        sx={{
-          position: "absolute",
-          zIndex: "-1",
-          top: "0",
-          right: "0",
-          bottom: "0",
-          left: "0",
-          bg: overlayColor,
-          opacity: "0.85",
-        }}
-      />
-      {children}
-    </BackgroundImage>
-  );
+    />
+    {children}
+  </Box>
+);
+
+WoodBg.defaultProps = {
+  className: undefined,
+  overlayColor: "blue.light",
 };
 
 export default WoodBg;

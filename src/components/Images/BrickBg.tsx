@@ -1,65 +1,50 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
-import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
-import { Box, jsx, SxProps } from "theme-ui";
+import { StaticImage } from "gatsby-plugin-image";
 import { FC } from "react";
-import { ChildFluidObject } from "@/types/types";
+import { Box, SxProp } from "theme-ui";
 
 interface BrickBgProps {
   id?: string;
   className?: string;
 }
 
-interface Query {
-  brickTexture: ChildFluidObject;
-}
-
-const BrickBg: FC<BrickBgProps & SxProps> = ({
+const BrickBg: FC<BrickBgProps & SxProp> = ({
   children,
   id,
   sx,
   className,
-}) => {
-  const {
-    brickTexture: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery<Query>(graphql`
-    query BrickQuery {
-      brickTexture: file(relativePath: { eq: "brickTexture.jpg" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `);
+}) => (
+  <Box
+    as="section"
+    className={className}
+    id={id}
+    sx={{ display: "grid", position: "relative", ...sx }}
+  >
+    <StaticImage
+      alt=""
+      placeholder="blurred"
+      src="../../images/brickTexture.jpg"
+      sx={{ position: "relative", bg: "black.dark" }}
+    />
+    <Box
+      sx={{
+        position: "absolute",
+        top: "0",
+        right: "0",
+        bottom: "0",
+        left: "0",
+        bg: "blue.xdark",
+        opacity: "0.75",
+      }}
+    />
+    {children}
+  </Box>
+);
 
-  return (
-    <BackgroundImage
-      fluid={fluid}
-      id={id}
-      sx={{ ...sx, position: "relative", bg: "black.dark" }}
-      className={className}
-      Tag="section"
-    >
-      <Box
-        sx={{
-          position: "absolute",
-          zIndex: "-1",
-          top: "0",
-          right: "0",
-          bottom: "0",
-          left: "0",
-          bg: "blue.xdark",
-          opacity: "0.75",
-        }}
-      />
-      {children}
-    </BackgroundImage>
-  );
+BrickBg.defaultProps = {
+  id: undefined,
+  className: undefined,
 };
 
 export default BrickBg;

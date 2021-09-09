@@ -1,15 +1,15 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
-import { FC } from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import Img from "gatsby-image";
-import { jsx, Container, Heading, Text, Button, Grid, Box } from "theme-ui";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Stack } from "raam";
+import { FC } from "react";
+import { Box, Button, Container, Grid, Heading, Text } from "theme-ui";
+import { ChildFluidObject, MediaObject } from "@/src/types/types";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 import BrickBg from "@/components/Images/BrickBg";
-import { ChildFluidObject, MediaObject } from "@/types/types";
 
 interface BirthdaySectionProps {
   id?: string;
@@ -33,7 +33,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
   const {
     contentfulHomePageBirthdays,
     file: {
-      childImageSharp: { fluid: baloonsImage },
+      childImageSharp: { gatsbyImageData: baloonsImage },
     },
   } = useStaticQuery<Query>(graphql`
     query BirthdaySectionQuery {
@@ -45,9 +45,12 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
         media {
           title
           description
-          fluid(maxHeight: 400, maxWidth: 400) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
+          gatsbyImageData(
+            placeholder: BLURRED
+            layout: CONSTRAINED
+            width: 220
+            height: 220
+          )
         }
         description {
           description
@@ -55,9 +58,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
       }
       file(relativePath: { eq: "baloons.png" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
+          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
         }
       }
     }
@@ -66,7 +67,12 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
   const { navLinks } = useSiteMetadata();
 
   return (
-    <BrickBg id={id}>
+    <div id={id} sx={{ display: "grid", position: "relative" }}>
+      <BrickBg
+        sx={{
+          position: "absolute",
+        }}
+      />
       <Container variant="flexContainer">
         <Box
           sx={{
@@ -75,7 +81,7 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
             display: ["none", null, "initial"],
           }}
         >
-          <Img fluid={baloonsImage} />
+          <GatsbyImage alt="baloons" image={baloonsImage} />
         </Box>
         <Stack
           gap={["3", null, "4", null, "5"]}
@@ -102,12 +108,12 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
               </Link>
             </Button>
           </Stack>
-          <Grid columns={["repeat(2, 1fr)", null, "repeat(4, 1fr)"]} gap="3">
+          <Grid columns={[2, null, 4]} gap="3">
             {contentfulHomePageBirthdays.media.map((image) => (
-              <Img
+              <GatsbyImage
                 key={image.title}
-                alt={image.description}
-                fluid={image.fluid}
+                alt={image.description || ""}
+                image={image.gatsbyImageData}
                 sx={{
                   bg: "blue.dark",
                   borderWidth: "0.125rem",
@@ -119,8 +125,12 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
           </Grid>
         </Stack>
       </Container>
-    </BrickBg>
+    </div>
   );
+};
+
+BirthdaySection.defaultProps = {
+  id: undefined,
 };
 
 export default BirthdaySection;

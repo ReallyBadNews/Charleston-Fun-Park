@@ -1,13 +1,13 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 
-import React, { FC, ReactText } from "react";
 import CSS from "csstype";
-import { Box, Card, Divider, Heading, Text, jsx } from "theme-ui";
 import { motion } from "framer-motion";
-import { Stack, Flex } from "raam";
-import StyledLink from "@/components/Link.styled";
-import { MediaItem } from "@/components/MediaItem";
+import { Flex, Stack } from "raam";
+import { FC, ReactText } from "react";
+import { Box, Card, Divider, Heading, Text } from "theme-ui";
 import { MediaObject } from "@/types/types";
+import { MediaItem } from "@/components/MediaItem";
+import { Link } from "@/components/Link";
 
 interface AttractionCardProps {
   description?: string;
@@ -35,7 +35,7 @@ const AttractionCard: FC<AttractionCardProps> = ({
   textAlign,
 }) => (
   <motion.div whileHover={{ y: -8 }}>
-    <StyledLink to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}>
+    <Link to={`/attractions/${title.toLowerCase().replace(/\s/g, "-")}`}>
       <Card variant="attraction">
         <MediaItem
           alt={title}
@@ -96,12 +96,19 @@ const AttractionCard: FC<AttractionCardProps> = ({
           )}
         </Flex>
       </Card>
-    </StyledLink>
+    </Link>
   </motion.div>
 );
 
 export default AttractionCard;
 
 AttractionCard.defaultProps = {
+  description: undefined,
+  pricePoint1Price: undefined,
+  pricePoint1Title: undefined,
+  pricePoint1Unit: undefined,
+  pricePoint2Price: undefined,
+  pricePoint2Title: undefined,
+  pricePoint2Unit: undefined,
   textAlign: "left",
 };

@@ -1,4 +1,4 @@
-const tailwind = require("./tailwindColors");
+import tailwind from "./tailwindColors";
 
 export default {
   borderWidths: {
@@ -74,11 +74,14 @@ export default {
     },
   },
   layout: {
+    container: {
+      px: "3",
+    },
     flexContainer: {
+      variant: "layout.container",
       display: "flex",
       alignItems: "center",
       height: "full",
-      px: ["3", null, null, null, "0"],
       py: "7",
     },
   },

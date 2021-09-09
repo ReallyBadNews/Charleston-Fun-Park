@@ -1,5 +1,5 @@
 {
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
@@ -12,19 +12,18 @@
       "@/lib/*": ["src/lib/*"],
       "@/static/*": ["static/*"]
     },
-    "target": "esnext",
-    "module": "commonjs",
-    "lib": ["dom", "es2017"],
-    // "allowJs": true,
-    // "checkJs": true,
-    "jsx": "react",
-    "strict": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noEmit": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
-    "noImplicitAny": false,
-    "resolveJsonModule": true
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
   }
 }

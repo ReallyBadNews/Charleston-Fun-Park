@@ -1,8 +1,6 @@
-/** @jsx jsx */
-/** @jsxFrag */
+/** @jsxImportSource theme-ui */
 
-import React from "react";
-import { Container, Grid, jsx } from "theme-ui";
+import { Container, Grid } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import WoodBg from "@/components/Images/WoodBg";
 import StarDivider from "@/components/Dividers/StarDivider";
@@ -26,7 +24,7 @@ interface Query {
   };
 }
 
-const MoreAttractions = (): JSX.Element => {
+const MoreAttractions = () => {
   const {
     allContentfulAttraction: { edges: attractions },
   } = useStaticQuery<Query>(graphql`
@@ -39,9 +37,7 @@ const MoreAttractions = (): JSX.Element => {
           node {
             id
             heroImage {
-              fluid {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-              }
+              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
               file {
                 contentType
                 url
@@ -51,9 +47,7 @@ const MoreAttractions = (): JSX.Element => {
             isVideo
             order
             videoPoster {
-              fluid {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-              }
+              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
               file {
                 contentType
                 url
@@ -73,8 +67,9 @@ const MoreAttractions = (): JSX.Element => {
         title="More Attractions"
         to="/attractions/"
       />
-      <WoodBg overlayColor="blue.light">
-        <Container px={["3", null, null, null, "0"]} py="7">
+      <div sx={{ display: "grid", position: "relative", overflow: "hidden" }}>
+        <WoodBg overlayColor="blue.light" sx={{ position: "absolute" }} />
+        <Container py="7" sx={{ zIndex: "1" }}>
           <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
             {attractions.map((attraction) => (
               <AttractionsCard
@@ -90,7 +85,7 @@ const MoreAttractions = (): JSX.Element => {
             ))}
           </Grid>
         </Container>
-      </WoodBg>
+      </div>
     </>
   );
 };
