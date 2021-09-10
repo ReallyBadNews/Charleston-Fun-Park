@@ -120,6 +120,7 @@ const SEO: FC<SeoProps> = ({
       <script
         src="https://js.adsrvr.org/up_loader.1.1.0.js"
         type="text/javascript"
+        defer
       />
     </Helmet>
   );

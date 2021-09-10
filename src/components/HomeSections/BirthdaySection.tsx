@@ -3,7 +3,7 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { graphql, Link, useStaticQuery } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Stack } from "raam";
 import { FC } from "react";
 import { Box, Button, Container, Grid, Heading, Text } from "theme-ui";
@@ -30,17 +30,11 @@ interface Query {
 }
 
 const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
-  const {
-    contentfulHomePageBirthdays,
-    file: {
-      childImageSharp: { gatsbyImageData: baloonsImage },
-    },
-  } = useStaticQuery<Query>(graphql`
+  const { contentfulHomePageBirthdays } = useStaticQuery<Query>(graphql`
     query BirthdaySectionQuery {
       contentfulHomePageBirthdays(
         id: { eq: "459dbfcc-f34c-523b-a458-54775988401c" }
       ) {
-        id
         title
         media {
           title
@@ -54,11 +48,6 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
         }
         description {
           description
-        }
-      }
-      file(relativePath: { eq: "baloons.png" }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
         }
       }
     }
@@ -81,7 +70,12 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
             display: ["none", null, "initial"],
           }}
         >
-          <GatsbyImage alt="baloons" image={baloonsImage} />
+          <StaticImage
+            alt="baloons"
+            layout="constrained"
+            placeholder="none"
+            src="../../images/baloons.png"
+          />
         </Box>
         <Stack
           gap={["3", null, "4", null, "5"]}
