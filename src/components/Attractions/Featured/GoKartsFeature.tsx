@@ -1,34 +1,15 @@
 /** @jsxImportSource theme-ui */
 
-import { FC } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import { Box, Flex, Grid, Heading, Text, useThemeUI } from "theme-ui";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
 import { Stack } from "raam";
-import { Link } from "@/components/Link";
+import { FC } from "react";
+import { Box, Flex, Grid, Heading, Text, useThemeUI } from "theme-ui";
 import Arrow from "@/components/Images/Arrow";
+import { Link } from "@/components/Link";
 import { MediaItem } from "@/components/MediaItem";
-import { FeaturedAttractionProps, ChildFluidObject } from "@/types/types";
-
-interface Query {
-  goKarts: ChildFluidObject;
-}
+import { FeaturedAttractionProps } from "@/types/types";
 
 const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
-  const {
-    goKarts: {
-      childImageSharp: { gatsbyImageData: goKartsBg },
-    },
-  } = useStaticQuery<Query>(graphql`
-    query GoKartsBgQuery {
-      goKarts: file(relativePath: { eq: "goKartsBg.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
-        }
-      }
-    }
-  `);
-
   const { rawColors: colors = {} } = useThemeUI().theme;
 
   return (
@@ -103,10 +84,12 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             <rect fill={colors.red.dark as string} height="16" width="100%" />
           </svg>
           <div sx={{ display: "grid", height: "full", placeContent: "center" }}>
-            <GatsbyImage
+            <StaticImage
               alt="Textured background"
               aria-roledescription="background"
-              image={goKartsBg}
+              layout="fullWidth"
+              placeholder="dominantColor"
+              src="../../../images/goKartsBg.jpg"
               sx={{
                 gridArea: "1 / 1",
                 bg: "black.dark",
