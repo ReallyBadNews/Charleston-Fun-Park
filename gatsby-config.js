@@ -235,7 +235,7 @@ module.exports = {
         // Defaults to false meaning Vitals will only be tracked in production.
         includeInDevelopment: false,
         // Prints metrics in the console when true
-        debug: true,
+        debug: false,
       },
     },
     {
