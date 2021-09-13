@@ -8,7 +8,7 @@ updates:
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
-    target-branch: "chore"
+    target-branch: "staging"
     schedule:
       interval: "daily"
     reviewers:
