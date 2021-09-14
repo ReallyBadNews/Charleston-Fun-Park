@@ -39,7 +39,12 @@ const EventsSection = () => {
           }
         }
         media {
-          gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: BLURRED
+            width: 600
+            height: 450
+          )
           title
         }
         title

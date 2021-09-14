@@ -53,7 +53,7 @@ export default {
   fonts: {
     heading: "Playfair Display, serif",
     body: "Greycliff, sans-serif",
-    display: "Neon Tubes, mono-space",
+    display: "Neon Tubes, Helvetica, Arial, sans-serif",
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 48, 64, 72],
   fontWeights: {
