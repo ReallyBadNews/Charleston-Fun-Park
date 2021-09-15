@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import OgImage from "../../static/images/og_image.jpg";
 import TwImage from "../../static/images/tw_card.jpg";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
+import fontFiles from "@/static/fonts";
 
 interface SeoProps {
   description: string;
@@ -121,6 +122,48 @@ const SEO: FC<SeoProps> = ({
         src="https://js.adsrvr.org/up_loader.1.1.0.js"
         type="text/javascript"
         defer
+      />
+      <link
+        as="font"
+        crossOrigin="anonymous"
+        href={fontFiles.PlayfairDisplayBlack as string}
+        rel="preload"
+        type="font/woff2"
+      />
+      <link
+        as="font"
+        crossOrigin="anonymous"
+        href={fontFiles.NeonTubes as string}
+        rel="preload"
+        type="font/woff2"
+      />
+      <link
+        as="font"
+        crossOrigin="anonymous"
+        href={fontFiles.GreycliffRegular as string}
+        rel="preload"
+        type="font/woff2"
+      />
+      <link
+        as="font"
+        crossOrigin="anonymous"
+        href={fontFiles.GreycliffMedium as string}
+        rel="preload"
+        type="font/woff2"
+      />
+      <link
+        as="font"
+        crossOrigin="anonymous"
+        href={fontFiles.GreycliffBold as string}
+        rel="preload"
+        type="font/woff2"
+      />
+      <link
+        as="font"
+        crossOrigin="anonymous"
+        href={fontFiles.GreycliffHeavy as string}
+        rel="preload"
+        type="font/woff2"
       />
     </Helmet>
   );

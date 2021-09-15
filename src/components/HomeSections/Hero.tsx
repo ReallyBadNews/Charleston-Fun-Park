@@ -59,7 +59,12 @@ const Hero = () => {
         subtitle
         title
         videoPoster {
-          gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+          gatsbyImageData(
+            placeholder: BLURRED
+            layout: FULL_WIDTH
+            width: 1280
+            height: 720
+          )
         }
       }
     }
