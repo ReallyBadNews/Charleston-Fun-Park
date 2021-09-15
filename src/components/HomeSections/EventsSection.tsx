@@ -19,7 +19,11 @@ interface Query {
   };
 }
 
-const EventsSection = () => {
+interface EventsSectionProps {
+  id?: string;
+}
+
+const EventsSection: React.FC<EventsSectionProps> = ({ id }) => {
   const {
     contentfulHomePageEvents: {
       content: {
@@ -53,9 +57,24 @@ const EventsSection = () => {
   `);
 
   return (
-    <div sx={{ display: "grid", position: "relative" }}>
-      <WoodBg overlayColor="green.light" sx={{ position: "absolute" }} />
-      <Container color="white.light" px="3" py="6" sx={{ zIndex: "1" }}>
+    <div id={id} sx={{ display: "grid", position: "relative" }}>
+      <WoodBg
+        overlayColor="green.light"
+        sx={{
+          gridArea: "1 / 1",
+          position: "absolute",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
+        }}
+      />
+      <Container
+        color="white.light"
+        px="3"
+        py="6"
+        sx={{ zIndex: "1", gridArea: "1 / 1" }}
+      >
         <Card variant="event">
           <GatsbyImage
             alt={media.title || "No image description"}

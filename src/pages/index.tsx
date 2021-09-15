@@ -16,7 +16,7 @@ const IndexPage: FC<PageProps> = ({ location: { pathname } }) => (
     <SEO description="Charleston Fun Park" pathname={pathname} title="Home" />
     <Hero />
     <ArrowDivider />
-    <MobileWelcome sx={{ display: ["block", null, "none"] }} />
+    <MobileWelcome sx={{ display: ["grid", null, "none"] }} />
     <BirthdaySection id="birthdays" />
     <EventsSection />
     <FeaturedAttractions />

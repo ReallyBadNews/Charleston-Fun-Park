@@ -42,8 +42,14 @@ const MobileWelcome: FC<Props & SxProp> = ({ className, sx }) => {
   `);
 
   return (
-    <WoodBg className={className} overlayColor="blue.light" sx={sx}>
-      <Box color="white.light" px="3" py="6" sx={{ textAlign: "center" }}>
+    <div className={className} sx={sx}>
+      <WoodBg overlayColor="blue.light" sx={{ gridArea: "1 / 1" }} />
+      <Box
+        color="white.light"
+        px="3"
+        py="6"
+        sx={{ textAlign: "center", gridArea: "1 / 1", position: "relative" }}
+      >
         <Heading variant="heading.smallTitle">{subtitle}</Heading>
         <Stack gap="3">
           <Heading as="h1" variant="heading.title">
@@ -52,7 +58,7 @@ const MobileWelcome: FC<Props & SxProp> = ({ className, sx }) => {
           <Text variant="body.normal">{description}</Text>
         </Stack>
       </Box>
-    </WoodBg>
+    </div>
   );
 };
 

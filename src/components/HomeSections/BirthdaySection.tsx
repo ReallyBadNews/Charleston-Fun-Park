@@ -59,10 +59,15 @@ const BirthdaySection: FC<BirthdaySectionProps> = ({ id }) => {
     <div id={id} sx={{ display: "grid", position: "relative" }}>
       <BrickBg
         sx={{
+          gridArea: "1 / 1",
           position: "absolute",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          left: "0",
         }}
       />
-      <Container variant="flexContainer">
+      <Container sx={{ gridArea: "1 / 1" }} variant="flexContainer">
         <Box
           sx={{
             alignSelf: "flex-start",

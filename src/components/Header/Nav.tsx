@@ -33,8 +33,6 @@ const Nav = () => {
       <StaticImage
         alt=""
         className="woodTexture"
-        layout="fullWidth"
-        placeholder="none"
         src="../../images/woodTexture.png"
         sx={{
           gridArea: "1 / 1",

@@ -30,7 +30,6 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => (
     <Box
       sx={{
         display: "grid",
-        position: "relative",
         width: ["full", null, null, "5/12"],
         minHeight: ["xs", null, null, "auto"],
         borderTop: ["24px solid", null, null, "none"],
@@ -45,33 +44,30 @@ const MiniGolfFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => (
         ],
       }}
     >
-      <StaticImage
-        alt="Textured background"
-        aria-roledescription="background"
-        layout="fullWidth"
-        placeholder="dominantColor"
-        src="../../../images/grass.jpg"
-        sx={{
-          gridArea: "1 / 1",
-          bg: "green.light",
-          height: "full",
-          width: "full",
-        }}
-      />
-      <Box
-        sx={{
-          gridArea: "1 / 1",
-          position: "absolute",
-          bg: "green.dark",
-          width: "full",
-          height: "full",
-          opacity: "0.75",
-        }}
-      />
+      <div sx={{ display: "grid", gridArea: "1 / 1" }}>
+        <StaticImage
+          alt="Textured background"
+          aria-roledescription="background"
+          layout="fullWidth"
+          placeholder="dominantColor"
+          src="../../../images/grass.jpg"
+          sx={{
+            gridArea: "1 / 1",
+            bg: "green.light",
+          }}
+        />
+        <Box
+          sx={{
+            gridArea: "1 / 1",
+            bg: "green.dark",
+            opacity: "0.75",
+          }}
+        />
+      </div>
       <Grid
         color="white.light"
         p="7"
-        sx={{ height: "full", gridArea: "1 / 1" }}
+        sx={{ gridArea: "1 / 1" }}
         variant="featuredAttraction"
       >
         <Arrow

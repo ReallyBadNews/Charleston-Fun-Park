@@ -20,9 +20,19 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
   overlayColor = "blue.xdark",
 }) => (
   <div sx={{ display: "grid", position: "relative", overflow: "hidden" }}>
-    <WoodBg overlayColor={overlayColor} sx={{ position: "absolute" }} />
+    <WoodBg
+      overlayColor={overlayColor}
+      sx={{
+        gridArea: "1 / 1",
+        position: "absolute",
+        top: "0",
+        left: "0",
+        right: "0",
+        bottom: "0",
+      }}
+    />
     <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
-    <Container>
+    <Container sx={{ zIndex: "1", gridArea: "1 / 1" }}>
       <Inline
         alignItems="center"
         gap={["1", null, "3", null, "4"]}

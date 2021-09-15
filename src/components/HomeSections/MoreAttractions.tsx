@@ -68,8 +68,18 @@ const MoreAttractions = () => {
         to="/attractions/"
       />
       <div sx={{ display: "grid", position: "relative", overflow: "hidden" }}>
-        <WoodBg overlayColor="blue.light" sx={{ position: "absolute" }} />
-        <Container py="7" sx={{ zIndex: "1" }}>
+        <WoodBg
+          overlayColor="blue.light"
+          sx={{
+            gridArea: "1 / 1",
+            position: "absolute",
+            top: "0",
+            right: "0",
+            bottom: "0",
+            left: "0",
+          }}
+        />
+        <Container py="7" sx={{ gridArea: "1 / 1", zIndex: "1" }}>
           <Grid columns={["1fr", null, "repeat(2, 1fr)", "repeat(4, 1fr)"]}>
             {attractions.map((attraction) => (
               <AttractionsCard
