@@ -230,7 +230,7 @@ module.exports = {
         // An array with metrics you want to track and send to analytics
         metrics: ["FID", "TTFB", "LCP", "CLS", "FCP"],
         // Event Category (optional) { string }, default 'Web Vitals'
-        eventCategory: "Performance",
+        eventCategory: "Web Vitals",
         // Include Web Vitals tracking in development
         // Defaults to false meaning Vitals will only be tracked in production.
         includeInDevelopment: false,
