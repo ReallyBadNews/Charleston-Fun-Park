@@ -13,6 +13,7 @@ export type AnchorProps = Omit<
 
 interface LinkProps extends SxProp, AnchorProps {
   to: string;
+  variant?: string;
   onClick?: (event?: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 

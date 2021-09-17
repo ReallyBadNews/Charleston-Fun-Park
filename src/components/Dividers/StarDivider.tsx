@@ -3,7 +3,6 @@
 import { FC } from "react";
 import { Box, Container, Divider, Heading } from "theme-ui";
 import { Link } from "gatsby";
-import { Inline } from "raam";
 import WoodBg from "@/components/Images/WoodBg";
 
 interface MoreAttractionsProps {
@@ -33,11 +32,13 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
     />
     <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
     <Container sx={{ zIndex: "1", gridArea: "1 / 1" }}>
-      <Inline
-        alignItems="center"
-        gap={["1", null, "3", null, "4"]}
-        justifyContent="center"
-        py="3"
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          py: "3",
+        }}
       >
         <Box sx={{ display: ["none", null, "block"] }}>
           <svg
@@ -106,7 +107,7 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
             />
           </svg>
         </Box>
-        <Heading as={as} mx="3" variant="display">
+        <Heading as={as} mx="3" sx={{ px: "4" }} variant="display">
           {to ? (
             <Link sx={{ color: "inherit", textDecoration: "none" }} to={to}>
               {title}
@@ -182,7 +183,7 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
             />
           </svg>
         </Box>
-      </Inline>
+      </Box>
     </Container>
   </div>
 );
