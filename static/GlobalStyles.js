@@ -54,6 +54,7 @@ const GlobalStyles = () => (
 
       html {
         overflow-x: hidden;
+        scroll-behavior: smooth;
       }
 
       h1,

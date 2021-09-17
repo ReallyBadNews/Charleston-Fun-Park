@@ -61,14 +61,22 @@ const Topper = () => {
         }}
       />
       <Container
-        sx={{ gridArea: "1 / 1", position: "relative", zIndex: "100" }}
+        sx={{ gridArea: "1 / 1", position: "relative", zIndex: "100", pr: "0" }}
       >
         <Flex
           gap="5"
           justifyContent={["space-between", null, "flex-end"]}
           py="1"
         >
-          <Inline gap="3">
+          <Box
+            className="topperWrapper"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              "& > * + *": { ml: "1rem !important" },
+            }}
+          >
             <Button as="div" variant="green">
               <a
                 href={phoneNumber.link}
@@ -98,8 +106,8 @@ const Topper = () => {
                 Group Events
               </a>
             </Button>
-          </Inline>
-          <Inline alignItems="center" gap="4" sx={{ height: "full" }}>
+          </Box>
+          <Inline alignItems="center" gap="4" sx={{ height: "full", mr: "3" }}>
             {socialLinks.map((link) => (
               <Link
                 key={link.name}

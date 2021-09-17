@@ -1,8 +1,7 @@
 /** @jsxImportSource theme-ui */
 
-import { Inline } from "raam";
 import { FC } from "react";
-import { Box, Container, Divider, Text } from "theme-ui";
+import { Box, Container, Divider } from "theme-ui";
 import Arrow from "@/components/Images/Arrow";
 import BrickBg from "@/components/Images/BrickBg";
 import { Link } from "@/components/Link";
@@ -15,7 +14,6 @@ const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => (
   <div id={id} sx={{ display: "grid", position: "relative" }}>
     <BrickBg
       sx={{
-        bg: "blue.dark",
         gridArea: "1 / 1",
         position: "absolute",
         top: "0",
@@ -24,25 +22,15 @@ const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => (
         left: "0",
       }}
     />
-    <Box
-      sx={{
-        gridArea: "1 / 1",
-        zIndex: 0,
-        top: "0",
-        right: "0",
-        bottom: "0",
-        left: "0",
-        bg: "blue.xdark",
-        opacity: "0.75",
-      }}
-    />
     <Divider sx={{ position: "absolute", top: "0" }} variant="divider.glow" />
     <Container sx={{ gridArea: "1 / 1" }}>
-      <Inline
-        alignItems="center"
-        gap={["2", null, "3", null, "4"]}
-        justifyContent="center"
-        py="3"
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          py: "3",
+        }}
       >
         <Arrow
           sx={{
@@ -51,10 +39,21 @@ const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => (
             width: ["72px", null, "24", null, "32"],
           }}
         />
-        <Link to="#birthdays">
-          <Text sx={{ maxWidth: ["12ch", null, "initial"] }} variant="display">
-            The Party Starts Here
-          </Text>
+        <Link
+          sx={{
+            px: ["2", null, "4"],
+            position: "relative",
+            maxWidth: ["12ch", null, "initial"],
+            fontFamily: "display",
+            fontSize: [4, 5, 6, 8, 9],
+            textAlign: "center",
+            lineHeight: "none",
+            color: "yellow.light",
+            textShadow: "neonYellow",
+          }}
+          to="#birthdays"
+        >
+          The Party Starts Here
         </Link>
         <Arrow
           sx={{
@@ -62,7 +61,7 @@ const ArrowDivider: FC<ArrowDividerProps> = ({ id }) => (
             width: ["72px", null, "24", null, "32"],
           }}
         />
-      </Inline>
+      </Box>
     </Container>
     <Divider
       sx={{ position: "absolute", bottom: "0" }}
