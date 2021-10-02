@@ -31,3 +31,23 @@ export const wrapRootElement = ({ element }) => (
     />
   </>
 );
+
+export const onInitialClientRender = () => {
+  if (
+    typeof window === "object" &&
+    typeof window.ttd_dom_ready === "function"
+  ) {
+    window.ttd_dom_ready(() => {
+      if (typeof window.TTDUniversalPixelApi === "function") {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+        const universalPixelApi = new window.TTDUniversalPixelApi();
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+        universalPixelApi.init(
+          "l7kvmjg",
+          ["tf6ilo9"],
+          "https://insight.adsrvr.org/track/up"
+        );
+      }
+    });
+  }
+};
