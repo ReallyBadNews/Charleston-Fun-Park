@@ -12,7 +12,7 @@
       "@/lib/*": ["src/lib/*"],
       "@/static/*": ["static/*"]
     },
-    "target": "es5",
+    "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,

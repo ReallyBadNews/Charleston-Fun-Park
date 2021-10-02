@@ -1,9 +1,9 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { Helmet } from "react-helmet";
+import fontFiles from "@/static/fonts";
 import OgImage from "../../static/images/og_image.jpg";
 import TwImage from "../../static/images/tw_card.jpg";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
-import fontFiles from "@/static/fonts";
 
 interface SeoProps {
   description: string;
@@ -11,13 +11,6 @@ interface SeoProps {
   keywords?: string[];
   title: string;
   pathname: string;
-}
-
-declare global {
-  interface Window {
-    ttd_dom_ready: (e: any) => void;
-    TTDUniversalPixelApi: any;
-  }
 }
 
 const SEO: FC<SeoProps> = ({
@@ -37,27 +30,6 @@ const SEO: FC<SeoProps> = ({
   const metaDescription = description || siteDescription;
 
   const canonical = pathname && `${siteUrl}${pathname}`;
-
-  useEffect(() => {
-    if (
-      typeof window === "object" &&
-      typeof window.ttd_dom_ready === "function"
-    ) {
-      window.ttd_dom_ready(() => {
-        if (typeof window.TTDUniversalPixelApi === "function") {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-          const universalPixelApi = new window.TTDUniversalPixelApi();
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-          universalPixelApi.init(
-            "l7kvmjg",
-            ["tf6ilo9"],
-            "https://insight.adsrvr.org/track/up"
-          );
-        }
-      });
-    }
-    return undefined;
-  }, []);
 
   return (
     <Helmet
@@ -118,11 +90,6 @@ const SEO: FC<SeoProps> = ({
       title={title}
       titleTemplate={`%s | ${siteTitle}`}
     >
-      <script
-        src="https://js.adsrvr.org/up_loader.1.1.0.js"
-        type="text/javascript"
-        defer
-      />
       <link
         as="font"
         crossOrigin="anonymous"
