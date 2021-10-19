@@ -93,8 +93,8 @@ module.exports = {
         url: "/gift-cards/",
       },
       {
-        name: "Food & Drink",
-        url: "/food-and-drink-menu/",
+        name: "Oyster Roast",
+        url: "/oyster-roast/",
       },
       {
         name: "Employment",

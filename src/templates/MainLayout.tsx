@@ -11,7 +11,7 @@ const MainLayout: FC = ({ children }) => (
       <script
         src="https://js.adsrvr.org/up_loader.1.1.0.js"
         type="text/javascript"
-        async
+        defer
       />
     </Helmet>
     <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
