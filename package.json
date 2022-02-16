@@ -58,7 +58,7 @@
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "babel-preset-gatsby": "^1.14.0",
-    "csstype": "^3.0.9",
+    "csstype": "^3.0.10",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
