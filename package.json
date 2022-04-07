@@ -55,7 +55,7 @@
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.11",
     "@types/react-helmet": "^6.1.5",
-    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "babel-preset-gatsby": "^1.14.0",
     "csstype": "^3.0.10",
