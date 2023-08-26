@@ -154,9 +154,7 @@ export const query = graphql`
         }
       }
       media {
-        fluid(maxWidth: 735) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(width: 735, layout: CONSTRAINED, formats: [WEBP, AUTO])
         file {
           contentType
           url

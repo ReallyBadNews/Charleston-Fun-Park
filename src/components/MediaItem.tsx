@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 import { SxProp } from "theme-ui";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import Video from "./Video";
 import { MediaObject } from "@/types/types";
 
@@ -13,7 +13,7 @@ interface CommonProps {
 }
 
 interface MediaItemProps {
-  media: MediaObject;
+  media: MediaObject & { gatsbyImageData: IGatsbyImageData };
   videoPoster?: string;
 }
 
@@ -54,7 +54,7 @@ export const MediaItem: FC<Props & SxProp> = ({
 };
 
 MediaItem.defaultProps = {
-  alt: "No alt text avaliable",
+  alt: "No alt text available",
   dataTestId: "mediaItem",
   className: undefined,
   videoPoster: undefined,
