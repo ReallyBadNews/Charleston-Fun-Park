@@ -102,7 +102,6 @@ module.exports = {
       },
     ],
   },
-  pathPrefix: "/charleston-fun-park",
   flags: {
     FAST_DEV: true,
   },
@@ -111,7 +110,6 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-fontawesome-css",
-    "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-theme-ui",
     "gatsby-plugin-sitemap",
