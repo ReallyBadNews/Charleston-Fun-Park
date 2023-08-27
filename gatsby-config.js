@@ -102,7 +102,6 @@ module.exports = {
       },
     ],
   },
-  pathPrefix: "/charleston-fun-park",
   flags: {
     FAST_DEV: true,
   },
