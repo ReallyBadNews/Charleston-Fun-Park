@@ -72,3 +72,7 @@ public
 # Local Netlify folder
 .netlify
 .vercel
+
+# Mac files
+.DS_Store
+.env*.local
