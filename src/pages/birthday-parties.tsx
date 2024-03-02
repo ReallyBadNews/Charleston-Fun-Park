@@ -49,16 +49,16 @@ interface BirthdayPageProps extends PageProps {
         childMdx: {
           body: string;
         };
-      };
-      birthdayPackage4Media: MediaObject[];
-      birthdayPackage5Title: string;
-      birthdayPackage5Price: string;
+      } | null;
+      birthdayPackage4Media?: MediaObject[];
+      birthdayPackage5Title?: string;
+      birthdayPackage5Price?: string;
       birthdayPackage5Content: {
         childMdx: {
           body: string;
         };
-      };
-      birthdayPackage5Media: MediaObject[];
+      } | null;
+      birthdayPackage5Media?: MediaObject[];
     };
   };
 }
@@ -89,15 +89,11 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
       birthdayPackage3Media,
       birthdayPackage4Title,
       birthdayPackage4Price,
-      birthdayPackage4Content: {
-        childMdx: { body: package4Content },
-      },
+      birthdayPackage4Content,
       birthdayPackage4Media,
       birthdayPackage5Title,
       birthdayPackage5Price,
-      birthdayPackage5Content: {
-        childMdx: { body: package5Content },
-      },
+      birthdayPackage5Content,
       birthdayPackage5Media,
     },
   },
@@ -199,14 +195,18 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                   ))}
               </Card>
             )}
-            {birthdayPackage4Title && (
+            {birthdayPackage4Title &&
+            birthdayPackage4Content?.childMdx.body &&
+            birthdayPackage4Media ? (
               <Card variant="bDays">
                 <Box sx={{ width: ["full", null, "1/2"] }}>
                   <Heading mb="2" variant="heading.title">
                     {birthdayPackage4Title.toLowerCase()}
                   </Heading>
                   <Text variant="body.mid">{birthdayPackage4Price}</Text>
-                  <MDXRenderer>{package4Content}</MDXRenderer>
+                  <MDXRenderer>
+                    {birthdayPackage4Content.childMdx.body}
+                  </MDXRenderer>
                 </Box>
                 {birthdayPackage4Media.length &&
                   birthdayPackage4Media.map((image) => (
@@ -222,15 +222,19 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                     />
                   ))}
               </Card>
-            )}
-            {birthdayPackage5Title && (
+            ) : null}
+            {birthdayPackage5Title &&
+            birthdayPackage5Content?.childMdx.body &&
+            birthdayPackage5Media ? (
               <Card variant="bDays">
                 <Box sx={{ width: ["full", null, "1/2"] }}>
                   <Heading mb="2" variant="heading.title">
                     {birthdayPackage5Title.toLowerCase()}
                   </Heading>
                   <Text variant="body.mid">{birthdayPackage5Price}</Text>
-                  <MDXRenderer>{package5Content}</MDXRenderer>
+                  <MDXRenderer>
+                    {birthdayPackage5Content.childMdx.body}
+                  </MDXRenderer>
                 </Box>
                 {birthdayPackage5Media.length &&
                   birthdayPackage5Media.map((image) => (
@@ -246,7 +250,7 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
                     />
                   ))}
               </Card>
-            )}
+            ) : null}
           </Stack>
         </Container>
       </Flex>
@@ -257,8 +261,10 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
 export default BirthdaysEventsLayout;
 
 export const query = graphql`
-  query BirthdaysEventsQuery($id: String) {
-    contentfulBirthdaysEventsPage(id: { eq: $id }) {
+  query BirthdaysEventsQuery {
+    contentfulBirthdaysEventsPage(
+      contentful_id: { eq: "3YMJ886s5epNENTfGG6RIQ" }
+    ) {
       id
       title
       slug
