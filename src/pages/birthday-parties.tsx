@@ -257,8 +257,10 @@ const BirthdaysEventsLayout: FC<BirthdayPageProps> = ({
 export default BirthdaysEventsLayout;
 
 export const query = graphql`
-  query BirthdaysEventsQuery($id: String) {
-    contentfulBirthdaysEventsPage(id: { eq: $id }) {
+  query BirthdaysEventsQuery {
+    contentfulBirthdaysEventsPage(
+      contentful_id: { eq: "3YMJ886s5epNENTfGG6RIQ" }
+    ) {
       id
       title
       slug
