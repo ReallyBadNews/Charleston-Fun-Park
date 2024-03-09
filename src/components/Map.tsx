@@ -27,9 +27,10 @@ const Icon: FC<IconProps> = ({ lat, lng }) => {
     <img
       alt="logo"
       height="64"
-      // @ts-ignore
+      // @ts-expect-error
+      // eslint-disable-next-line react/no-unknown-property
       lat={lat}
-      // @ts-ignore
+      // eslint-disable-next-line react/no-unknown-property
       lng={lng}
       src="https://charlestonfunpark.com/static/4cab3a6c3d07d254c4dd080c61226dfb/1ce16/logo.webp"
     />
