@@ -28,6 +28,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/no-unknown-property": ["error", { ignore: ["sx", "css"] }],
     "react/require-default-props": "off",
+    "react/prop-types": "off",
     "react/jsx-filename-extension": [
       1,
       { extensions: [".js", ".jsx", ".tsx"] },

@@ -2,27 +2,29 @@
 
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useStaticQuery, graphql } from "gatsby";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { Box, SxProp } from "theme-ui";
 import { ChildFluidObject } from "@/types/types";
 
 type WoodBgProps = {
+  children?: ReactNode;
   overlayColor?: string;
   className?: string;
   id?: string;
+  sx?: SxProp["sx"];
 };
 
 interface Query {
   wood: ChildFluidObject;
 }
 
-const WoodBg: FC<WoodBgProps & SxProp> = ({
+const WoodBg = ({
   children,
   className,
   id,
   overlayColor = "blue.light",
   sx,
-}) => {
+}: WoodBgProps) => {
   const {
     wood: {
       childImageSharp: { gatsbyImageData },
