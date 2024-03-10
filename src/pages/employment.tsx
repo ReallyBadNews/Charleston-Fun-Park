@@ -4,7 +4,7 @@ import { Card, Container, Flex, Heading, Text } from "theme-ui";
 import { FormiumForm } from "@formium/react";
 import { Form } from "@formium/types";
 import { Stack } from "raam";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXRenderer } from "gatsby-plugin-mdx-v1";
 import { formium } from "@/src/lib/formium";
 import { formComponents } from "@/components/Forms/FormiumComponents";
 import SEO from "@/components/seo";

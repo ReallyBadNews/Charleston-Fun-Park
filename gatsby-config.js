@@ -100,9 +100,6 @@ module.exports = {
       },
     ],
   },
-  flags: {
-    FAST_DEV: true,
-  },
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
@@ -132,7 +129,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-mdx",
+      resolve: "gatsby-plugin-mdx-v1",
       options: {
         gatsbyRemarkPlugins: [
           {
