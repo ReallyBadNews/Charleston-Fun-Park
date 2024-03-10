@@ -31,7 +31,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "framer-motion": "^4.1.17",
-    "gatsby": "^4.25.7",
+    "gatsby": "^4.25.8",
     "gatsby-plugin-contentful-optional-fields": "^2.2.2",
     "gatsby-plugin-facebook-pixel": "^1.0.8",
     "gatsby-plugin-fontawesome-css": "^1.2.0",
