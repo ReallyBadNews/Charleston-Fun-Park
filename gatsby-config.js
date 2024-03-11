@@ -194,6 +194,15 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-PG4BZDLQ",
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: "gatsby" },
+        enableWebVitalsTracking: true,
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         // The property ID; the tracking code won't be generated without it
@@ -220,15 +229,6 @@ module.exports = {
         sampleRate: 5,
         siteSpeedSampleRate: 10,
         cookieDomain: "charlestonfunpark.com",
-      },
-    },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-PG4BZDLQ",
-        includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
-        enableWebVitalsTracking: true,
       },
     },
     {
