@@ -1,22 +1,23 @@
 /** @jsxImportSource theme-ui */
 
-import { useState } from "react";
+import Arrow from "@/components/Images/Arrow";
+import { Link } from "@/components/Link";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import {
+  IconDefinition,
+  faBars,
+  faBirthdayCake,
+  faFlagCheckered,
+  faInfoCircle,
+  faTent,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { Box, Container } from "theme-ui";
 import { Flex, Inline, Stack } from "raam";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faTimes,
-  faFlagCheckered,
-  faBirthdayCake,
-  faInfoCircle,
-  IconDefinition,
-} from "@fortawesome/free-solid-svg-icons";
-import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import { Link } from "@/components/Link";
-import Arrow from "@/components/Images/Arrow";
+import { useState } from "react";
+import { Box, Container } from "theme-ui";
 
 const Nav = () => {
   const { navLinks } = useSiteMetadata();
@@ -24,6 +25,7 @@ const Nav = () => {
 
   const menuIcons: Record<string, IconDefinition> = {
     Attractions: faFlagCheckered,
+    "Summer Camp": faTent,
     "Birthday Parties": faBirthdayCake,
     "Park Info": faInfoCircle,
   };
