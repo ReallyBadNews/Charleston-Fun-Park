@@ -1,21 +1,23 @@
 /** @jsxImportSource theme-ui */
 
+import { ChildFluidObject } from "@/types/types";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { FC } from "react";
+import { ReactNode } from "react";
 import { Box, SxProp } from "theme-ui";
-import { ChildFluidObject } from "@/types/types";
 
-interface BrickBgProps extends SxProp {
+interface BrickBgProps {
+  children?: ReactNode;
   id?: string;
   className?: string;
+  sx?: SxProp["sx"];
 }
 
 interface Query {
   brick: ChildFluidObject;
 }
 
-const BrickBg: FC<BrickBgProps> = ({ children, id, sx, className }) => {
+const BrickBg = ({ children, id, sx, className }: BrickBgProps) => {
   const {
     brick: {
       childImageSharp: { gatsbyImageData },

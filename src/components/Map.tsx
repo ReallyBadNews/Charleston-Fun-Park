@@ -27,7 +27,7 @@ const Icon: FC<IconProps> = ({ lat, lng }) => {
     <img
       alt="logo"
       height="64"
-      // @ts-expect-error
+      // @ts-expect-error – TODO: add google maps types
       // eslint-disable-next-line react/no-unknown-property
       lat={lat}
       // eslint-disable-next-line react/no-unknown-property

@@ -2,7 +2,7 @@
 
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useStaticQuery, graphql } from "gatsby";
-import { FC, ReactNode } from "react";
+import { ReactNode } from "react";
 import { Box, SxProp } from "theme-ui";
 import { ChildFluidObject } from "@/types/types";
 

@@ -80,7 +80,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* @ts-ignore */}
+            {/* @ts-expect-error – TODO: fix types */}
             <rect fill={colors.red.dark as string} height="16" width="100%" />
           </svg>
           <div sx={{ display: "grid", height: "full", placeContent: "center" }}>
@@ -145,7 +145,7 @@ const GoKartsFeature: FC<FeaturedAttractionProps> = ({ data: { node } }) => {
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {/* @ts-ignore */}
+            {/* @ts-expect-error – TODO: fix types */}
             <rect fill={colors.red.dark as string} height="16" width="100%" />
           </svg>
         </Box>

@@ -56,28 +56,34 @@ const FormControl: NamedExoticComponent<FormControlProps> = memo(
     </Stack>
   )
 );
+FormControl.displayName = "FormControl";
 
 const CustomHeading = memo((props: HeadingProps) => (
   <Heading variant="heading.title" {...props} />
 ));
+CustomHeading.displayName = "CustomHeading";
 
 const CustomButton = memo((props: ButtonProps) => (
   <Button variant="cta" {...props} />
 ));
+CustomButton.displayName = "CustomButton";
 
 const PreviousButton = (props: ButtonProps) => (
   <CustomButton bg="blue.dark" color="white.light" mr="3" {...props} />
 );
 
 const PageGrid = memo((props) => <Grid columns="1fr" my="3" {...props} />);
+PageGrid.displayName = "PageGrid";
 
 const TextInput: NamedExoticComponent<TextInputProps> = memo((props) => (
   <Input {...props} />
 ));
+TextInput.displayName = "TextInput";
 
 const TextArea: NamedExoticComponent<TextareaProps> = memo((props) => (
   <Textarea {...props} />
 ));
+TextArea.displayName = "TextArea";
 
 const Radio: NamedExoticComponent<ControlProps> = memo((props) => {
   const { label } = props;
@@ -89,6 +95,7 @@ const Radio: NamedExoticComponent<ControlProps> = memo((props) => {
     </Label>
   );
 });
+Radio.displayName = "Radio";
 
 export const formComponents: FormiumComponents = {
   ...defaultComponents,

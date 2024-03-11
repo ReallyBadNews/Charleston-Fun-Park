@@ -1,14 +1,15 @@
 /** @jsxImportSource theme-ui */
 
+import { ReactNode } from "react";
 import { Box, Button } from "theme-ui";
-import { FC } from "react";
 import Arrow from "./Images/Arrow";
 
 type ArrowButtonProps = {
+  children?: ReactNode;
   href?: string;
 };
 
-const ArrowButton: FC<ArrowButtonProps> = ({ children, href }) => (
+const ArrowButton = ({ children, href }: ArrowButtonProps) => (
   <Box
     sx={{
       display: "flex",

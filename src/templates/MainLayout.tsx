@@ -1,10 +1,14 @@
-import { FC } from "react";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header/Header";
+import { ReactNode } from "react";
 import { Box, Flex } from "theme-ui";
 import GlobalStyles from "../../static/GlobalStyles";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer";
 
-const MainLayout: FC = ({ children }) => (
+interface MainLayoutProps {
+  children: ReactNode;
+}
+
+const MainLayout = ({ children }: MainLayoutProps) => (
   <Flex sx={{ flexDirection: "column", minHeight: "screenHeight" }}>
     <GlobalStyles />
     <Header />
