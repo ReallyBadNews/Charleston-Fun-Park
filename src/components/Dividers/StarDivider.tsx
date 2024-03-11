@@ -109,6 +109,7 @@ const MoreAttractionsDivider: FC<MoreAttractionsProps> = ({
         </Box>
         <Heading as={as} mx="3" sx={{ px: "4" }} variant="display">
           {to ? (
+            // @ts-expect-error – TODO: update theme-ui
             <Link sx={{ color: "inherit", textDecoration: "none" }} to={to}>
               {title}
             </Link>
