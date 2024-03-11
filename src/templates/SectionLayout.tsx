@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import { graphql, PageProps } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx-v1";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
 import { FC } from "react";
 import { Card, Container, Flex, Heading, Text } from "theme-ui";

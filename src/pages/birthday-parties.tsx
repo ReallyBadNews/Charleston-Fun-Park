@@ -4,7 +4,7 @@ import { FC } from "react";
 import { Box, Flex, Card, Container, Heading, Text } from "theme-ui";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, PageProps } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx-v1";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Stack } from "raam";
 import SEO from "@/components/seo";
 import WoodBg from "@/components/Images/WoodBg";

@@ -3,7 +3,7 @@
 import { Heading, Container, Card, Box } from "theme-ui";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { MDXRenderer } from "gatsby-plugin-mdx-v1";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import WoodBg from "@/components/Images/WoodBg";
 import { MediaObject } from "@/types/types";
 

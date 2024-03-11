@@ -5,7 +5,7 @@ import { Box, Container, Flex, Heading, Text, Card, Divider } from "theme-ui";
 import { Flex as Flexbox } from "raam";
 import { graphql, PageProps } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import { MDXRenderer } from "gatsby-plugin-mdx-v1";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "@/components/seo";
 import WoodBg from "@/components/Images/WoodBg";
 import { MediaItem } from "@/components/MediaItem";

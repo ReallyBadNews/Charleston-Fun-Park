@@ -3,7 +3,7 @@
 import { FC } from "react";
 import { Box, Container, Flex, Grid, Card } from "theme-ui";
 import { useStaticQuery, graphql, PageProps } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx-v1";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import SEO from "@/components/seo";
 import StarDivider from "@/components/Dividers/StarDivider";
 import WoodBg from "@/components/Images/WoodBg";
