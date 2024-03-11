@@ -223,19 +223,12 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-web-vitals",
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        // The Google Analytics property ID; the reporting code won't be generated without it
-        trackingId: "UA-169401521-1",
-        // An array with metrics you want to track and send to analytics
-        metrics: ["FID", "TTFB", "LCP", "CLS", "FCP"],
-        // Event Category (optional) { string }, default 'Web Vitals'
-        eventCategory: "Web Vitals",
-        // Include Web Vitals tracking in development
-        // Defaults to false meaning Vitals will only be tracked in production.
+        id: "GTM-PG4BZDLQ",
         includeInDevelopment: false,
-        // Prints metrics in the console when true
-        debug: false,
+        defaultDataLayer: { platform: "gatsby" },
+        enableWebVitalsTracking: true,
       },
     },
     {
