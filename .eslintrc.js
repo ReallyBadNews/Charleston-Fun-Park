@@ -24,6 +24,7 @@ module.exports = {
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
     "no-console": ["error", { allow: ["warn", "error"] }],
     "import/prefer-default-export": "off",
     "react/no-unknown-property": ["error", { ignore: ["sx", "css"] }],
