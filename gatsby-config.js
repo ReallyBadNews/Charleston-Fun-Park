@@ -15,7 +15,12 @@ const contentfulConfig = {
     : "cdn.contentful.com",
 };
 
+// eslint-disable-next-line no-console
+console.log("[gatsby-config] contentfulConfig", contentfulConfig);
+
 if (process.env.CONTENTFUL_HOST) {
+  // eslint-disable-next-line no-console
+  console.log("Using custom Contentful host:", process.env.CONTENTFUL_HOST);
   contentfulConfig.host = process.env.CONTENTFUL_HOST;
 }
 
