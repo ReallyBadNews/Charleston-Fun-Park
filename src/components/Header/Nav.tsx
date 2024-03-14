@@ -61,18 +61,19 @@ const Nav = () => {
               <StaticImage
                 alt="Charleston Fun Park"
                 placeholder="none"
-                src="../../images/logo.png"
+                src="../../images/cfp-logo.png"
                 sx={{
-                  width: ["96px", null, null, "172px", "261px"],
-                  height: ["74px", null, null, "132px", "200px"],
+                  width: ["96px", null, "172px", "261px"],
+                  height: ["61px", null, "109px", "165px"],
                   position: "relative",
                   zIndex: "100",
-                  mt: ["0", null, null, null, "5"],
+                  filter: "drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15))",
+                  // mt: ["0", null, null, null, "-16px"],
                 }}
               />
             </GatsbyLink>
             <StaticImage
-              alt=""
+              alt="FUN Sign"
               placeholder="none"
               src="../../images/funSign.png"
               sx={{

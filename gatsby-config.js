@@ -190,7 +190,7 @@ module.exports = {
       options: {
         name: "Charleston Fun Park",
         short_name: "Fun Park",
-        icon: "src/images/logo.png",
+        icon: "src/images/cfp-logo.png",
         start_url: "/",
         background_color: "#003A59",
         theme_color: "#1DCDF2",
