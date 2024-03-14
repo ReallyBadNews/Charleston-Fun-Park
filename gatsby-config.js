@@ -19,6 +19,10 @@ if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.host = process.env.CONTENTFUL_HOST;
 }
 
+if (process.env.CONTENTFUL_ENVIRONMENT) {
+  contentfulConfig.environment = process.env.CONTENTFUL_ENVIRONMENT;
+}
+
 const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
