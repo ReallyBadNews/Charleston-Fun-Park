@@ -78,10 +78,10 @@ module.exports = {
         name: "Attractions",
         url: "/attractions/",
       },
-      {
-        name: "Summer Camp",
-        url: "/summer-camp/",
-      },
+      // {
+      //   name: "Summer Camp",
+      //   url: "/summer-camp/",
+      // },
       {
         name: "Birthday Parties",
         url: "/birthday-parties/",
