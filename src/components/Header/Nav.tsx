@@ -54,21 +54,30 @@ const Nav = () => {
           alignItems="center"
           className="nav"
           justifyContent="space-between"
-          sx={{ height: "24" }}
+          sx={{ height: "24", "& > div > div": { overflow: "visible" } }}
         >
-          <Inline gap={["1", null, "3"]}>
-            <GatsbyLink to="/">
+          <Inline
+            gap={["1", null, "3"]}
+            sx={{ overflow: "visible", "& > *": { overflow: "visible" } }}
+          >
+            <GatsbyLink
+              sx={{
+                display: "block",
+                position: "relative",
+                top: [null, null, "-16px", "-24px"],
+              }}
+              to="/"
+            >
               <StaticImage
                 alt="Charleston Fun Park"
                 placeholder="none"
                 src="../../images/cfp-logo.png"
                 sx={{
-                  width: ["96px", null, "172px", "261px"],
-                  height: ["61px", null, "109px", "165px"],
+                  width: ["96px", null, "172px", "203px"],
+                  height: ["61px", null, "109px", "128px"],
                   position: "relative",
                   zIndex: "100",
                   filter: "drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15))",
-                  // mt: ["0", null, null, null, "-16px"],
                 }}
               />
             </GatsbyLink>
