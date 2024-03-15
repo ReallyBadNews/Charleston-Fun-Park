@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import PropTypes from "prop-types";
 import { FC } from "react";
 import { Box } from "theme-ui";
 import WoodBg from "../Images/WoodBg";
@@ -10,7 +9,10 @@ interface SectionDividerProps {
   stars?: boolean;
 }
 
-const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => (
+const SectionDivider: FC<SectionDividerProps> = ({
+  bg = "green.light",
+  stars = false,
+}) => (
   <div sx={{ display: "grid", position: "relative", py: "2" }}>
     <WoodBg overlayColor="blue.xdark" sx={{ position: "absolute" }} />
     {stars && (
@@ -99,15 +101,5 @@ const SectionDivider: FC<SectionDividerProps> = ({ bg, stars }) => (
     />
   </div>
 );
-
-SectionDivider.propTypes = {
-  bg: PropTypes.string,
-  stars: PropTypes.bool,
-};
-
-SectionDivider.defaultProps = {
-  bg: "green.light",
-  stars: false,
-};
 
 export default SectionDivider;

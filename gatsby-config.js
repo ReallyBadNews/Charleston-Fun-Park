@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const path = require("path");
 
 require("dotenv").config({
@@ -15,6 +17,10 @@ const contentfulConfig = {
 
 if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.host = process.env.CONTENTFUL_HOST;
+}
+
+if (process.env.CONTENTFUL_ENVIRONMENT) {
+  contentfulConfig.environment = process.env.CONTENTFUL_ENVIRONMENT;
 }
 
 const { spaceId, accessToken } = contentfulConfig;
@@ -72,6 +78,10 @@ module.exports = {
         name: "Attractions",
         url: "/attractions/",
       },
+      // {
+      //   name: "Summer Camp",
+      //   url: "/summer-camp/",
+      // },
       {
         name: "Birthday Parties",
         url: "/birthday-parties/",
@@ -180,11 +190,20 @@ module.exports = {
       options: {
         name: "Charleston Fun Park",
         short_name: "Fun Park",
-        icon: "src/images/logo.png",
+        icon: "src/images/cfp-logo.png",
         start_url: "/",
         background_color: "#003A59",
         theme_color: "#1DCDF2",
         display: "standalone",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-PG4BZDLQ",
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: "gatsby" },
+        enableWebVitalsTracking: true,
       },
     },
     {
@@ -214,22 +233,6 @@ module.exports = {
         sampleRate: 5,
         siteSpeedSampleRate: 10,
         cookieDomain: "charlestonfunpark.com",
-      },
-    },
-    {
-      resolve: "gatsby-plugin-web-vitals",
-      options: {
-        // The Google Analytics property ID; the reporting code won't be generated without it
-        trackingId: "UA-169401521-1",
-        // An array with metrics you want to track and send to analytics
-        metrics: ["FID", "TTFB", "LCP", "CLS", "FCP"],
-        // Event Category (optional) { string }, default 'Web Vitals'
-        eventCategory: "Web Vitals",
-        // Include Web Vitals tracking in development
-        // Defaults to false meaning Vitals will only be tracked in production.
-        includeInDevelopment: false,
-        // Prints metrics in the console when true
-        debug: false,
       },
     },
     {

@@ -89,6 +89,7 @@ const SectionLayout: FC<SectionLayoutProps & CommonProps> = ({
                   {title}
                 </Heading>
                 <Text variant="body.mid">
+                  {/* @ts-expect-error - TODO: update theme-ui */}
                   <MDXRenderer>{content}</MDXRenderer>
                 </Text>
               </Stack>

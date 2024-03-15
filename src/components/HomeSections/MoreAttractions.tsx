@@ -30,7 +30,7 @@ const MoreAttractions = () => {
   } = useStaticQuery<Query>(graphql`
     query MoreAttractionsQuery {
       allContentfulAttraction(
-        sort: { order: ASC, fields: order }
+        sort: { order: ASC }
         filter: { order: { gt: 4 } }
       ) {
         edges {

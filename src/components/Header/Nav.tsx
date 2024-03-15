@@ -1,22 +1,23 @@
 /** @jsxImportSource theme-ui */
 
-import { useState } from "react";
+import Arrow from "@/components/Images/Arrow";
+import { Link } from "@/components/Link";
+import { useSiteMetadata } from "@/hooks/use-site-metadata";
+import {
+  IconDefinition,
+  faBars,
+  faBirthdayCake,
+  faFlagCheckered,
+  faInfoCircle,
+  faTent,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { Box, Container } from "theme-ui";
 import { Flex, Inline, Stack } from "raam";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faTimes,
-  faFlagCheckered,
-  faBirthdayCake,
-  faInfoCircle,
-  IconDefinition,
-} from "@fortawesome/free-solid-svg-icons";
-import { useSiteMetadata } from "@/hooks/use-site-metadata";
-import { Link } from "@/components/Link";
-import Arrow from "@/components/Images/Arrow";
+import { useState } from "react";
+import { Box, Container } from "theme-ui";
 
 const Nav = () => {
   const { navLinks } = useSiteMetadata();
@@ -24,6 +25,7 @@ const Nav = () => {
 
   const menuIcons: Record<string, IconDefinition> = {
     Attractions: faFlagCheckered,
+    "Summer Camp": faTent,
     "Birthday Parties": faBirthdayCake,
     "Park Info": faInfoCircle,
   };
@@ -52,25 +54,35 @@ const Nav = () => {
           alignItems="center"
           className="nav"
           justifyContent="space-between"
-          sx={{ height: "24" }}
+          sx={{ height: "24", "& > div > div": { overflow: "visible" } }}
         >
-          <Inline gap={["1", null, "3"]}>
-            <GatsbyLink to="/">
+          <Inline
+            gap={["1", null, "3"]}
+            sx={{ overflow: "visible", "& > *": { overflow: "visible" } }}
+          >
+            <GatsbyLink
+              sx={{
+                display: "block",
+                position: "relative",
+                top: [null, null, "-16px", "-24px"],
+              }}
+              to="/"
+            >
               <StaticImage
                 alt="Charleston Fun Park"
                 placeholder="none"
-                src="../../images/logo.png"
+                src="../../images/cfp-logo.png"
                 sx={{
-                  width: ["96px", null, null, "172px", "261px"],
-                  height: ["74px", null, null, "132px", "200px"],
+                  width: ["96px", null, "172px", "203px"],
+                  height: ["61px", null, "109px", "128px"],
                   position: "relative",
                   zIndex: "100",
-                  mt: ["0", null, null, null, "5"],
+                  filter: "drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15))",
                 }}
               />
             </GatsbyLink>
             <StaticImage
-              alt=""
+              alt="FUN Sign"
               placeholder="none"
               src="../../images/funSign.png"
               sx={{

@@ -96,7 +96,7 @@ export default AttractionsPage;
 
 export const query = graphql`
   query AttractionsPageQuery {
-    allContentfulAttraction(sort: { order: ASC, fields: order }) {
+    allContentfulAttraction(sort: { order: ASC }) {
       edges {
         node {
           id
