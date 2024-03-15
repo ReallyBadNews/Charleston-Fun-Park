@@ -27,12 +27,12 @@ const Icon: FC<IconProps> = ({ lat, lng }) => {
     <img
       alt="logo"
       height="64"
-      // @ts-expect-error
+      // @ts-expect-error – TODO(reallybadnews): use google maps library
       // eslint-disable-next-line react/no-unknown-property
       lat={lat}
       // eslint-disable-next-line react/no-unknown-property
       lng={lng}
-      src="https://charlestonfunpark.com/static/4cab3a6c3d07d254c4dd080c61226dfb/1ce16/logo.webp"
+      src="https://charleston-fun-park.s3.amazonaws.com/images/logo-map.png"
     />
   );
 };
