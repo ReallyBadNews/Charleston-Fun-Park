@@ -9,10 +9,12 @@ require("dotenv").config({
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  environment: process.env.NODE_ENV,
-  host: ["development", "dev"].includes(process.env.NODE_ENV)
-    ? "preview.contentful.com"
-    : "cdn.contentful.com",
+  environment: "production",
+  host: "cdn.contentful.com",
+  // environment: process.env.NODE_ENV,
+  // host: ["development", "dev"].includes(process.env.NODE_ENV)
+  //   ? "preview.contentful.com"
+  //   : "cdn.contentful.com",
 };
 
 if (process.env.CONTENTFUL_HOST) {
@@ -78,10 +80,10 @@ module.exports = {
         name: "Attractions",
         url: "/attractions/",
       },
-      // {
-      //   name: "Summer Camp",
-      //   url: "/summer-camp/",
-      // },
+      {
+        name: "Summer Camp",
+        url: "/summer-camp/",
+      },
       {
         name: "Birthday Parties",
         url: "/birthday-parties/",
