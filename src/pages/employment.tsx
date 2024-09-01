@@ -1,19 +1,14 @@
-import { FC, useState } from "react";
-import { graphql, PageProps } from "gatsby";
-import { Card, Container, Flex, Heading, Text } from "theme-ui";
-import { FormiumForm } from "@formium/react";
-import { Form } from "@formium/types";
-import { Stack } from "raam";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { formium } from "@/src/lib/formium";
-import { formComponents } from "@/components/Forms/FormiumComponents";
-import SEO from "@/components/seo";
 import StarDivider from "@/components/Dividers/StarDivider";
 import WoodBg from "@/components/Images/WoodBg";
+import SEO from "@/components/seo";
+import { PageProps, graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Stack } from "raam";
+import { FC } from "react";
+import { Card, Container, Flex, Heading } from "theme-ui";
 
 interface JobPageProps extends PageProps {
   data: {
-    formiumForm: Form;
     contentfulSectionPages: {
       title: string;
       seoTitle: string;
@@ -30,7 +25,6 @@ interface JobPageProps extends PageProps {
 const JobPage: FC<JobPageProps> = ({
   location: { pathname },
   data: {
-    formiumForm,
     contentfulSectionPages: {
       title,
       seoTitle,
@@ -41,8 +35,6 @@ const JobPage: FC<JobPageProps> = ({
     },
   },
 }) => {
-  const [success, setSuccess] = useState(false);
-
   return (
     <>
       <SEO description={description} pathname={pathname} title={seoTitle} />
@@ -59,47 +51,18 @@ const JobPage: FC<JobPageProps> = ({
           <Container py="7">
             <Card variant="image">
               <Stack gap="3" p="4">
-                {success ? (
-                  <Stack gap="2">
-                    <Heading
-                      as="h2"
-                      sx={{
-                        fontFamily: "body",
-                        fontSize: ["4", null, "7"],
-                      }}
-                    >
-                      {title}
-                    </Heading>
-                    <Text variant="body.mid">
-                      Your application was successfly submitted. Thank you!
-                    </Text>
-                  </Stack>
-                ) : (
-                  <>
-                    <Stack gap="2">
-                      <Heading
-                        as="h2"
-                        sx={{
-                          fontFamily: "body",
-                          fontSize: ["4", null, "7"],
-                        }}
-                      >
-                        {title}
-                      </Heading>
-                      <MDXRenderer>{content}</MDXRenderer>
-                    </Stack>
-                    <FormiumForm
-                      components={formComponents}
-                      data={formiumForm}
-                      onSubmit={async (values) => {
-                        // Send form values to Formium
-                        await formium.submitForm("job-application", values);
-                        window.scrollTo(0, 0);
-                        setSuccess(true);
-                      }}
-                    />
-                  </>
-                )}
+                <Stack gap="2">
+                  <Heading
+                    as="h2"
+                    sx={{
+                      fontFamily: "body",
+                      fontSize: ["4", null, "7"],
+                    }}
+                  >
+                    {title}
+                  </Heading>
+                  <MDXRenderer>{content}</MDXRenderer>
+                </Stack>
               </Stack>
             </Card>
           </Container>
@@ -113,16 +76,6 @@ export default JobPage;
 
 export const query = graphql`
   {
-    formiumForm(slug: { eq: "job-application" }) {
-      id
-      createAt
-      name
-      projectId
-      schema
-      slug
-      updateAt
-      version
-    }
     contentfulSectionPages(id: { eq: "698a581a-8d43-542d-8a04-3a218d362955" }) {
       title
       seoTitle

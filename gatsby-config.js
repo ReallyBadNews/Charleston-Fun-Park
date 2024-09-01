@@ -129,13 +129,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-formium",
-      options: {
-        projectId: process.env.GATSBY_FORMIUM_PROJECTID,
-        accessToken: process.env.FORMIUM_TOKEN,
-      },
-    },
-    {
       resolve: "gatsby-plugin-mdx",
       options: {
         gatsbyRemarkPlugins: [
